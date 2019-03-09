@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>帮TA交费清单</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/fee/help_pay_paid_list.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FeeApi.js"></script>
+    <script type="text/javascript" src="../../public/js/fee/help_pay_paid_list.js"></script>
+</head>
+<body>
+<section class="common_section">
+    <!--<div id="header_h"><a href="javascript:;" class="back_ btn"><em></em></a>已交清单<span class="menu_de btn"><em></em></span></div>-->
+    <div class="center_txt">
+        <p class="t1">已交团费共 (元)</p>
+        <p class="t2" id="feePayable"></p>
+        <p class="t3">已进行<span id="number"></span>次帮TA交费</p>
+    </div>
+</section>
+<section class="common_list" style="margin-top:1.4rem;">
+    <ul class="list">
+        <!--<a class="list_item num8" href="javascript:;">-->
+            <!--<div class="item_inner clearfix">-->
+                <!--<div class="item_text clearfix">-->
+                    <!--<div class="text_left">2017-08-18 9:00</div>-->
+                    <!--<div class="text_right">-40元</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</a>-->
+        <!--<a class="list_item num8" href="javascript:;">-->
+            <!--<div class="item_inner clearfix">-->
+                <!--&lt;!&ndash;<span class="item_pic"></span>&ndash;&gt;-->
+                <!--<div class="item_text clearfix">-->
+                    <!--<div class="text_left">2017-08-18 9:00</div>-->
+                    <!--<div class="text_right">-40元</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</a>-->
+    </ul>
+</section>
+</body>
+</html>

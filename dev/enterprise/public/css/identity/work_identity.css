@@ -1,0 +1,15 @@
+.headline {
+    margin: 0.6rem;
+    font-size: 0.72rem;
+    font-weight: bold;
+    color: #333;
+}
+.list{
+    background: #fff;
+}
+.list .item {
+    padding: 0.6rem 0.8rem 0.6rem 0.6rem;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    color: #333;
+}

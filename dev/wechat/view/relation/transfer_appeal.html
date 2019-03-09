@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>填写申诉资料</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_custom_control.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/css/relation/transfer_appeal.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/RelationApi.js"></script>
+    <script src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script src="../../public/vendor/webuploader/uploader_custom_control.js"></script>
+    <script type="text/javascript" src="../../public/js/relation/transfer_appeal.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="tips_box">
+        <p class="tips">如果你的组织关系转接申请是合理规范的，但是被拒绝接收了，10个自然日内可以申请调解。注意，每个转接申请只能申请一次申诉调解。</p>
+    </div>
+    <div class="content">
+        <p class="title">请填写你要申诉的理由：</p>
+        <div class="reason_box"><textarea id="appeal_reason" placeholder="100字以上，如说明为何需要申请转接到这个支部，有何依据等"></textarea></div>
+        <p class="title">请上传可证明团属关系的材料（建议上传户口本、劳动合同等图片，转至工作所在单位社区/街道团支部，建议上传三方协议、劳动合同）</p>
+        <!--上传插件-->
+        <div class="uploader_custom_control transfer_appeal"></div>
+    </div>
+    <div class="bot_big_btn" id="confirm">提交</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.box {
+    padding: 0.6rem 0.9rem 0 0.6rem;
+}
+
+.box .header {
+    line-height: 0.8rem;font-size: 0.56rem;color: #999;
+}
+
+
+.box .list_box {
+    overflow: hidden;
+}
+.box .list_box .list_item_checkbox {
+    margin-top: 0.6rem;
+    padding-left: 1.3rem;
+    line-height: 0.8rem;
+    font-size: 0.56rem;
+    color: #333;
+    background: url("../../img/check.png") no-repeat left center;
+    background-size: contain;
+}
+.box .list_box .list_item_checkbox.active {
+    background-image: url("../../img/check-active.png");
+}

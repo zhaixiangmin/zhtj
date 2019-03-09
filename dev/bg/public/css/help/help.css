@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: #0d87ef;
+    cursor: pointer;
+}
+.margin_top_40 {
+    margin-top: 40px;
+}
+.margin_top_20 {
+    margin-top: 20px;
+}
+.margin_top_12 {
+    margin-top: 12px;
+}
+.font_12 {
+    font-size: 14px;
+}
+.font_14 {
+    font-size: 16px;
+}
+.color_333 {
+    color: #333;
+}
+.color_666 {
+    color: #666;
+}
+.color_999 {
+    color: #999;
+}
+.color_0d87ef {
+    color: #0d87ef;
+}
+
+.up_box {
+    margin-left: 20px;
+}
+.up_box .tab_box {
+    margin: 0 0 40px 240px;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+.up_box .tab_box li {
+    box-sizing: border-box;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    width: 140px;
+    text-align: center;
+    color: #666;
+    background: #e7e6e6;
+    border: 1px solid #dadada;
+    cursor: pointer;
+}
+.up_box .tab_box li:not(first-child) {
+    margin-left: -1px;
+}
+.up_box .tab_box li.active {
+    color: #fff;
+    background: #db4254;
+    border: none;
+}
+
+.up_box .tab_content {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    min-height: 305px;
+}
+.up_box .tab_content.guide {
+    position: relative;
+}
+.up_box .tab_content.guide .item {
+    font-size: 16px;
+    color: #333;
+}
+.up_box .tab_content.guide .item:not(first-child) {
+    margin-top: 40px;
+}
+.up_box .tab_content.guide .sub_item {
+    margin: 12px 0;
+}
+.up_box .tab_content.guide .second_item {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+.up_box .tab_content.guide .third_item {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #999;
+}
+
+
+.up_box .tab_content.team {
+
+}
+.up_box .tab_content.team .item {
+    font-size: 14px;
+    color: #666;
+}
+.up_box .tab_content.team .item:not(first-child) {
+    margin-top: 30px;
+}
+.up_box .tab_content.team .item .title {
+    font-size: 16px;
+    color: #333;
+}
+.up_box .tab_content.team .tips_title {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #333;
+}
+.up_box .tab_content.team .tips_content {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.up_box .tab_content.roast_box {
+
+}
+.up_box .tab_content.roast_box .title {
+    font-size: 16px;
+    color: #333;
+}
+.up_box .tab_content.roast_box textarea {
+    box-sizing: border-box;
+    margin-top: 15px;
+    padding: 10px;
+    width: 865px;
+    height: 100px;
+    border: 1px solid #c4c4c4;
+    resize: none;
+}
+.up_box .tab_content.roast_box .button_box {
+    margin-top: 50px;
+}
+.up_box .tab_content.roast_box .button_box .button {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background: #999;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.up_box .tab_content.roast_box .button_box .button.confirm {
+    margin-left: 30px;
+    background: #db4254;
+}
+
+.down_box_title {
+    height: 60px;
+    line-height: 60px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #f4f4f4;
+}
+.down_box{
+    margin-left: 40px;
+    height: 250px;
+    font-size: 14px;
+}
+.down_box .question_category{
+    margin-top: 40px;
+    margin-bottom: 12px;
+}
+.down_box .question_list a {
+    font-size: 14px;
+}
+.down_box .question_list a:not(:first-child) {
+    margin-left: 40px;
+}

@@ -1,0 +1,75 @@
+
+body {
+    background: #f2f2f2;
+}
+
+.box .list {
+    margin-bottom: 1rem;
+    line-height: 1.8rem;
+    font-size: 0.68rem;
+}
+.box .list .item {
+    display: block;
+    margin-bottom: 1px;
+    padding: 0.2rem 1.2rem 0.2rem 0.6rem;
+    background: url("../../img/arrow_right_black.png") no-repeat right 0.6rem center #fff;
+    background-size: 0.28rem auto;
+}
+.box .list_title {
+    padding-left: 0.6rem;
+    line-height: 1.9rem;
+    color: #333;
+}
+.box .list .item .icon_item {
+    padding-left: 1.2rem;
+    background: url("../../img/help_avatar.png") no-repeat left center;
+    background-size: 0.64rem;
+}
+.box .list .item.relation .icon_item {
+    background-image: url("../../img/help_relatioin.png");
+}
+.box .list .item.fee .icon_item {
+    background-image: url("../../img/help_wallet.png");
+}
+.box .list .item.other .icon_item {
+    background-image: url("../../img/help_ask.png");
+}
+.box .list .item.roast .icon_item {
+    padding-left: 0;
+    background-image: none;
+}
+
+.box .img_box {
+    margin-bottom: 3.1rem;
+    text-align: center;
+    font-size: 0;
+}
+.box .img_box img {
+    display: inline;
+    width: 5rem;
+}
+.box .img_box p {
+    line-height: 1.36rem;
+    font-size: 0.56rem;
+    color: #333;
+}
+
+
+.box .call_box {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 2.1rem;
+    text-align: center;
+    background: #fff;
+    border-top: 2px solid #dedede;
+}
+.box .call_box .call {
+    display: inline-block;
+    padding-left: 0.8rem;
+    line-height: 2.1rem;
+    font-size: 0.72rem;
+    color: #666;
+    background: url("../../img/call.png") no-repeat left center;
+    background-size: 0.56rem auto;
+}

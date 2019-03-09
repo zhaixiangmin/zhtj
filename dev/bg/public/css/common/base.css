@@ -1,0 +1,32 @@
+/*html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form,img,input{ margin:0; padding:0; list-style: none;}*/
+html, body, ul, li, ol, dl, dd, dt, h1, h2, h3, h4, h5, h6, form,img,input{ margin:0; padding:0; list-style: none;}
+h1, h2, h3, h4, h5, h6{ font-size:12px; font-weight:normal;}
+img{display: block; border:0 none;}
+ul, ol { list-style:none; }
+input,button { border:0 none; outline-style:none;font-family:"Microsoft Yahei";}
+em,i{ font-style:normal;}
+b{ font-weight:normal;}
+textarea { resize:none; border:0 none;outline-style: none;}
+select{
+    appearance:none;
+-moz-appearance:none; /* Firefox */
+-webkit-appearance:none; /* Safari 和 Chrome */border: none;font-family:"Microsoft Yahei";outline-style: none;
+}
+body {font-size:12px; color:#333; background:#eee; font-family:"Microsoft Yahei";}  /*正文的字体大小和颜色*/
+.clearfix:after{content:''; height:0; line-height:0; visibility:hidden; display:block; clear:both;}
+.clearfix{zoom:1;} /*针对ie低级版本的浏览器*/
+a{ text-decoration:none; color:#666;}
+
+.clear::after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+#box .tabs-panels .panel .panel-body{
+    overflow: hidden;
+}
+
+

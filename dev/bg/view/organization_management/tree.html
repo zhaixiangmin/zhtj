@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看组织树</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/css/organization_management/tree.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/OrganizationManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/organization_management/tree.js"></script>
+</head>
+<body>
+<!--Layout布局 切换标签时，避免往上滚动失效-->
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center'" style="border: 0;">
+        <div class="search_box">
+            <input type="text" placeholder="请选择组织节点" readonly><i class="search_icon"></i>
+        </div>
+        <div class="button" id="undo">还原组织树</div>
+        <ul id="tt"></ul>
+    </div>
+</div>
+
+
+<!--选择组织 -- 模态窗口-->
+<div id="dialog_organization" class="easyui-dialog" title="选择组织" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+        <div title="数据筛选" data-options="collapsible: false, noheader: true"  style="padding:10px;">
+            <form onsubmit="return false">
+                <table>
+                    <tr>
+                        <th align="right"><label for="fullName_filter">组织名称:</label></th>
+                        <td><input id="fullName_filter" placeholder="请输入组织全称/组织ID"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <a id="search_filter" class="button">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <table class="easyui-datagrid" id="datagrid_organization"></table>
+</div>
+
+<!--查看详情 -- 模态窗口-->
+<div id="dialog_view" class="easyui-dialog mywindow" title="组织详情" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+<!--<div id="dialog_view" class="easyui-dialog mywindow" title="组织详情" data-options="modal: true" style="width: 720px;height: 500px;padding: 10px;">-->
+    <div class="list_box">
+        <div class="big_icon_item_box clearfix">
+            <div class="item left" id="tuanganCount_check">
+                <div class="title">本级团干详情</div>
+                <div class="describe">（共<span id="tuanganCount_view"></span>人）</div>
+            </div>
+            <div class="item center" id="membersCount_check">
+                <div class="title">本级团员详情</div>
+                <div class="describe">（共<span id="membersCount_view"></span>人）</div>
+            </div>
+            <div class="item right" id="leagueCadreEnteredNum_check">
+                <div class="title">本级团干入驻企业号人数</div>
+                <div class="describe">（共<span id="leagueCadreEnteredNum_view"></span>人）</div>
+            </div>
+        </div>
+    </div>
+    <div class="split_line"></div>
+    <div class="list_box">
+        <div class="small_icon_item_box clearfix">
+            <div class="item sumLeagueCadre">
+                <span class="title">本级及所有下级团干总数</span><span class="describe" id="sumLeagueCadre_view"></span>
+            </div>
+            <div class="item sumAll">
+                <span class="title">本级及所有下级组织总数</span><span class="describe" id="sumAll_view"></span>
+            </div>
+            <div class="item sumLeagueMember">
+                <span class="title">本级及所有下级团员总数</span><span class="describe" id="sumLeagueMember_view"></span>
+            </div>
+            <div class="item sumBranch">
+                <span class="title">本级及所有下级团支部总数</span><span class="describe" id="sumBranch_view"></span>
+            </div>
+            <!--<div class="item sumTransferringMember">-->
+                <!--<span class="title">本级及所有下级转接中团员数</span><span class="describe" id="sumTransferringMember_view"></span>-->
+            <!--</div>-->
+            <!--<div class="item sumTransferredMember">-->
+                <!--<span class="title">本级及所有下级已转出团员数</span><span class="describe" id="sumTransferredMember_view"></span>-->
+            <!--</div>-->
+            <div class="item sumTransferringRolloutMember">
+                <span class="title">本级及所有下级转出中团员数</span><span class="describe" id="sumTransferringRolloutMember_view"></span>
+                <!--<span class="title">本级及所有下级转接中团员数</span><span class="describe" id="sumTransferringRolloutMember_view"></span>-->
+            </div>
+            <div class="item sumTransferredRolloutMember">
+                <span class="title">本级及所有下级已转出团员数</span><span class="describe" id="sumTransferredRolloutMember_view"></span>
+            </div>
+            <div class="item sumTransferringRollinMember">
+                <span class="title">本级及所有下级待确认接收团员数</span><span class="describe" id="sumTransferringRollinMember_view"></span>
+            </div>
+            <div class="item sumTransferredRollinMember">
+                <span class="title">本级及所有下级已接收团员数</span><span class="describe" id="sumTransferredRollinMember_view"></span>
+            </div>
+        </div>
+        <div class="split_line" style="margin-bottom: 20px;"></div>
+        <div class="small_icon_item_box clearfix">
+            <div class="item organizationStatistic" id="organizationStatistic">
+                <span class="title" style="width: 200px;">本级及所有下级团组织的数据分析表</span><span class="describe"></span>
+            </div>
+            <div class="item organizationStatistic" id="feeDetail">
+                <span class="title" style="width: 200px;">团费交纳情况统计</span><span class="describe"></span>
+            </div>
+        </div>
+        <div class="split_line"></div>
+        <div class="list base">
+            <div class="headline">基本信息</div>
+            <div class="content">
+                <div class="item">
+                    <span class="title">上级组织：</span><span class="describe"></span>
+                </div>
+            </div>
+        </div>
+        <div class="list username">
+            <div class="headline">账号信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                    <!--<span class="title">登录账号：</span><span class="describe" id="username_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list addition">
+            <div class="headline">附加信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                    <!--<span class="title">团组织书记姓名：</span><span class="describe" id="secretaryName_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

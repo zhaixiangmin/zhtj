@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <title>组织详情</title>
+  <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+  <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+  <link rel="stylesheet" type="text/css" href="../../public/css/organization/organization_detail.css" />
+  <script src="../../public/js/common/flexible.js"></script>
+  <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+  <!--公共部分-->
+  <script type="text/javascript" src="../../public/js/common/common.js"></script>
+  <!--对话框-->
+  <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+  <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+  <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+  <script type="text/javascript" src="../../public/js/module/OrganizationApi.js"></script>
+  <script type="text/javascript" src="../../public/js/organization/organization_detail.js"></script>
+</head>
+<body>
+<section class="member_personal_info clearfix">
+  <div class="member_header">
+    <img src="../../public/img/league-badge.png" />
+  </div>
+  <div class="right_txt">
+    <p class="member_name"> 全称：<span id="fullName"></span></p>
+  </div>
+</section>
+
+<!-- 基本信息 -->
+<section class="info_box mb_30 mt_30">
+  <div class="block_title"><h1 class="block_title_txt">基本信息</h1></div>
+  <ul class="info_list">
+    <li class="info_item_compact"><!-- 全称 -->
+      <span class="info_item_title longer">组织ID</span>
+      <span id="oid" class="right_txt longer"></span>
+    </li>
+    <li class="info_item_compact"><!-- 全称 -->
+      <span class="info_item_title longer">简称</span>
+      <span id="name" class="right_txt longer"></span>
+    </li>
+    <li class="info_item_compact"><!-- 企业微信名称 -->
+      <span class="info_item_title longer">企业微信名称</span>
+      <span id="enterpriseName" class="right_txt longer"></span>
+    </li>
+    <li class="info_item_compact"><!-- 组织类型 -->
+      <span class="info_item_title longer">组织类型</span>
+      <span id="type" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 上级组织 -->
+      <span class="info_item_title longer">上级组织</span>
+      <span id="parentName" class="right_txt longer"></span>
+    </li>
+    <li class="info_item_compact"><!-- 单位所属行业类别 -->
+      <span class="info_item_title longer">单位所属行业类别</span>
+      <span id="industryCategory" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 本级团组织行政编制数 -->
+      <span class="info_item_title longer">本级团组织行政编制数</span>
+      <span id="administrativeOmpilation" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 行政编制实际配备数 -->
+      <span class="info_item_title longer">行政编制实际配备数</span>
+      <span id="administrativeNumber" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 本级团组事业政编制数 -->
+      <span class="info_item_title longer">本级团组事业政编制数</span>
+      <span id="careerFormation" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 事业编制实际配备数 -->
+      <span class="info_item_title longer">事业编制实际配备数</span>
+      <span id="serviceNumber" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 团组织电子邮箱 -->
+      <span class="info_item_title longer">团组织电子邮箱</span>
+      <span id="email" class="right_txt longer"></span>
+    </li>
+    <li class="info_item_compact"><!-- 团组织联系电话 -->
+      <span class="info_item_title longer">团组织联系电话</span>
+      <span id="mobile" class="right_txt"></span>
+    </li>
+  </ul>
+</section>
+
+<!-- 账号信息 -->
+<section class="info_box mb_30">
+  <div class="block_title"><h1 class="block_title_txt">账号信息</h1></div>
+  <ul class="info_list">
+    <li class="info_item_compact"><!-- 登录账号 -->
+      <span class="info_item_title longer">登录账号</span>
+      <span id="username" class="right_txt"></span>
+    </li>
+  </ul>
+</section>
+
+<!-- 附加信息 -->
+<section class="info_box mb_30">
+  <div class="block_title"><h1 class="block_title_txt">附加信息</h1></div>
+  <!--领导机关 组织类型-->
+  <ul class="info_list leader" style="display: none;">
+    <li class="info_item_compact"><!-- 团组织书记姓名 -->
+      <span class="info_item_title longer">团组织书记姓名</span>
+      <span id="secretaryName" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 团组织机构代码 -->
+      <span class="info_item_title longer">团组织机构代码</span>
+      <span id="groupOrganizationCode" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 团组织微信号 -->
+      <span class="info_item_title longer">团组织微信号</span>
+      <span id="groupOrganizationWechatid" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 团组织微博号 -->
+      <span class="info_item_title longer">团组织微博号</span>
+      <span id="groupOrganizationWeibo" class="right_txt"></span>
+    </li>
+  </ul>
+  <!--其它 组织类型-->
+  <ul class="info_list other" style="display: none;">
+    <li class="info_item_compact"><!-- 14-28周岁青年数 -->
+      <span class="info_item_title longer">14-28周岁青年数</span>
+      <span id="agedNumber" class="right_txt"></span>
+    </li>
+    <li class="info_item_compact"><!-- 年度经推优入党团员数 -->
+      <span class="info_item_title longer">年度经推优入党团员数</span>
+      <span id="theAnnualTuiyouPartyMembersNum" class="right_txt"></span>
+    </li>
+  </ul>
+</section>
+</body>
+</html>

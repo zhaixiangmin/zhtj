@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>选择团支部</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/relation/branch_search.css" />
+    <script type="text/javascript" src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/RelationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/relation/branch_search.js"></script>
+</head>
+<body>
+
+    <section id="orgChosen">
+        <div class="no_data first" style="display: none;">没有相关的内容</div>
+        <div class="box first" style="display: none;">
+            <div style="padding-top: 0.4rem; padding-left: 1rem; font-size: 0.56rem; color: #D94453;background: #fff;">本团支部录入系统中的全称，请咨询支部书记</div>
+            <!--<div style="padding-top: 0.4rem; padding-left: 1rem; font-size: 0.56rem; color: #D94453;background: #fff;">本团支部录入系统中的简称，请咨询支部书记</div>-->
+            <section class="search_sec">
+                <div class="search_box">
+                    <input id="keyword" type="text" class="search_input" placeholder="请输入所在团支部全称/组织ID搜索">
+                    <a id="confirm" class="sea_btn"></a>
+                </div>
+            </section>
+
+            <div class="no_data second" style="display: none;">没有找到相应的内容，换个关键词再试试吧！</div>
+            <div class="box second" style="display: none;">
+                <!--<p class="search_total">共<span style="color:#D94453;">20</span>条搜索结果</p>-->
+                <ul class="ul">
+                    <!--<li class="ul_li">中山大学</li>-->
+                    <!--<li class="ul_li">中山大学</li>-->
+                </ul>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>

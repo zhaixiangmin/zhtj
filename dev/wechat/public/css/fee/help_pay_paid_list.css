@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+/* 团费交纳板块共用  */
+.common_section{height:9.32rem;background:url(../../img/pay-bgi.png) no-repeat center top;background-size:100%;}
+
+.common_section .center_txt{padding-top:1.88rem;text-align: center;color:#fff;}
+.common_section .center_txt .t1{font-size:0.48rem;}
+.common_section .center_txt .t2{font-size:2rem;line-height:2rem;margin:0.2rem 0 0.5rem;}
+.common_section .center_txt .t3{font-size:0.56rem;}
+
+.common_list .list_item{display:block;padding:0 0.6rem;background-color: #fff;border-bottom:1px solid #f2f2f2;height:3.2rem;}
+.common_list .item_inner{position: relative;padding:0.6rem 0;min-height:2rem;}
+.common_list .item_inner:before{position: absolute;content:'';right:0;top:50%;transform:translateY(-50%);width:0.24rem;height:0.4rem;background:url(../../img/spirit1.png) no-repeat -4.6rem -1.4rem;background-size:6rem;}
+.common_list .item_pic{width:2rem;height:2rem;overflow: hidden;border-radius:50%;float: left;}
+.common_list .item_pic img{width:100%;height:100%;}
+/*.common_list .item_text{padding-left:2.6rem;}*/
+.common_list .item_text .text_left{float: left;padding-top:0.6rem;line-height:0.8rem;font-size:0.8rem;color:#333;}
+/*.common_list .item_text .text_left .text1{font-size:0.68rem;color:#333;padding-top:0.28rem;line-height:0.68rem;margin-bottom:0.2rem;}*/
+/*.common_list .item_text .text_left .text2{font-size:0.56rem;line-height:0.56rem;color:#999;}*/
+.common_list .item_text .text_right{float: right;margin-right:0.84rem;padding-top:0.6rem;line-height:0.8rem;font-size:0.8rem;color:#999;}
+
+
+/*.common_list .item_pic{background-image: url(../../img/months-num.png);background-repeat:no-repeat;background-size:24rem;}*/
+.common_list .num2 .item_pic{background-position:-2rem 0;}
+.common_list .num3 .item_pic{background-position:-4rem 0;}
+.common_list .num4 .item_pic{background-position:-6rem 0;}
+.common_list .num5 .item_pic{background-position:-8rem 0;}
+.common_list .num6  .item_pic{background-position:-10rem 0;}
+.common_list .num7 .item_pic{background-position:-12rem 0;}
+.common_list .num8 .item_pic{background-position:-14rem 0;}
+.common_list .num9 .item_pic{background-position:-16rem 0;}
+.common_list .num10 .item_pic{background-position:-18rem 0;}
+.common_list .num11 .item_pic{background-position:-20rem 0;}
+.common_list .num12 .item_pic{background-position:-22rem 0;}

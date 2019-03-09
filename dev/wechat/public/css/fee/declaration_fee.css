@@ -1,0 +1,32 @@
+body{
+    background: #fff;
+}
+.content_box{
+    margin: 0 0.6rem;
+}
+.content_box .heading{
+    margin: 1rem 0.6rem 0.6rem;
+    line-height: 0.72rem;
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: bold;
+    color: #000;
+}
+.content_box .text{
+    line-height: 0.8rem;
+    font-size: 0.52rem;
+    color: #333;
+}
+.content_box .content{
+    text-indent: 2em;
+}
+
+.content_box .question_box {
+    margin-top: 1rem;
+    text-align: right;
+}
+.content_box .question {
+    /*display: inline-block; */
+    font-size: 0.52rem;
+    color: #D94453;
+}

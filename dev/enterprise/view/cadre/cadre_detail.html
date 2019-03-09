@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>团干详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/CadreApi.js"></script>
+    <script type="text/javascript" src="../../public/js/cadre/cadre_detail.js"></script>
+</head>
+<body>
+    <!-- 基本信息 -->
+    <section class="info_box mb_30 mt_30 base">
+        <div class="block_title"><h1 class="block_title_txt">基本信息</h1></div>
+        <ul class="info_list">
+            <!--<li class="info_item_compact">&lt;!&ndash; 基本信息首次录入组织 &ndash;&gt;-->
+                <!--<span class="info_item_title">基本信息首次录入组织</span>-->
+                <!--<span class="right_txt" id="createName"></span>-->
+            <!--</li>-->
+        </ul>
+    </section>
+    <!-- 附加信息 -->
+    <section class="info_box mb_30" id="own">
+        <div class="block_title"><h1 class="block_title_txt">附加信息(仅本组织)</h1></div>
+        <ul class="info_list">
+            <!--<li class="info_item_compact">&lt;!&ndash; 基本团干所属组织信息录入者 &ndash;&gt;-->
+                <!--<span class="info_item_title">团干所属组织</span>-->
+                <!--<span class="info_item_con createName"></span>-->
+            <!--</li>-->
+            <!--<li class="info_item_compact">&lt;!&ndash; 团内现任职务 &ndash;&gt;-->
+                <!--<span class="info_item_title">团内现任职务</span>-->
+                <!--<span class="info_item_con incumbent"></span>-->
+            <!--</li>-->
+            <!--<li class="info_item_compact">&lt;!&ndash; 团干部性质 &ndash;&gt;-->
+                <!--<span class="info_item_title">团干部性质</span>-->
+                <!--<span class="info_item_con tuanganProperties"></span>-->
+            <!--</li>-->
+        </ul>
+    </section>
+    <!-- 在其他组织的职务信息 -->
+    <section class="info_box mb_30" id="other">
+        <div class="block_title"><h1 class="block_title_txt">职务信息</h1></div>
+        <!--<ul class="info_list">-->
+            <!--<li class="info_item_compact">&lt;!&ndash; 基本团干所属组织信息录入者 &ndash;&gt;-->
+                <!--<span class="info_item_title">团干所属组织</span>-->
+                <!--<span class="right_txt">8888888</span>-->
+            <!--</li>-->
+            <!--<li class="info_item_compact">&lt;!&ndash; 团内现任职务 &ndash;&gt;-->
+                <!--<span class="info_item_title">团内现任职务</span>-->
+                <!--<span class="right_txt">杨千嬅</span>-->
+            <!--</li>-->
+
+            <!--<li class="info_item_compact">&lt;!&ndash; 团干部性质 &ndash;&gt;-->
+                <!--<span class="info_item_title">团干部性质</span>-->
+                <!--<span class="right_txt">8888888</span>-->
+            <!--</li>-->
+        <!--</ul>-->
+    </section>
+    <!-- 运营者信息 -->
+    <section class="info_box mb_30" id="operator">
+        <div class="block_title"><h1 class="block_title_txt">运营者信息</h1></div>
+        <ul class="info_list">
+            <!--<li class="info_item_compact">&lt;!&ndash; 是否运营者 &ndash;&gt;-->
+                <!--<span class="info_item_title">是否运营者</span>-->
+                <!--<span class="right_txt">是</span>-->
+            <!--</li>-->
+            <!--<li class="info_item_compact">&lt;!&ndash; 运行的组织 &ndash;&gt;-->
+                <!--<span class="info_item_title">运营的组织</span>-->
+                <!--<span class="right_txt" id="operatorName"></span>-->
+            <!--</li>-->
+            <!--<li class="info_item_compact">&lt;!&ndash; 职位标签 &ndash;&gt;-->
+                <!--<span class="info_item_title">职位标签</span>-->
+                <!--<span class="right_txt" id="positionTheLabel"></span>-->
+            <!--</li>-->
+        </ul>
+    </section>
+</body>
+</html>

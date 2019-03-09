@@ -1,0 +1,99 @@
+
+body {
+    background: #fff;
+}
+
+.box .tips_box {
+
+}
+
+.box .tips_box .title {
+    padding: 2.5rem 0 0.6rem 0;
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: bold;
+    color: #000;
+}
+.box .tips_box .text_box {
+    padding: 0.6rem 0.7rem 0.6rem 1.4rem;
+    font-size: 0.56rem;
+    color: #333;
+    background: url("../../img/red-bot.png") no-repeat 0.6rem 0.86rem;
+    background-size: 0.32rem;
+}
+
+.box .input_box {
+    margin: 1.4rem 1.7rem 0;
+    /*margin-top: 1.4rem;*/
+}
+
+.box .input_box .phone_box {
+    height: 1.8rem;
+    line-height: 1.8rem;
+    padding-left: 1.8rem;
+    background: url("../../img/phone.png") no-repeat left center;
+    background-size: 0.48rem auto;
+}
+.box .input_box .phone_box .phone {
+    font-size: 0.72rem;
+    color: #000;
+}
+
+.box .input_box .code_box {
+    position: relative;
+    padding-left: 1.8rem;
+    padding-right: 3rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    background: url("../../img/message.png") no-repeat left center;
+    background-size: 0.56rem auto;
+}
+.box .input_box .code_box .code {
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    font-size: 0.72rem;
+    color: #000;
+}
+.box .input_box .code_box .code_txt {
+    position: absolute;
+    top: 0.64rem;
+    right: 0;
+    height: 0.52rem;
+    line-height: 0.52rem;
+    font-size: 0.52rem;
+    color: #DA667A;
+}
+.box .input_box .code_box .code_count {
+    position: absolute;
+    top: 0.64rem;
+    right: 0;
+    height: 0.52rem;
+    line-height: 0.52rem;
+    font-size: 0.52rem;
+    color: #DA667A;
+}
+
+.box .tips_bottom {
+    display: block;
+    margin: 0.4rem 0 1rem 1.8rem;
+    font-size: 0.56rem;
+    color: #0d87ef;
+}
+.box .button_bottom {
+    cursor: pointer;
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 0.72rem;
+    text-align: center;
+    color: #fff;
+    background: #D94453;
+    border-radius: 0.2rem;
+}
+
+/* 双按钮 */
+.two_btns_box{text-align: center;margin:1rem 0.3rem 1.6rem;font-size:0;}
+.two_btns_box .btn{display:inline-block;width:6.5rem;height:2rem;line-height:2rem;font-size:0.72rem;border-radius:0.2rem;margin:0 0.3rem;color:#fff;}
+.two_btns_box .btn.bgc1{background-color:#D94453;}
+.two_btns_box .btn.bgc2{background-color:#cecece;}

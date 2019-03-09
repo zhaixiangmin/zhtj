@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>智慧团建</title>
+    <link rel="stylesheet" type="text/css" href="public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/index/index.css" />
+    <script src="public/js/common/flexible.js"></script>
+    <script src="public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="public/custom/dialog.js"></script>
+    <script type="text/javascript" src="public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="public/js/module/IndexApi.js"></script>
+    <script type="text/javascript" src="public/js/index/index.js"></script>
+</head>
+<body>
+<!--首页-->
+<section class="section_block index_page">
+    <!-- 主要内容 -->
+    <!-- 团员管理 -->
+    <section class="info_box mt_30">
+        <div class="block_title"><h1 class="block_title_txt">团员管理</h1></div>
+        <div class="list clearfix">
+            <a id="data_audit" class="list_link zlsh" style="display: none;">
+                <div class="bg"></div>
+                <p class="link_title">资料审核</p>
+            </a>
+            <a id="awards_audit" class="list_link jlsh" style="display: none;">
+                <div class="bg"></div>
+                <p class="link_title">奖励审核</p>
+            </a>
+            <a href="view/member/search.html" class="list_link tycx">
+                <div class="bg"></div>
+                <p class="link_title">团员查询</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 组织关系转接 -->
+    <section class="info_box relation_box" style="display: none;">
+        <div class="block_title"><h1 class="block_title_txt">组织关系转接</h1></div>
+        <div class="list clearfix">
+            <a href="view/relation/todo_application.html" class="list_link dbsx" style="display: none;">
+                <div class="bg"></div>
+                <p class="link_title">待审核</p>
+            </a>
+            <a href="view/relation/done_application.html" class="list_link ybsx" style="display: none;">
+                <div class="bg"></div>
+                <p class="link_title">已审核</p>
+            </a>
+            <a href="view/relation/draftsmanship.html" class="list_link qcsq" style="display: none;">
+                <div class="bg"></div>
+                <p class="link_title">发起转接</p>
+            </a>
+            <a href="view/relation/my_application.html" class="list_link wdsq" style="display: none;">
+                <div class="bg"></div>
+                <p class="link_title">转接发起记录</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 团费管理 -->
+    <!--<section class="info_box">-->
+        <!--<div class="block_title"><h1 class="block_title_txt">团费管理</h1></div>-->
+        <!--<div class="list clearfix">-->
+            <!--<a href="view/fee/fee_query.html" class="list_link jfcx">-->
+                <!--<div class="bg"></div>-->
+                <!--<p class="link_title">交费查询</p>-->
+            <!--</a>-->
+            <!--<a href="view/fee/credentials_received.html" class="list_link pzcx">-->
+                <!--<div class="bg"></div>-->
+                <!--<p class="link_title">凭证查询</p>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!-- 团干管理 -->
+    <section class="info_box">
+        <div class="block_title"><h1 class="block_title_txt">团干管理</h1></div>
+        <div class="list clearfix">
+            <a href="view/cadre/cadre.html" class="list_link tgcx">
+                <div class="bg"></div>
+                <p class="link_title">团干查询</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 组织管理 -->
+    <section class="info_box">
+        <div class="block_title"><h1 class="block_title_txt">组织管理</h1></div>
+        <div class="list clearfix">
+            <a href="view/organization/organization.html" class="list_link zzcx">
+                <div class="bg"></div>
+                <p class="link_title">组织查询</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 南粤人才库 -->
+    <!--<section class="info_box">-->
+        <!--<div class="block_title"><h1 class="block_title_txt">南粤人才库</h1></div>-->
+        <!--<div class="list clearfix">-->
+            <!--<a href="view/talent/talent.html" class="list_link rcsjcx">-->
+                <!--<div class="bg"></div>-->
+                <!--<p class="link_title">人才数据查询</p>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</section>-->
+</section>
+<!--我的-->
+<section class="section_block mine">
+    <section class="member_personal_info clearfix mb_30">
+        <div class="member_header">
+            <img src="public/img/league-badge.png">
+        </div>
+        <div class="right_txt">
+            <p class="member_name" id="operatorName"></p>
+            <p class="operator is">运营者</p>
+            <p class="operator not">非运营者</p>
+            <p class="membership">运营的职位标签：<span id="operatorPositionTheLabel">暂无</span></p>
+        </div>
+        <em class="tiny_arrow"></em>
+    </section>
+    <section class="sec mb_30 org">
+        <em class="tiny_arrow"></em>
+        <div class="sec_con">
+            <h1 class="sec_title">当前所属组织</h1>
+            <p class="sec_p" id="fullName"></p>
+        </div>
+    </section>
+    <section class="sec mb_30 msg" onclick="window.location.href='view/message/message.html'">
+        <em class="tiny_arrow"></em>
+        <div class="sec_con">
+            <h1 class="sec_title">我的消息</h1>
+        </div>
+    </section>
+    <section class="sec mb_30 switch">
+        <em class="tiny_arrow"></em>
+        <div class="sec_con">
+            <h1 class="sec_title">切换工作组织</h1>
+        </div>
+    </section>
+</section>
+
+    <!-- 底部按钮 -->
+    <div class="bottom_btn_box clearfix">
+        <div class="btn cur">首页</div>
+        <div class="btn">我的</div>
+    </div>
+
+</body>
+</html>

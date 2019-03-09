@@ -1,0 +1,40 @@
+@charset "UTF-8";
+body{background-color:#fff;padding-bottom:2.2rem;}
+.title{padding: 0.64rem 0.6rem;border-bottom:1px solid #d9d9d9;}
+.title p{position: relative;color:#333;font-size:0.72rem;padding-left:1.6rem;}
+.title p:before{content:'';position: absolute;left:0;top:50%;transform:translateY(-50%);width:1rem;height:0.92rem;background:url(../../img/spirit1.png) no-repeat -2.92rem -5.66rem;background-size:6rem;}
+.title2{margin:0.6rem 0.6rem 0.4rem; }
+.title2 .p1{color:#333;font-size:0.68rem;line-height:0.68rem;margin-bottom:0.6rem;}
+.title2 .p2{color:#999;font-size:0.56rem;line-height:0.56rem;}
+
+.list_box .list_item{height:2.1rem;border-bottom:1px solid #f2f2f2;padding-left:0.6rem;padding-right:1.1rem;}
+.list_box .list_item .item_inner{padding-top:0.3rem;position: relative;}
+.list_box .list_item .item_inner:before,
+.bot_fixed .all:before{position: absolute;content:'';width: 0.68rem;height: 0.68rem;right:0;top:50%;transform:translateY(-50%);background: url(../../img/square.png) no-repeat center; background-size: contain;}
+.list_box .list_item.chosen .item_inner:before,
+.bot_fixed .all.chosen:before{background-image: url(../../img/square-active.png);}
+.list_box .list_item .pic{float: left;width:1.5rem;height:1.5rem;overflow:hidden;border-radius:50%;}
+.list_box .list_item .pic img{width:100%;height:100%;}
+.list_box .list_item .item_text .p1{color:#333;font-size:0.68rem;line-height:0.68rem;margin-bottom:0.1rem;}
+.list_box .list_item .item_text .p2{color:#999;font-size:0.56rem;}
+
+.bot_fixed{position: fixed;height:2.2rem;background-color: #f2f2f2;left:0;bottom:0;width:100%;padding:0 0.6rem;box-sizing:border-box;}
+.bot_fixed .all{float: left;padding-left:1.3rem;line-height:2.2rem;color:#000;font-size:0.72rem;position: relative;}
+.bot_fixed .all:before{left:0;}
+.bot_fixed .r{float: right;padding-top:0.4rem;}
+.bot_fixed .r .r_link{float: left;line-height:0.52rem;padding-top:0.44rem;font-size:0.52rem;color:#D94453;margin-right:0.6rem;}
+.bot_fixed .r .r_link:active{background-color:transparent;}
+.bot_fixed .r .ok{width:2.68rem;height:1.36rem;color:#fff;text-align: center;border-radius:0.08rem;line-height:1.36rem;font-size:0.64rem;float: left;background-color: #D94453;}
+
+/* 弹窗 */
+.popup_box{position: fixed;z-index:999;background-color:rgba(0,0,0,.6);left:0;top:0;width:100%;height:100%;}
+.popup_box .popup_center{position: absolute;left:50%;top:50%;transform:translate(-50%, -50%);width:13.8rem;height:16.28rem;background:#fff url(../../img/bg.png) no-repeat center top;background-size:100%;border-radius:0.2rem;}
+.popup_box .popup_center .text_box{margin: 8.46rem 1.4rem 0; height: 4.7rem; overflow: auto;}
+.popup_box .popup_center .text_box .text{font-size:0.68rem;color:#333;}
+
+.noneToPay{padding-top:8.9rem;background:url(../../img/noPay.png) no-repeat center top;background-size:8.32rem;margin-top:4.24rem;}
+.noneToPay .text_box{text-align: center;padding:0 0.9rem;}
+.noneToPay .text_box .te1{font-size:0.72rem;line-height:1rem;color:#333;padding-left:1.6rem;position: relative;margin-bottom:0.6rem;display:inline-block;}
+.noneToPay .text_box .te1:before{position: absolute;content:'';width:1rem;height:1rem;left:0;background:url(../../img/spirit1.png) no-repeat -2.92rem -5.62rem;background-size:6rem;}
+.noneToPay .text_box .te2{font-size:0.68rem;color:#666;margin-bottom:0.6rem;}
+.noneToPay .text_box .te3{color:#D94453;font-size:0.52rem;}

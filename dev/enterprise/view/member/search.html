@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>团员查询</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/member/search.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/member/search.js"></script>
+</head>
+<body>
+    <div class="title_box mb_30">
+        <p>您可在这里查询当前组织及所有下级组织的团员</p>
+    </div>
+    <div class="search_out">
+        <div class="search_inner">
+            <div class="sel_box">
+                <div id="selector" data-id="1" class="sel_title">按团支部搜</div>
+                <ul class="sel_list">
+                    <li data-id="1" class="item">按团支部搜</li>
+                    <li data-id="2" class="item">按团员搜</li>
+                </ul>
+            </div>
+            <div class="input_box">
+                <a href="javascript:;" id="confirm" class="input_btn"></a>
+                <input id="keyword" type="text" class="input" placeholder="输入团支部简称搜索" />
+            </div>
+        </div>
+        <div class="p_out">
+            <p class="p">可按照团员的姓名或团员所在的团支部进行搜索</p>
+        </div>
+    </div>
+</body>
+</html>

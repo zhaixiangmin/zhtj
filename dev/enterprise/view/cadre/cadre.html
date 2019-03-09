@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>团干查询</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/cadre/cadre.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/CadreApi.js"></script>
+    <script type="text/javascript" src="../../public/js/cadre/cadre.js"></script>
+</head>
+<body>
+    <div class="title_box">
+        <p>您可以在这里查询归属在当前组织的团干</p>
+    </div>
+
+    <div class="no_data first" style="display: none;">没有相关的内容</div>
+    <div class="box first" style="display: none;">
+        <!-- 输入搜索框 -->
+        <section class="search_sec">
+            <div class="search_box">
+                <input id="keyword" type="text" class="search_input" placeholder="请输入团干姓名搜索" />
+                <a id="confirm" class="sea_btn"></a>
+            </div>
+        </section>
+
+        <div class="no_data second" style="display: none;">没有找到相应的内容，换个关键词再试试吧！</div>
+        <div class="box second" style="display: none;">
+            <!-- 表格 -->
+            <div class="table_out">
+                <div class="table_title table_tr clearfix">
+                    <span class="td">序号</span><span class="td">姓名</span><span class="td">基本信息录入组织</span><span class="td">手机号</span>
+                </div>
+                <div class="table_box">
+                    <!--<div class="table_con table_tr clearfix">-->
+                    <!--<span class="td">1</span><span class="td">sss</span><span class="td">广州科技职业技术学院</span><span class="td">13380080061</span>-->
+                    <!--</div>-->
+                    <!--<div class="table_con table_tr clearfix">-->
+                    <!--<span class="td">1</span><span class="td">sss</span><span class="td">广州科技职业技术学院管理学院2017工管1班团支部</span><span class="td">13380080061</span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <!--<div class="no-more" style="position: relative;height: 2rem;text-align: center;background-color: #f2f2f2;">-->
+                <!--<div class="line" style="position: absolute;height: 0.2rem;width: 100%;top: 50%;transform: translateY(-50%);background: #999;"></div>-->
+                <!--<div style="position: relative;display: inline-block;padding: 0 0.6rem;height: 2rem;line-height: 2rem;font-size: 0.48rem;text-align: center;color: #999;background: #f2f2f2;">没有更多内容了</div>-->
+            <!--</div>-->
+
+        </div>
+    </div>
+</body>
+</html>

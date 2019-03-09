@@ -1,0 +1,67 @@
+/*团干所属组织 -- 搜索框*/
+.search_box{
+    display: inline-block;
+    margin: 15px 0 0 15px;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #c4c4c4;
+}
+.search_box input{
+    /*width: 280px;*/
+    width: 200px;
+    border: none;
+}
+.search_box input:focus{
+    outline: none;
+}
+.search_box .search_icon{
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    vertical-align: top;
+    background: url("../../img/search.png") no-repeat center;
+    cursor: pointer;
+}
+
+
+/*单选框*/
+label.checkbox{
+    display: inline-block;
+    padding-right: 20px;
+    cursor: pointer;
+}
+label.checkbox span{
+    display: inline-block;
+    vertical-align: middle;
+}
+label.checkbox i{
+    background: url(../../img/check.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+label.checkbox.active i{
+    background-image: url(../../img/check-active.png);
+}
+
+
+/*!*图片插件*!*/
+/*.filePicker div:last-child, .filePicker_punish div:last-child{*/
+    /*position: absolute !important;*/
+    /*top: 20px !important;*/
+    /*left: 210.5px !important;*/
+    /*width: 168px !important;*/
+    /*height: 44px !important;*/
+    /*overflow: hidden !important;*/
+    /*bottom: auto !important;*/
+    /*right: auto !important;*/
+/*}*/
+
+/*!*文件插件*!*/
+/*.filePicker_multiple_add div:last-child{*/
+    /*width: 174px !important;*/
+    /*height: 36px !important;*/
+/*}*/

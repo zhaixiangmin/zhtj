@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>帮助中心</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/css/help/help.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/module/HelpApi.js"></script>
+    <script src="../../public/js/help/help.js"></script>
+</head>
+<body>
+<div class="up_box">
+    <ul class="tab_box">
+        <li class="active">核心流程指引</li>
+        <li>客服团队</li>
+        <li>我要吐槽</li>
+    </ul>
+    <!--核心流程指引-->
+    <div class="tab_content guide">
+        <div style="position: absolute; right: 20px;margin-top: 20px;margin-bottom: 20px;">
+            <div style="display: inline-block;">
+                <img style="height: 150px;" src="../../public/img/QR_member_register.png"/>
+                <p style="text-align: center;">团员报到二维码 </p>
+            </div>
+            <div style="display: inline-block;">
+                <img style="height: 150px;" src="../../public/img/QR_enterprise.png"/>
+                <p style="text-align: center;">团干入驻企业号二维码 </p>
+            </div>
+        </div>
+        <!--<p class="item">1、<a href="https://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20180627/智慧团建系统产品手册-201806.pdf">点击下载</a>产品手册</p>-->
+        <p class="item">1、<a target="_blank" href="https://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20181031/智慧团建产品手册-201808.pdf">点击下载</a>产品手册</p>
+        <p class="item">2、核心流程指引：</p>
+        <div class="sub_item">（1）团员报到及组织审核<a href="https://mp.weixin.qq.com/s/m4sRyaev2vt4W5Vhuw02gw" target="_blank">操作流程说明</a></div>
+        <div class="sub_item">（2）组织关系转接<a href="https://mp.weixin.qq.com/s/txJ_nVvm3DupTAbYZnsLOg" target="_blank">操作流程说明</a></div>
+        <div class="sub_item">（3）团干入驻<a href="https://mp.weixin.qq.com/s?__biz=MzA5MzUwNjUzMA==&mid=2650228956&idx=1&sn=f10676b874aee61a9bb2cd145ed32aef&chksm=885f3651bf28bf4758035d6902e56df3f9d6fa51ff73bbc5119be8c65d9c288c37b80ae5ba80&scene=21#wechat_redirect" target="_blank">操作流程说明</a></div>
+        <p class="item">3、业务资料获取</p>
+        <p class="second_item">智慧团建系统公共邮箱：gdzhtj@12355.net&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密码：gdtt2018</p>
+        <p class="third_item">可直接使用QQ邮箱登录，在“星标邮件”处下载培资料。请不要修改、删除邮件及密码，谢谢。</p>
+        <p class="second_item">广东共青团企业微信“文件盘”应用</p>
+        <p class="third_item">下载了企业微信的团干部，可以在文件盘中获取相关的培训资料。</p>
+    </div>
+    <!--客服团队-->
+    <div class="tab_content team" style="display: none;">
+        <p class="item"><span class="title">客服电话：</span>12355 （智慧团建请按“3”）</p>
+        <p class="item"><span class="title">客服邮箱：</span>tuan@12355.net (主要用于接收组织汇总的材料)</p>
+        <p class="item"><span class="title">企业号客服团队：</span>进入路径：企业号微企通讯录—查看通讯录—智慧团建客服团队</p>
+        <p class="tips_title">企业小助手：</p>
+        <p class="tips_content">更多问题和材料的获取，也可请团干在广东共青团企业号“企业小助手”中随时提问，24小时在线。</p>
+    </div>
+    <!--我要吐槽-->
+    <div class="tab_content roast_box" style="display: none;">
+        <p class="title">亲，如果您对智慧团建平台有任何建议，请在这里向我们吐槽拍砖。我们会珍视每一条建议，并尽可能通过站内信向您反馈处理情况：</p>
+        <textarea id="roast" placeholder="请说下您对智慧团建系统的看法吧（如有系统问题，请尽量提供账号密码等基本信息，便于核查）......"></textarea>
+        <div class="button_box">
+            <span class="button cancel">取消</span>
+            <span class="button confirm">确定</span>
+        </div>
+    </div>
+</div>
+<div class="down_box_title">常见问题</div>
+<div class="down_box">
+    <p class="question_category">团员端常见问题：</p>
+    <div class="question_list">
+        <a href="https://mp.weixin.qq.com/s/VE-QjpjOJTN7WVVixFaR3Q" target="_blank">1.团员报到</a>
+        <a href="https://mp.weixin.qq.com/s/9SdVmTiBI6B5ClIE16xfSQ" target="_blank">2.组织关系转接</a>
+        <a href="https://mp.weixin.qq.com/s/fnpYC5AnKGYSoiTWqpXcZA" target="_blank">3.团费交纳</a>
+    </div>
+    <p class="question_category">团干端常见问题：</p>
+    <div class="question_list">
+        <a href="https://mp.weixin.qq.com/s/YEcxDpNZof5_2_Wj3-jWmA" target="_blank">1.常见问题</a>
+    </div>
+    <p class="question_category">团组织端常见问题：</p>
+    <div class="question_list">
+        <a href="https://mp.weixin.qq.com/s/ayKWt0x3juKu_xvzuX-JBg" target="_blank">1.团员管理</a>
+        <a href="https://mp.weixin.qq.com/s/4a95ttfJVh41uWmQ3pfn4Q" target="_blank">2.团干管理</a>
+        <a href="https://mp.weixin.qq.com/s/HrqilACIO2KNjKtXGba40Q" target="_blank">3.组织管理 </a>
+    </div>
+</div>
+</body>
+</html>

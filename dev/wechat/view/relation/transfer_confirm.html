@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>组织关系转接确认</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/relation/transfer_confirm.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/RelationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/relation/transfer_confirm.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="tips_box">
+        <div class="title">团员组织关系转接确认</div>
+        <div class="text_box">您所在组织正在申请将您的团组织关系转出，请确定是否同意此次转出。</div>
+        <div class="text_box">
+            <p>转出支部：<span id="primalName"></span></p>
+            <p>接收支部：<span id="newName"></span></p>
+        </div>
+        <div class="text_box">为便于组织申请联系，请您输入短信验证码，确认此次转出申请：</div>
+    </div>
+    <div class="input_box">
+        <div class="phone_box">
+            <span class="phone" id="phone"></span>
+        </div>
+        <div class="code_box">
+            <input class="code" id="phoneCode" type="text" placeholder="请输入验证码">
+            <div class="code_count" style="display: none;"><span></span>秒后重发</div>
+            <span class="code_txt">发送验证码</span>
+        </div>
+    </div>
+    <a class="tips_bottom">不再使用，需要更换号码</a>
+
+    <!-- 按钮 -->
+    <div class="two_btns_box clearfix">
+        <a href="javascript:;" class="btn bgc2" id="refuse">再考虑下</a>
+        <a href="javascript:;" class="btn bgc1" id="confirm">确定</a>
+    </div>
+    <!--<div class="button_bottom" id="confirm">提交</div>-->
+</div>
+</body>
+</html>

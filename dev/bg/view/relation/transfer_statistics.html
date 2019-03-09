@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组织关系转接数据统计</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/RelationApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/relation/transfer_statistics.js"></script>
+</head>
+<body>
+
+<style>
+    .clickable div {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+
+<div class="easyui-layout" data-options="fit:true">
+
+    <div data-options="region:'north'" style="height: 50px;border: 0;overflow: hidden;">
+
+        <div class="declaration" style="margin-top: 5px;">
+            <!--<span class="business">数据统计业务说明</span>-->
+            <i class="download" id="download">导出本页数据</i>
+        </div>
+
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--组织关系转接数据统计-->
+        <table class="easyui-datagrid" id="statistics_dg" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+</body>
+</html>

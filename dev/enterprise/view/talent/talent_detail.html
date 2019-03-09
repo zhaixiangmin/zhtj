@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>人才数据详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/talent/talent_detail.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/TalentApi.js"></script>
+    <script type="text/javascript" src="../../public/js/talent/talent_detail.js"></script>
+</head>
+<body id="authDataEdit">
+<div class="tab_box mb_30 clearfix">
+    <div class="tab_item cur">基本信息</div>
+    <div class="tab_item">附加信息</div>
+</div>
+
+<!-- 基本信息 -->
+<div class="big_block big_block1">
+    <section class="info_box mb_30">
+        <div class="block_title"><h1 class="block_title_txt">基本信息</h1></div>
+        <ul class="info_list">
+
+            <li class="info_item"><!-- 姓名 -->
+                <span class="info_item_title">姓名</span>
+                <span class="arrow" id="name"></span>
+            </li>
+            <li class="info_item"><!-- 性别 -->
+                <span class="info_item_title">性别</span>
+                <span class="arrow" id="sex"></span>
+            </li>
+            <li class="info_item"><!-- 身份证号 -->
+                <span class="info_item_title">身份证号</span>
+                <span class="arrow" id="idCard"></span>
+            </li>
+            <li class="info_item"><!-- 民族 -->
+                <span class="info_item_title">民族</span>
+                <span class="arrow" id="nation"></span>
+            </li>
+            <li class="info_item"><!-- 民族名称 -->
+                <span class="info_item_title">民族名称</span>
+                <span class="arrow" id="nationInfo"></span>
+            </li>
+            <li class="info_item"><!-- 政治面貌 -->
+                <span class="info_item_title">政治面貌</span>
+                <span class="arrow" id="politicalOutlook"></span>
+            </li>
+            <li class="info_item"><!-- 全日制学历 -->
+                <span class="info_item_title">全日制学历</span>
+                <span class="arrow" id="degreeOfEducation"></span>
+            </li>
+
+            <li class="info_item"><!-- 职业 -->
+                <span class="info_item_title">职业</span>
+                <span class="arrow" id="occupation"></span>
+            </li>
+            <li class="info_item"><!-- 团干部性质 -->
+                <span class="info_item_title">团干部性质</span>
+                <span class="arrow" id="tuanganProperties"></span>
+            </li>
+            <li class="info_item"><!-- 所在团支部 -->
+                <span class="info_item_title">所在团支部</span>
+                <span class="arrow" id="oid"></span>
+            </li>
+            <li class="info_item"><!-- 是否同级党委（支部）成员 -->
+                <span class="info_item_title">是否同级党委（支部）成员</span>
+                <span class="arrow" id="isPartyCommitteeMember"></span>
+            </li>
+            <li class="info_item"><!-- 学习工作单位 -->
+                <span class="info_item_title">学习工作单位</span>
+                <span class="arrow" id="learningUnit"></span>
+            </li>
+            <li class="info_item"><!-- 专业技术资格 -->
+                <span class="info_item_title">专业技术资格</span>
+                <span class="arrow" id="professionalTechnicalQualification"></span>
+            </li>
+            <li class="info_item"><!-- 手机号码 -->
+                <span class="info_item_title">手机号码</span>
+                <span class="arrow" id="mobile"></span>
+            </li>
+            <li class="info_item"><!-- 电子邮箱 -->
+                <span class="info_item_title">电子邮箱</span>
+                <span class="arrow" id="email"></span>
+            </li>
+            <li class="info_item"><!-- QQ -->
+                <span class="info_item_title">QQ</span>
+                <span class="arrow" id="qqNum"></span>
+            </li>
+            <li class="info_item"><!-- 微信号 -->
+                <span class="info_item_title">微信号</span>
+                <span class="arrow" id="wechatId"></span>
+            </li>
+            <li class="info_item"><!-- 团内现任职务 -->
+                <span class="info_item_title">团内现任职务</span>
+                <span class="arrow" id="incumbent"></span>
+            </li>
+            <li class="info_item"><!-- 职务名称 -->
+                <span class="info_item_title">职务名称</span>
+                <span class="arrow" id="incumbentDesc"></span>
+            </li>
+            <li class="info_item"><!-- 任现职年月 -->
+                <span class="info_item_title">任现职年月</span>
+                <span class="arrow" id="xzzny"></span>
+            </li>
+            <li class="info_item"><!-- 任现职方式 -->
+                <span class="info_item_title">任现职方式</span>
+                <span class="arrow" id="dutyStyle"></span>
+            </li>
+        </ul>
+    </section>
+</div>
+
+<!-- 奖励信息 -->
+<div class="big_block big_block2" style="display:none;">
+    <!--奖励信息 -- 标题-->
+    <section class="info_box mb_30">
+        <div class="block_title"><h1 class="block_title_txt">获奖信息</h1></div>
+    </section>
+    <!--奖励信息 -- 内容-->
+    <section class="info_box mb_30 bg_fff" id="reward">
+        <div class="table_list_block">
+            <!--奖励信息 -- 列表-->
+        </div>
+    </section>
+
+    <!--工作履历 -- 标题-->
+    <section class="info_box mb_30">
+        <div class="block_title"><h1 class="block_title_txt">工作履历</h1></div>
+    </section>
+    <!--工作履历 -- 内容-->
+    <section class="info_box mb_30 bg_fff" id="workResume">
+        <div class="table_list_block">
+            <!--工作履历 -- 列表-->
+        </div>
+    </section>
+</div>
+
+<!--附件查看-->
+<div class="curtain">
+    <div id="bannerBox" class="tabBox">
+        <div class="hd">
+            <ul>
+                <!--页码-->
+            </ul>
+        </div>
+        <div style="padding: 0 0.6rem;height: 1.9rem;line-height: 1.9rem;font-size: 0.72rem;font-weight: bold;color: #000;background: #fff;">查看附件</div>
+        <div class="bd" id="imgUrlBox">
+            <!--图片列表-->
+        </div>
+        <div style="padding: 0 0.6rem;height: 1.9rem;line-height: 1.9rem;font-size: 0.56rem;font-weight: bold;color: #999;background: #fff;">点击图片，从新窗口打开(点击空白处，关闭图片)</div>
+        <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+        <a class="prev" href="javascript:void(0)"></a>
+        <a class="next" href="javascript:void(0)"></a>
+    </div>
+</div>
+
+</body>
+</html>

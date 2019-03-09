@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>未交清单</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/fee/fee.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FeeApi.js"></script>
+    <script type="text/javascript" src="../../public/js/fee/unpaid_list.js"></script>
+</head>
+
+<style type="text/css">
+    .fl{float: left;}
+    .fr{float: right;}
+    .common_list .list_item{height:2.4rem;}
+    .list_item.self .item_inner{position: relative;}
+    .list_item.self .item_inner .tiny{position: absolute;width:1.2rem;line-height:0.68rem;border-radius:0.16rem;background-color: #D94453;color:#fff;text-align: center;font-size:0.4rem;left:1.54rem;top:0.3rem;}
+    .common_list .item_inner:before{visibility:hidden;}
+    .common_list .item_text .text_right{margin-right:0;}
+    .common_list .item_text{padding-left:0;line-height:1.2rem;height:1.2rem;}
+    .common_list .item_text .text_left .text1{margin-right:0.6rem;margin-bottom:0;padding-top:0;font-size:0.8rem;line-height:1.2rem;}
+    .common_list .item_text .text_left .text2{line-height:1.2rem;}
+    .common_list .item_text .text_right{padding-top: 0;line-height:1.2rem;}
+</style>
+
+<body>
+<section class="common_section">
+    <div class="center_txt">
+        <p class="t1">未交团费共(元)</p>
+        <p class="t2" id="feePayable"></p>
+        <p style="display: none;" class="t3" id="number">共<span></span>个月团费未交</p>
+    </div>
+</section>
+<section class="common_list" style="margin-top:0.6rem;">
+    <ul class="fee_list">
+        <!--交费记录-->
+    </ul>
+</section>
+</body>
+</html>

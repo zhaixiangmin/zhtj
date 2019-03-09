@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body{background-color: #fff;}
+
+.search_out{margin:0 0.6rem;}
+.search_out .search_inner{height:1.76rem;}
+.search_out .search_inner .sel_box{width:36.8%;background-color:#d94453;height:1.76rem;color:#fff;font-size:0.72rem;position: relative;border-radius:0.2rem 0 0 0.2rem;float: left;}
+.search_out .search_inner .sel_box .sel_title{padding-left:0.4rem;padding-right:1rem;position: relative;line-height:1.76rem;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.search_out .search_inner .sel_box .sel_title:before{position: absolute;content:'';background:url(../../img/spirit1.png) no-repeat -4.28rem -8.86rem;background-size:6rem;width:0.56rem;height:0.36rem;right:0.4rem;top:50%;transform:translateY(-50%);}
+/*.search_out .search_inner .sel_list{position: absolute;left:0;top:1.76rem;background-color: #d94453;width:100%;margin-top:1px;display:none;z-index: 1}*/
+.search_out .search_inner .sel_list{position: absolute;left:0;top:1.76rem;margin-top:1px;width:100%;background-color: #000;opacity: 0.8;display:none;z-index: 1}
+.search_out .search_inner .sel_list .item{border-bottom:1px solid #fff;line-height:1.76rem;padding:0 0.4rem;}
+.search_out .search_inner .input_box{width:63.2%;float: left;position: relative;}
+/*.search_out .search_inner .input_box .input{width:100%;box-sizing:border-box;padding-left:1.36rem;padding-right:0.92rem;background-color:#f2f2f2;border-radius:0 0.2rem 0.2rem 0;height:1.76rem;line-height:1.76rem;font-size:0.72rem;}*/
+/*.search_out .search_inner .input_box .input_btn{position: absolute;width:1.36rem;height:1.76rem;left:0;top:0;}*/
+.search_out .search_inner .input_box .input{width:100%;box-sizing:border-box;padding-left:0.4rem;padding-right:1.36rem;background-color:#f2f2f2;border-radius:0 0.2rem 0.2rem 0;height:1.76rem;line-height:1.76rem;font-size:0.72rem;}
+.search_out .search_inner .input_box .input_btn{position: absolute;width:1.36rem;height:1.76rem;right:0;top:0;}
+.search_out .search_inner .input_box .input_btn:before{position: absolute;content:'';width:0.86rem;height:0.86rem;background:url(../../img/spirit1.png) no-repeat -3.82rem -2.54rem;background-size:6rem;left:50%;top:50%;transform:translate(-50%,-50%);}
+
+.p_out{text-align: center;font-size: 0;margin-top:0.2rem;}
+.p_out .p{display:inline-block;font-size:0.56rem;color:#999;position: relative;padding-left:0.8rem;}
+.p_out .p:before{content:'';position: absolute;left:0;top:50%;transform:translateY(-50%);width:0.6rem;height:0.6rem;background:url(../../img/spirit1.png) no-repeat -5.22rem -8.68rem;background-size:6rem;}

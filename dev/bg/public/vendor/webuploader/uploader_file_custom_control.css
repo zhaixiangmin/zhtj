@@ -1,0 +1,108 @@
+/* ----------------Reset Css--------------------- */
+
+.uploader_file_custom_control p {
+    margin: 0;
+}
+
+.uploader_file_custom_control .webuploader-element-invisible, .uploader_file_custom_control .element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+}
+
+.uploader_file_custom_control .btns .filePicker {
+    position: relative;
+    display: inline-block;
+}
+
+.uploader_file_custom_control .btns .filePicker .webuploader-pick {
+    padding-left: 25px;
+    font-size: 14px;
+    color: #0d87ef;
+    background: #fff url("../../img/clip.png") no-repeat left center;
+}
+
+.uploader_file_custom_control .btns .filePicker div:last-child {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.uploader_file_custom_control .fileList div.item {
+    margin: 12px 10px;
+    font-size: 14px;
+}
+
+.uploader_file_custom_control .fileList div.item .filenameList {
+    display: inline-block;
+    padding-left: 25px;
+    background: url("../../img/clip.png") no-repeat left center;
+}
+
+.uploader_file_custom_control .fileList div.item .filenameList span.info {
+    display: inline-block;
+}
+
+.uploader_file_custom_control .fileList div.item .filenameList span.filesize {
+    color: #BBB;
+    cursor: pointer;
+}
+
+.uploader_file_custom_control .fileList div.item .filenameList span.delete {
+    margin-left: 20px;
+    color: #0d87ef;
+    cursor: pointer;
+}
+
+.uploader_file_custom_control .fileList div.item p.progress {
+    display: inline-block;
+    margin-left: 20px;
+    width: 150px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.uploader_file_custom_control .fileList div.item p.progress span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: #1483d8 url(../../img/progress.png) repeat-x;
+
+    -webit-transition: width 200ms linear;
+    -moz-transition: width 200ms linear;
+    -o-transition: width 200ms linear;
+    -ms-transition: width 200ms linear;
+    transition: width 200ms linear;
+
+    -webkit-animation: progressmove 2s linear infinite;
+    -moz-animation: progressmove 2s linear infinite;
+    -o-animation: progressmove 2s linear infinite;
+    -ms-animation: progressmove 2s linear infinite;
+    animation: progressmove 2s linear infinite;
+
+    -webkit-transform: translateZ(0);
+}
+
+
+@-webkit-keyframes progressmove {
+    0% {
+       background-position: 0 0;
+    }
+    100% {
+       background-position: 17px 0;
+    }
+}
+@-moz-keyframes progressmove {
+    0% {
+       background-position: 0 0;
+    }
+    100% {
+       background-position: 17px 0;
+    }
+}
+@keyframes progressmove {
+    0% {
+       background-position: 0 0;
+    }
+    100% {
+       background-position: 17px 0;
+    }
+}

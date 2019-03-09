@@ -1,0 +1,372 @@
+.uploader_custom_control .wrapper .container {
+	border: 0.02rem solid #dadada;
+	color: #838383;
+	font-size: 0.28rem;
+	margin-top: 0.3rem;
+	background-color: #FFF;
+}
+
+.uploader_custom_control .wrapper .container .uploader p{
+	margin: 0;
+	color: #333;
+}
+.uploader_custom_control .wrapper .container .uploader .webuploader-container {
+	position: relative;
+	margin-bottom: 0.4rem;
+}
+.uploader_custom_control .wrapper .container .uploader .webuploader-element-invisible {
+	position: absolute !important;
+	clip: rect(0.02rem 0.02rem 0.02rem 0.02rem); /* IE6, IE7 */
+	clip: rect(0.02rem,0.02rem,0.02rem,0.02rem);
+}
+.uploader_custom_control .wrapper .container .uploader .queueList {
+	margin: 0.6rem;
+}
+
+.element-invisible {
+	position: absolute !important;
+	clip: rect(0.02rem 0.02rem 0.02rem 0.02rem); /* IE6, IE7 */
+	clip: rect(0.02rem,0.02rem,0.02rem,0.02rem);
+}
+
+.uploader_custom_control .wrapper .container .uploader .placeholder {
+	position: relative;
+	padding: 0.6rem 0;
+	text-align: center;
+	font-size: 0.68rem;
+	color: #cccccc;
+	border: 0.02rem dashed #e6e6e6;
+}
+
+.uploader_custom_control .wrapper .container .uploader .placeholder .webuploader-pick {
+	position: relative;
+	display: inline-block;
+	line-height: 1.6rem;;
+	font-size: 0.68rem;
+	background: #00b7ee;
+	border-radius: 0.1rem;
+	padding: 0 1rem;
+	color: #fff;
+	cursor: pointer;
+	box-shadow: 0 0.02rem 0.02rem rgba(0, 0, 0, 0.1);
+}
+
+.uploader_custom_control .wrapper .container .uploader .placeholder .webuploader-pick-hover {
+	background: #00a2d4;
+}
+
+.uploader_custom_control .wrapper .container .uploader .placeholder .flashTip {
+	color: #666;
+	font-size: 0.28rem;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: 0.6rem;
+}
+.uploader_custom_control .wrapper .container .uploader .placeholder .flashTip a {
+	color: #0785d1;
+	text-decoration: none;
+}
+.uploader_custom_control .wrapper .container .uploader .placeholder .flashTip a:hover {
+	text-decoration: underline;
+}
+
+.uploader_custom_control .wrapper .container .uploader .placeholder.webuploader-dnd-over {
+	border-color: #999999;
+}
+
+.uploader_custom_control .wrapper .container .uploader .placeholder.webuploader-dnd-over.webuploader-dnd-denied {
+	border-color: red;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist li {
+	width: 3rem;
+	height: 3rem;
+	background: url(../../vendor/webuploader/img/bg.png) no-repeat;
+	text-align: center;
+	margin: 0 0.4rem 0.6rem 0;
+	position: relative;
+	display: inline;
+	float: left;
+	overflow: hidden;
+	font-size: 0.28rem;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist li p.log {
+	position: relative;
+	top: -45px;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist li p.title {
+	position: absolute;
+	left: 0;
+	top: 0.2rem;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow : ellipsis;
+	text-indent: 0.2rem;
+	text-align: left;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist li p.progress {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	height: 0.4rem;
+	overflow: hidden;
+	z-index: 50;
+}
+.uploader_custom_control .wrapper .container .uploader .filelist li p.progress span {
+	display: none;
+	overflow: hidden;
+	width: 0;
+	height: 100%;
+	background: #1483d8 url(../../vendor/webuploader/img/progress.png) repeat-x;
+
+	-webit-transition: width 200ms linear;
+	-moz-transition: width 200ms linear;
+	-o-transition: width 200ms linear;
+	-ms-transition: width 200ms linear;
+	transition: width 200ms linear;
+
+	-webkit-animation: progressmove 2s linear infinite;
+	-moz-animation: progressmove 2s linear infinite;
+	-o-animation: progressmove 2s linear infinite;
+	-ms-animation: progressmove 2s linear infinite;
+	animation: progressmove 2s linear infinite;
+
+	-webkit-transform: translateZ(0);
+}
+
+@-webkit-keyframes progressmove {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 17px 0;
+	}
+}
+@-moz-keyframes progressmove {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 17px 0;
+	}
+}
+@keyframes progressmove {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 17px 0;
+	}
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist li p.imgWrap {
+	position: relative;
+	z-index: 2;
+	line-height: 3rem;
+	vertical-align: middle;
+	overflow: hidden;
+	width: 3rem;
+	height: 3rem;
+
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+
+	-webit-transition: 200ms ease-out;
+	-moz-transition: 200ms ease-out;
+	-o-transition: 200ms ease-out;
+	-ms-transition: 200ms ease-out;
+	transition: 200ms ease-out;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist li img {
+	width: 100%;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist li p.error {
+	background: #f43838;
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	width: 100%;
+	z-index: 100;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist li .success {
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 1rem;
+	width: 100%;
+	z-index: 200;
+	background: url(../../vendor/webuploader/img/success.png) no-repeat right bottom;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist div.file-panel {
+	position: absolute;
+	height: 0;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#80000000', endColorstr='#80000000')\0;
+	background: rgba( 0, 0, 0, 0.5 );
+	width: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: 300;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist div.file-panel .file-panel-item {
+	float: right;
+	width: 30%;
+	margin-right: 2.5%;
+	text-align: center;
+}
+.uploader_custom_control .wrapper .container .uploader .filelist div.file-panel span {
+	display: inline-block;
+	margin-top: 7px;
+	width: 16px;
+	height: 16px;
+	text-indent: -9999px;
+	overflow: hidden;
+	background: url(../../vendor/webuploader/img/icons.png) no-repeat;
+	cursor: pointer;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist div.file-panel span.rotateLeft {
+	background-position: 0 -24px;
+}
+.uploader_custom_control .wrapper .container .uploader .filelist div.file-panel span.rotateLeft:hover {
+	background-position: 0 0;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist div.file-panel span.rotateRight {
+	background-position: -24px -24px;
+}
+.uploader_custom_control .wrapper .container .uploader .filelist div.file-panel span.rotateRight:hover {
+	background-position: -24px 0;
+}
+
+.uploader_custom_control .wrapper .container .uploader .filelist div.file-panel span.cancel {
+	background-position: -48px -24px;
+}
+.uploader_custom_control .wrapper .container .uploader .filelist div.file-panel span.cancel:hover {
+	background-position: -48px 0;
+}
+
+.uploader_custom_control .wrapper .container .uploader .statusBar {
+	position: relative;
+	padding: 0 0.6rem 0.6rem 0.6rem;
+	line-height: 1.4;
+	border-top: 0.02rem solid #dadada;
+	vertical-align: middle;
+}
+
+.uploader_custom_control .wrapper .container .uploader .statusBar .progress {
+	position: relative;
+	display: inline-block;
+	margin-right: 0.3rem;
+	margin-top: 0.3rem;
+	width: 7rem;
+	height: 0.68rem;
+	line-height: 0.6rem;
+	text-align: center;
+	color: #6dbfff;
+	background: #fff;
+	border: 0.02rem solid #1483d8;
+}
+.uploader_custom_control .wrapper .container .uploader .statusBar .progress span.percentage {
+	width: 0;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: #1483d8;
+	position: absolute;
+}
+.uploader_custom_control .wrapper .container .uploader .statusBar .progress span.text {
+	position: relative;
+	z-index: 10;
+}
+
+.uploader_custom_control .wrapper .container .uploader .statusBar .info {
+	display: inline-block;
+	margin: 0.3rem 0;
+	font-size: 0.56rem;
+	color: #666;
+}
+.uploader_custom_control .wrapper .container .uploader .statusBar .info a {
+	color: #00b7ee;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns {
+	line-height: 1.5rem;
+}
+
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .filePicker2 {
+	display: inline-block;
+	float: left;
+}
+
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .webuploader-pick,
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .uploadBtn,
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .uploadBtn.state-uploading,
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .uploadBtn.state-paused {
+	background: #ffffff;
+	border: 0.02rem solid #cfcfcf;
+	color: #565656;
+	padding: 0 0.68rem;
+	display: inline-block;
+	border-radius: 0.1rem;
+	margin-right: 0.3rem;
+	cursor: pointer;
+	font-size: 0.56rem;
+	float: left;
+}
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .webuploader-pick-hover,
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .uploadBtn:hover,
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .uploadBtn.state-uploading:hover,
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .uploadBtn.state-paused:hover {
+	background: #f0f0f0;
+}
+
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .uploadBtn {
+	background: #00b7ee;
+	color: #fff;
+	border-color: transparent;
+}
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .uploadBtn:hover {
+	background: #00a2d4;
+}
+
+.uploader_custom_control .wrapper .container .uploader .statusBar .btns .uploadBtn.disabled {
+	pointer-events: none;
+	opacity: 0.6;
+}
+

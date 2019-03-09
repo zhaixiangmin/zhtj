@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>团支部详情页</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/member/branch_search.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/MemberApi.js"></script>
+    <script type="text/javascript" src="../../public/js/member/branch_detail.js"></script>
+</head>
+<body>
+    <div class="title_box_box">
+        <div class="title_box">
+            <p id="name"></p>
+        </div>
+        <!--<div class="title_box t2">-->
+            <!--<p id="num"></p>-->
+        <!--</div>-->
+    </div>
+
+
+    <div class="no_data first" style="display: none;">没有相关的内容</div>
+    <div class="box first" style="display: none;">
+        <!-- 输入搜索框 -->
+        <section class="search_sec">
+            <div class="search_box">
+                <input id="keyword" type="text" class="search_input" placeholder="请输入团员姓名搜索" />
+                <a id="confirm" class="sea_btn"></a>
+            </div>
+        </section>
+
+        <div class="no_data second" style="display: none;">没有找到相应的内容，换个关键词再试试吧！</div>
+        <div class="box second" style="display: none;">
+            <!-- 表格 -->
+            <div class="table_out">
+                <div class="table_title table_tr clearfix">
+                    <span class="td">序号</span><span class="td">姓名</span><span class="td">所在团支部</span><span class="td">入团年月</span>
+                </div>
+                <div class="table_box">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组织数据统计表</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/vendor/echarts-4.1.0/echarts.min.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/OrganizationManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/organization_management/organization_statistics.js"></script>
+</head>
+<body>
+<style>
+    table{
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+    table tbody tr:nth-child(1), table tbody tr:nth-child(2) {
+        background: #e2e2e2;
+    }
+    table td {
+        vertical-align: top;
+        box-sizing: border-box;
+        padding: 5px;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 14px;
+        color: #333;
+        border: 1px solid #c4c4c4;
+    }
+
+    .echarts_box {
+        width: 1040px;
+    }
+    .echarts_box .echart {
+        padding: 20px;
+        display: inline-block;
+        width: 470px;
+        height: 400px;
+    }
+
+    .clickable div {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="declaration" style="margin-top: 5px;">
+    <!--<span>数据统计每天凌晨更新一次</span>-->
+    <i class="download" id="download">导出本页数据</i>
+</div>
+
+<table id="statistics">
+    <tr>
+        <td></td><td colspan="4">团组织</td><td colspan="2">团员</td><td colspan="3">团干部数</td>
+    </tr>
+    <tr>
+        <td>类别</td><td>基层团委数</td><td>基层团工委数</td><td>团总支数</td><td>团支部数</td><td>团员数</td><td>上年新发展团员数</td><td>专职团干部数</td><td>兼职团干部数</td><td>挂职团干部数</td>
+    </tr>
+</table>
+
+<div class="echarts_box">
+    <!--团组织行业类别统计图-->
+    <div class="echart industryCategory" id="industryCategory"></div>
+    <!--团员学历统计图-->
+    <div class="echart memberEducation" id="memberEducation"></div>
+    <!--团员收入档次统计图-->
+    <div class="echart memberIncome" id="memberIncome"></div>
+    <!--团干部性质统计图-->
+    <div class="echart tuanganProperty" id="tuanganProperty"></div>
+</div>
+</body>
+</html>

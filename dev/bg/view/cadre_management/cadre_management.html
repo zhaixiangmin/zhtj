@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>团干管理</title>
+  <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+  <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+  <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+  <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_custom_control.css"/>
+  <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_file_custom_control.css"/>
+  <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+  <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+  <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+  <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+  <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+  <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+  <script src="../../public/custom/easyui_secondary.js"></script>
+  <script src="../../public/custom/dialog.js"></script>
+  <script src="../../public/js/module/League.js"></script>
+  <script src="../../public/js/module/CadreManagementApi.js"></script>
+  <script src="../../public/js/module/Utils.js"></script>
+  <script src="../../public/vendor/webuploader/webuploader.js"></script>
+  <script src="../../public/vendor/webuploader/uploader_file_custom_control.js"></script>
+  <script src="../../public/js/cadre_management/cadre_management.js"></script>
+</head>
+<body>
+
+<style>
+  .warning div{color: #c10021;}
+
+  /*datagird工具栏 -- 自定义*/
+  #tb .linkbutton_box {
+    display: inline-block;;
+  }
+  #tb a {
+    /*padding: 0;*/
+    padding: 18px 0 0 0;
+    background: #fff;
+  }
+  #tb a:hover {
+    border: none;
+    border-radius: 0;
+  }
+  #tb a span span.l-btn-text{
+    margin: 0 30px 0 30px;
+  }
+  #tb a span span.l-btn-icon{
+    left: 0;
+    margin-top: -10px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .rules{
+    color: #c10021;
+    cursor: pointer;
+    text-decoration: underline;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    line-height: 45px;
+    font-size: 14px;
+  }
+
+  .tuanganProperties_rules {
+    display: inline-block;
+    width: 20px;
+    height: 35px;
+    background: url(../../public/img/nav-ask-999.png) no-repeat center;
+    cursor: pointer;
+  }
+</style>
+
+<div class="easyui-layout" data-options="fit:true">
+  <div data-options="region:'north'" style="border: 0;height: 156px;overflow: hidden;">
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+      <div title="数据筛选" data-options="collapsible: false, noheader: true">
+        <form onsubmit="return false">
+          <table>
+            <tr>
+              <th><label for="name_filter">姓名:</label></th>
+              <td><input id="name_filter"></td>
+              <!--<td>&nbsp;&nbsp;</td>-->
+              <th align="right"><label for="idCard_filter">身份证号:</label></th>
+              <td><input id="idCard_filter"></td>
+              <!--<td>&nbsp;&nbsp;</td>-->
+              <th><label for="disabled_filter">状态:</label></th>
+              <td><input id="disabled_filter" class="easyui-combobox" editable="false" name="type"></td>
+              <!--<td>&nbsp;&nbsp;</td>-->
+              <!--<td>&nbsp;&nbsp;</td>-->
+              <td>
+                <a id="filter" class="button">搜索</a>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="mobile_filter">手机号码:</label></th>
+              <td><input id="mobile_filter"></td>
+            </tr>
+          </table>
+
+          <div class="declaration">
+            <span class="operation_button" style="margin-top: 5px;">操作按钮说明</span>
+            <span class="realName" style="margin-top: 5px;">实名认证状态说明</span>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div id="tb">
+      <div class="linkbutton_box"><a id="tuangan_addBatch" class="easyui-linkbutton" data-options="iconCls:'icon-my-multiple-add',plain:true">批量导入团干</a></div>
+    </div>
+  </div>
+  <div data-options="region:'center'" style="margin-left: 1px;border: 0;">
+    <!--团干管理-->
+    <table class="easyui-datagrid" id="cadre_management" data-options="noheader: true, border: false"></table>
+  </div>
+</div>
+
+
+<!--查看团干 -- 模态窗口-->
+<div id="dialog_view" class="easyui-dialog mywindow" title="查看团干" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="list_box">
+    <div class="list base">
+      <div class="headline">基本信息</div>
+      <div class="content">
+        <!--<div class="item">-->
+        <!--<span class="title">职业：</span><span class="describe"></span>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="list addition">
+      <div class="headline">附加信息(仅本组织)</div>
+      <div class="content">
+        <!--<div class="item">-->
+        <!--<span class="title">职业：</span><span class="describe"></span>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="list other">
+      <div class="headline">职务信息</div>
+      <div class="content">
+        <!--<div class="item">-->
+        <!--<span class="title">职业：</span><span class="describe"></span>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="list operator">
+      <div class="headline">运营者信息</div>
+      <div class="content">
+        <!--<div class="item">-->
+        <!--<span class="title">职业：</span><span class="describe"></span>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--新增团干-->
+<div id="dialog" class="easyui-dialog mywindow" title="新增团干" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <form id="fm">
+    <table>
+      <tr>
+        <th colspan="2">基本信息(必填)</th>
+      </tr>
+      <tr class="check">
+        <td>姓名：</td>
+        <td><input id="name" class="easyui-textbox" type="text" name="name" maxlength="99"></td>
+      </tr>
+      <tr class="check">
+        <td>身份证号码：</td>
+        <td><input id="idCard" class="easyui-textbox" type="text" name="idCard"></td>
+      </tr>
+      <tr class="check">
+        <td>所在团支部：</td>
+        <td><span style="display: inline-block;"><input id="missionBranch" class="easyui-textbox" type="text" name="missionBranch" readonly><span><span class="combo-arrow"></span></span></span></td>
+      </tr>
+      <tr class="check">
+        <td id="nation_anchor">民族：</td>
+        <td><input id="nation" class="easyui-combobox" editable="false" type="text" name="nation"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="nationInfo" placeholder="请输入民族名称" class="easyui-textbox" type="text" name="nationInfo" maxlength="99"></td>
+      </tr>
+      <tr class="check">
+        <td id="politicalOutlook_anchor">政治面貌：</td>
+        <td><input id="politicalOutlook" class="easyui-combobox" editable="false" type="text" name="politicalOutlook"></td>
+      </tr>
+      <tr class="check">
+        <td id="degreeOfEducation_anchor">文化程度：</td>
+        <td><input id="degreeOfEducation" class="easyui-combobox" editable="false" type="text" name="degreeOfEducation"></td>
+      </tr>
+      <tr class="check">
+        <td id="leagueForYears_anchor">入团年月：</td>
+        <td><input id="leagueForYears" class="easyui-datebox" type="text" name="leagueForYears" data-options="editable: false"></td>
+      </tr>
+      <tr class="check">
+        <td>是否为团干部：</td>
+        <td><input id="isCadres" class="easyui-textbox" type="text" name="isCadres" value="是" readonly></td>
+      </tr>
+      <tr class="check">
+        <td>手机号码：</td>
+        <td><input id="mobile" class="easyui-textbox" type="tel" name="mobile"></td>
+      </tr>
+      <tr>
+        <th colspan="2">附加信息</th>
+      </tr>
+      <tr class="check">
+        <td>团内现任职务：</td>
+        <td><input id="incumbent" class="easyui-textbox" type="text" name="incumbent" maxlength="99" placeholder="书记/副书记……"></td>
+        <!--<td><input id="incumbent" class="easyui-combobox" editable="false" type="text" name="incumbent"></td>-->
+      </tr>
+      <tr class="check">
+        <td id="tuanganProperties_anchor">团干部性质：</td>
+        <td><input id="tuanganProperties" class="easyui-combobox" editable="false" type="text" name="tuanganProperties"></td>
+        <td class="rules tuanganProperties_rules"></td>
+      </tr>
+      <tr>
+        <td>学习工作单位：</td>
+        <td><input id="learningUnit" class="easyui-textbox" type="text" name="learningUnit" maxlength="49"></td>
+      </tr>
+      <tr>
+        <td>电子邮箱：</td>
+        <td><input id="email" class="easyui-textbox" type="email" name="email" maxlength="49"></td>
+      </tr>
+      <tr>
+        <td>QQ：</td>
+        <td><input id="qqNum" class="easyui-textbox" type="number" name="qqNum" oninput="if(value.length>19)value=value.slice(0,19)"></td>
+      </tr>
+      <tr>
+        <td>微信号：</td>
+        <td><input id="wechatId" class="easyui-textbox" type="text" name="wechatId" maxlength="24"></td>
+      </tr>
+      <tr>
+        <td>微博号：</td>
+        <td><input id="weibo" class="easyui-textbox" type="text" name="weibo" maxlength="24"></td>
+      </tr>
+      <tr>
+        <td>团员编号：</td>
+        <td><input id="developmentMemberNumber" class="easyui-textbox" type="text" name="developmentMemberNumber" maxlength="24"></td>
+      </tr>
+      <tr>
+        <td>任现职年月：</td>
+        <td><input id="dateOfDuty" class="easyui-datebox" type="text" name="dateOfDuty" data-options="editable: false, buttons: buttons"></td>
+      </tr>
+      <tr>
+        <td>是否同级党委（支部）成员：</td>
+        <td><input id="isPartyCommitteeMember" class="easyui-combobox" editable="false" type="text" name="isPartyCommitteeMember"></td>
+      </tr>
+      <tr>
+        <td>入党年月：</td>
+        <td><input id="thePartyYears" class="easyui-datebox" type="text" name="thePartyYears" data-options="editable: false, buttons: buttons"></td>
+      </tr>
+      <tr>
+        <td>注册志愿者时间：</td>
+        <td><input id="signUpForVolunteerTime" class="easyui-datebox" type="text" name="signUpForVolunteerTime" data-options="editable: false, buttons: buttons"></td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+
+<!--编辑团干-->
+<div id="dialog_edit" class="easyui-dialog mywindow" title="编辑团干" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <form id="fm_edit">
+    <table>
+      <tr>
+        <th colspan="2">基本信息(必填)</th>
+      </tr>
+      <tr>
+        <td>基本信息首次录入组织：</td>
+        <td><input id="createName_edit" class="easyui-textbox" type="text" name="createName_edit" readonly></td>
+      </tr>
+      <tr class="check">
+        <td>姓名：</td>
+        <td><input id="name_edit" class="easyui-textbox" type="text" name="name_edit" readonly></td>
+      </tr>
+      <tr class="check">
+        <td>身份证号码：</td>
+        <td><input id="idCard_edit" class="easyui-textbox" type="text" name="idCard_edit" readonly></td>
+      </tr>
+      <tr class="check">
+        <td>所在团支部：</td>
+        <!--<td><input id="missionBranch_edit" class="easyui-textbox" type="text" name="missionBranch_edit"></td>-->
+        <td><span style="display: inline-block;"><input id="missionBranch_edit" class="easyui-textbox" type="text" name="missionBranch_edit" readonly><span><span class="combo-arrow"></span></span></span></td>
+      </tr>
+      <tr class="check">
+        <td>民族：</td>
+        <td><input id="nation_edit" class="easyui-combobox" editable="false" type="text" name="nation_edit"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="nationInfo_edit" placeholder="请输入民族名称" class="easyui-textbox" type="text" name="nationInfo_edit" maxlength="99"></td>
+      </tr>
+      <tr class="check">
+        <td>政治面貌：</td>
+        <td><input id="politicalOutlook_edit" class="easyui-combobox" editable="false" type="text" name="politicalOutlook_edit"></td>
+      </tr>
+      <tr class="check">
+        <td>文化程度：</td>
+        <td><input id="degreeOfEducation_edit" class="easyui-combobox" editable="false" type="text" name="degreeOfEducation_edit"></td>
+      </tr>
+      <tr class="check">
+        <td id="rtny_edit_anchor">入团年月：</td>
+        <td><input id="leagueForYears_edit" class="easyui-datebox" type="text" name="leagueForYears_edit" data-options="editable: false"></td>
+      </tr>
+      <tr class="check">
+        <td>是否为团干部：</td>
+        <!--<td><input id="isCadres_edit" class="easyui-combobox" editable="false" type="text" name="isCadres_edit"></td>-->
+        <td><input id="isCadres_edit" class="easyui-textbox" type="text" name="isCadres_edit" value="是" readonly></td>
+      </tr>
+      <tr class="check">
+        <td>手机号码：</td>
+        <td><input id="mobile_edit" class="easyui-textbox" type="tel" name="mobile_edit"></td>
+      </tr>
+      <tr>
+        <th colspan="2">附加信息</th>
+      </tr>
+      <tr class="check">
+        <td>团内现任职务：</td>
+        <td><input id="incumbent_edit" class="easyui-textbox" type="text" name="incumbent_edit" maxlength="99"></td>
+      </tr>
+      <tr class="check">
+        <td id="tuanganProperties_edit_anchor">团干部性质：</td>
+        <td><input id="tuanganProperties_edit" class="easyui-combobox" editable="false" type="text" name="tuanganProperties_edit"></td>
+        <td class="rules tuanganProperties_rules"></td>
+      </tr>
+      <tr class="check">
+        <td id="dutyCode_edit_anchor">团干自行录入的职务：</td>
+        <td><input id="dutyCode_edit" class="easyui-combobox" editable="false" type="text" name="dutyCode_edit"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input id="dutyDesc_edit" placeholder="请输入职务名称" class="easyui-textbox" type="text" name="dutyDesc_edit" maxlength="99"></td>
+      </tr>
+      <tr>
+        <td>学习工作单位：</td>
+        <td><input id="learningUnit_edit" class="easyui-textbox" type="text" name="learningUnit_edit" maxlength="49"></td>
+      </tr>
+      <tr>
+        <td>电子邮箱：</td>
+        <td><input id="email_edit" class="easyui-textbox" type="email" name="email_edit" maxlength="49"></td>
+      </tr>
+      <tr>
+        <td>QQ：</td>
+        <td><input id="qqNum_edit" class="easyui-textbox" type="number" name="qqNum_edit" oninput="if(value.length>19)value=value.slice(0,19)"></td>
+      </tr>
+      <tr>
+        <td>微信号：</td>
+        <td><input id="wechatId_edit" class="easyui-textbox" type="text" name="wechatId_edit" maxlength="24"></td>
+      </tr>
+      <tr>
+        <td>微博号：</td>
+        <td><input id="weibo_edit" class="easyui-textbox" type="text" name="weibo_edit" maxlength="24"></td>
+      </tr>
+      <tr>
+        <td>团员编号：</td>
+        <td><input id="developmentMemberNumber_edit" class="easyui-textbox" type="text" name="developmentMemberNumber_edit" maxlength="24"></td>
+      </tr>
+      <tr>
+        <td>任现职年月：</td>
+        <td><input id="dateOfDuty_edit" class="easyui-datebox" type="text" name="dateOfDuty_edit" data-options="editable: false, buttons: buttons"></td>
+      </tr>
+      <tr>
+        <td>是否同级党委（支部）成员：</td>
+        <td><input id="isPartyCommitteeMember_edit" class="easyui-combobox" editable="false" type="text" name="isPartyCommitteeMember_edit"></td>
+      </tr>
+      <tr>
+        <td>入党年月：</td>
+        <td><input id="thePartyYears_edit" class="easyui-datebox" type="text" name="thePartyYears" data-options="editable: false, buttons: buttons"></td>
+      </tr>
+      <tr>
+        <td>注册志愿者时间：</td>
+        <td><input id="signUpForVolunteerTime_edit" class="easyui-datebox" type="text" name="signUpForVolunteerTime" data-options="editable: false, buttons: buttons"></td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<!--查看团干(新增团干,团干已存在)-->
+<div id="dialog_exist" class="easyui-dialog mywindow" title="查看团干(已存在)" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="list_box">
+    <div class="list base">
+      <div class="headline">基本信息</div>
+      <div class="content">
+        <!--<div class="item">-->
+        <!--<span class="title">职业：</span><span class="describe"></span>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="list addition">
+      <div class="headline">附加信息(仅本组织)</div>
+      <div class="content">
+        <!--<div class="item">-->
+        <!--<span class="title">职业：</span><span class="describe"></span>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="list other">
+      <div class="headline">职务信息</div>
+      <div class="content">
+        <!--<div class="item">-->
+        <!--<span class="title">职业：</span><span class="describe"></span>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="list operator">
+      <div class="headline">运营者信息</div>
+      <div class="content">
+        <!--<div class="item">-->
+        <!--<span class="title">职业：</span><span class="describe"></span>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </div>
+
+  <!--<form id="fm_exist">-->
+  <!--<table>-->
+  <!--<tr>-->
+  <!--<th colspan="2" readonly>基本信息</th>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td class="my-red">基本信息首次录入组织：</td>-->
+  <!--<td><input id="createName_exist" class="easyui-textbox my-red" type="text" name="createName" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>姓名：</td>-->
+  <!--<td><input id="name_exist" class="easyui-textbox" type="text" name="name" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>身份证号码：</td>-->
+  <!--<td><input id="idCard_exist" class="easyui-textbox" type="text" name="idCard" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>所在团支部：</td>-->
+  <!--<td><input id="missionBranchName_exist" class="easyui-textbox" type="text" name="oid" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>民族：</td>-->
+  <!--<td><input id="nation_exist" class="easyui-textbox" type="text" name="nation" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>政治面貌：</td>-->
+  <!--<td><input id="politicalOutlook_exist" class="easyui-textbox" type="text" name="politicalOutlook" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>文化程度：</td>-->
+  <!--<td><input id="degreeOfEducation_exist" class="easyui-textbox" type="text" name="degreeOfEducation" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>入团年月：</td>-->
+  <!--<td><input id="rtny_exist" class="easyui-textbox" type="text" name="rtny" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>是否为团干部：</td>-->
+  <!--<td><input id="isCadres_exist" class="easyui-textbox" type="text" name="isCadres" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<td>手机号码：</td>-->
+  <!--<td><input id="mobile_exist" class="easyui-textbox" type="text" name="mobile" readonly></td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--<th colspan="2" readonly>附加信息</th>-->
+  <!--</tr>-->
+  <!--</table>-->
+  <!--<table id="table_exist_addition"></table>-->
+  <!--</form>-->
+</div>
+
+<!--新增团干(附加信息,团干已存在)-->
+<div id="dialog_exist_optional" class="easyui-dialog mywindow" title="请录入该成员在您所在组织的附加信息" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <form id="fm_exist_optional">
+    <table>
+      <tr>
+        <th colspan="2">附加信息</th>
+      </tr>
+      <tr class="check">
+        <td>团内现任职务：</td>
+        <td><input id="incumbent_exist_optional" class="easyui-textbox" type="text" name="incumbent_exist_optional" maxlength="99"></td>
+      </tr>
+      <tr class="check">
+        <td>团干部性质：</td>
+        <td><input id="tuanganProperties_exist_optional" class="easyui-combobox" editable="false" type="text" name="tuanganProperties_exist_optional"></td>
+        <td class="rules tuanganProperties_rules"></td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<!--所在团支部 -- 模态窗口-->
+<div id="dialog_missionBranch" class="easyui-dialog" title="所在团支部" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <!--数据筛选 -- 手风琴-->
+  <div class="easyui-accordion">
+    <div title="数据筛选" data-options="collapsible: false, noheader: true"  style="padding:10px;">
+      <form onsubmit="return false">
+        <table>
+          <tr>
+            <th align="right"><label for="fullName_filter_missionBranch">团支部名称:</label></th>
+            <td><input id="fullName_filter_missionBranch" placeholder="输入组织全称（支持关键词）/ 组织ID搜索"></td>
+            <td>&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>
+              <a id="filter_missionBranch" class="button">搜索</a>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+
+  <table class="easyui-datagrid" id="datagrid_missionBranch"></table>
+</div>
+
+<!--新增运营者-->
+<div id="dialog_operator" class="easyui-dialog mywindow" title="新增运营者" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <form id="fm_operator">
+    <table>
+      <tr>
+        <td>姓名：</td>
+        <td><input id="name_cadre" class="easyui-textbox" type="text" name="name_cadre" readonly></td>
+      </tr>
+      <tr>
+        <td>手机号码：</td>
+        <td><input id="mobile_cadre" class="easyui-textbox" type="tel" name="mobile_cadre" readonly></td>
+      </tr>
+      <tr>
+        <td>身份证号码：</td>
+        <td><input id="idCard_cadre" class="easyui-textbox" type="text" name="idCard_cadre" readonly></td>
+      </tr>
+      <!--<tr>-->
+      <!--<td>所在团支部：</td>-->
+      <!--<td><input id="missionBranch_cadre" class="easyui-textbox" type="text" name="missionBranch_cadre" readonly></td>-->
+      <!--</tr>-->
+      <tr>
+        <th colspan="2">请为该团干设置登录PC端管理后台的登录密码和职位标签</th>
+      </tr>
+      <tr>
+        <td>登录账号：</td>
+        <td><input id="account_cadre" class="easyui-textbox" type="text" name="account_cadre" readonly></td>
+      </tr>
+      <tr class="check">
+        <td>登录密码：</td>
+        <td><input id="password_cadre" class="easyui-textbox" type="password" name="password_cadre" maxlength="49"></td>
+        <td><p class="declaration"><span class="password">说明</span></p></td>
+      </tr>
+      <tr class="check">
+        <td>职位标签：</td>
+        <td><input id="positionTheLabel_cadre" class="easyui-textbox" type="text" name="positionTheLabel_cadre" placeholder="如：宣传部部长、组织委员" maxlength="99"></td>
+        <td><p class="declaration"><span class="positionTheLabel">说明</span></p></td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+
+<!--批量导入团干 -- 模态窗口-->
+<div id="dialog_cadre_multiple" class="easyui-dialog mywindow" title="批量导入团干" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="uploader_file_custom_control cadre_multiple" style="margin: 20px 0;">
+    <div class="fileUrlList" style="display: none;"></div>
+    <div class="btns">
+      <div class="filePicker">选择需导入的团干名单文件</div>
+    </div>
+    <!--用来存放文件信息-->
+    <div class="fileList"></div>
+  </div>
+
+  <div id="download" style="display: inline-block;color: #00b7ee;text-decoration: underline;cursor: pointer;">导入模板下载</div>
+
+  <div class="desc" style="margin-top: 30px">
+    <div style="font-weight: bold;">说明</div>
+    <p style="line-height: 1.4;">1.点击“导入模板下载”，下载批量导入团干的excel模板</p>
+    <p style="line-height: 1.4;">2.管理员按照导入模板的格式要求填写表格</p>
+    <p style="line-height: 1.4;">3.上传完成后系统会给出上传结果的提示，若导入失败系统会提示错误数据所在行及失败原因。</p>
+    <p style="line-height: 1.4;">4.上传失败的数据须重新导入，下载系统反馈的含有失败原因的Excel表格，管理员可以根据提示进行修改并重新上传。</p>
+  </div>
+
+</div>
+
+<style>
+  #dialog_cadre_multiple_fail .panel .panel-body .datagrid .datagrid-wrap.panel-body .datagrid-view {
+    border-left: 1px solid #c4c4c4;
+  }
+</style>
+<!--批量导入团干失败 -- 模态窗口-->
+<div id="dialog_cadre_multiple_fail" class="easyui-dialog" title="批量导入团干失败" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <table class="easyui-datagrid" id="datagrid_cadre_multiple_fail"></table>
+</div>
+
+
+<!--规则(操作按钮说明) -- 模态窗口-->
+<div id="dialog_rules_operation_button" class="easyui-dialog" title="操作按钮说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="dialog_rules">
+    <p><span style="font-weight: bold;">启用：</span>启用状态下的团干将被允许进入微信企业号查看管理本组织业务。</p>
+    <p><span style="font-weight: bold;">禁用：</span>禁用状态下的团干将不被允许在微信企业号中进入本组织。</p>
+    <p><span style="font-weight: bold;">删除：</span>如成员在多个组织担任团干，则只删除TA在本组织的团干职务，在其他组织的团干职务将不受影响。</p>
+    <p><span style="font-weight: bold;">设置运营者：</span>运营者即为组织中管理团务的干部，支部一般为团支书，被设为运营者后：
+      <br/>1.与组织账号一样，具有审核权限，普通团干只有查看权限；
+      <br/>2.可通过手机号登录后台管理网站（tuan.12355.net）；
+      <br/>一个团干只能在一个组织担任运营者，设置团干为运营者时请确保TA没有在其他组织担任运营者</p>
+    <p><span style="font-weight: bold;">取消运营者：</span>运营者身份被取消后，TA将不能登录后台管理本组织业务，且在智慧团建微信企业号没有审核权限！</p>
+    <br/>
+    <p style="font-weight: bold; margin-left: 17px;">团干入驻企业号二维码</p>
+    <img src="../../public/img/QR_enterprise.png">
+  </div>
+</div>
+
+<!--规则(实名认证状态说明) -- 模态窗口-->
+<div id="dialog_rules_realName" class="easyui-dialog" title="实名认证状态说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="dialog_rules">
+    <!--<p>团干身份证号的实名校验，认证状态结果只做上下级组织间的视察工作需要，不影响到该板块 检验中请耐心等待检验结果不超过24小时，不必对其进行操作 团干的正常业务。</p>-->
+    <p>团干身份证号的实名校验，认证状态结果只做上下级组织间的视察工作需要，不影响到该板块团干的正常业务。 校验中请耐心等待，不必对其进行操作。如果是校验失败，可能是身份信息录入错误，可以删除后重新录入。</p>
+  </div>
+</div>
+
+<!--规则(登录密码说明) -- 模态窗口-->
+<div id="dialog_rules_password" class="easyui-dialog" title="登录密码说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="dialog_rules">
+    <p>请牢记您设置的登录密码，并及时告诉该团干！</p>
+  </div>
+</div>
+
+<!--规则(职位标签说明) -- 模态窗口-->
+<div id="dialog_rules_positionTheLabel" class="easyui-dialog" title="职位标签说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="dialog_rules">
+    <p>职位标签是指该团干操作本组织业务时对外公布的职位信息。运营者在后台操作的所有业务，将以“组织名称+职位标签+团干真实姓名”（例：团广州市委宣传部主任科员刘星）的形式显示在系统相关页面。</p>
+  </div>
+</div>
+
+
+<!--规则(团干部性质) -- 模态窗口-->
+<div id="dialog_tuanganProperties_rules" class="easyui-dialog" title="团干部性质" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div>
+    <p>专职团干部是指由单位正式工作人员担任的、职级待遇根据团的岗位确定、以团的工作为主要任务的团干部。如，各级团的领导机关正式工作人员，乡镇（街道）团委书记，部分高校、机关事业单位、国有企业等单位的专职团干部。</p>
+    <p>兼职团干部是指以团的工作为辅，在团内兼职的团干部（学生团干部均为兼职团干部）。</p>
+    <p>挂职团干部是指在各级团的领导机关挂任职务时间1年以上的工作人员。</p>
+  </div>
+</div>
+
+</body>
+</html>

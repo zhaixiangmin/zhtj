@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>团员管理-我的团员</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/css/league_member/league_member.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/LeagueMemberApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/league_member/member_retreat_overage.js"></script>
+</head>
+<body>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 46px;overflow: hidden;" id="north_region">
+        <!--<div>查询条件</div>-->
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form onsubmit="return false">
+                    <table>
+                        <tr>
+                            <th><label for="name_filter">姓名:</label></th>
+                            <td><input id="name_filter" class="easyui-text" editable="false" name="name_filter"></td>
+                            <th><label for="mobile_filter">手机号码:</label></th>
+                            <td><input id="mobile_filter" class="easyui-text" editable="false" name="mobile_filter"></td>
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;" id="center_region">
+        <!--团员管理-->
+        <table class="easyui-datagrid" id="league_menber" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+
+<style>
+    .panel.window>.panel-body .panel .panel-body form#fm_restoration table tr td:first-child {
+        width: 170px;
+    }
+</style>
+<!--恢复团籍 -- 模态窗口-->
+<div id="dialog_restoration" class="easyui-dialog mywindow" title="恢复团籍" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box">
+        <div class="list base">
+            <!--<div class="headline">基本信息</div>-->
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">上级组织：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+
+    <form id="fm_restoration">
+        <table style="margin-left: 35px;">
+            <tr class="check">
+                <td>选择恢复团籍到哪个团支部：</td>
+                <td id="oid_restoration_box"><span style="display: inline-block;"><input id="oid_restoration" class="easyui-textbox" type="text" name="oid_restoration" readonly><span><span class="combo-arrow"></span></span></span></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--选择团支部 -- 模态窗口-->
+<div id="dialog_missionBranch" class="easyui-dialog" title="选择团支部" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+        <div title="数据筛选" data-options="collapsible: false, noheader: true"  style="padding:10px;">
+            <form onsubmit="return false">
+                <table>
+                    <tr>
+                        <th align="right"><label for="fullName_filter_missionBranch">团支部名称:</label></th>
+                        <td><input id="fullName_filter_missionBranch" placeholder="输入组织全称（支持关键词）/ 组织ID搜索"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <a id="filter_missionBranch" class="button">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <table class="easyui-datagrid" id="datagrid_missionBranch"></table>
+</div>
+
+<!--查看照片 -- 模态窗口-->
+<div id="dialog_picture" class="easyui-dialog" title="查看图片" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box" style="margin: 0;width: auto;">
+        <div class="list attachment clearfix">
+            <!--<div class="img_box"><img src="http://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/activityImage/20170329/20170329164430_761微信图片_20170329164724.jpg"></div>-->
+        </div>
+    </div>
+</div>
+
+<!--大图-->
+<div class="maskBox">
+    <img src="" title="点击可关闭">
+</div>
+
+</body>
+</html>

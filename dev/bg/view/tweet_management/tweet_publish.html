@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>推文发布</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_custom_control.css"/>
+    <link rel="stylesheet" href="../../public/css/tweet_management/tweet_publish.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/TweetManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script src="../../public/vendor/webuploader/uploader_custom_control.js"></script>
+    <script src="../../public/js/tweet_management/tweet_publish.js"></script>
+</head>
+<body>
+
+<div class="list_box">
+    <div class="list">
+        <!--<div class="item_box check-icon"><div class="item name">类型：</div><label data-name="type" data-id="1" class="checkbox"><i></i><span>精华</span></label><label data-name="type" data-id="2" class="checkbox"><i></i><span>本地</span></label></div>-->
+        <div class="item_box check-icon"><div class="item name">类型：</div><div class="item type" id="type"></div></div>
+        <div class="item_box check-icon"><div class="item name">标题：</div><div class="item content"><input type="text" id="title"></div></div>
+        <div class="item_box check-icon"><div class="item name">推文链接：</div><div class="item content"><input type="text" id="linkUrl"></div></div>
+        <div class="item_box">
+            <div class="item name">上传图片：</div>
+            <div class="item" style="height: auto;">
+                <!--上传插件-->
+                <div class="uploader_custom_control tweet_image" style="width: 600px;"></div>
+            </div>
+        </div>
+        <div class="tips">只支持jpg、png、gif，建议尺寸370×165</div>
+        <a class="button_preview" href="" target="nfrm">预览正文</a>
+        <iframe class="iframe" name="nfrm" src="about:blank"></iframe>
+    </div>
+</div>
+
+
+
+<div class="button" id="confirm">确定</div>
+
+</body>
+</html>

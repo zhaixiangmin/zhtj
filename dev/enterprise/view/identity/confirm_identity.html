@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>确认企业号代称</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/identity/confirm_identity.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/IdentityApi.js"></script>
+    <script type="text/javascript" src="../../public/js/identity/confirm_identity.js"></script>
+</head>
+<body>
+<div class="headline">您所属团组织的企业号代称</div>
+
+<a href="javascript:;" class="remind_info_box clearfix">
+    <p class="remind_info_txt">同一直属上级的组织，企业微信名称不可重名。</p>
+</a>
+
+<div class="input_box"><input placeholder="请输入企业代称" type="text" id="enterpriseName" maxlength="16" autofocus="autofocus"></div>
+<ul class="list">
+    <li class="item clearfix">
+        <span class="name">您的组织全称</span>
+        <span class="text" id="fullName">中国共产主义青年团汕头市经房间都是开发阶段快速减肥的精神</span>
+    </li>
+    <li class="item clearfix">
+        <span class="name">您的组织简称</span>
+        <span class="text" id="name">中国共产主义青年团汕头市经房间都是开发阶段快速减肥的精神</span>
+    </li>
+    <!--<li class="item clearfix">-->
+        <!--<span class="name">代称命名规则</span>-->
+        <!--<span class="text">直接使用本级单位/区划命名，无需包含组织层级(因微信限制，长度不能超过16字且不可有\:?”<>｜等特殊字符）。具体如下：-->
+        <!--<br/>1. 团的领导机关（即省、市、县三级团委）代称为“团+行政区划名称+委”，如：团广州市委、团天河区委，等。-->
+        <!--<br/>2. 基层团组织（即非团的领导机关的其他团组织，不含团工委）代称为“单位/本级行政区划名称+团委/团总支/团支部”，如：新河浦社区团团支部、娃哈哈集团团委、中山大学团委等。-->
+        <!--<br/>3.学校的班级团支部代称为“（专业）入学年份+班号+团支部”，如：新闻学专业本科2017级三班团支部；此外，中学的班级团支部不需要填写专业名称，如：初中2015级二班团支部。-->
+        <!--<br/>4.团工委的代称一般为“单位名称+团工委”，例如：广东省直机关团工委、珠海市司法局团工委、南沙街道团工委。如有其他情况，根据实际，由该团工委商直接上级团组织决定，例如：湖南省驻粤团工委等。-->
+        <!--</span>-->
+    <!--</li>-->
+</ul>
+
+<div class="rules_box">
+    <div class="title">代称命名规则</div>
+    <p class="describe">
+        直接使用本级单位/区划命名，无需包含组织层级(因微信限制，长度不能超过16字且不可有\:?”<>｜等特殊字符）。具体如下：
+        <br/>1. 团的领导机关（即省、市、县三级团委）代称为“团+行政区划名称+委”，如：团广州市委、团天河区委，等。
+        <br/>2. 基层团组织（即非团的领导机关的其他团组织，不含团工委）代称为“单位/本级行政区划名称+团委/团总支/团支部”，如：新河浦社区团团支部、娃哈哈集团团委、中山大学团委等。
+        <br/>3.学校的班级团支部代称为“（专业）入学年份+班号+团支部”，如：新闻学专业本科2017级三班团支部；此外，中学的班级团支部不需要填写专业名称，如：初中2015级二班团支部。
+        <br/>4.团工委的代称一般为“单位名称+团工委”，例如：广东省直机关团工委、珠海市司法局团工委、南沙街道团工委。如有其他情况，根据实际，由该团工委商直接上级团组织决定，例如：湖南省驻粤团工委等。
+    </p>
+</div>
+
+<!-- 下一步、提交按钮 -->
+<a href="javascript:;" class="bot_big_btn" id="confirm">确定</a>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+/* 组织关系转接记录 */
+#transferRecord .ul_li{background-color: #fff;padding:0.5rem 0.6rem 0.7rem;margin-bottom:0.6rem;}
+#transferRecord .ul_li .left_pic{width:2.4rem;height:2.5rem;overflow: hidden;float: left;}
+#transferRecord .ul_li .left_pic img{width:100%;height:100%;}
+#transferRecord .ul_li .record_text{padding-left:4.1rem;}
+#transferRecord .ul_li .record_text .org_name{font-size:0.6rem;color:#333;line-height:0.6rem;position: relative;margin-bottom:0.4rem;}
+#transferRecord .ul_li .record_text .org_name:before{position: absolute;left:-1rem;top:50%;transform:translateY(-50%);width:0.6rem;height:0.6rem;background-image: url(../../img/spirit1.png);background-repeat:no-repeat;background-size:6rem;content:'';}
+#transferRecord .ul_li .prev_org:before{background-position:-1.28rem -3.84rem;}
+#transferRecord .ul_li .next_org:before{background-position:-1.28rem -4.64rem;}
+#transferRecord .ul_li .record_text .reason{line-height:0.48rem;color:#999;font-size:0.48rem;margin-bottom:0.4rem;}
+#transferRecord .ul_li .record_text .process{font-size:0.56rem;color:#c10021;}
+
+/* 转接原因 */
+#transferReason .ul_li{background-color: #fff;height:2rem;line-height:2rem;border-bottom:1px solid #f2f2f2;padding:0 0.6rem;font-size:0.68rem;color:#333;}
+#transferReason .ul_li:last-child{border-bottom:0 none;}
+#transferReason .ul_li.chosen{position: relative;}
+#transferReason .ul_li.chosen:before{position: absolute;content:'';right:0.6rem;top:50%;transform:translateY(-50%);width:0.72rem;height:0.72rem;background:url(../../img/spirit1.png) no-repeat -5rem -2.6rem;background-size:6rem;}
+#transferReason .other_reason{background-color: #e7e7e7;padding:0.2rem 0.4rem;color:#333;font-size:0.56rem;width:100%;box-sizing:border-box;height:5.2rem;display:none;}
+
+/*!* 选择组织 *!*/
+/*#orgChosen .search_box{margin:0.6rem;background-color: #f2f2f2;border-radius:0.2rem;height:1.76rem;position: relative;padding-left:0.4rem;padding-right:1.62rem;margin-bottom:0.6rem;}*/
+/*#orgChosen .search_box .input{width:100%;height:100%;line-height:1.76rem;color:#333;font-size:0.72rem;background-color:transparent;}*/
+/*#orgChosen .search_box .search_btn{position: absolute;right:0;top:0;width:1.62rem;height:100%;}*/
+/*#orgChosen .search_box .search_btn:before{position: absolute;width:0.82rem;height:0.82rem;background:url(../../img/spirit1.png) no-repeat -3.84rem -2.56rem;background-size:6rem;content:'';left:50%;top:50%;transform:translate(-50%,-50%);}*/
+/*#orgChosen .search_total{line-height:0.56rem;font-size:0.56rem;color:#666;margin:0 0.6rem 0.6rem;}*/
+/*#orgChosen .ul_li{line-height:1.4;font-size:0.68rem;color:#333;padding:0.5rem 0.6rem;border-bottom:1px solid #f2f2f2;}*/
+/*#orgChosen .ul_li:last-child{border-bottom:0 none;}*/
+
+
+/* 输入搜索框 */
+#orgChosen .search_sec{padding:0.6rem;background-color:#fff;}
+#orgChosen .search_sec .search_box{margin:0;}
+#orgChosen .search_box{position: relative;margin:0 0.6rem;border-radius:0.2rem;height:1.76rem;padding-left:0.4rem;padding-right:1.6rem;background-color: #f2f2f2;}
+#orgChosen .search_box .search_input{display:block;width:100%;height:100%;line-height:1.76rem;font-size:0.72rem;background-color:transparent;}
+#orgChosen .search_box .sea_btn{position: absolute;right:0;width:1.6rem;height:1.76rem;top:0;}
+#orgChosen .search_box .sea_btn:before{width:0.8rem;height:0.8rem;position: absolute;content:"";background:url(../../img/spirit1.png) no-repeat -3.84rem -2.56rem;background-size:6rem;transform:translate(-50%,-50%);left:50%;top:50%;}
+#orgChosen .ul_li{line-height:1.4;font-size:0.68rem;color:#333;padding:0.5rem 0.6rem;border-bottom:1px solid #f2f2f2;background: #fff;}
+#orgChosen .ul_li:last-child{border-bottom:0 none;}
+
+/* 组织关系转接 */
+/* 选择 - 弹窗 */
+#orgRelaTransfer .bot_links{text-align: center;}
+#orgRelaTransfer .bot_links .link{display:inline-block;padding:0 0.52rem;line-height:0.52rem;color:#666;font-size:0.52rem;}
+#orgRelaTransfer .bot_links .link.borderR{border-right:1px solid #999;}
+.select_popup{position: fixed;background-color:rgba(0,0,0,.3);left:0;top:0;width:100%;height:100%;z-index:9999;display:none;}
+.select_popup .select_list{position: absolute;bottom:0;left:0;background-color: #fff;width:100%;max-height:7rem;overflow-y:auto;}
+.select_popup .select_list .select_item{height:1.6rem;line-height:1.6rem;text-align: center;color:#333;font-size:0.56rem;border-bottom:1px solid #f2f2f2;}
+.select_popup .select_list .select_item:active{background-color: #33cc33;color:#fff;}
+.select_popup .select_list .select_item:last-child{border-bottom:0 none;}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>团费详情</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/css/fee_management/credentials_send.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/FeeManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/fee_management/fee_query_detail.js"></script>
+</head>
+<body>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 150px;overflow: hidden;">
+        <!--<div>查询条件</div>-->
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form method="post">
+                    <table>
+                        <tr>
+                            <th><label for="month_filter">日期:</label></th>
+                            <td><input id="month_filter" class="easyui-datebox" editable="false" name="month_filter"></td>
+                            <th><label for="mobile_filter">手机号码:</label></th>
+                            <td><input id="mobile_filter" class="easyui-text" editable="false" name="mobile_filter"></td>
+                            <th><label for="status_filter">交纳状态:</label></th>
+                            <td><input id="status_filter" class="easyui-combobox" editable="false" name="status_filter"></td>
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="declaration" style="margin-top: 5px;">
+            <i class="download" id="download">导出本页数据</i>
+        </div>
+        <div style="margin-top: 20px;margin-left: 10px;font-size: 14px;">
+            <div>组织名称：<span id="name"></span></div>
+            <ul style="margin-top: 10px;clear: both;">
+                <li style="float: left;margin-right: 10px;">组织团员总数：<span id="realTotal"></span>人</li>
+                <li style="float: left;margin-right: 10px;">当月应交费团员数：<span id="total"></span>人</li>
+                <li style="float: left;margin-right: 10px;">已交纳：<span id="paidIn"></span>人</li>
+                <li style="float: left;margin-right: 10px;">未交纳：<span id="unpaid"></span>人</li>
+                <li style="float: left;margin-right: 10px;">交纳总额：<span id="paidInAmount"></span>元</li>
+                <li style="float: left;margin-right: 10px;"><span id="ask_icon" style="background: url(../../public/img/nav-ask-999.png) no-repeat center; display: inline-block; width: 20px; height: 20px; cursor: pointer;"></span></li>
+            </ul>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--交费详情-->
+        <table class="easyui-datagrid" id="datagrid_fee_detail" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+</body>
+</html>

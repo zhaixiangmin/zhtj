@@ -1,0 +1,56 @@
+input{padding: 0;font-size: 12px;font-weight: normal;}
+input:focus{outline: none;}
+div{box-sizing: border-box;}
+textarea:focus{outline: none;}
+
+.checkbox_parent{margin-left: 85px;}
+label.checkbox{
+    display: inline-block;
+    padding-right: 20px;
+    cursor: pointer;
+}
+label.checkbox span{
+    display: inline-block;
+    vertical-align: middle;
+}
+label.checkbox i{
+    background: url(../../img/check.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+label.checkbox.active i{
+    background-image: url(../../img/check-active.png);
+}
+.searchbox {
+    background: url("../../img/search.png") no-repeat 5px center;
+    padding-left: 36px;
+    height: 30px;
+    width: 400px;
+    border: 1px solid #c4c4c4;
+}
+
+.check-icon:before {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    content: '*';
+    color: red;
+}
+/*.list_box{font-size: 14px;font-weight: bold;}*/
+.list_box{font-size: 14px;}
+.list_box .list .item_box{position: relative;margin-top: 20px;padding-left: 10px;}
+.list_box .list .item_box .item{display: inline-block;width: 600px;height: 30px;line-height: 30px;vertical-align: top;}
+.list_box .list .item_box .item.name{width: 85px;font-weight: bold;}
+.list_box .list .item_box .item.content{border: 1px solid #c4c4c4;padding: 0 5px;}
+.list_box .list .item_box .item.content input{border: none;width: 100%;height: 100%;vertical-align: top;}
+.list_box .list .item_box .item.content.higher{height: 280px;}
+.list_box .list .item_box .item.content.higher textarea{padding: 0; width: 100%; height: 100%;text-indent: 24px; border: none;}
+.list_box .list .item_box .item.img_list{height: auto;}
+
+.tips{margin: 10px 95px; height: 30px; line-height: 30px;font-size: 12px;color: #999;}
+.iframe{margin-left: 95px;display: none;width: 600px;height: 400px;border: 1px solid #ccc;}
+.button{margin: 50px 95px;width: 60px;height: 30px;line-height: 30px;text-align: center;font-size: 12px;color: #fff;background: #db4254;border-radius: 5px;cursor: pointer;}
+.button_preview{display: block;margin: 10px 95px;width: 100px;height: 30px;line-height: 30px;text-align: center;font-size: 12px;color: #fff;text-decoration: none;background: #db4254;border-radius: 5px;cursor: pointer;}

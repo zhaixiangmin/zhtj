@@ -1,0 +1,20 @@
+body {
+    background: #fff;
+}
+.content_box {
+    margin: 0.6rem;
+}
+.title {
+    line-height: 0.8rem;
+    font-size: 0.56rem;
+    font-weight: bold;
+    color: #333;
+}
+.text {
+    line-height: 0.8rem;
+    font-size: 0.52rem;
+    color: #333;
+}
+a{
+    color: #528cd8;
+}

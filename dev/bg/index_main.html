@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>首页</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="public/vendor/easyui/themes/icon.css" />
+  <link rel="stylesheet" href="public/vendor/easyui/themes/default/easyui.css" />
+  <link rel="stylesheet" href="public/custom/easyui_secondary.css"/>
+  <link rel="stylesheet" href="public/css/common/base.css" />
+  <link rel="stylesheet" href="public/css/index/index_main.css">
+  <!--分页插件css-->
+  <!--<link rel="stylesheet" type="text/css" href="public/custom/page.css" />-->
+  <script src="public/vendor/jquery/jquery-1.8.3.min.js"></script>
+  <script src="public/vendor/easyui/jquery.easyui.min.js"></script>
+  <script src="public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+  <!--弹出框-->
+  <script src="public/custom/dialog.js"></script>
+  <script type="text/javascript" src="public/js/module/League.js"></script>
+  <script src="public/js/module/NoticeManagementApi.js"></script>
+  <script src="public/js/module/MessageApi.js"></script>
+  <script type="text/javascript" src="public/js/module/Utils.js"></script>
+  <!--分页插件 js-->
+  <!--<script type="text/javascript" src="public/custom/page.js"></script>-->
+  <script type="text/javascript" src="public/js/index/index_main.js"></script>
+</head>
+
+<body style="width: 100%;">
+
+<!--页头-->
+<div class="header-box">
+  <div class="header">
+    <div class="content">
+      <a class="logo">
+        <img src="public/img/logo.png">
+      </a>
+      <div class="right-side">
+        <div class="helpCenter" id="helpCenter">帮助中心</div>
+        <div class="name" id="name_header"></div>
+        <div class="message" id="message">
+          <div class="txt">消息</div>
+          <div class="message_tips_box" style="display: none;">
+            <div class="message_tips">
+              <span class="message_num"></span> 条新站内信，点击查看
+            </div>
+            <div class="corner"></div>
+            <div class="corner-outline"></div>
+          </div>
+        </div>
+        <div class="exit" id="exitLogin">安全退出</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--用户信息/导航菜单/标签面板-->
+<div class="west left-side-bar" style="position: absolute;" >
+  <div class="user">
+    <div class="content">
+      <div class="photoBox">
+        <a><img src="public/img/league-badge.png" /> </a>
+      </div>
+      <div class="detail">
+        <div class="identity">
+          <div class="type">登录者</div>
+          <div class="real-name" id="role"></div>
+        </div><div class="time-box">
+        <div class="text">组织类型</div>
+        <div class="time" id="type"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!--导航菜单-->
+  <div id="nav" class="easyui-accordion" data-options="border:false,animate: true">
+    <!--菜单列表-->
+  </div>
+</div>
+
+<!--标签面板-->
+<div style="margin-left: 260px;min-width: 940px;">
+  <!--主面板-->
+  <div id="tabs" class="center easyui-tabs" style="height: 780px;">
+    <div title="首页">
+      <div class="tab_box">
+        <div class="tab_box_title"><span id="name_role"></span>，你好</div>
+        <div class="middle_box">
+          <div class="undo_box">
+            <div class="undo_title">待办事项</div>
+            <ul class="undo_list">
+              <li class="undo_item registration" id="undo_registration">
+                <i class="icon"></i><span>团员报到审核</span>
+                <!--<span>有新事项需要审核</span>-->
+              </li>
+              <li class="undo_item relation" id="undo_relation">
+                <i class="icon"></i><span>组织关系转接审核</span>
+                <!--<span>有新事项需要审核</span>-->
+              </li>
+              <li class="undo_item rewards" id="undo_rewards">
+                <i class="icon"></i><span>团员奖励审核</span>
+                <!--<span>有新事项需要审核</span>-->
+              </li>
+            </ul>
+          </div>
+          <div class="fast_access">
+            <div class="fast_access_part">
+              <div class="access organization" id="access_organization">
+                <div class="foreground">组织</div>
+                <!--<span class="num">150</span>-->
+                <!--<span class="title">组织</span>-->
+                <p>组织</p>
+              </div><div class="access cadre" id="access_cadre">
+              <div class="foreground">团干</div>
+              <!--<span class="num">120</span>-->
+              <!--<span class="title">团干</span>-->
+              <p>团干</p>
+            </div><div class="access member" id="access_member">
+              <div class="foreground">团员</div>
+              <!--<span class="num">2000</span>-->
+              <!--<span class="title">团员</span>-->
+              <p>团员</p>
+            </div>
+            </div>
+            <div class="fast_access_part">
+              <div class="access fee" id="access_fee">
+                <div class="foreground">团费</div>
+                <!--<span class="num">426万+</span>-->
+                <!--<span class="title">团费</span>-->
+                <p>团费</p>
+              </div><div class="access relation" id="access_relation">
+              <div class="foreground">转接审核</div>
+              <p>转接审核</p>
+            </div><div class="access more" id="access_more">
+              <div class="foreground">更多统计</div>
+              <p>更多统计</p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="notice_box">
+          <div class="notice_title_box">
+            <div class="title">公告</div>
+            <div class="more">更多</div>
+          </div>
+          <ul class="notice_list">
+            <!--公告列表-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!--底部-->
+<div class="bottom_footer" style="padding-top: 50px;border: none;background: #f4f4f4;">
+  <p class="p" style="line-height:24px;color:#999;text-align: center;"><a style="color: #999;" href="http://www.gdcyl.org/Index.html" target="_blank">广东共青团</a> | <a style="color: #999;" href="https://www.12355.net/" target="_blank">广东青年之声</a> | <a style="color: #999;" href="https://www.gdzyz.cn/" target="_blank">i志愿</a> | <a style="color: #999;" href="https://www.izhanchi.com/Home" target="_blank">易展翅</a></p>
+  <p class="p" style="line-height:24px;color:#999;text-align: center;">地址：广州市越秀区寺贝通津1号大院 邮编：510080</p>
+  <p class="p" style="line-height:24px;color:#999;text-align: center;">版权所有：共青团广东省委员会 | <a style="color: #999;" href="http://www.miibeian.gov.cn/" target="_blank">粤ICP备10214402号-4</a></p>
+</div>
+
+</body>
+</html>

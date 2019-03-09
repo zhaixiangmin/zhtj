@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>编辑</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/information/league-membership-common.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/InformationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/information/authentication_data_editing3.js"></script>
+</head>
+<body>
+    <section class="info_box mt_30">
+        <ul class="info_list">
+            <li class="info_item_input" id="developmentMemberNumber"><!-- 团员编号 -->
+                <span class="info_item_title">团员编号</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入团员编号" /></div>
+            </li>
+            <li class="info_item" id="occupation"><!-- 职业 -->
+                <span class="info_item_title">职业</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item_input" id="learningUnit"><!-- 工作单位 -->
+                <span class="info_item_title">工作单位</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入工作单位" /></div>
+            </li>
+            <li class="info_item_input" id="email"><!-- 电子邮箱 -->
+                <span class="info_item_title">电子邮箱</span>
+                <div class="right_input_box"><input type="email" class="right_input" placeholder="请输入电子邮箱" /></div>
+            </li>
+            <li class="info_item_input" id="qqNum"><!-- QQ -->
+                <span class="info_item_title">QQ</span>
+                <div class="right_input_box"><input type="number" class="right_input" placeholder="请输入QQ号" /></div>
+            </li>
+            <li class="info_item_input" id="wechatId"><!-- 微信号 -->
+                <span class="info_item_title">微信号</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入微信号" /></div>
+            </li>
+            <li class="info_item_input" id="weibo"><!-- 微博号 -->
+                <span class="info_item_title">微博号</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入微博号" /></div>
+            </li>
+            <li class="info_item" id="rdny"><!-- 入党年月 -->
+                <span class="info_item_title">入党年月</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="zczyzsj"><!-- 注册志愿者时间 -->
+                <span class="info_item_title">注册志愿者时间</span>
+                <span class="arrow">请选择</span>
+            </li>
+        </ul>
+    </section>
+    <!-- 下一步、提交按钮 -->
+    <a href="javascript:;" class="bot_big_btn">提交</a>
+
+    <!-- 选择 - 弹窗 -->
+    <section class="select_popup">
+        <ul class="select_list"></ul>
+    </section>
+    <!-- 选择 - 弹窗 -->
+
+    <!-- 选择 - 弹窗 - 两边 -->
+    <section class="select_popup_pair">
+        <div class="clear clearfix">清空</div>
+        <ul class="select_list_pair select_list_pair_left"></ul>
+        <ul class="select_list_pair select_list_pair_right"></ul>
+    </section>
+    <!-- 选择 - 弹窗 - 两边  -->
+
+    <!--&lt;!&ndash;日期选择器插件&ndash;&gt;-->
+    <!--<div id="datepicker"></div>-->
+
+</body>
+</html>

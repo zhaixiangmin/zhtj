@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交费设置</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/css/fee_management/fee_setting.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/FeeManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/fee_management/fee_setting.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="title">
+        <div class="item">设置团员的收入情况</div>
+        <div class="item">设置每月应交金额</div>
+    </div>
+    <div class="list">
+        <div class="item_box"><div class="item name">学生档位：</div><div class="item describe"><input type="text"></div><div class="item amount"><input type="number"></div><div class="add"></div><div class="delete"></div></div>
+        <div class="item_box"><div class="item name">农民档位：</div><div class="item describe"><input type="text"></div><div class="item amount"><input type="number"></div></div>
+        <div class="item_box"><div class="item name">收入档<span>1</span>：</div><div class="item describe"><input type="text"></div><div class="item amount"><input type="number"></div></div>
+    </div>
+</div>
+
+<div class="my-red" style="margin-top: 20px; font-size: 12px;">注：所填写的团员收入情况将同步在团员报到申请的收入选择项中，设置的每月应交金额将影响团员每个月的团费交纳额。一旦填写错误，团员交错的团费额将无法补交或退还，请严格谨慎操作！</div>
+
+<div class="button">确定</div>
+</body>
+</html>

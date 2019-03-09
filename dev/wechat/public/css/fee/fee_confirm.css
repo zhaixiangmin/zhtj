@@ -1,0 +1,32 @@
+/* 团费交纳板块共用  */
+.common_section{height:9.32rem;background: #fff;background-size:100%;}
+
+.common_section .center_txt{padding-top:1.88rem;text-align: center;color:#fff;}
+.common_section .center_txt .t1{font-size:0.48rem;color:#999;}
+.common_section .center_txt .t2{margin:0.2rem 0 0.5rem;line-height:2rem;font-size:2rem;color:#333;}
+.common_section .center_txt .t3{font-size:0.56rem;color:#333;}
+
+/*.common_section{background:#fff;}*/
+/*.common_section .center_txt .t1{color:#999;}*/
+/*.common_section .center_txt .t2{color:#333;}*/
+/*.common_section .center_txt .t3{color:#333;}*/
+.sec1 .title{color:#333;font-size:0.72rem;line-height:1.92rem;padding:0 0.6rem;}
+.sec1 .con{color:#333;font-size:0.68rem;line-height:2rem;background-color: #fff;padding:0 0.6rem;}
+.sec1 .con .left{float: left;}
+.sec1 .con .right{float: right;}
+.pay_way .left{padding-left:1.68rem;background:url(../../img/wechat.png) no-repeat left center;background-size: 1.2rem;}
+.pay_way .right{padding-top:0.8rem;}
+.pay_way .right:before{content: '';background:url(../../img/spirit1.png) no-repeat -4.6rem -1.4rem;background-size:6rem;height:0.4rem;width:0.24rem;display:block;}
+
+.popup_box .popup_center{height:7.48rem;}
+.popup_box .popup_center p{color:#333;font-size:0.72rem;padding-top:1.8rem;text-align: center;}
+
+/* 底部大按钮 */
+/*.bot_big_btn{display:block;margin:1.6rem 0.6rem 0;background-color:#D94453;height:2rem;line-height:2rem;color:#fff;border-radius:0.2rem;font-size:0.72rem;text-align: center;}*/
+
+
+/* 双按钮 */
+.two_btns_box{text-align: center;margin:0 0.3rem;font-size:0;margin-top:1rem;}
+.two_btns_box .btn{display:inline-block;width:6.5rem;height:2rem;line-height:2rem;font-size:0.72rem;border-radius:0.2rem;margin:0 0.3rem;color:#fff;}
+.two_btns_box .btn.bgc1{background-color:#D94453;}
+.two_btns_box .btn.bgc2{background-color:#cecece;}

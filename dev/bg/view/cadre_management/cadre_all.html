@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有下级团干</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/CadreManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/cadre_management/cadre_all.js"></script>
+</head>
+<body>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 85px;overflow: hidden;">
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form onsubmit="return false">
+                    <table>
+                        <tr>
+                            <th><label for="disabled_filter">状态:</label></th>
+                            <td><input id="disabled_filter" class="easyui-combobox" editable="false" name="type"></td>
+                            <!--<td>&nbsp;&nbsp;</td>-->
+                            <th><label for="name_filter">姓名:</label></th>
+                            <td><input id="name_filter"></td>
+                            <!--<td>&nbsp;&nbsp;</td>-->
+                            <!--<td>&nbsp;&nbsp;</td>-->
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="filter">
+                        <div class="filter_box oid_filter">
+                            <label style="color: #333; font-weight: bold;">团干所属组织:</label>
+                            <div class="search_box">
+                                <input type="text" id="oid_filter" readonly><i id="oid_filter_icon" class="search_icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div data-options="region:'center'" style="margin-left: 1px;border: 0;">
+        <!--团干管理-->
+        <table class="easyui-datagrid" id="cadre_management" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+
+<!--选择组织 -- 模态窗口-->
+<div id="dialog_organization" class="easyui-dialog" title="选择组织" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+        <div title="数据筛选" data-options="collapsible: false, noheader: true"  style="padding:10px;">
+            <form onsubmit="return false">
+                <table>
+                    <tr>
+                        <th align="right"><label for="fullName_filter">组织名称:</label></th>
+                        <td><input id="fullName_filter" placeholder="请输入组织全称/组织ID"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <a id="search_filter" class="button">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <table class="easyui-datagrid" id="datagrid_organization"></table>
+</div>
+
+
+
+<!--查看团干 -- 模态窗口-->
+<div id="dialog_view" class="easyui-dialog mywindow" title="查看团干" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box">
+        <div class="list base">
+            <div class="headline">基本信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list addition">
+            <div class="headline">附加信息(仅本组织)</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list other">
+            <div class="headline">职务信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list operator">
+            <div class="headline">运营者信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

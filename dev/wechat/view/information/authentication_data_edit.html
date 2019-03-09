@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>我的认证资料</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/information/authentication_data_edit.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/InformationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/information/authentication_data_edit.js"></script>
+</head>
+<body id="authDataEdit">
+<div class="tab_box mb_30 clearfix">
+    <div class="tab_item">报到资料</div>
+    <div class="tab_item">奖惩信息</div>
+</div>
+
+<!-- TA的报到资料 -->
+<div class="big_block big_block1" style="display:none;">
+    <section class="member_personal_info clearfix">
+        <div class="member_header">
+            <img src="../../public/img/league-badge.png" id="photoUrl"/>
+        </div>
+        <div class="right_txt">
+            <p class="member_name name"></p>
+            <p class="membership">团员</p>
+            <p class="status">状态：<span id="auditStatus"></span></p>
+            <p id="returnReason" style="display: none;position: absolute; right: 0; top: 1.24rem; font-size: 0.56rem; color: #c10021; max-width: 60%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">退回原因：<span></span></p>
+            <!--<a id="makeCard" style="display: none;position: absolute;right: 0;top: 1rem;padding: 0.22rem 0.3rem 0.26rem 1rem;line-height: 1;font-size: 0.4rem;color: #fff;border-radius: 0.2rem;background: #6CB2FF url(../../public/img/card.png) no-repeat 0.26rem center;background-size: 0.48rem;"><span>生成电子团员证</span></a>-->
+        </div>
+    </section>
+    <!-- /* 警告、提醒文字信息 */ -->
+    <div class="remind_info_box clearfix">
+        <!--<p class="remind_info_txt">认证资料审核通过后，必填信息将不能自行修改，请务必认真填写。</p>-->
+        <p class="remind_info_txt">认证资料审核通过后，选填信息可修改。</p>
+    </div>
+    <section class="info_box mb_30">
+        <div class="block_title"><h1 class="block_title_txt">基本信息</h1></div>
+        <ul class="info_list">
+            <li class="info_item required clearfix"><!-- 姓名 -->
+                <span class="info_item_title">姓名</span>
+                <span class="arrow name"></span>
+            </li>
+            <li class="info_item required clearfix"><!-- 证件类型 -->
+                <span class="info_item_title">证件类型</span>
+                <span class="arrow" id="idCardType"></span>
+            </li>
+            <li class="info_item required clearfix"><!-- 身份证号 -->
+                <span class="info_item_title">身份证号</span>
+                <span class="arrow" id="idCard"></span>
+            </li>
+            <li class="info_item required clearfix"><!-- 实名认证状态 -->
+                <span class="info_item_title">实名认证状态</span>
+                <span class="arrow" id="isRealName"></span>
+            </li>
+            <!--<li class="info_item required clearfix">&lt;!&ndash; 入团年月 &ndash;&gt;-->
+                <!--<span class="info_item_title">入团年月</span>-->
+                <!--<span class="arrow" id="leagueForYears"></span>-->
+            <!--</li>-->
+            <li class="info_item required clearfix"><!-- 所在团支部 -->
+                <span class="info_item_title">所在团支部</span>
+                <span class="arrow" id="fullName"></span>
+            </li>
+        </ul>
+    </section>
+    <section class="info_box mb_30">
+        <div class="block_title2 clearfix limited"><a id="edit" class="block_title_txt2">编辑</a></div>
+        <ul class="info_list">
+            <li class="info_item required clearfix"><!-- 收入 -->
+                <span class="info_item_title">收入</span>
+                <span class="arrow" id="income"></span>
+            </li>
+            <li class="info_item sub" id="income_sub"><!-- 收入(待审核) -->
+                <span class="info_item_title"></span>
+                <span class="arrow"></span>
+            </li>
+
+            <li class="info_item required clearfix"><!-- 政治面貌 -->
+                <span class="info_item_title">政治面貌</span>
+                <span class="arrow" id="politicalOutlook"></span>
+            </li>
+            <li class="info_item sub" id="politicalOutlook_sub"><!-- 政治面貌(待审核) -->
+                <span class="info_item_title"></span>
+                <span class="arrow"></span>
+            </li>
+            
+            <li class="info_item required clearfix"><!-- 入团年月 -->
+                <span class="info_item_title">入团年月</span>
+                <span class="arrow" id="leagueForYears"></span>
+            </li>
+            <li class="info_item sub" id="leagueForYears_sub"><!-- 入团年月(待审核) -->
+                <span class="info_item_title"></span>
+                <span class="arrow"></span>
+            </li>
+
+            <li class="info_item required clearfix"><!-- 是否在本支部担任团干职务 -->
+                <span class="info_item_title longer">是否在本支部担任团干职务</span>
+                <span class="arrow" id="isCadres"></span>
+            </li>
+            <li class="info_item sub" id="isCadres_sub"><!-- 是否在本支部担任团干职务(待审核) -->
+                <span class="info_item_title"></span>
+                <span class="arrow"></span>
+            </li>
+
+            <li class="info_item required clearfix isCadres"><!-- 本支部团干职务 -->
+                <span class="info_item_title">本支部团干职务</span>
+                <span class="arrow" id="incumbent"></span>
+            </li>
+            <li class="info_item sub" id="incumbent_sub"><!-- 本支部团干职务(待审核) -->
+                <span class="info_item_title"></span>
+                <span class="arrow"></span>
+            </li>
+
+            <li class="info_item required clearfix isCadres"><!-- 职务名称 -->
+                <span class="info_item_title">职务名称</span>
+                <span class="arrow" id="incumbentDesc"></span>
+            </li>
+            <li class="info_item sub" id="incumbentDesc_sub"><!-- 职务名称(待审核) -->
+                <span class="info_item_title"></span>
+                <span class="arrow"></span>
+            </li>
+
+            <li class="info_item required clearfix isCadres"><!-- 任现职年月 -->
+                <span class="info_item_title">任现职年月</span>
+                <span class="arrow" id="dateOfDuty"></span>
+            </li>
+            <li class="info_item sub" id="dateOfDuty_sub"><!-- 任现职年月(待审核) -->
+                <span class="info_item_title"></span>
+                <span class="arrow"></span>
+            </li>
+
+            <li class="info_item required clearfix isCadres"><!-- 团干部性质 -->
+                <span class="info_item_title">团干部性质</span>
+                <span class="arrow" id="tuanganProperties"></span>
+            </li>
+            <li class="info_item sub" id="tuanganProperties_sub"><!-- 团干部性质(待审核) -->
+                <span class="info_item_title"></span>
+                <span class="arrow"></span>
+            </li>
+
+            <li class="info_item required clearfix isCadres"><!-- 是否同级党支部（党组织）成员 -->
+                <span class="info_item_title longer">是否同级党支部（党组织）成员</span>
+                <span class="arrow" id="isPartyCommitteeMember"></span>
+            </li>
+            <li class="info_item sub" id="isPartyCommitteeMember_sub"><!-- 是否同级党支部（党组织）成员(待审核) -->
+                <span class="info_item_title"></span>
+                <span class="arrow"></span>
+            </li>
+        </ul>
+    </section>
+    <section class="info_box mb_30">
+        <div class="block_title2 clearfix limited"><a href="authentication_data_editing2.html" class="block_title_txt2">编辑</a></div>
+        <ul class="info_list">
+            <li class="info_item required clearfix"><!-- 手机号码 -->
+                <span class="info_item_title">手机号码</span>
+                <span class="arrow" id="mobile"></span>
+            </li>
+            <li class="info_item required clearfix"><!-- 民族 -->
+                <span class="info_item_title">民族</span>
+                <span class="arrow" id="nation"></span>
+            </li>
+            <li class="info_item required clearfix"><!-- 全日制学历 -->
+                <span class="info_item_title">全日制学历</span>
+                <span class="arrow" id="degreeOfEducation"></span>
+            </li>
+            <li class="info_item required clearfix"><!-- 最高学历 -->
+                <span class="info_item_title">最高学历</span>
+                <span class="arrow" id="highestEducation"></span>
+            </li>
+            <li class="info_item required clearfix"><!-- 户籍所在地 -->
+                <span class="info_item_title">户籍所在地</span>
+                <span class="arrow" id="residence"></span>
+            </li>
+            <li class="info_item required clearfix"><!-- 入团时所在单位 -->
+                <span class="info_item_title">入团时所在单位</span>
+                <span class="arrow" id="leagueForUnit"></span>
+            </li>
+        </ul>
+    </section>
+    <section class="info_box mb_30">
+        <div class="block_title"><h1 class="block_title_txt">附加信息</h1></div>
+        <div class="block_title2 clearfix limited"><a href="authentication_data_editing3.html" class="block_title_txt2">编辑</a></div>
+        <ul class="info_list">
+            <li class="info_item"><!-- 团员编号 -->
+                <span class="info_item_title">团员编号</span>
+                <span class="arrow" id="developmentMemberNumber"></span>
+            </li>
+            <li class="info_item"><!-- 职业 -->
+                <span class="info_item_title">职业</span>
+                <span class="arrow" id="occupation"></span>
+            </li>
+            <li class="info_item"><!-- 工作单位 -->
+                <span class="info_item_title">工作单位</span>
+                <span class="arrow" id="learningUnit"></span>
+            </li>
+            <li class="info_item"><!-- 电子邮箱 -->
+                <span class="info_item_title">电子邮箱</span>
+                <span class="arrow" id="email"></span>
+            </li>
+            <li class="info_item"><!-- QQ -->
+                <span class="info_item_title">QQ</span>
+                <span class="arrow" id="qqNum"></span>
+            </li>
+            <li class="info_item"><!-- 微信号 -->
+                <span class="info_item_title">微信号</span>
+                <span class="arrow" id="wechatId"></span>
+            </li>
+            <li class="info_item"><!-- 微博号 -->
+                <span class="info_item_title">微博号</span>
+                <span class="arrow" id="weibo"></span>
+            </li>
+            <li class="info_item"><!-- 入党年月 -->
+                <span class="info_item_title">入党年月</span>
+                <span class="arrow" id="thePartyYears"></span>
+            </li>
+            <li class="info_item"><!-- 注册志愿者时间 -->
+                <span class="info_item_title">注册志愿者时间</span>
+                <span class="arrow" id="signUpForVolunteerTime"></span>
+            </li>
+        </ul>
+    </section>
+</div>
+
+<!-- TA的奖惩信息 -->
+<div class="big_block big_block2" style="display:none;">
+    <!--奖惩-->
+    <section class="info_box mb_30">
+        <div class="block_title">
+            <h1 class="block_title_txt">奖励情况</h1>
+            <a href="../awards/add_awards.html" class="block_title_icon limited"></a>
+            <!--<a class="download_reward">奖励记录下载</a>-->
+        </div>
+    </section>
+    <!--团内奖励信息 -- 标题-->
+    <section class="info_box">
+        <ul class="info_list">
+            <li class="info_item">
+                <i class="icon"></i>
+                <span class="info_item_title">团内奖励信息</span>
+            </li>
+        </ul>
+    </section>
+    <!--团内奖励信息 -- 内容-->
+    <section class="info_box mb_30" id="league_in">
+        <div class="table_list_block">
+            <!--团内奖励信息 -- 列表-->
+        </div>
+    </section>
+
+    <!--团外奖励信息 -- 标题-->
+    <section class="info_box">
+        <ul class="info_list">
+            <li class="info_item">
+                <span class="info_item_title">团外奖励信息</span>
+            </li>
+        </ul>
+    </section>
+    <!--团外奖励信息 -- 内容-->
+    <section class="info_box mb_30" id="league_out">
+        <div class="table_list_block">
+            <!--团外奖励信息 -- 列表-->
+        </div>
+    </section>
+
+    <!--处罚信息 -- 标题-->
+    <section class="info_box mb_30">
+        <div class="block_title"><h1 class="block_title_txt">处罚信息</h1></div>
+    </section>
+    <!--处罚信息 -- 内容-->
+    <section class="info_box mb_30 bg_fff" id="punishment">
+        <div class="table_list_block">
+            <!--惩罚信息 -- 列表-->
+        </div>
+    </section>
+</div>
+
+<!--附件查看-->
+<div class="curtain">
+    <div id="bannerBox" class="tabBox">
+        <div class="hd">
+            <ul>
+                <!--页码-->
+            </ul>
+        </div>
+        <div style="padding: 0 0.6rem;height: 1.9rem;line-height: 1.9rem;font-size: 0.72rem;font-weight: bold;color: #000;background: #fff;">查看附件</div>
+        <div class="bd" id="imgUrlBox">
+            <!--图片列表-->
+        </div>
+        <div style="padding: 0 0.6rem;height: 1.9rem;line-height: 1.9rem;font-size: 0.56rem;font-weight: bold;color: #999;background: #fff;">点击图片，从新窗口打开(点击空白处，关闭图片)</div>
+        <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+        <a class="prev" href="javascript:void(0)"></a>
+        <a class="next" href="javascript:void(0)"></a>
+    </div>
+</div>
+
+</body>
+</html>

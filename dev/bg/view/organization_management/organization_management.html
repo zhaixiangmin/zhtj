@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组织管理-组织管理</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/OrganizationManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/organization_management/organization_management.js"></script>
+</head>
+<body>
+<style type="text/css">
+    /*分页功能全部显示*/
+    .datagrid .panel-body .datagrid-pager table tr td:nth-child(5), .datagrid .panel-body .datagrid-pager table tr td:nth-child(6), .datagrid .panel-body .datagrid-pager table tr td:nth-child(7), .datagrid .panel-body .datagrid-pager table tr td:nth-child(8), .datagrid .panel-body .datagrid-pager table tr td:nth-child(9), .datagrid .panel-body .datagrid-pager table tr td:nth-child(11){
+        display: table-cell;
+    }
+    .datagrid .panel-body .datagrid-pager .pagination-info{
+        display: block;
+    }
+    .rules{
+        color: #c10021;
+        cursor: pointer;
+        text-decoration: underline;
+        padding-left: 5px !important;
+        line-height: 45px;
+    }
+</style>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 72px;overflow: hidden;">
+        <!--<div>查询条件</div>-->
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form id="df" method="post">
+                    <table>
+                        <tr>
+                            <th><label for="type_filter">组织类型:</label></th>
+                            <td><input id="type_filter" class="easyui-combobox" editable="false" name="type"></td>
+                            <!--<td>&nbsp;&nbsp;</td>-->
+                            <th align="right"><label for="fullName_filter">组织名称:</label></th>
+                            <!--<td><input id="fullName_filter" placeholder="请输入组织简称关键字搜索"></td>-->
+                            <td><input id="fullName_filter" placeholder="请输入团组织全称/组织ID"></td>
+                            <!--<td>&nbsp;&nbsp;</td>-->
+                            <!--<td>&nbsp;&nbsp;</td>-->
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="declaration" style="margin-top: 5px;">
+                        <span class="organizationBusiness">组织业务说明</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--组织管理-->
+        <table class="easyui-datagrid" id="organization_management" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+
+<!--组织详情 -- 模态窗口-->
+<div id="dialog_view" class="easyui-dialog mywindow" title="组织详情" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box">
+        <div class="list base">
+            <div class="headline">基本信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">上级组织：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list account">
+            <div class="headline">账号信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">上级组织：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+            <div class="list addition">
+                <div class="headline">附加信息</div>
+                <div class="content">
+                    <!--<div class="item">-->
+                    <!--<span class="title">上级组织：</span><span class="describe"></span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--新增组织-->
+<div id="dialog" class="easyui-dialog" title="新增组织" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm">
+        <table>
+            <tr>
+                <th colspan="2">填写基本信息</th>
+            </tr>
+            <tr>
+                <td>上级组织：</td>
+                <td><input id="parentName" class="easyui-textbox" type="text" name="parentName" readonly></td>
+            </tr>
+            <tr>
+                <th colspan="2">基本信息</th>
+            </tr>
+            <tr id="type_anchor">
+                <td class="check-only">组织类型：</td>
+                <td><input id="type" class="easyui-combobox" editable="false" type="text" name="type"></td>
+                <td class="rules type_rules">类型说明</td>
+            </tr>
+            <tr class="check">
+                <td>团组织全称：</td>
+                <td><input id="fullName" class="easyui-textbox" type="text" name="fullName" maxlength="99"></td>
+                <td class="rules fullName_rules">填写规则</td>
+            </tr>
+            <tr class="check">
+                <td>团组织简称：</td>
+                <td><input id="name" class="easyui-textbox" type="text" name="name"></td>
+                <td class="rules name_rules">填写规则</td>
+            </tr>
+            <!--<tr class="check">-->
+                <!--<td>企业微信名称 ：</td>-->
+                <!--<td><input id="enterpriseName" class="easyui-textbox" type="text" name="enterpriseName" maxlength="16"></td>-->
+                <!--<td class="rules enterpriseName_rules">填写规则</td>-->
+            <!--</tr>-->
+            <tr class="check">
+                <td>团组织联系电话：</td>
+                <td><input id="mobile" class="easyui-textbox" type="text" name="mobile"></td>
+            </tr>
+            <tr class="check">
+                <td>团组织电子邮箱：</td>
+                <td><input id="email" class="easyui-textbox" type="email" name="email" maxlength="49"></td>
+            </tr>
+            <tr class="check">
+                <td>本级团组织行政编制数：</td>
+                <td><input id="administrativeOmpilation" class="easyui-textbox" type="number" name="administrativeOmpilation" oninput="if(value.length>9)value=value.slice(0,9)"></td>
+            </tr>
+            <tr class="check">
+                <td>行政编制实际配备数：</td>
+                <td><input id="administrativeNumber" class="easyui-textbox" type="number" name="administrativeNumber" oninput="if(value.length>9)value=value.slice(0,9)"></td>
+            </tr>
+            <tr class="check">
+                <td>本级团组织事业编制数：</td>
+                <td><input id="careerFormation" class="easyui-textbox" type="number" name="careerFormation" oninput="if(value.length>9)value=value.slice(0,9)"></td>
+            </tr>
+            <tr class="check">
+                <td>事业编制实际配备数：</td>
+                <td><input id="serviceNumber" class="easyui-textbox" type="number" name="serviceNumber" oninput="if(value.length>9)value=value.slice(0,9)"></td>
+            </tr>
+            <tr class="check">
+                <td>单位所属行业类别：</td>
+                <td><input id="industryCategory" class="easyui-combobox" editable="false" type="text" name="industryCategory"></td>
+            </tr>
+            <tr>
+                <th colspan="2">账号信息</th>
+            </tr>
+            <tr class="check">
+                <td>登录账号：</td>
+                <td><input id="username"  class="easyui-textbox" type="text" name="username" maxlength="49"></td>
+            </tr>
+            <!--<tr class="check">-->
+                <!--<td>密码：</td>-->
+                <!--<td><input id="password" class="easyui-textbox" onfocus="this.type='password'" name="password" maxlength="49"></td>-->
+            <!--</tr>-->
+            <!--<tr class="check">-->
+                <!--<td>密码：</td>-->
+                <!--<td><input id="password" class="easyui-textbox" oninput="if(this.value==''){this.type='text'}else(this.type='password')" name="password" maxlength="49"></td>-->
+            <!--</tr>-->
+            <tr class="check">
+                <td>密码：</td>
+                <td><input id="password" class="easyui-textbox" type="password" name="password" maxlength="49"></td>
+            </tr>
+            <tr>
+                <th colspan="2">附加信息</th>
+            </tr>
+            <tr>
+                <td>团组织书记姓名：</td>
+                <td><input id="secretaryName" class="easyui-textbox" type="text" name="secretaryName" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>团组织机构代码：</td>
+                <td><input id="groupOrganizationCode" class="easyui-textbox" type="text" name="groupOrganizationCode" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>团组织微信号：</td>
+                <td><input id="groupOrganizationWechatid" class="easyui-textbox" type="text" name="groupOrganizationWechatid" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>团组织微博号：</td>
+                <td><input id="groupOrganizationWeibo" class="easyui-textbox" type="text" name="groupOrganizationWeibo" maxlength="49"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--编辑组织-->
+<div id="dialog_edit" class="easyui-dialog" title="编辑组织" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_edit">
+        <table>
+            <tr>
+                <th colspan="2">填写基本信息</th>
+            </tr>
+            <tr>
+                <td>上级组织：</td>
+                <td><input id="parentName_edit" class="easyui-textbox" type="text" name="parentName" readonly></td>
+            </tr>
+            <tr>
+                <th colspan="2">基本信息</th>
+            </tr>
+            <tr>
+                <td class="check-only">组织类型：</td>
+                <td><input id="type_edit" class="easyui-combobox" editable="false" type="text" name="type_edit"></td>
+                <td class="rules type_rules">类型说明</td>
+            </tr>
+            <tr class="check">
+                <td>团组织全称：</td>
+                <td><input id="fullName_edit" class="easyui-textbox" type="text" name="fullName_edit" maxlength="99"></td>
+                <td class="rules fullName_rules">填写规则</td>
+            </tr>
+            <tr class="check">
+                <td>团组织简称：</td>
+                <td><input id="name_edit" class="easyui-textbox" type="text" name="name_edit"></td>
+                <td class="rules name_rules">填写规则</td>
+            </tr>
+            <!--<tr class="check">-->
+                <!--<td>企业微信名称 ：</td>-->
+                <!--<td><input id="enterpriseName_edit" class="easyui-textbox" type="text" name="enterpriseName_edit" maxlength="16"></td>-->
+                <!--<td class="rules enterpriseName_rules">填写规则</td>-->
+            <!--</tr>-->
+            <tr class="check">
+                <td>团组织联系电话：</td>
+                <td><input id="mobile_edit" class="easyui-textbox" type="text" name="mobile_edit"></td>
+            </tr>
+            <tr class="check">
+                <td>团组织电子邮箱：</td>
+                <td><input id="email_edit" class="easyui-textbox" type="text" name="email_edit" maxlength="49"></td>
+            </tr>
+            <tr class="check">
+                <td>本级团组织行政编制数：</td>
+                <td><input id="administrativeOmpilation_edit" class="easyui-textbox" type="number" name="administrativeOmpilation_edit" oninput="if(value.length>9)value=value.slice(0,9)"></td>
+            </tr>
+            <tr class="check">
+                <td>行政编制实际配备数：</td>
+                <td><input id="administrativeNumber_edit" class="easyui-textbox" type="number" name="administrativeNumber_edit" oninput="if(value.length>9)value=value.slice(0,9)"></td>
+            </tr>
+            <tr class="check">
+                <td>本级团组织事业编制数：</td>
+                <td><input id="careerFormation_edit" class="easyui-textbox" type="number" name="careerFormation_edit" oninput="if(value.length>9)value=value.slice(0,9)"></td>
+            </tr>
+            <tr class="check">
+                <td>事业编制实际配备数：</td>
+                <td><input id="serviceNumber_edit" class="easyui-textbox" type="number" name="serviceNumber_edit" oninput="if(value.length>9)value=value.slice(0,9)"></td>
+            </tr>
+            <tr class="check">
+                <td>单位所属行业类别：</td>
+                <td><input id="industryCategory_edit" class="easyui-combobox" editable="false" type="text" name="industryCategory_edit"></td>
+            </tr>
+            <tr>
+                <th colspan="2">账号信息</th>
+            </tr>
+            <tr class="check">
+                <td>登录账号：</td>
+                <td><input id="username_edit"  class="easyui-textbox" type="text" name="username_edit" readonly></td>
+            </tr>
+            <!--<tr class="check">-->
+            <!--<td>密码：</td>-->
+            <!--<td><input id="password" class="easyui-textbox" type="password" name="password"></td>-->
+            <!--</tr>-->
+            <tr>
+                <th colspan="2">附加信息</th>
+            </tr>
+            <tr>
+                <td>团组织书记姓名：</td>
+                <td><input id="secretaryName_edit" class="easyui-textbox" type="text" name="secretaryName_edit" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>团组织机构代码：</td>
+                <td><input id="groupOrganizationCode_edit" class="easyui-textbox" type="text" name="groupOrganizationCode_edit" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>团组织微信号：</td>
+                <td><input id="groupOrganizationWechatid_edit" class="easyui-textbox" type="text" name="groupOrganizationWechatid_edit" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>团组织微博号：</td>
+                <td><input id="groupOrganizationWeibo_edit" class="easyui-textbox" type="text" name="groupOrganizationWeibo_edit" maxlength="49"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+<!--规则(组织业务说明) -- 模态窗口-->
+<div id="dialog_rules_organizationBusiness" class="easyui-dialog" title="组织业务说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="dialog_rules">
+        <p>
+            本级组织建立及管理直接下一级组织，包括组织新增、删除、查看、修改、密码重置等。<br/>
+            最末端一级组织为团支部，组织树（分支）为建立完整。
+        </p>
+        <br/>
+        <p><span style="font-weight: bold;">操作说明</span></p>
+        <img src="../../public/img/ss_organization.png"/>
+        <p><span style="font-weight: bold;">新增：</span>新建直接下一级团组织，注意“组织类型”需要正确选择，对权限等系统核心影响很大。</p>
+        <p><span style="font-weight: bold;">编辑：</span>编辑组织资料</p>
+        <p><span style="font-weight: bold;">查看：</span>查看组织资料</p>
+        <p><span style="font-weight: bold;">删除：</span>删除选中的组织，该下级组织需为空组织方可删除，即该组织无下级组织，无团员，无团干</p>
+        <p><span style="font-weight: bold;">重置密码：</span>为选中的组织重置登录密码，重置后默认密码为a00000, 请提示组织管理员及时修改组织登录密码。</p>
+        <p><span style="font-weight: bold;">组织树查看：</span>可以查看本组织垂直上下级的组织树，双击组织树中的组织，可以查看该组织的信息，包括统计数据（每天凌晨更新）。</p>
+    </div>
+</div>
+
+<!--规则(团组织全称) -- 模态窗口-->
+<div id="dialog_fullName_rules" class="easyui-dialog" title="全称填写规则" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div>
+        <p>（一）填写原则</p>
+        <p>1. 基本格式为：中国共产主义青年团+地域+单位全称+委员会，其中：团委=××委员会，团总支=××总支部委员会，团支部=××支部委员会。</p>
+        <p>2. 所在地域要从市级行政区划写起，一直写到组织所在层级的行政区划。其中，如果所在地区为县级市，则不用写地市级行政单位名称；如果单位是省属单位、军队、中央企业或者高等院校，不用填写所在地域名称，直接写单位名称，其他各类单位的所在区域名称要写到对应的层级，如：省属企业直接写单位名称，县级中学要冠以所在地市和县区的名称。</p>
+        <p>3.所有行政区划名称和单位名称都要用规范全称，如：“中国移动通信集团广东有限公司”。</p>
+        <p>4.单位有多个层级的，要从最高层级的名称写起，直到团组织名称，如：“中国共产主义青年团中国人民武装警察部队广东省总队惠州市支队博罗县中队支部委员会”。</p>
+        <p>5.如单位全称结尾即为委员会，如广东省人民政府国有资产监督管理委员会、广东省卫生和计划生育委员会，可单位全称后添加系统委员会，用以区分整个系统跟本单位机关的团组织，名称表述为：“中国共产主义青年团广东省人民政府国有资产监督管理委员会系统委员会”。</p>
+        <p>（二）填写格式范例</p>
+        <p>1.一般情况：中国共产主义青年团+××市××区××街道委员会。</p>
+        <p>2.普通高校：高校全称+院系+专业+班级，如：中国共产主义青年团××大学××院系××专业××班支部委员会。</p>
+        <p>3.普通中学：所属行政区划名称+学校名称+班级，如：中国共产主义青年团××市××区××中学××班支部委员会。 </p>
+        <p>4.中职职业学校：地市+学校全称+专业+班级，如：中国共产主义青年团××市××职业学校××专业××班支部委员会。</p>
+        <p>5.中央企业：中国共产主义青年团××集团公司××有限责任公司××分公司委员会。</p>
+        <p>6.地方企业及非公企业：中国共产主义青年团+所属行政区域名称+××集团公司××有限责任公司××分公司+支部委员会。</p>
+    </div>
+</div>
+
+<!--规则(团组织简称) -- 模态窗口-->
+<div id="dialog_name_rules" class="easyui-dialog" title="简称填写规则" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div>
+        <p>（一）填写原则</p>
+        <p>填写原则与全称一致，基本的格式为“地级市+市辖区、县级市、县名称+乡镇、街道名称+村、社区名称+团组织名称）”</p>
+        <p>（二）填写格式范例</p>
+        <p>1.一般情况：××市××区××街道团委。</p>
+        <p>2.普通高校：高校全称+院系+专业+班级，如：××大学××院系××专业××班团支部。</p>
+        <p>3.普通中学：所属行政区划名称+学校名称+团组织名称，如：××市××区××中学团委。</p>
+        <p>4.中职职业学校：地市+学校全称+专业+班级，如××市××职业学校××专业××班团支部。</p>
+        <p>5.中央企业：××集团公司××有限责任公司××分公司团委。</p>
+        <p>6.地方企业及非公企业：所属行政区域名称+××集团公司××有限责任公司××分公司团支部。</p>
+    </div>
+</div>
+
+<!--规则(组织类型) -- 模态窗口-->
+<div id="dialog_type_rules" class="easyui-dialog" title="类型说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div>
+        <p>五种类型团组织类型及功能区分说明</p>
+        <p>（一）团的领导机关：省、市、县三级团委，除团的领导机关外，其余团组织均不能设立派出机构（团工委）。</p>
+        <p>（二）基层团委：非团的领导机关的其他团委，下设有总支或支部团员人数一般在100人以上。</p>
+        <p>（三）团工委：省、市、县团的领导机关的派出机构。</p>
+        <p>（四）团总支：下设团支部，一般团员总数在30人以上100人以下。</p>
+        <p>（五）团支部：团员人数一般在3人以上，30人以下。</p>
+    </div>
+</div>
+
+
+</body>
+</html>

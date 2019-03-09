@@ -1,0 +1,34 @@
+@charset "UTF-8";
+.fl{float: left;}
+.fr{float: right;}
+.mb_30{margin-bottom:0.6rem;}
+.mt_30{margin-top:0.6rem;}
+
+/*body{background-color: #fff;}*/
+
+.title_box{height:2rem;padding:0.6rem;background: #fff;border-bottom:1px solid #d9d9d9;}
+.title_box p{position: relative;color:#333;font-size:0.72rem;padding-left:1.6rem;}
+.title_box p:before{content:'';position: absolute;left:0;width:1rem;height:0.92rem;background:url(../../img/spirit1.png) no-repeat -2.92rem -5.66rem;background-size:6rem;}
+
+
+/* 输入搜索框 */
+.search_sec{padding:0.6rem;background-color:#fff;}
+.search_sec .search_box{margin:0;}
+.search_box{position: relative;margin:0 0.6rem;border-radius:0.2rem;height:1.76rem;padding-left:0.4rem;padding-right:1.6rem;background-color: #f2f2f2;}
+.search_box .search_input{display:block;width:100%;height:100%;line-height:1.76rem;font-size:0.72rem;background-color:transparent;}
+.search_box .sea_btn{position: absolute;right:0;width:1.6rem;height:1.76rem;top:0;}
+.search_box .sea_btn:before{width:0.8rem;height:0.8rem;position: absolute;content:"";background:url(../../img/spirit1.png) no-repeat -3.84rem -2.56rem;background-size:6rem;transform:translate(-50%,-50%);left:50%;top:50%;}
+
+
+/*内容样式*/
+.table_out .table_tr .td{display: inline-block;vertical-align: middle;text-align: center;font-size:0.48rem;}
+.table_out .table_tr .td:nth-child(1){width:12.4%;}
+.table_out .table_tr .td:nth-child(2){width:20.8%;}
+.table_out .table_tr .td:nth-child(3){width:35.5%;}
+.table_out .table_tr .td:nth-child(4){width:31.3%;}
+.table_out .table_title{height:1.76rem;background-color: #f2f2f2;color:#999;line-height:1.76rem;}
+.table_out .table_title .td{font-size:0.64rem;}
+.table_out .table_con{border-bottom:1px solid #f2f2f2;position: relative;background: #fff;}
+.table_out .table_con .td{padding:0.5rem 0;text-align: center;}
+.table_out .table_con .td:last-child{text-indent:0.5rem;text-align: left;}
+.table_out .table_con:before{position: absolute;width:0.24rem;height:0.4rem;background:url(../../img/spirit1.png) no-repeat -4.6rem -1.4rem;background-size:6rem;content:'';right:0.6rem;top:50%;transform:translateY(-50%);}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>团费查询</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/FeeManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/fee_management/fee_query.js"></script>
+</head>
+<body>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 76px;overflow: hidden;">
+        <!--<div>查询条件</div>-->
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form method="post">
+                    <table>
+                        <tr>
+                            <th><label for="month_filter">日期:</label></th>
+                            <td><input id="month_filter" class="easyui-datebox" name="month_filter" data-options="panelWidth: 173,editable: false, buttons: buttons"></td>
+                            <th><label for="oid_filter">组织:</label></th>
+                            <td><div>
+                                <div class="search_box">
+                                    <input id="oid_filter" type="text" placeholder="请输入组织全称/组织ID" readonly><span id="oid_filter_icon" class="search_icon"></span>
+                                </div>
+                            </div></td>
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="declaration" style="margin-top: 5px;">
+                        <span class="queryBusiness">团费查询业务说明</span>
+                        <i class="download" id="download">导出本页数据</i>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--<div data-options="region:'center'" style="margin-top: 20px;border: 0;">-->
+    <div data-options="region:'center'" style="border: 0;">
+        <!--团费查询-->
+        <table class="easyui-treegrid" id="fee_query_treegrid" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+
+<!--选择组织 -- 模态窗口-->
+<div id="dialog_organization" class="easyui-dialog" title="选择组织" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+        <div title="数据筛选" data-options="collapsible: false, noheader: true"  style="padding:10px;">
+            <form onsubmit="return false">
+                <table>
+                    <tr>
+                        <th align="right"><label for="fullName_filter">组织名称:</label></th>
+                        <td><input id="fullName_filter" placeholder="请输入组织全称/组织ID"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <a id="search_filter" class="button">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <table class="easyui-datagrid" id="datagrid_organization"></table>
+</div>
+
+
+<!--规则(团费查询业务说明) -- 模态窗口-->
+<div id="dialog_rules_queryBusiness" class="easyui-dialog" title="团费查询业务说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="dialog_rules">
+        <p><span style="font-weight: bold;">业务说明：</span></p>
+        <p>团员使用微信支付，按月交纳团费（可由支部内其他团员代交），系统每个自然月1日，以团员资料所填“收入”为依据计算生成应交团费。</p>
+        <p>团费标准为：</p>
+        <ul>
+            <li>学生团员：0.2元/月</li>
+            <li>农民团员：0.5 元/月</li>
+            <li>其他收入：按收入计算，最高不超过20元/月</li>
+        </ul>
+        <p>如果对应交团费有疑问，请检查团员收入、政治面貌等信息是否正确及是否团员报到已审核通过。</p>
+        <p><span style="font-weight: bold;">系统使用说明：</span></p>
+        <p>组织可查看本组织及所有下级组织团费交纳概况。</p>
+        <ul>
+            <li>组织列表以组织树方式呈现，无须翻页。列表默认显示本组织及直属下一级组织，点击组织名称可以展开/收缩其下级子组织列表。</li>
+            <li>“团费查询”支持按月、按年度进行统计筛选</li>
+            <li>“查看详情”：点击“查看详情”按钮，可查看该组织下所有团员（包括直属下级团员）交费的明细</li>
+            <li>“导出本页数据”：限制在10000行以内，若大于限制值，请合并部分展开的分支。</li>
+            <li>系统每天凌晨更新团费统计状态，非实时更新。</li>
+        </ul>
+        <p>更多团费交纳常见问题，<a style="color: #00b7ee;" href="https://mp.weixin.qq.com/s/fnpYC5AnKGYSoiTWqpXcZA" target="_blank">点击这里</a>查看。</p>
+    </div>
+</div>
+
+</body>
+</html>

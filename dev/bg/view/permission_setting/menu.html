@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单管理</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/PermissionSettingApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/permission_setting/menu.js"></script>
+</head>
+<body>
+
+<style>
+    .panel.datagrid{margin-left: 1px;}
+    .tree-node-selected{background: none;color: #333;}
+</style>
+
+<!--树-->
+<table id="tt"></table>
+
+<!--新增/编辑菜单-->
+<div id="dialog" class="easyui-dialog" title="新增菜单" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm">
+        <table>
+            <tr class="check">
+                <td>父节点：</td>
+                <td><ul id="parent_tree"></ul></td>
+            </tr>
+            <tr class="check">
+                <td>名称：</td>
+                <td><input id="title" class="easyui-textbox" type="text" name="title" maxlength="49"></td>
+            </tr>
+            <tr class="check">
+                <td>链接：</td>
+                <td><input id="href" class="easyui-textbox" type="text" name="href" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td>叶子节点：</td>
+                <td>
+                    <label for="mode_1" style="font-size: 16px;"><input type="radio" value="1" name="isLeaf" id="mode_1" required>是</label>
+                    <label for="mode_0" style="font-size: 16px;"><input type="radio" value="0" name="isLeaf" id="mode_0">否</label>
+                </td>
+            </tr>
+            <tr class="check">
+                <td>序号：</td>
+                <td><input id="sortBy" class="easyui-textbox" type="text" name="sortBy" oninput="if(value.length>4)value=value.slice(0,4)"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+<!--按钮列表 -- 模态窗口-->
+<div id="dialog_button" class="easyui-dialog" title="按钮列表" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <table class="easyui-datagrid" id="button_list"></table>
+</div>
+
+
+<!--新增按钮-->
+<div id="dialog_edit_button" class="easyui-dialog" title="新增按钮" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_edit_button">
+        <table>
+            <tr class="check">
+                <td>按钮名称：</td>
+                <td><input id="permissionName" class="easyui-textbox" type="text" name="permissionName" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td>按钮编码：</td>
+                <td><input id="permissionCode" class="easyui-textbox" type="text" name="permissionCode" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td>描述：</td>
+                <td><textarea id="description"  name="description" rows="5" maxlength="99"></textarea></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

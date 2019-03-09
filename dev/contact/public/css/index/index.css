@@ -1,0 +1,102 @@
+body {
+    background: #fff;
+}
+
+.box .search_box {
+    display: block;
+    padding: 0.4rem 0.5rem;
+    color: #949494;
+    background: #EFEFF4;
+}
+.box .search_box .input_box {
+    height: 1.4rem;
+    line-height: 1.4rem;
+    text-align: center;
+    /*border: 1px solid #D8D8D8;*/
+    border-radius: 0.2rem;
+    background: #fff;
+}
+.box .search_box .input_box .search_icon {
+    display: inline-block;
+    vertical-align: text-bottom;
+    width: 0.6rem;
+    height:0.6rem;
+    background: url("../../img/search-gray.png") no-repeat;
+    background-size: contain;
+}
+.box .search_box .input_box .txt {
+    display: inline-block;
+    line-height: 0.6rem;
+    font-size: 0.6rem;
+    vertical-align: text-bottom;
+}
+
+.box .header_box {
+    padding: 0 0.6rem;
+    border-bottom: 1px solid #D8D8D8;
+}
+.box .header_box .header {
+    height: 2.2rem;
+    line-height: 2.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0.48rem;
+    color: #5183BC;
+}
+.box .header_box .header span {
+    display: inline-block;
+    height: 2.2rem;
+    line-height: 2.2rem;
+}
+.box .header_box .header span:last-child {
+    color: #000;
+}
+.box .header_box .header i {
+    color: #000;
+}
+.box .list_box .list {
+    padding-left: 0.6rem;
+}
+.box .list_box .list .item {
+    position: relative;
+    height: 2rem;
+    line-height: 2rem;
+}
+.box .list_box .list .item .icon {
+    position: absolute;
+    left: 0;
+    width: 1.6rem;
+    height: 2rem;
+    background: url(../../img/folder.png) no-repeat center;
+    background-size: contain;
+}
+.box .list_box .list .item .img_box {
+    position: absolute;
+    left: 0;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 0;
+}
+.box .list_box .list .item .img_box img {
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.box .list_box .list .item .txt{
+    margin-left: 2.2rem;
+    padding-right: 0.6rem;
+    height: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.6rem;
+    color: #000;
+    border-bottom: 1px solid #D8D8D8;
+    background: url(../../img/more.png) no-repeat right 0.36rem center;
+    background-size: auto 0.46rem;
+}
+
+.box .list_box.organization .list .item:last-child {
+    /*border-bottom: none;*/
+}
+

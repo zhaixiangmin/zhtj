@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>奖励审核详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/awards/awards_audit_detail.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/touch_slide/TouchSlide.1.1.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/AwardsApi.js"></script>
+    <script type="text/javascript" src="../../public/js/awards/awards_audit_detail.js"></script>
+</head>
+<body>
+<div class="details_item">
+    <!-- 申请人 -->
+    <div class="item_title1 item_title">
+        <p class="p1"></p>
+        <p class="p2">待审核</p>
+    </div>
+    <!-- 申请类型 -->
+    <div class="item_title2 item_title">
+        <p class="p1">申请类型：<em class="p_in">奖励</em></p>
+    </div>
+</div>
+
+
+<div class="no_data" style="display: none;">没有相关的内容</div>
+<!--<div class="box" style="display: none;">-->
+<div class="box">
+    <section class="info_box mb_30">
+        <div class="table_list_block">
+            <!--<ul class="table_list" data-id="156"><em class="checkbox"></em>-->
+                <!--<li class="table_box" data-haslevel="true"><span class="left">奖励类型</span><span-->
+                        <!--class="right ">团外奖励</span></li>-->
+                <!--<li class="table_box" data-haslevel="true"><span class="left">奖励名称</span><span class="right ">测试团外1-20150205_1748</span>-->
+                <!--</li>-->
+                <!--<li class="table_box" data-haslevel="true"><span class="left">获奖名次</span><span class="right ">一等奖</span>-->
+                <!--</li>-->
+                <!--<li class="table_box" data-haslevel="true"><span class="left">证明附件</span><span-->
+                        <!--class="right c_blue">查看</span></li>-->
+                <!--<li class="table_box" data-haslevel="true"><span class="left">获奖时间</span><span-->
+                        <!--class="right ">2017.02.04</span></li>-->
+                <!--<li class="table_box" data-haslevel="true"><span class="left">录入者</span><span class="right ">中国共产主义青年团中山大学药学院药学专业一班支部委员会</span>-->
+                <!--</li>-->
+                <!--<li class="table_box" data-haslevel="true"><span class="left">授奖组织</span><span-->
+                        <!--class="right ">测试授奖组织</span></li>-->
+                <!--<li class="table_box" data-haslevel="true"><span class="left">审核组织</span><span class="right ">中国共产主义青年团中山大学药学院药学专业一班支部委员会</span>-->
+                <!--</li>-->
+                <!--<li class="table_box" data-haslevel="true"><span class="left">奖励状态</span><span-->
+                        <!--class="right c_red">待审核</span></li>-->
+            <!--</ul>-->
+        </div>
+    </section>
+</div>
+
+<div class="two_btns_box clearfix">
+    <a href="javascript:;" class="btn bgc1" id="confirm">同意</a>
+    <a class="btn bgc1" id="refuse">拒绝</a>
+</div>
+
+
+<!--附件查看-->
+<div class="curtain">
+    <div id="bannerBox" class="tabBox">
+        <div class="hd">
+            <ul>
+                <!--页码-->
+            </ul>
+        </div>
+        <div style="padding: 0 0.6rem;height: 1.9rem;line-height: 1.9rem;font-size: 0.72rem;font-weight: bold;color: #000;background: #fff;">查看附件</div>
+        <div class="bd" id="imgUrlBox">
+            <!--图片列表-->
+        </div>
+        <div style="padding: 0 0.6rem;height: 1.9rem;line-height: 1.9rem;font-size: 0.56rem;font-weight: bold;color: #999;background: #fff;">点击图片，从新窗口打开(点击空白处，关闭图片)</div>
+        <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+        <a class="prev" href="javascript:void(0)"></a>
+        <a class="next" href="javascript:void(0)"></a>
+    </div>
+</div>
+
+
+</body>
+</html>

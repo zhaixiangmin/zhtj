@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>奖惩管理</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_custom_control.css"/>
+    <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_file_custom_control.css"/>
+    <link rel="stylesheet" href="../../public/css/league_member/rewards.css"/>
+
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/LeagueMemberApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script src="../../public/vendor/webuploader/uploader_custom_control.js"></script>
+    <script src="../../public/vendor/webuploader/uploader_file_custom_control.js"></script>
+    <script src="../../public/js/league_member/rewards.js"></script>
+</head>
+<body>
+<div class="declaration" style="margin-bottom: 5px;">
+    <span class="awards">奖惩录入说明</span>
+</div>
+
+<style>
+    .warning div{color: #c10021;}
+
+    /*datagird工具栏 -- 自定义*/
+    /*.toolbar{*/
+    /*padding-top: 18px;*/
+    /*}*/
+    .toolbar{
+        margin: 18px 0;
+    }
+    .toolbar .linkbutton_box {
+        display: inline-block;;
+    }
+    .toolbar a {
+        padding: 0;
+        /*padding: 18px 0 0 0;*/
+        /*margin: 18px 0;*/
+        background: #fff;
+    }
+    .toolbar a:hover {
+        border: none;
+        border-radius: 0;
+    }
+    .toolbar a span span.l-btn-text{
+        margin: 0 30px 0 30px;
+    }
+    .toolbar a span span.l-btn-icon{
+        left: 0;
+        margin-top: -10px;
+        width: 22px;
+        height: 22px;
+    }
+
+    .datagrid .panel-body .datagrid-toolbar table tr td:first-child a span span.l-btn-text{
+        margin: 0 5px 0 0;
+    }
+</style>
+
+<div id="tb" class="toolbar">
+    <div style="display: inline-block; font-size: 12px; font-weight: bold; height: 24px; line-height: 24px; vertical-align: middle;">第一步，请添加需录入奖惩的团员：</div>
+    <div class="linkbutton_box"><a id="member_list_add" class="easyui-linkbutton" data-options="iconCls:'icon-my-add',plain:true">添加奖/惩团员名单</a></div>
+    <div class="linkbutton_box"><a id="member_list_remove" class="easyui-linkbutton" data-options="iconCls:'icon-my-delete',plain:true">删减奖/惩团员名单</a></div>
+    <div class="linkbutton_box"><a id="member_list_import" class="easyui-linkbutton" data-options="iconCls:'icon-my-multiple-add',plain:true">批量导入奖/惩团员名单</a></div>
+</div>
+
+<div id="toolbar" class="toolbar">
+    <div style="display: inline-block; font-size: 12px; font-weight: bold; height: 24px; line-height: 24px; vertical-align: middle;">第二步，为选中的团员：</div>
+    <div class="linkbutton_box"><a id="reward_add" class="easyui-linkbutton" data-options="iconCls:'icon-my-rewards',plain:true">录入奖励</a></div>
+    <div class="linkbutton_box"><a id="punish_add" class="easyui-linkbutton" data-options="iconCls:'icon-my-punishment',plain:true">录入处罚</a></div>
+</div>
+
+<div>待录入奖/惩的团员清单：</div>
+
+<!--奖惩管理-->
+<table class="easyui-datagrid" id="rewards" data-options="noheader: true, border: false"></table>
+
+<style>
+    /*datagrid 显示全选按钮*/
+    .datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td div.datagrid-header-check input{
+        display: inline-block;
+    }
+
+    .filter{
+        margin: 20px 0;
+    }
+    .filter .filter_box{
+        display: inline-block;
+    }
+    .filter .filter_box:not(:first-child){
+        margin-left: 20px;
+    }
+    .filter .filter_box>label{
+        width: 84px; height: 30px; line-height: 30px; color: #000; font-weight: bold;
+    }
+    .filter .filter_box>input{
+        box-sizing: border-box; padding: 0 0 0 10px; width: 150px; height: 30px; line-height: 30px; border: 1px solid #ccc;
+    }
+
+    .filter .filter_box>span{
+        box-sizing: border-box;
+        width: 173px !important;
+        height: 30px !important;
+    }
+    .filter .filter_box>span input{
+        box-sizing: border-box;
+        padding: 0 0 0 5px;
+        width: 153px !important;
+        height: 28px !important;
+    }
+    .filter .filter_box>span span.combo-arrow{
+        height: 28px !important;
+        background-color: transparent;
+    }
+
+    .filter>.button{
+        box-sizing: border-box;
+        margin-left: 20px;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: #fff;
+        background: #db4254;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+</style>
+
+<!--查看团员-->
+<div id="dialog" class="easyui-dialog mywindow" title="查看团员" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="filter">
+        <div class="filter_box">
+            <label for="name_filter" style="width: auto;">姓名：</label>
+            <input id="name_filter" type="text" placeholder="请输入团员姓名">
+        </div>
+        <div class="filter_box">
+            <label style="width: auto; color: #333; font-weight: bold;">所在团支部:</label>
+            <div class="search_box">
+                <input type="text" placeholder="请输入团员所在团支部的全称" readonly><i class="search_icon" id="oid_filter"></i>
+            </div>
+        </div>
+        <div class="button" id="filter">查询</div>
+    </div>
+
+    <!--团员表格-->
+    <table class="easyui-datagrid" id="league_menber" data-options="noheader: true, border: false"></table>
+</div>
+
+
+<!--选择组织 -- 模态窗口-->
+<div id="dialog_organization" class="easyui-dialog" title="选择所在团支部" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+        <div title="数据筛选" data-options="collapsible: false, noheader: true"  style="padding:10px;">
+            <form onsubmit="return false">
+                <table>
+                    <tr>
+                        <th align="right"><label for="fullName_filter">所在团支部:</label></th>
+                        <td><input id="fullName_filter" placeholder="请输入团员所在团支部的全称"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <a id="search_filter" class="button">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <table class="easyui-datagrid" id="datagrid_organization"></table>
+</div>
+
+
+<!--批量录入奖励信息 -- 模态窗口-->
+<div id="dialog_awards" class="easyui-dialog mywindow" title="批量录入奖励信息" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+<!--<div id="dialog_awards" class="easyui-dialog mywindow" title="批量录入奖励信息" data-options="modal: true" style="width: 720px;height: 500px;padding: 10px;">-->
+    <form id="fm_awards">
+        <table>
+            <tr>
+                <th colspan="2">奖励信息</th>
+            </tr>
+            <tr class="check">
+                <td>奖励名称：</td>
+                <td><input placeholder="请输入奖励名称（如：广东五四青年奖章、优秀共青团员）" id="content_awards" class="easyui-textbox" type="text" name="content_awards" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td>获奖名次：</td>
+                <td id="hasLevel_awards"><label data-name="level" data-haslevel="true" class="checkbox"><i></i><span>奖励有等次</span></label><label data-name="level" data-haslevel="false" class="checkbox"><i></i><span>奖励无等次</span></label></td>
+            </tr>
+            <tr class="check">
+                <td>奖励等次：</td>
+                <td><input placeholder="请输入获奖名次（如：一等奖、二等奖等）" id="levelName_awards" class="easyui-textbox" type="text" name="levelName_awards" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td id="rewardTime_awards_anchor">获奖时间：</td>
+                <td><input id="rewardTime_awards" class="easyui-datebox" type="text" name="rewardTime_awards" data-options="editable: false"></td>
+            </tr>
+            <tr class="check">
+                <td>授奖组织：</td>
+                <td><input placeholder="请输入授奖组织的单位全称" id="awardOrg_awards" class="easyui-textbox" type="text" name="awardOrg_awards" maxlength="99"></td>
+            </tr>
+            <tr>
+                <th colspan="2">上传获奖证明照片</th>
+            </tr>
+        </table>
+        <!--上传插件-->
+        <div class="uploader_custom_control rewards_rewards"></div>
+    </form>
+</div>
+
+
+<!--录入处罚信息 -- 模态窗口-->
+<div id="dialog_punish" class="easyui-dialog mywindow" title="录入处罚信息" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+<!--<div id="dialog_punish" class="easyui-dialog mywindow" title="录入处罚信息" style="width: 720px;height: 500px;padding: 10px;">-->
+    <form id="fm_punish">
+        <table>
+            <tr>
+                <th colspan="2">处罚信息</th>
+            </tr>
+            <tr class="check">
+                <td>处罚名称：</td>
+                <td><input placeholder="请输入处罚名称（如：违反校纪等）" id="content_punish" class="easyui-textbox" type="text" name="content_punish" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td id="punishTime_punish_anchor">处罚时间：</td>
+                <td><input id="punishTime_punish" class="easyui-datebox" type="text" name="punishTime_punish" data-options="editable: false"></td>
+            </tr>
+            <tr class="check">
+                <td id="relieveTime_punish_anchor">解除时间：</td>
+                <td><input id="relieveTime_punish" class="easyui-datebox" type="text" name="relieveTime_punish" data-options="editable: false"></td>
+            </tr>
+            <tr>
+                <th colspan="2">上传处罚证明照片</th>
+            </tr>
+        </table>
+        <!--上传插件-->
+        <div class="uploader_custom_control rewards_punish"></div>
+
+    </form>
+</div>
+
+<!--批量导入奖/惩团员名单 -- 模态窗口-->
+<div id="dialog_rewards_multiple" class="easyui-dialog mywindow" title="批量导入奖/惩团员名单" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="uploader_file_custom_control rewards_multiple" style="margin: 20px 0;">
+        <div class="fileUrlList" style="display: none;"></div>
+        <div class="btns">
+            <div class="filePicker">选择需导入的团员名单文件</div>
+        </div>
+        <!--用来存放文件信息-->
+        <div class="fileList"></div>
+    </div>
+
+    <div class="my-red" style="margin-bottom: 20px;">为保证批量导入成功，请严格按照<span class="download" style="display: inline-block;color: #0d87ef;text-decoration: underline;cursor: pointer;">模板文件</span>的格式填好需导入的团员名单</div>
+
+    <div class="download" style="display: inline-block;color: #0d87ef;text-decoration: underline;cursor: pointer;">点击这里，下载批量导入模板</div>
+
+    <div class="desc" style="margin-top: 30px">
+        <div style="font-weight: bold;">说明</div>
+        <p style="line-height: 1.4;">1.点击“导入模板下载”，下载批量导入团员的excel模板</p>
+        <p style="line-height: 1.4;">2.管理员按照导入模板的格式要求填写表格</p>
+        <p style="line-height: 1.4;">3.上传完成后系统会给出上传结果的提示，若导入失败系统会提示错误数据所在行及失败原因。</p>
+        <p style="line-height: 1.4;">4.一个数据上传失败，整个文档导入均失败，须重新上传。</p>
+        <p style="line-height: 1.4;">5.下载系统反馈的含有失败原因的Excel表格，管理员可以根据提示进行修改并重新上传。</p>
+    </div>
+</div>
+
+<style type="text/css">
+    /*分页功能全部显示*/
+    #dialog_rewards_multiple_fail .datagrid .panel-body .datagrid-pager table tr td:nth-child(5), #dialog_rewards_multiple_fail .datagrid .panel-body .datagrid-pager table tr td:nth-child(6), #dialog_rewards_multiple_fail .datagrid .panel-body .datagrid-pager table tr td:nth-child(7), #dialog_rewards_multiple_fail .datagrid .panel-body .datagrid-pager table tr td:nth-child(8), #dialog_rewards_multiple_fail .datagrid .panel-body .datagrid-pager table tr td:nth-child(9), #dialog_rewards_multiple_fail .datagrid .panel-body .datagrid-pager table tr td:nth-child(11){
+        display: table-cell;
+    }
+    #dialog_rewards_multiple_fail .datagrid .panel-body .datagrid-pager .pagination-info{
+        display: block;
+    }
+
+    #dialog_rewards_multiple_fail .panel .panel-body .datagrid .datagrid-wrap.panel-body .datagrid-view {
+        border-left: 1px solid #c4c4c4;
+    }
+</style>
+
+<!--批量导入团员失败 -- 模态窗口-->
+<div id="dialog_rewards_multiple_fail" class="easyui-dialog" title="批量导入团员失败" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <table class="easyui-datagrid" id="datagrid_rewards_multiple_fail"></table>
+</div>
+
+<!--规则(奖惩录入说明) -- 模态窗口-->
+<div id="dialog_rules_awards" class="easyui-dialog" title="奖惩录入说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="dialog_rules">
+        <p style="margin: 10px 0;"><span style="font-weight: bold;">奖励录入：</span>仅能录入包括各级团委在内的团组织（或团组织联合其他单位）授予并且认证的奖励，如“五四青年优秀奖章”、“优秀团干部”等。团组织录入内奖励可直接计入团员个人电子档案，系统认证。非团组织参与颁发的奖励，请勿录入。</p>
+        <p><span style="font-weight: bold;">处罚录入：</span>记录团员本人所受到的处罚信息，在处罚有效期内，团员在服务号可见自己所受处罚。处罚信息会记录至团员个人电子档案。</p>
+    </div>
+</div>
+
+</body>
+</html>

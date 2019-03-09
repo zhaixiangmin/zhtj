@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>待审核(拒绝)</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/RelationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/relation/todo_application_refuse.js"></script>
+    <style type="text/css">
+        .edit_box{padding:0.2rem 0.6rem;background-color:#fff;}
+        .edit_box textarea{height:5.6rem;width:100%;font-size:0.6rem;}
+    </style>
+</head>
+<body>
+    <section class="edit_box">
+        <textarea placeholder="请输入拒绝理由" maxlength="249" id="returnReason"></textarea>
+    </section>
+    <a href="javascript:;" class="bot_big_btn" id="confirm">确定</a>
+</body>
+</html>

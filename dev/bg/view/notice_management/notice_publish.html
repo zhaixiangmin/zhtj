@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公告发布</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_file_custom_control.css"/>
+    <link rel="stylesheet" href="../../public/css/notice_management/notice_publish.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <!--弹出框-->
+    <script src="../../public/custom/dialog.js"></script>
+    <!--富文本框-->
+    <script src="../../public/vendor/wangEditor-3.0.15/wangEditor.js"></script>
+    <script src="../../public/vendor/xss/xss.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/NoticeManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script src="../../public/vendor/webuploader/uploader_file_custom_control.js"></script>
+    <script src="../../public/js/notice_management/notice_publish.js"></script>
+</head>
+<body>
+
+<div class="list_box">
+    <div class="list">
+        <div class="item_box check-icon"><div class="item name">公告标题：</div><div class="item content"><input type="text" id="title"></div></div>
+        <div class="item_box check-icon"><div class="item name">公告内容：</div>
+            <div id="editor">
+                <!--内容-->
+                <!--<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="uploader_file_custom_control notice_add" style="margin: 10px;">
+    <div class="btns">
+        <div class="filePicker">添加附件</div>
+    </div>
+    <!--用来存放文件信息-->
+    <div class="fileList"></div>
+</div>
+
+<div class="button" id="confirm" style="margin-left: 10px;">确定</div>
+
+</body>
+</html>

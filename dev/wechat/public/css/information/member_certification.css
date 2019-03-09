@@ -1,0 +1,108 @@
+.mt_30{margin-top:0.6rem;}
+
+
+/*统一设置选中样式 -- 圆形选择按钮、标题*/
+.icon {
+    position: absolute;
+    right: 0.6rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url("../../img/check.png") no-repeat;
+    background-size: cover;
+}
+.icon.active {
+    background-image: url("../../img/check-active.png");
+}
+.box .title_txt {
+    position: relative;
+    padding: 0.6rem;
+    line-height: 0.8rem;
+    font-weight: bold;
+    font-size: 0.72rem;
+}
+
+/*基本信息*/
+.box .box_item_info .content_box .content_item {
+    overflow: hidden; /*子Div使用Float后撑开父Div*/
+    margin-top: 1px;
+    padding: 0.6rem;
+    background: #fff;
+}
+.box .box_item_info .content_box .item_title {
+    display: inline-block;
+    font-size: 0.68rem;
+    color: #333;
+}
+.box .box_item_info .content_box .item_txt {
+    float: right;
+    display: inline-block;
+    max-width: 50%;
+    font-size: 0.56rem;
+    color: #666;
+}
+
+/*团费交纳记录*/
+/*单选框*/
+.box .box_item_checkbox .checkbox_item {
+    margin-bottom: 0.6rem;
+    background-color: #fff;
+    padding: 0.5rem 0.6rem;
+    line-height: 1.4;
+}
+
+.box .box_item_checkbox .checkbox_item .checkbox_label {
+    display: block;
+    height: 0.952rem;
+    line-height: 0.952rem;
+    font-size: 0.56rem;
+    color: #333;
+}
+
+.box .box_item_checkbox .checkbox_item .checkbox_label .checkbox {
+    display: inline-block;
+    margin-right: 0.6rem;
+    width: 0.68rem;
+    height: 0.68rem;
+    vertical-align: middle;
+    background: url(../../img/square.png) no-repeat center;
+    background-size: contain;
+}
+.box .box_item_checkbox .checkbox_item .checkbox_label.active .checkbox{
+    background-image: url(../../img/square-active.png);
+}
+
+
+/*无边框表格样式 -- 组织关系转接记录、奖励信息*/
+.box .box_item_table {
+    position: relative;
+}
+.box .box_item_table .content_box_list .content_box {
+    margin-top: 1px;
+    padding: 0.6rem 2.2rem 0.6rem 0.6rem;
+    background: #fff;
+}
+.box .box_item_table .content_box_list .content_box .content_item {
+    position: relative;
+    padding: 0.1rem 0;
+}
+.box .box_item_table .content_box_list .content_box .item_title {
+    position: absolute;
+    display: inline-block;
+    font-size: 0.68rem;
+    color: #333;
+}
+.box .box_item_table .content_box_list .content_box .item_txt {
+    display: inline-block;
+    padding-left: 3.4rem;
+    font-size: 0.56rem;
+    color: #666;
+}
+
+/*无内容样式*/
+.no_content{
+    padding: 0.5rem 0.6rem;
+    line-height: 1.4;
+    background-color: #fff;
+    font-size: 0.68rem;
+    color: #333;
+}

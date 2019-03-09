@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/* 菜单板块 */
+.menu_block{background-color: #fff;margin-bottom:0.6rem;}
+.menu_block .menu_items{float: left;width:33.3%;height:4rem;box-sizing:border-box;padding-top:0.84rem;}
+.menu_block .menu_items_icon{width:1.2rem;height:1.2rem;margin:0 auto;background-image: url(../../img/spirit1.png);background-repeat:no-repeat;background-size:6rem;margin-bottom:0.6rem;}
+.menu_block .menu_items_title{line-height:0.6rem;font-size:0.6rem;color:#333;text-align: center;}
+.menu_block .my_org .menu_items_icon{background-position:-1.2rem 0;}
+.menu_block .my_msg .menu_items_icon{background-position:-2.4rem 0;}
+.menu_block .cost .menu_items_icon{background-position:-3.6rem 0;}
+.menu_block .org_relationship .menu_items_icon{background-position:-4.8rem 0;}
+/*.menu_block .my_act .menu_items_icon{background-position:0 -1.2rem;}*/
+/*.menu_block .ability .menu_items_icon{background-position:-1.2rem -1.2rem;}*/
+
+/*.menu_block .my_benefit .menu_items_icon{background-image: url(../../img/benefit.png);background-size: 1.2rem;background-position: center;}*/
+/*.menu_block .my_practice .menu_items_icon{background-image: url(../../img/practice.png);background-size: 1.2rem;background-position: center;}*/
+/*.menu_block .my_friends .menu_items_icon{background-image: url(../../img/friends.png);background-size: 1.2rem;background-position: center;}*/
+.menu_block .my_act .menu_items_icon{background-image: url(../../img/act.png);background-size: contain;background-position: center;}
+.menu_block .my_benefit .menu_items_icon{background-image: url(../../img/benefit.png);background-size: contain;background-position: center;}
+.menu_block .my_practice .menu_items_icon{background-image: url(../../img/practice.png);background-size: contain;background-position: center;}
+.menu_block .my_friends .menu_items_icon{background-image: url(../../img/friends.png);background-size: contain;background-position: center;}
+
+
+/* 活动列表 */
+/*.act_list_box{background-color: #fff;}*/
+.act_list_box .list_title{border-bottom:1px solid #ececec;padding:0 0.6rem;line-height:1.92rem;background: #fff;}
+.act_list_box .list_title .title{font-size:0.72rem;margin-right:0.6rem;float: left;}
+.act_list_box .list_title .title.cur{color:#D94453;border-bottom:1px solid #D94453;}
+.act_list_box .list_title .title:last-child{margin-right:0;}
+.act_list_box .item{padding:0 0.6rem;display:block;margin-bottom:0.6rem;background: #fff;}
+.act_list_box .item .pic_box{padding:0.6rem 0;overflow: hidden;height:6rem;}
+.act_list_box .item .pic{width:100%;height:100%;}
+.act_list_box .item .item_txt{padding-bottom: 0.6rem;font-size:0.6rem;}
+
+/* 底部 */
+.footer_links{text-align: center;}
+.footer_links .link_items{display:inline-block;padding:0 0.6rem;line-height:0.52rem;color:#666;font-size:0.52rem;border-right:1px solid #999;height:0.52rem;}
+.footer_links .link_items:last-child{border-right:0 none;}

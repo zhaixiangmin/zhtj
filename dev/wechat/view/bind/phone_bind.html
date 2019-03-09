@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>登录手机号绑定</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/bind/phone_bind.css" />
+    <script type="text/javascript" src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/BindApi.js"></script>
+    <script type="text/javascript" src="../../public/js/bind/phone_bind.js"></script>
+</head>
+<body>
+    <div class="header" style="padding: 0.6rem 1rem 0.6rem 0.6rem;">
+        <div style="text-align: center;font-size: 0.6rem;color: #333;">您正在申请将个人团务信息绑定至当前手机号</div>
+        <div id="phone" style="margin-top: 0.52rem; margin-bottom: 0.8rem;text-align: center;line-height: 1;font-size: 0.72rem;color: #30befd;"></div>
+        <div style="line-height: 1.4;font-size: 0.56rem;color: #999;">为确保你的个人信息安全，确保你本人完全知晓并认可此操作，请准确填写以下信息验证个人身份，并由同支部团员作证明。</div>
+    </div>
+
+    <section class="info_box">
+        <ul class="info_list">
+            <li class="info_item_input" id="name"><!-- 姓名 -->
+                <span class="info_item_title">姓名</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入你的真实姓名" /></div>
+            </li>
+            <li class="info_item" id="idCard"><!-- 身份证号 -->
+                <span class="info_item_title">身份证号</span>
+                <span class="right_txt"></span>
+                <!--<div class="right_input_box"><input type="text" class="right_input" placeholder="请输入准确完整的身份证号" /></div>-->
+            </li>
+            <li class="info_item" id="leagueForYears"><!-- 入团年月 -->
+                <span class="info_item_title">入团年月</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="oid"><!-- 所在团支部 -->
+                <span class="info_item_title question">所在团支部</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="headfor">
+                <label data-name="headfor" data-id="1" class="checkbox_label"><i class="checkbox"></i><span>支部团员验证</span></label>
+                <!--<label data-name="headfor" data-id="2" class="checkbox_label"><i class="checkbox"></i>邮箱验证</label>-->
+            </li>
+            <li class="info_item longer" style="display: none;"><!-- 支部团员验证 -->
+                <span class="info_item_title">支部团员验证</span>
+                <span class="right_txt" id="chooseMember"></span>
+            </li>
+            <!--<li class="info_item_input" id="email" style="display: none;">&lt;!&ndash; 电子邮箱 &ndash;&gt;-->
+                <!--<span class="info_item_title">电子邮箱</span>-->
+                <!--<div class="right_input_box"><input type="text" class="right_input" placeholder="请输入你的电子邮箱" /></div>-->
+            <!--</li>-->
+        </ul>
+    </section>
+
+    <!-- 确认修改按钮 -->
+    <a href="javascript:;" class="bot_big_btn">确认修改</a>
+
+    <!-- 选择 - 弹窗 -->
+    <section class="select_popup">
+        <ul class="select_list"></ul>
+    </section>
+    <!-- 选择 - 弹窗 -->
+
+    <!-- 选择 - 弹窗 - 两边 -->
+    <section class="select_popup_pair">
+        <ul class="select_list_pair select_list_pair_left"></ul>
+        <ul class="select_list_pair select_list_pair_right"></ul>
+    </section>
+    <!-- 选择 - 弹窗 - 两边  -->
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页文章管理</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/TweetManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/tweet_management/tweet_management.js"></script>
+</head>
+<body>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 22px;overflow: hidden;">
+        <div class="declaration" style="margin-top: 5px;">
+            <span class="business">首页文章业务说明</span>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--首页文章管理-->
+        <table class="easyui-datagrid" id="tweet_magagement" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+<!--查看推文-->
+<div id="dialog_view" class="easyui-dialog mywindow" title="查看推文" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <iframe class="iframe" name="nfrm" src="about:blank" style="width: 600px; height: 400px; border: 1px solid #ccc;"></iframe>
+</div>
+
+<!--规则(首页文章业务说明) -- 模态窗口-->
+<div id="dialog_rules_business" class="easyui-dialog" title="首页文章业务说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="dialog_rules">
+        <p>为给团的声音/活动等直接抵达每一名团员提供便捷渠道，智慧团建系统团员移动端首页已上线“精华”、“本地”模块。</p>
+        <p>其中:</p>
+        <p><span style="font-weight: bold;">“精华”</span>由团省委账号发布，发布内容可以是传播价值观/青年资讯的文章、也可以是青年之声等平台发布的活动；</p>
+        <p><span style="font-weight: bold;">“本地”</span>模块已经授权团省委的直接下级团组织发布（含地市、相关高校等），建议各级团组织充分利用好这一模块，及时发布/更新首页文章/活动。</p>
+        <p>各级团组织一旦在“本地”模块发布内容，即可传播到本组织下的所有团员（通过团员移动端首页查看，如果发布的是微信推文链接，团员点击后也能计入本篇推文的阅读数）</p>
+        <p>使用说明：</p>
+        <p>1.  授权地市/高校组织帐号在首页文章管理页面，点击【发布本地】</p>
+        <p>2 . 输入微信推文或者平台活动的网页超链接，上传图片，该图片显示在团员首页文章列表；此时点击“预览正文” 后可生成预览内容，点击“确定”即可发布。推文发布后自动生成发布日期，出现在推文管理文章列表。</p>
+        <p>3. 管理页选中文章，点击“查看”可以查看文章，点击“删除”可删除文章。</p>
+    </div>
+</div>
+
+</body>
+</html>

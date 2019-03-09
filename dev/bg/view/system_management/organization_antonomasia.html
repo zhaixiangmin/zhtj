@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改企业微信名称</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/SystemManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/system_management/organization_antonomasia.js"></script>
+</head>
+<body>
+
+<style type="text/css">
+    form table{margin: 30px 50px;}
+    form table tr td{padding: 5px 0;}
+    form table tr td:first-child{width: 150px; padding-left: 10px;}
+    form table tr td input{box-sizing: border-box; padding: 0 0 0 10px; width: 300px; height: 35px; line-height: 35px; border: 1px solid #ccc;}
+
+    .rules{
+        color: #c10021;
+        cursor: pointer;
+        text-decoration: underline;
+        padding-left: 5px !important;
+        line-height: 45px;
+    }
+</style>
+<form id="fm">
+    <table>
+        <!--<tr>-->
+            <!--<th colspan="2">填写基本信息</th>-->
+        <!--</tr>-->
+        <tr class="check">
+            <td>原企业微信名称：</td>
+            <td><input id="oldEnterpriseName" class="easyui-textbox" type="text" name="oldEnterpriseName" readonly></td>
+        </tr>
+        <tr class="check">
+            <td>新企业微信名称：</td>
+            <td><input id="enterpriseName" class="easyui-textbox" type="text" name="enterpriseName" maxlength="16"></td>
+            <td class="rules enterpriseName_rules">填写规则</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <span id="submit" style="display: inline-block; width: 100px;height: 50px;line-height: 50px; color: #fff; cursor: pointer; background: #db4254;border-radius: 5px;">确定</span>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<!--规则(企业微信名称) -- 模态窗口-->
+<div id="dialog_rules_enterpriseName" class="easyui-dialog" title="代称命名规则" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="dialog_rules">
+        <p>直接使用本级单位/区划命名，无需包含组织层级(因微信限制，长度不能超过16字且不可有\:?”<>｜等特殊字符）。具体如下：</p>
+        <p>（一）团的领导机关（即省、市、县三级团委）代称为“团+行政区划名称+委”，如：团广州市委、团天河区委，等。</p>
+        <p>（二）基层团组织（即非团的领导机关的其他团组织，不含团工委）代称为“单位/本级行政区划名称+团委/团总支/团支部”，如：新河浦社区团团支部、娃哈哈集团团委、中山大学团委等。</p>
+        <p>（三）学校的班级团支部代称为“（专业）入学年份+班号+团支部”，如：新闻学专业本科2017级三班团支部；此外，中学的班级团支部不需要填写专业名称，如：初中2015级二班团支部。</p>
+        <p>（四）团工委的代称一般为“单位名称+团工委”，例如：广东省直机关团工委、珠海市司法局团工委、南沙街道团工委。如有其他情况，根据实际，由该团工委商直接上级团组织决定，例如：湖南省驻粤团工委等。</p>
+    </div>
+</div>
+
+</body>
+</html>

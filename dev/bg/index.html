@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>广东智慧团建</title>
+    <link rel="stylesheet" href="public/vendor/easyui/themes/icon.css" />
+    <link rel="stylesheet" href="public/vendor/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" href="public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" type="text/css" href="public/css/common/base.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/common/common.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/index/index.css" />
+    <script src="public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <!--弹出框-->
+    <script src="public/custom/dialog.js"></script>
+    <script type="text/javascript" src="public/js/module/League.js"></script>
+    <script type="text/javascript" src="public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="public/js/index/index.js"></script>
+</head>
+<body style="background-color:#fff;">
+<header class="top_header">
+    <div class="w1200 clearfix top_header_content">
+        <a href="javascript:;" class="header_logo fl">智慧团建</a>
+    </div>
+</header>
+<div class="login_box">
+    <div class="w1200 clearfix login_center">
+        <!--<div class="link_btns clearfix">-->
+            <!--<a href="javascript:;" class="btn fl">我要办证</a>-->
+            <!--<a href="javascript:;" class="btn fl">观看视频</a>-->
+        <!--</div>-->
+        <div class="login_input_box">
+            <div class="login_input_inner">
+                <p class="login_input_title">密码登录</p>
+                <div class="input_item mb_20 username clearfix">
+                    <input type="text" id="userName" class="input" placeholder="账号" />
+                </div>
+                <div class="input_item mb_20 password clearfix">
+                    <input type="password" id="password" class="input" placeholder="密码" />
+                </div>
+                <div class="code_box" style="display: none;">
+                    <div class="input_item_code mb_20 clearfix">
+                        <input type="text" id="loginValidCode" class="input" placeholder="请输入图片验证码"/>
+                        <img id="validCode" onclick="changeModel()"/>
+                    </div>
+                    <div class="mb_20" style="font-size: 14px;">不区分大小写，点击图片可更换验证码</div>
+                </div>
+                <a href="javascript:;" class="login_btn mb_20" id="login">登 录</a>
+
+                <div class="login_input_bottom clearfix">
+                    <!--<label for="auto_login" class="auto_label fl"><input type="checkbox" checked id="auto_login" />下次自动登录</label>-->
+                    <div class="links fr clearfix">
+                        <a href="javascript:;" id="forgetPass" class="link fl">忘记密码</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="bottom_footer">
+    <p class="p"><a href="http://www.gdcyl.org/Index.html" target="_blank">广东共青团</a> | <a href="https://www.12355.net/" target="_blank">广东青年之声</a> | <a href="https://www.gdzyz.cn/" target="_blank">i志愿</a> | <a href="https://www.izhanchi.com/Home" target="_blank">易展翅</a></p>
+    <p class="p">地址：广州市越秀区寺贝通津1号大院 邮编：510080</p>
+    <p class="p">版权所有：共青团广东省委员会 | <a href="http://www.miibeian.gov.cn/" target="_blank">粤ICP备10214402号-4</a></p>
+</footer>
+</body>
+</html>
+<script type="text/javascript">
+    if($('#auto_login').prop('checked')==true){
+        $('.auto_label').addClass('ck');
+    }
+    $('.auto_label').change(function() {
+        $(this).toggleClass('ck');
+    });
+</script>

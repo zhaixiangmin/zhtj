@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>公告详情</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/css/notice_management/notice_detail.css" />
+    <!--<link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>-->
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <!--富文本框-->
+    <script src="../../public/vendor/wangEditor-3.0.15/wangEditor.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/NoticeManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/notice_management/notice_detail.js"></script>
+</head>
+<body>
+    <div class="outermost">
+        <div class="up_box">
+            <h1 class="article_title" id="title"></h1>
+            <p class="under_title">发稿时间：<span id="createTime"></span>&nbsp;&nbsp;&nbsp;&nbsp;来源： <span id="creatorName"></span></p>
+        </div>
+        <div class="under_box">
+            <div id="editor">
+                <!--内容-->
+            </div>
+        </div>
+        <div class="files_box">
+            <div class="file_num">这篇文章一共有<span></span>个附件</div>
+            <div class="files">
+                <!--<a href="">建设工作发文</a><a href="">建设工作宣传稿</a>-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

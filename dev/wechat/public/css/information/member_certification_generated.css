@@ -1,0 +1,135 @@
+body {
+    /*background: #fff;*/
+}
+
+.warning_no_content {
+    padding: 0 0.6rem;
+    text-align: center;
+    font-size: 0.68rem;
+}
+
+.box .box_header {
+    /*padding-top: 0.6rem;*/
+    /*background: url("../../img/certification-bg-top.png") no-repeat;*/
+    /*background-size: 100% 100%;*/
+}
+.box .box_header .title {
+    /*margin-top: 0.6rem;*/
+    font-size: 0.68rem;
+    text-align: center;
+    color: #D94453;
+}
+/*.box .box_header .subtitle {*/
+    /*font-size: 0.4rem;*/
+    /*text-align: center;*/
+    /*color: #333;*/
+/*}*/
+.box .box_header .download {
+    margin-top: 0.8rem;
+    text-align: center;
+}
+.box .box_header .download span {
+    display: inline-block;
+    padding: 0.24rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.48rem;
+    color: #fff;
+    background: #3C81AE;
+    border-radius: 0.2rem;
+}
+.box .box_header .img_box {
+    /*padding-top: 0.8rem;*/
+    padding-bottom: 0.6rem;
+    text-align: center;
+}
+.box .box_header .img_box img {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+
+.box {
+    padding: 0 1.2rem;
+    background: url("../../img/certification-bg-middle.png") repeat-y;
+    background-size: contain;
+}
+.box .title_txt {
+    position: relative;
+    padding: 0.6rem;
+    line-height: 0.8rem;
+    font-weight: bold;
+    font-size: 0.72rem;
+}
+
+/*基本信息*/
+.box .box_item_info .content_box .content_item {
+    overflow: hidden; /*子Div使用Float后撑开父Div*/
+    padding: 0.6rem;
+}
+.box .box_item_info .content_box .item_title {
+    display: inline-block;
+    font-size: 0.68rem;
+    color: #333;
+}
+.box .box_item_info .content_box .item_txt {
+    float: right;
+    display: inline-block;
+    max-width: 50%;
+    font-size: 0.56rem;
+    color: #666;
+}
+
+
+/*无边框表格样式 -- 组织关系转接记录、团费交纳记录、奖励信息*/
+.box .box_item_table .content_box_list .content_box {
+    margin-top: 1px;
+    padding: 0 2.2rem 0.6rem 0.6rem;
+}
+.box .box_item_table .content_box_list .content_box .content_item {
+    position: relative;
+    padding: 0.1rem 0;
+}
+.box .box_item_table .content_box_list .content_box .item_title {
+    position: absolute;
+    display: inline-block;
+    font-size: 0.68rem;
+    color: #333;
+}
+.box .box_item_table .content_box_list .content_box .item_txt {
+    display: inline-block;
+    padding-left: 3.4rem;
+    font-size: 0.56rem;
+    color: #666;
+}
+
+/*底部*/
+.box .box_footer {
+    padding: 1.2rem 0.6rem 2rem 1.2rem;
+}
+.box .box_footer .img_box {
+    display: inline-block;
+    width: 5rem;
+}
+.box .box_footer .img_box img {
+    width: 100%;
+}
+
+.box .box_footer .right_side {
+    float: right;
+    margin-top: 1.4rem;
+}
+.box .box_footer .right_side p {
+    line-height: 0.9rem;
+    text-align: right;
+    font-size: 0.48rem;
+    color: #333;
+}
+.box .box_footer .bottom {
+    width: 5rem;
+    font-size: 0.48rem;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}

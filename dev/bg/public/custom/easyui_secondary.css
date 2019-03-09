@@ -1,0 +1,724 @@
+.check td:first-of-type:before{content: '*';color: red;position: relative;left: -10px;}
+.check-only:before{content: '*';color: red;position: relative;left: -10px;}
+label.error{display: table-cell;padding-left: 25px;color: red;vertical-align: middle;}
+.my-red{color: #c10021;}
+input[readonly]{border: none !important;}
+/*移除HTML5 input在type="number"时的上下小箭头*/
+input[type=number] {
+    -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input{box-shadow: none;}
+.declaration{
+    /*margin-left: 10px;*/
+    min-height: 20px;
+    font-size: 14px;
+    color: #c10021;
+    position: relative;
+}
+/*.declaration > span, .declaration > i{ cursor: pointer;}*/
+.declaration > span, .declaration > i{
+    cursor: pointer;
+    padding-left: 22px;
+    background: url(../../public/img/declaration-red.png) no-repeat left center;
+}
+.declaration span:not(:first-child){ margin-left: 10px; }
+.declaration .download {
+    position: absolute;
+    right: 0;
+    margin: 0 10px;
+    padding-left: 22px;
+    font-style: normal;
+    font-size: 12px;
+    background: url("../../public/img/download-red.png") no-repeat left center;
+}
+/*.declaration{ margin-left: 10px; text-decoration: underline; font-size: 12px; color: #c10021; cursor: pointer; }*/
+/*数据表格datagrid -- 点击样式*/
+/*详情*/
+.view_click{text-decoration: underline;cursor: pointer;}
+/*操作*/
+.operation_click{padding: 5px 10px; background: #169bd5; border-radius: 5px; display: inline-block; color: #fff;cursor: pointer;}
+
+
+/*数据筛选 -- 开始*/
+.accordion{
+    border: none;
+    overflow: hidden;
+}
+.accordion .accordion-body{
+    border: none;
+}
+.accordion .accordion-body form table{
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    /*border-spacing: 10px;*/
+    /*border-vertical-spacing: 10px;*/
+}
+.accordion .accordion-body form table tr th, .accordion .accordion-body form table tr td{
+    padding: 0 10px 0 0;
+}
+.accordion .accordion-body form table tr th:not(:first-child){
+    padding-left: 15px;
+}
+.accordion .accordion-body form table tr td>span{
+    box-sizing: border-box;
+    width: 173px !important;
+    height: 30px !important;
+}
+.accordion .accordion-body form table tr td>span input{
+    box-sizing: border-box;
+    padding: 0 0 0 5px;
+    width: 153px !important;
+    height: 28px !important;
+}
+.accordion .accordion-body form table tr td>span span.combo-arrow{
+    height: 28px !important;
+    background-color: transparent;
+}
+.accordion .accordion-body form table tr td>input{
+    box-sizing: border-box;
+    padding: 0 0 0 5px;
+    height: 30px;
+    /*width: 150px;*/
+    width: 173px;
+    border: 1px solid #c4c4c4;
+}
+.accordion .accordion-body form table tr td>input:focus{
+    outline: none;
+}
+.accordion .accordion-body form table tr td a.button{
+    box-sizing: border-box;
+    display: inline-block;
+    margin-left: 15px;
+    /*width: 60px;*/
+    padding: 0 18px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background: #db4254;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/*数据筛选 -- 结束*/
+
+
+
+/*数据网格 -- 开始*/
+.datagrid .panel-body{
+    padding-top: 1px;
+    border: none;
+}
+.datagrid .panel-body .datagrid-toolbar{
+    padding: 0;
+    background: #fff;
+    border: none;
+}
+.datagrid .panel-body .datagrid-toolbar table tr{
+    height: 60px;
+}
+.datagrid .panel-body .datagrid-toolbar table tr td:nth-of-type(2n+2){
+    display: none;
+}
+.datagrid .panel-body .datagrid-toolbar table tr td a{
+    position: relative;
+    padding: 0;
+    background: #fff;
+}
+.datagrid .panel-body .datagrid-toolbar table tr td a:hover{
+    border: none;
+    border-radius: 0;
+}
+.datagrid .panel-body .datagrid-toolbar table tr td a span span.l-btn-text{
+    margin: 0 30px 0 30px;
+}
+.datagrid .panel-body .datagrid-toolbar table tr td a span span.l-btn-icon{
+    left: 0;
+    margin-top: -10px;
+    width: 22px;
+    height: 22px;
+}
+
+.datagrid .panel-body .datagrid-view td{
+    border-color: #c4c4c4;
+    border-style: solid;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header{
+    border-color: #c4c4c4;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table{
+    background: #e2e2e2;
+    border-top: 1px solid #c4c4c4;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td{
+    border-color: #c4c4c4;
+    border-style: solid;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td:first-child{
+    border-left-width: 1px;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td div.datagrid-header-check{
+    width: 54px;
+    height: 20px;
+    text-align: center;
+}
+/*.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td div.datagrid-header-check input{*/
+    /*display: none;*/
+    /*content: url(../img/check.png);*/
+    /*width: 20px;*/
+    /*height: 20px;*/
+/*}*/
+/*.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td div.datagrid-header-check input:checked{*/
+    /*content: url(../../public/img/check-active.png);*/
+/*}*/
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td div.datagrid-header-check input{
+    display: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /*background: url(../img/check.png) no-repeat center;*/
+    background: url(../img/check.png) no-repeat center;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    zoom: 1;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td div.datagrid-header-check input:checked{
+    background-image: url(../../public/img/check-active.png);
+}
+
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-body .datagrid-body-inner table tr td{
+    border-color: #c4c4c4;
+    border-style: solid;;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-body .datagrid-body-inner table tr td:first-child{
+    border-left-width: 1px;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-body .datagrid-body-inner table tr td div.datagrid-cell-check {
+    width: 54px;
+    height: 20px;
+    text-align: center;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-body .datagrid-body-inner table tr td div.datagrid-cell-check:after{
+    content: url(../img/check.png);
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-body .datagrid-body-inner table tr.datagrid-row-checked.datagrid-row-selected td div.datagrid-cell-check:after{
+    content: url(../img/check-active.png);
+}
+.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-body .datagrid-body-inner table tr td div.datagrid-cell-check input{
+    display: none;
+}
+
+.datagrid .panel-body .datagrid-view .datagrid-view2 .datagrid-header{
+    background: none;
+    border: none;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view2 .datagrid-header .datagrid-header-inner table{
+    background: #e2e2e2;
+}
+
+.datagrid .panel-body .datagrid-view .datagrid-view2 .datagrid-header .datagrid-header-inner table tr.datagrid-header-row:nth-child(1) td{
+    border-top-width: 1px;
+    border-color: #c4c4c4;
+    border-style: solid;
+}
+/*.datagrid .panel-body .datagrid-view .datagrid-view2 .datagrid-header .datagrid-header-inner table tr.datagrid-header-row:nth-child(2) td{*/
+    /*border-top: none;*/
+/*}*/
+.datagrid .panel-body .datagrid-view .datagrid-view2 .datagrid-header .datagrid-header-inner table td>div.datagrid-cell-group{
+    font-size: 14px;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view2 .datagrid-header .datagrid-header-inner table td span{
+    font-size: 14px;
+}
+.datagrid .panel-body .datagrid-view .datagrid-view2 .datagrid-body table tr td{
+    border-color: #c4c4c4;
+    border-style: solid;
+}
+
+.datagrid .panel-body .datagrid-pager{
+    border: none;
+}
+.datagrid .panel-body .datagrid-pager table tr td select {
+    margin-left: 0;
+}
+.datagrid .panel-body .datagrid-pager table tr td:nth-child(5), .datagrid .panel-body .datagrid-pager table tr td:nth-child(6), .datagrid .panel-body .datagrid-pager table tr td:nth-child(7), .datagrid .panel-body .datagrid-pager table tr td:nth-child(8), .datagrid .panel-body .datagrid-pager table tr td:nth-child(9), .datagrid .panel-body .datagrid-pager table tr td:nth-child(11){
+    display: none;
+}
+.datagrid .panel-body .datagrid-pager .pagination-info{
+    display: none;
+}
+/*数据网格 -- 结束*/
+
+
+/*弹出框 -- 开始*/
+.panel.window{
+    box-sizing: border-box;
+    padding: 30px 20px;
+    /*background: green;*/
+    background: #fff;
+    border: none;
+}
+.panel.window .panel-header{
+    box-sizing: border-box;
+    padding: 0;
+    border: none;
+}
+.panel.window .panel-header .panel-title{
+    box-sizing: border-box;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    background: #db4254;
+    border-radius: 5px;
+}
+
+
+.panel.window .panel-body{
+    border: none;
+}
+.panel.window>.panel-body .panel .panel-body{
+    padding: 0 !important;
+}
+.panel.window>.panel-body .panel .panel-body form table tr td{
+    padding: 5px 0;
+}
+.panel.window>.panel-body .panel .panel-body form table tr td:first-child{
+    width: 150px;
+    padding-left: 10px;
+}
+.panel.window>.panel-body .panel .panel-body form table tr td:nth-child(2){
+    width: 300px;
+}
+.panel.window>.panel-body .panel .panel-body form table tr td>textarea{
+    box-sizing: border-box;
+    padding: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+}
+.panel.window>.panel-body .panel .panel-body form table tr td>input {
+    box-sizing: border-box;
+    padding: 0 0 0 10px;
+    width: 300px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ccc;
+}
+.panel.window>.panel-body .panel .panel-body form table tr td>span{
+    box-sizing: border-box;
+    width: 300px !important;
+    height: 35px !important;;
+    line-height: 35px !important;;
+    border: 1px solid #ccc;
+}
+.panel.window>.panel-body .panel .panel-body form table tr td>span>input{
+    box-sizing: border-box;
+    padding: 0 0 0 10px;
+    width: 280px !important;
+    height: 33px !important;;
+    line-height: 33px !important;;
+    vertical-align: top;
+}
+.panel.window>.panel-body .panel .panel-body form table tr td>span>span>span.combo-arrow{
+    height: 33px !important;;
+    background-color: #fff;
+}
+
+.panel.window .dialog-button{
+    /*padding-left: 130px;*/
+    padding-left: 160px;
+    text-align: left;
+    background: none;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+.panel.window .dialog-button .l-btn:not(:first-child){
+    margin-left: 20px;
+}
+.panel.window .dialog-button .l-btn{
+    margin: 0;
+    height: 50px;
+    border: none;
+    background: none;
+}
+.panel.window .dialog-button .l-btn .l-btn-left{
+    height: 50px;
+}
+.panel.window .dialog-button .l-btn .l-btn-left .l-btn-text{
+    padding: 0 36px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #fff;
+    background: #db4254;
+    border-radius: 5px;
+}
+.panel.window .dialog-button .l-btn:first-child .l-btn-left .l-btn-text{
+    color: #333;
+    background: #e2e2e2;
+}
+/*弹出框 -- 结束*/
+
+/*消息弹出框 -- 开始*/
+.panel.window.messager-window{
+    padding: 0;
+}
+.panel.window.messager-window .panel-header{
+    width: 100% !important;
+}
+.panel.window.messager-window .panel-header .panel-title{
+    height: 40px;
+    line-height: 40px;
+}
+.panel.window.messager-window .messager-body{
+    box-sizing: border-box;
+    width: 100% !important;
+}
+/*消息弹出框 -- 结束*/
+
+/*消息弹出框(我的) -- 开始*/
+.panel.window.my-messager-window{
+    padding: 0;
+}
+.panel.window.my-messager-window .panel-header{
+    width: 100% !important;
+}
+.panel.window.my-messager-window .panel-header .panel-title{
+    height: 40px;
+    line-height: 40px;
+}
+.panel.window.my-messager-window .messager-body{
+    box-sizing: border-box;
+    width: 100% !important;
+}
+/*消息弹出框(我的) -- 结束*/
+
+/*树 -- 开始*/
+.tree.tree-lines .tree-node.tree-node-selected{
+    background: transparent;
+}
+/*树 -- 结束*/
+
+
+/*自定义全局样式*/
+.filter .filter_box{
+    display: inline-block;
+    height: 30px;
+}
+.filter .filter_box:not(:first-child){
+    margin-left: 20px;
+}
+.search_box{
+    box-sizing: border-box;
+    display: inline-block;
+    margin-left: 8px;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #c4c4c4;
+    cursor: pointer;
+}
+.search_box input{
+    padding: 0;
+    width: 280px;
+    border: none;
+    cursor: pointer;
+}
+.search_box input:focus{
+    outline: none;
+}
+.search_box .search_icon{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    vertical-align: top;
+    background: url("../img/close.png") no-repeat center;
+    border-left: 1px solid #c4c4c4;
+    cursor: pointer;
+}
+.search_box .search_clear{
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    vertical-align: top;
+    background: url("../img/close.png") no-repeat center;
+    border-left: 1px solid #c4c4c4;
+    cursor: pointer;
+}
+
+.filter .filter_box label {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+}
+.filter .filter_box .combobox {
+    display: inline-block;
+    margin-left: 18px;
+    vertical-align: top;
+}
+
+.filter .filter_box .combobox>span{
+    box-sizing: border-box;
+    width: 173px !important;
+    height: 30px !important;
+}
+.filter .filter_box .combobox>span input{
+    box-sizing: border-box;
+    padding: 0 0 0 5px;
+    width: 153px !important;
+    height: 28px !important;
+}
+.filter .filter_box .combobox>span span.combo-arrow{
+    height: 28px !important;
+    background-color: transparent;
+}
+.filter .filter_box .combobox>input{
+    box-sizing: border-box;
+    padding: 0 0 0 5px;
+    height: 30px;
+    /*width: 150px;*/
+    width: 173px;
+    border: 1px solid #c4c4c4;
+}
+
+    /*查看团员对话框 -- 开始*/
+.clearfix:after{ content:""; height:0; line-height:0; display:block; visibility:hidden; clear:both; }
+.clearfix{zoom:1;} /*为了兼容低版本IE浏览器*/
+.split_line {
+    height: 1px;
+    background: #c4c4c4;
+}
+
+.list_box{
+    margin: 20px auto;
+    width: 574px;
+}
+.list_box .big_icon_item_box .item{
+    box-sizing: border-box;
+    float: left;
+    width: 33%;
+    padding-left: 64px;
+    height: 40px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.list_box .big_icon_item_box .item.left{
+    background: url("../img/cadre_detail.png") no-repeat center left;
+}
+.list_box .big_icon_item_box .item.center{
+    background: url("../img/member_detail.png") no-repeat center left;
+}
+.list_box .big_icon_item_box .item.right{
+    background: url("../img/enterprise.png") no-repeat center left;
+}
+
+.list_box .small_icon_item_box .item {
+    margin-bottom: 20px;
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    width: 50%;
+}
+.list_box .small_icon_item_box .item .title{
+    display: inline-block;
+    margin-right: 5px;
+    padding-left: 30px;
+    width: 180px;
+    background: url("../img/person.png") no-repeat center left;
+}
+.list_box .small_icon_item_box .item.sumLeagueCadre .title{
+    background-image: url("../img/person.png");
+}
+.list_box .small_icon_item_box .item.sumAll .title{
+    background-image: url("../img/two-people.png");
+}
+.list_box .small_icon_item_box .item.sumLeagueMember .title{
+    background-image: url("../img/three-people.png");
+}
+.list_box .small_icon_item_box .item.sumBranch .title{
+    background-image: url("../img/house.png");
+}
+
+.list_box .small_icon_item_box .item.sumTransferringMember .title{
+    background-image: url("../img/transferring.png");
+}
+.list_box .small_icon_item_box .item.sumTransferredMember .title{
+    background-image: url("../img/tranferred.png");
+}
+.list_box .small_icon_item_box .item.sumTransferringRolloutMember .title{
+    background-image: url("../img/transferring.png");
+}
+.list_box .small_icon_item_box .item.sumTransferredRolloutMember .title{
+    background-image: url("../img/tranferred.png");
+}
+.list_box .small_icon_item_box .item.sumTransferringRollinMember .title{
+    background-image: url("../img/sumTransferringRollinMember.png");
+}
+.list_box .small_icon_item_box .item.sumTransferredRollinMember .title{
+    background-image: url("../img/sumTransferredRollinMember.png");
+}
+
+.list_box .small_icon_item_box .item.organizationStatistic {
+    cursor: pointer;
+}
+.list_box .small_icon_item_box .item.feeDetail {
+    cursor: pointer;
+}
+.list_box .small_icon_item_box .item.organizationStatistic .title{
+    background-image: url("../img/statistic.png");
+}
+.list_box .small_icon_item_box .item.feeDetail .title{
+    background-image: url("../img/fee.png");
+}
+
+.list_box .list{
+    margin-top: 20px;
+}
+.list_box .list .headline{
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 5px;
+    line-height: 14px;
+    font-size: 14px;
+    color: #fff;
+    background: #999;
+    border-radius: 5px;
+}
+.list_box .list .item_list {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.list_box .list .item_list:first-child{
+    margin-top: 0;
+}
+.list_box .list .item{
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+.list_box .list .item .title{
+    display: inline-block;
+    vertical-align: top;
+    width: 28%;
+    /*width: 160px;*/
+}
+.list_box .list .item .describe{
+    display: inline-block;
+    width: 72%;
+    /*width: 414px;*/
+}
+
+/*单选框*/
+.list_box .list .check_box{
+
+}
+.list_box .list .check_box .title{
+    margin-bottom: 15px;
+}
+.list_box .list .check_box label{
+    display: inline-block;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.list_box .list .check_box label i{
+    background: url(../../public/img/check.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+.list_box .list .check_box label.active i{
+    background-image: url(../../public/img/check-active.png);
+}
+.list_box .list .check_box label span{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*图片*/
+.list .img_box{
+    position: relative;
+    float: left;
+    margin: 0 20px 20px 0;
+    width: 160px;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+    font-size: 0;
+    background: #f0f0f0;
+    overflow: hidden;
+    cursor: pointer;
+}
+.list .img_box img{
+    max-width: 100%;
+    max-height: 100%;
+    display: inline;
+    vertical-align: middle;
+    cursor: pointer;
+}
+/*带有删除 -- 图片*/
+.list .img_box_delete{
+    position: relative;
+    float: left;
+    margin: 0 50px 20px 0;
+    width: 160px;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+    font-size: 0;
+    background: #f0f0f0;
+    cursor: pointer;
+}
+.list .img_box_delete img{
+    max-width: 100%;
+    max-height: 100%;
+    display: inline;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.list .img_box_delete span{
+    position: absolute;
+    right: -37px;
+    line-height: 160px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/*大图*/
+.maskBox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    z-index: 9999;
+    font-size: 0;
+    line-height: 710px;
+    text-align: center;
+    cursor: pointer;
+}
+.maskBox img{
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+/*查看对话框 -- 结束*/
+
+/*业务说明弹出框 -- 开始*/
+.dialog_rules {
+    font-size: 14px;
+}
+/*业务说明弹出框 -- 结束*/

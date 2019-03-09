@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>团员身份认证（1/4）</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/information/league-membership-common.css" />
+    <script type="text/javascript" src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/InformationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/information/registration_data_1.js"></script>
+</head>
+<body>
+    <!-- /* 警告、提醒文字信息 */ -->
+    <a href="javascript:;" class="remind_info_box clearfix">
+        <!--<p class="remind_info_txt">以下资料审核“通过”后将不能修改，请谨慎填写</p>-->
+        <p class="remind_info_txt">请认真填写资料，如被退回，所有资料须重新填写。注意，以下资料提交审核通过后则不能修改。</p>
+    </a>
+    <section class="info_box">
+        <div class="block_title required"><h1 class="block_title_txt">基本信息</h1></div>
+        <ul class="info_list">
+            <li class="info_item_input" id="name"><!-- 姓名 -->
+                <span class="info_item_title">姓名</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入你的真实姓名" /></div>
+            </li>
+            <li class="info_item" id="idCardType"><!-- 证件类型 -->
+                <span class="info_item_title">证件类型</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item_input" id="idCard"><!-- 身份证号 -->
+                <span class="info_item_title">身份证号</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入准确完整的身份证号" /></div>
+            </li>
+            <li class="info_item" id="csnyr"><!-- 出生日期 -->
+                <span class="info_item_title">出生日期</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="rtny"><!-- 入团年月 -->
+                <span class="info_item_title">入团年月</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="oid"><!-- 所在团支部 -->
+                <!--<span class="info_item_title">！所在团支部</span>-->
+                <!--<span class="info_item_title">所在团支部<i class="icon_question" style="margin-left: 0.32rem; display: inline-block; background: url(../../public/img/question.png) no-repeat center; width: 0.6rem; height: 0.6rem; background-size: contain; vertical-align: middle;"></i></span>-->
+                <span class="info_item_title question">所在团支部</span>
+                <span class="arrow">请选择</span>
+            </li>
+        </ul>
+    </section>
+    <!-- 下一步、提交按钮 -->
+    <a href="javascript:;" class="bot_big_btn">下一步</a>
+
+    <!--&lt;!&ndash; 选择 - 弹窗 - 搜索 &ndash;&gt;-->
+    <!--<section class="select_popup_search">-->
+        <!--<div class="select_popup_search_box">-->
+            <!--<div class="search_box">-->
+                <!--<div  class="search_text" id="search_text"><input/></div>-->
+                <!--<div class="search" id="search">搜索</div>-->
+            <!--</div>-->
+            <!--<ul class="select_list">-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!-- 选择 - 弹窗 -->
+    <section class="select_popup">
+        <ul class="select_list"></ul>
+    </section>
+    <!-- 选择 - 弹窗 -->
+
+    <!-- 选择 - 弹窗 - 两边 -->
+    <section class="select_popup_pair">
+        <ul class="select_list_pair select_list_pair_left"></ul>
+        <ul class="select_list_pair select_list_pair_right"></ul>
+    </section>
+    <!-- 选择 - 弹窗 - 两边  -->
+</body>
+</html>

@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.box{
+    padding: 0 10px;
+}
+.box .box_item_info{
+    border-top: 1px solid #C4C4C4;
+}
+.box .box_item_info .title_txt {
+    margin: 20px;
+    padding-left: 40px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 14px;
+    color: #db4254;
+    background: url("../../img/file.png") no-repeat;
+}
+
+/*基本信息*/
+.box .box_item_info .content_box_parent .img_box {
+    float: left;
+    width: 154px;
+    text-align: right;
+}
+.box .box_item_info .content_box_parent .img_box img {
+    width: 100px;
+}
+.box .box_item_info .content_box_parent .content_box {
+    margin-left: 154px;
+    overflow: hidden;
+}
+.box .box_item_info .content_box_parent .content_box .content_item {
+    float: left;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    min-width: 286px;
+    font-size: 12px;
+    color: #333;
+}
+.box .box_item_info .content_box_parent .content_box .content_item span {
+    display: inline-block;
+    vertical-align: top;
+}
+.box .box_item_info .content_box_parent .content_box .content_item span.item_title {
+    min-width: 97px;
+}
+.box .box_item_info .content_box_parent .content_box .content_item span.item_txt {
+    max-width: 186px;
+}
+
+/*团费交纳记录*/
+.box .box_item_info #fee_check {
+    margin: 0 0 20px 20px;
+}
+.box .box_item_info #fee_check label{
+    display: inline-block;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.box .box_item_info #fee_check label span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.box .box_item_info #fee_check label i{
+    background: url(../../img/circlie-check.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+.box .box_item_info #fee_check label.active i{
+    background-image: url(../../img/circlie-check-active.png);
+}
+
+/*!*附加信息*!*/
+/*.box  .box_item_info.addition .title_txt {*/
+    /*position: relative;*/
+    /*background-image: url("../../img/clip-red.png");*/
+/*}*/
+/*.box  .box_item_info.addition .title_txt .icon {*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*display: inline-block;*/
+    /*width: 24px;*/
+    /*height: 24px;*/
+    /*background: url("../../img/circle-check-big.png") no-repeat;*/
+    /*cursor: pointer;*/
+/*}*/
+/*.box  .box_item_info.addition .title_txt .icon.active {*/
+    /*background-image: url("../../img/circle-check-big-active.png");*/
+/*}*/
+/*.box  .box_item_info.addition .content_box {*/
+    /*margin-left: 60px;*/
+    /*overflow: hidden;*/
+/*}*/
+/*.box  .box_item_info.addition .content_box .content_item {*/
+    /*float: left;*/
+    /*margin-bottom: 20px;*/
+    /*font-size: 12px;*/
+    /*color: #333;*/
+/*}*/
+/*.box  .box_item_info.addition .content_box .content_item:nth-child(odd) {*/
+    /*min-width: 440px;*/
+/*}*/
+/*.box  .box_item_info.addition .content_box .content_item:nth-child(even) {*/
+    /*min-width: 380px;*/
+/*}*/
+/*.box  .box_item_info.addition .content_box .content_item span {*/
+    /*display: inline-block;*/
+    /*vertical-align: top;*/
+/*}*/
+/*.box  .box_item_info.addition .content_box .content_item span.item_title {*/
+    /*min-width: 97px;*/
+/*}*/
+/*.box  .box_item_info.addition .content_box .content_item span.item_txt {*/
+    /*width: 160px;*/
+/*}*/
+/*.box  .box_item_info.addition .content_box .content_item i.icon {*/
+    /*display: inline-block;*/
+    /*width: 18px;*/
+    /*height: 18px;*/
+    /*background: url("../../img/circlie-check.png") no-repeat;*/
+    /*cursor: pointer;*/
+/*}*/
+/*.box  .box_item_info.addition .content_box .content_item i.icon.active {*/
+    /*background-image: url("../../img/circlie-check-active.png");*/
+/*}*/
+
+/*奖励情况、组织关系转接记录*/
+.box .box_item_info .title_txt {
+    position: relative;
+}
+.box .box_item_info .title_txt .icon {
+    position: absolute;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: url("../../img/circle-check-big.png") no-repeat;
+    cursor: pointer;
+}
+.box .box_item_info .title_txt .icon.active {
+    background-image: url("../../img/circle-check-big-active.png");
+}
+.box .box_item_info .box_item_table .content_box_list {
+    margin-left: 60px;
+    padding-right: 20px;
+}
+.box .box_item_info .box_item_table .content_box_list .content_box {
+    position: relative;
+    font-size: 12px;
+    color: #333;
+}
+.box .box_item_info .box_item_table .content_box_list .content_box:not(:last-child) {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.box .box_item_info .box_item_table .content_box_list .content_box .icon {
+    position: absolute;
+    right: 0;
+    width: 18px;
+    height: 18px;
+    background: url("../../img/circlie-check.png") no-repeat;
+    cursor: pointer;
+}
+.box .box_item_info .box_item_table .content_box_list .content_box .icon.active {
+    background-image: url("../../img/circlie-check-active.png");
+}
+.box .box_item_info .box_item_table .content_box_list .content_box .content_item {
+    margin-bottom: 10px;
+}
+.box .box_item_info .box_item_table .content_box_list .content_box .content_item .item_title {
+    display: inline-block;
+    min-width: 60px;
+}
+
+/*奖励情况*/
+.box .box_item_info.reward .title_txt {
+    background-image: url("../../img/reward.png");
+}
+.box .box_item_info.reward .box_item_table .title_txt {
+    background: #f4f4f4;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    color: #666;
+}
+.box .box_item_info.reward .box_item_table .content_box_list .no_content {
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+/*组织关系转接记录*/
+.box .box_item_info.transfer .title_txt {
+    background-image: url("../../img/transfer.png");
+}
+
+/*按钮*/
+.button_box {
+    padding: 30px 40px;
+    background: #f4f4f4;
+}
+.button_box .button {
+    display: inline-block;
+    padding: 10px 30px;
+    height: 12px;
+    line-height: 12px;
+    font-size: 12px;
+    color: #fff;
+    background: #db4254;
+    border-radius: 5px;
+    cursor: pointer;
+}

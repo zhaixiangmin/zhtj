@@ -1,0 +1,17 @@
+/* 支付成功页面 */
+body{background: #fff;}
+.paid_successfully_box .success_bg{padding-top:2.08rem;margin-top:1.48rem;line-height:0.72rem;font-size:0.72rem;color:#09BB07;text-align: center;position: relative;margin-bottom:2.4rem;}
+.paid_successfully_box .success_bg:before{position: absolute;content:'';background:url(../../img/spirit1.png) no-repeat 0 -5.46rem;background-size:6rem;width:1.36rem;height:1.36rem;left:50%;top:0;transform:translateX(-50%);}
+.paid_successfully_box .ph1{color:#333;font-size:0.68rem;margin-bottom:0.6rem;text-align: center;}
+.paid_successfully_box .ph2{color:#151515;font-size:2rem;line-height:2rem;text-align: center;font-weight: bold;margin-bottom:2.4rem;}
+.paid_successfully_box .list_item{line-height:1.92rem;height:1.92rem;color:#333;padding:0 0.6rem;border-bottom:1px solid #f2f2f2;font-size:0.72rem;}
+.paid_successfully_box .list_item .left{float: left;}
+.paid_successfully_box .list_item .right{float: right;}
+.paid_successfully_box .link{color:#D94453;font-size:0.52rem;margin-top:0.6rem;margin-left:0.6rem;float: left;}
+
+
+/* 双按钮 */
+.two_btns_box{text-align: center;margin:0 0.3rem;font-size:0;margin-top:1rem;}
+.two_btns_box .btn{display:inline-block;width:6.5rem;height:2rem;line-height:2rem;font-size:0.72rem;border-radius:0.2rem;margin:0 0.3rem;color:#fff;}
+.two_btns_box .btn.bgc1{background-color:#D94453;}
+.two_btns_box .btn.bgc2{background-color:#cecece;}

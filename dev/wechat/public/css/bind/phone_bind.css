@@ -1,0 +1,28 @@
+/*单选框*/
+.info_box .info_list .info_item .checkbox_label {
+    float: left;
+    display: block;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0;
+    color: #333;
+}
+.info_box .info_list .info_item .checkbox_label:not(:first-child) {
+    margin-left: 2.2rem;
+}
+.info_box .info_list .info_item .checkbox_label .checkbox {
+    display: inline-block;
+    margin-right: 0.6rem;
+    width: 0.68rem;
+    height: 0.8rem;
+    vertical-align: top;
+    background: url(../../img/square.png) no-repeat center;
+    background-size: contain;
+}
+.info_box .info_list .info_item .checkbox_label.active .checkbox{
+    background-image: url(../../img/square-active.png);
+}
+.info_box .info_list .info_item .checkbox_label span {
+    display: inline-block;
+    font-size: 0.56rem;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>组织资料</title>
+  <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+  <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+  <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+  <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+  <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+  <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+  <script src="../../public/custom/dialog.js"></script>
+  <script src="../../public/js/module/League.js"></script>
+  <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+  <script src="../../public/js/module/OrganizationManagementApi.js"></script>
+  <script src="../../public/js/organization_management/person_information.js"></script>
+</head>
+<body>
+<style>
+  table{
+    table-layout:fixed;
+    border-collapse: collapse;
+  }
+  table caption{
+    width: 900px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background: #e2e2e2;
+    border-top: 1px solid #c4c4c4;
+    border-left: 1px solid #c4c4c4;
+    border-right: 1px solid #c4c4c4;
+  }
+  table td
+  {
+    vertical-align: top;
+    box-sizing: border-box;
+    padding: 14px 20px;
+    width: 180px;
+    font-size: 12px;
+    color: #999;
+    border: 1px solid #c4c4c4;
+  }
+  table td:nth-of-type(2n+2){
+    width: 270px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  /*账号信息*/
+  table.account caption{
+    border-top: none;
+  }
+  table.account td{
+    width: 450px;
+  }
+
+  /*附加信息*/
+  table.addition caption{
+    border-top: none;
+  }
+</style>
+
+
+<table class="base">
+  <caption>基本资料</caption>
+  <!--<tr>-->
+  <!--<td>组织类型</td><td>领导机关团组织</td>-->
+  <!--<td>团组织全称</td><td>中国共产主义青年团广东省委员会</td>-->
+  <!--</tr>-->
+</table>
+<table class="account">
+  <caption>账号信息</caption>
+  <tr>
+    <td>登录账号</td><td id="username"></td>
+  </tr>
+</table>
+<table class="addition">
+  <caption>附加信息</caption>
+  <!--<tr>-->
+  <!--<td>团组织书记姓名</td><td>池志雄</td>-->
+  <!--<td>团组织机构代码</td><td></td>-->
+  <!--</tr>-->
+</table>
+
+<!--规则(企业微信名称说明) -- 模态窗口-->
+<div id="dialog_rules_enterpriseName" class="easyui-dialog" title="企业微信名称说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="dialog_rules">
+    <p>1.企业微信名称显示在“智慧团建”微信企业号中，对后续本支部各项数据对接业务十分重要。</p>
+    <p>2.企业微信名称由该组织具运营者身份的团干首次进入微信企业号时设置，其他团干进入时不用再设置。如需修改企业微信名称，请移步到PC端后台-【系统管理】-【修改企业微信名称】处进行修改。</p>
+  </div>
+</div>
+
+
+</body>
+</html>

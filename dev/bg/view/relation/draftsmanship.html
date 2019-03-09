@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发起转接</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/RelationApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/relation/draftsmanship.js"></script>
+</head>
+<body>
+<!--测试批量转出-->
+<!--<style>-->
+    <!--/*datagrid 显示全选按钮*/-->
+    <!--.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td div.datagrid-header-check input{-->
+        <!--display: inline-block;-->
+    <!--}-->
+    <!--.datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td div.datagrid-header-check input:focus{-->
+        <!--outline: none;-->
+    <!--}-->
+<!--</style>-->
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 74px;overflow: hidden;">
+        <!--<div>查询条件</div>-->
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form>
+                    <table>
+                        <tr>
+                            <th><label for="name_filter">姓名:</label></th>
+                            <td><input id="name_filter" class="easyui-textbox" name="name_filter"></td>
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="declaration" style="margin-top: 5px;">
+                        <span class="relation">组织关系转接说明</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--团员管理-->
+        <table class="easyui-datagrid" id="league_menber" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+
+<!--申请转出团员-->
+<div id="dialog" class="easyui-dialog mywindow" title="申请转出团员" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <style>
+        .warning div{color: red;}
+        .mb_10{
+            margin-bottom: 10px;
+        }
+        .mt_20{
+            margin-top: 20px;
+        }
+        .tips {
+            margin-top: 10px;
+            padding-left: 30px;
+            height: 18px;
+            line-height: 18px;
+            background: url(../../public/img/tips.png) no-repeat center left;
+        }
+        .member_list_box {
+            font-size: 14px;
+        }
+        .member_list_box .member_list a {
+            color: #0d87ef;
+            cursor: pointer;
+        }
+        .split-line {
+            margin: 20px 0;
+            height: 1px;
+            background: #c4c4c4;
+        }
+        .address_box {
+            overflow: hidden;
+        }
+        label.checkbox{
+            float: left;
+            display: inline-block;
+            width: 180px;
+            padding-right: 20px;
+            cursor: pointer;
+        }
+        label.checkbox span{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        label.checkbox i{
+            background: url(../../public/img/check.png) no-repeat;
+            display: inline-block;
+            vertical-align: middle;
+            padding-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        label.checkbox.active i{
+            background-image: url(../../public/img/check-active.png);
+        }
+        .searchbox {
+            background: url("../../public/img/search.png") no-repeat 5px center;
+            padding-left: 36px;
+            height: 30px;
+            width: 400px;
+            border: 1px solid #c4c4c4;
+        }
+        .searchbox input {
+            border: none;
+            height: 30px;
+            line-height: 30px;
+            width: 100%;
+        }
+        .reason{
+            margin-top: 20px;
+            padding: 10px 8px;
+        }
+
+
+        .table_box table tr td:first-child{
+            width: 150px;
+            /*padding-left: 30px;*/
+        }
+        .table_box table tr td:nth-child(2){
+            width: 300px;
+        }
+        .table_box table tr td>input {
+            box-sizing: border-box;
+            padding: 0 0 0 10px;
+            width: 300px;
+            height: 35px;
+            line-height: 35px;
+            border: 1px solid #ccc;
+        }
+
+        .table_box table tr td>span{
+            box-sizing: border-box;
+            width: 300px !important;
+            height: 35px !important;;
+            line-height: 35px !important;;
+            border: 1px solid #ccc;
+        }
+        .table_box table tr td>span>input{
+            box-sizing: border-box;
+            padding: 0 0 0 10px;
+            width: 280px !important;
+            height: 33px !important;;
+            line-height: 33px !important;;
+            vertical-align: top;
+        }
+        .table_box table tr td>span>span>span.combo-arrow{
+            height: 33px !important;;
+            background-color: #fff;
+        }
+    </style>
+
+    <div class="tips">点击团员名字，可查看该团员的个人资料</div>
+    <div class="member_list_box mt_20">
+        你已选择 <span class="member_list"></span>名团员
+    </div>
+
+    <div class="split-line" id="organization_anchor"></div>
+
+    <!--<div class="address_box mb_10 clearfix"><label data-name="address" data-id="1" class="checkbox"><i></i><span>批量转至广东省内的团支部</span></label><span class="my-red">注：[转至广东省内的团支部]需经过转出团支部及其上级组织、 转入团支部及其上级组织审核通过后方可接转成功。</span></div>-->
+    <div class="address_box mb_10 clearfix"><label data-name="address" data-id="1" class="checkbox"><i></i><span>转至广东省内的团支部</span></label><span class="my-red">注：[转至广东省内的团支部]需经过转出团支部及其上级组织、 转入团支部及其上级组织审核通过后方可接转成功。</span></div>
+    <div style="display: none;" class="searchbox" id="oid"><input type="text" placeholder="请选择团支部" readonly></div>
+    <!--<div class="address_box mt_20"><label data-name="address" data-id="2" class="checkbox"><i></i><span>批量转至非共青团广东省委所辖的团组织</span></label><span class="my-red">[转至广东省内]只需经过转出团支部及其上级组织审核通过即可接转成功。</span></div>-->
+
+    <!--<div style="display: none;" class="table_box province_outside">-->
+        <!--<table>-->
+            <!--<tr>-->
+                <!--<td style="padding-left: 30px;">学习/工作单位地点：</td>-->
+                <!--<td colspan="2"><input id="provinceDid" class="easyui-combobox" editable="false" type="text" name="provinceDid"><input id="cityDid" class="easyui-combobox" editable="false" name="cityDid"><input id="countyDid" class="easyui-combobox" editable="false" name="countyDid"></td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</div>-->
+
+    <div class="address_box mt_20"><label data-name="address" data-id="3" class="checkbox"><i></i><span>退回原籍</span></label><span class="my-red"></span></div>
+
+    <div class="split-line" id="studyWorkUnit_anchor"></div>
+    
+    <div class="table_box">
+        <table>
+            <tr>
+                <td>学习/工作单位：</td>
+                <!--<td><input id="studyWorkUnit" placeholder="请同时注明团员户籍所在地详细地址，具体到村/社区，否则将被退回" class="easyui-textbox" type="text" name="studyWorkUnit" maxlength="49"></td>-->
+                <!--<td><input id="studyWorkUnit" placeholder="请填写团员将去往的学习/工作单位" class="easyui-textbox" type="text" name="studyWorkUnit" maxlength="49"></td>-->
+                <td><input id="studyWorkUnit" placeholder="请填写学习/工作单位" class="easyui-textbox" type="text" name="studyWorkUnit" maxlength="64"></td>
+            </tr>
+            <tr style="display: none;">
+                <td colspan="2"><p class="my-red studyWorkUnitTips">注：请同时注明团员户籍所在地详细地址，具体到村/社区，否则将被退回</p></td>
+            </tr>
+            <tr class="province_outside" style="display: none;">
+                <td>学习/工作单位地点：</td>
+                <td colspan="2"><input id="provinceDid" class="easyui-combobox" editable="false" type="text" name="provinceDid"><input id="cityDid" class="easyui-combobox" editable="false" name="cityDid"><input id="countyDid" class="easyui-combobox" editable="false" name="countyDid"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="split-line" id="reason_anchor"></div>
+
+    <!--<div style="font-size: 14px;">批量选择转出原因</div>-->
+    <div style="font-size: 14px;">选择转出原因</div>
+    <div class="checkbox_box" style="margin: 20px 0;overflow: hidden;">
+        <label data-name="reason"  data-id="1" class="checkbox"><i></i><span>就业/工作调动</span></label>
+        <label data-name="reason"  data-id="2" class="checkbox"><i></i><span>升学/转学</span></label>
+        <label data-name="reason"  data-id="3" class="checkbox"><i></i><span>其他原因</span></label>
+        <textarea style="display: none;" placeholder="请填写原因" id="reason" cols="33" rows="6" class="reason"></textarea>
+    </div>
+    <!--<div class="mt_20 mb_10"><label data-name="reason"  data-id="1" class="checkbox"><i></i><span>就业/工作调动</span></label></div>-->
+    <!--<div class="mt_20 mb_10"><label data-name="reason"  data-id="2" class="checkbox"><i></i><span>升学/转学</span></label></div>-->
+    <!--<div class="mt_20 mb_10"><label data-name="reason"  data-id="3" class="checkbox"><i></i><span>其他原因</span></label></div>-->
+    <!--<textarea style="display: none;" placeholder="请填写原因" id="reason" cols="33" rows="6" class="reason"></textarea>-->
+
+</div>
+
+
+<!--选择团支部 -- 模态窗口-->
+<div id="dialog_missionBranch" class="easyui-dialog" title="选择团支部" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+        <div title="数据筛选" data-options="collapsible: false, noheader: true"  style="padding:10px;">
+            <form onsubmit="return false">
+                <table>
+                    <tr>
+                        <th align="right"><label for="fullName_filter_missionBranch">团支部名称:</label></th>
+                        <td><input id="fullName_filter_missionBranch" placeholder="输入组织全称（支持关键词）/ 组织ID搜索"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <a id="filter_missionBranch" class="button">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <table class="easyui-datagrid" id="datagrid_missionBranch"></table>
+</div>
+
+
+
+<!--规则(组织关系转接说明) -- 模态窗口-->
+<div id="dialog_rules_relation" class="easyui-dialog" title="组织关系转接说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="dialog_rules">
+        <p>组织关系接转发生在团员隶属组织发生变动时，如升学、就业等，转接时需要准确填写您将要去往的学习/工作单位。转接的范围有以下二类情况：</p>
+        <p style="font-weight: bold;">1. 转至广东省内组织：</p>
+        <p>转出至非共青团广东省委所辖的团组织，需四个组织审核：转出、转入团支部及它们的直接上级组织。团支部手动同意转出/转入后，直接上级团组织审核，四个组织均通过后则转接完成，若任一组织拒绝，则需重走流程。转接前后团员均可正常使用广东“智慧团建”系统。</p>
+        <a style="display: block;margin-bottom: 0.2rem;"><img src="../../public/img/transfer_organization_one.png" style="max-width: 100%;"/></a>
+
+        <p style="font-weight: bold;">2. 转至非共青团广东省委所辖的团组织：</p>
+        <p>团员如果组织关系需要转出至省外及非团省委所辖的组织（如部分国有银行系统等），转出类型选择转出至“非共青团广东省委所辖的团组织”。审核流程与一般流程一致，通过后，该团员将无法使用广东“智慧团建”系统办理部分业务，后续可以申请转回省内组织，请谨慎操作。PS：目前该权限暂未对组织开放，可由团员本人申请。</p>
+
+        <p style="font-weight: bold;">3. 退回原籍：</p>
+        <p>团组织可对选定的团员进行一键“退回原籍”操作，系统自动申请将团员转至原籍（报到所填区县）的区县团支部。转接流程与一般流程逻辑一致，省内团员需原籍组织同意接收方可转接成功。PS：中山、东莞的退回原籍团支部直属于团市委，非共青团广东省委所辖的团组织团员退回非共青团广东省委所辖的团组织。</p>
+
+        <p>更多业务上的规范指引，请留意相关的说明文件。</p>
+        <a style="display: block;margin-bottom: 0.2rem;"><img src="../../public/img/transfer_organization_two.png" style="max-width: 100%;"/></a>
+    </div>
+</div>
+
+<!--大图-->
+<div class="maskBox">
+    <img src="" title="点击可关闭">
+</div>
+
+</body>
+</html>

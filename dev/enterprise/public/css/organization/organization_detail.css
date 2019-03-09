@@ -1,0 +1,11 @@
+.fl{float: left;}
+.fr{float: right;}
+.mb_30{margin-bottom:0.6rem;}
+.mt_30{margin-top:0.6rem;}
+
+/* 资料头像处 */
+.member_personal_info{background-color: #fff;padding:0.4rem 0.6rem;margin-bottom:0.6rem;}
+.member_personal_info .member_header{width:2rem;height:2rem;border-radius:50%;overflow: hidden;float: left;}
+.member_personal_info .member_header img{width:100%;height:100%;}
+.member_personal_info .right_txt{padding-left:2.6rem;}
+.member_personal_info .member_name{font-size:0.68rem;color:#333;line-height:0.68rem;padding-top:0.68rem;}

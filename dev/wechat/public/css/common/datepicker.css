@@ -1,0 +1,29 @@
+.hasDatepicker{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.3);
+}
+.hasDatepicker .ui-datepicker{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+     -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+.hasDatepicker .ui-datepicker .ui-datepicker-header .ui-datepicker-title select{
+    vertical-align: top;
+    /*line-height: 1.4;*/
+    /*vertical-align: text-bottom;*/
+    border: 1px solid rgb(169, 169, 169);
+    appearance: menulist;
+    -moz-appearance: menulist;
+    -webkit-appearance: menulist;
+}

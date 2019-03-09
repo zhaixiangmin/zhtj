@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>团员详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/relation/member_detail.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/MemberApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/RelationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/relation/member_detail.js"></script>
+</head>
+<body>
+    <!--<div id="header_h" class="bgc1"><a href="javascript:;" class="back_ btn"><em></em></a>团员详情<span class="menu_de btn"><em></em></span></div>-->
+    <div class="tab_box mb_30 clearfix">
+        <div class="tab_item cur" data-id="1" style="width: 100%;">TA的报到资料</div>
+        <!--<div class="tab_item" data-id="2">TA的奖惩信息</div>-->
+    </div>
+    <!-- TA的报到资料 -->
+    <div class="big_block">
+        <p class="status mb_30">资料状态：<em id="auditStatus"></em></p>
+        <!-- 列表信息展示 -->
+        <section class="info_box mb_30">
+            <div class="block_title"><h1 class="block_title_txt">基本信息</h1></div>
+            <ul class="info_list mb_30">
+                <li class="info_item"><!-- 姓名 -->
+                    <span class="info_item_title">姓名</span>
+                    <span id="name" class="info_item_con longer"></span>
+                </li>
+                <li class="info_item"><!-- 证件类型 -->
+                    <span class="info_item_title">证件类型</span>
+                    <span id="idCardType" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 身份证号 -->
+                    <span class="info_item_title">身份证号</span>
+                    <span id="idCard" class="info_item_con longer"></span>
+                </li>
+                <li class="info_item"><!-- 入团年月 -->
+                    <span class="info_item_title">入团年月</span>
+                    <span id="leagueForYears" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 所在团支部 -->
+                    <span class="info_item_title">所在团支部</span>
+                    <span id="fullName" class="info_item_con longer"></span>
+                </li>
+            </ul>
+
+            <ul class="info_list mb_30">
+                <li class="info_item"><!-- 收入 -->
+                    <span class="info_item_title">收入</span>
+                    <span class="info_item_con longer" id="income"></span>
+                </li>
+                <li class="info_item sub" id="income_sub"><!-- 收入(待审核) -->
+                    <span class="info_item_title"></span>
+                    <span class="info_item_con"></span>
+                </li>
+
+                <li class="info_item"><!-- 是否团干部 -->
+                    <span class="info_item_title">是否团干部</span>
+                    <span class="info_item_con" id="isCadres"></span>
+                </li>
+                <li class="info_item sub" id="isCadres_sub"><!-- 是否团干部(待审核) -->
+                    <span class="info_item_title">是否团干部改为是</span>
+                    <span class="info_item_con">审核通过</span>
+                </li>
+
+                <li class="info_item isCadres"><!-- 现任职务 -->
+                    <span class="info_item_title">现任职务</span>
+                    <span class="info_item_con" id="incumbent"></span>
+                </li>
+                <li class="info_item sub" id="incumbent_sub"><!-- 现任职务(待审核) -->
+                    <span class="info_item_title"></span>
+                    <span class="info_item_con"></span>
+                </li>
+
+                <li class="info_item isCadres"><!-- 职务名称 -->
+                    <span class="info_item_title">职务名称</span>
+                    <span class="info_item_con" id="incumbentDesc"></span>
+                </li>
+                <li class="info_item sub" id="incumbentDesc_sub"><!-- 职务名称(待审核) -->
+                    <span class="info_item_title"></span>
+                    <span class="info_item_con"></span>
+                </li>
+
+                <li class="info_item isCadres"><!-- 现任职年月 -->
+                    <span class="info_item_title">现任职年月</span>
+                    <span class="info_item_con" id="dateOfDuty"></span>
+                </li>
+                <li class="info_item sub" id="dateOfDuty_sub"><!-- 现任职年月(待审核) -->
+                    <span class="info_item_title"></span>
+                    <span class="info_item_con"></span>
+                </li>
+
+                <li class="info_item isCadres"><!-- 团干部性质 -->
+                    <span class="info_item_title">团干部性质</span>
+                    <span class="info_item_con" id="tuanganProperties"></span>
+                </li>
+                <li class="info_item sub" id="tuanganProperties_sub"><!-- 团干部性质(待审核) -->
+                    <span class="info_item_title"></span>
+                    <span class="info_item_con"></span>
+                </li>
+
+                <li class="info_item isCadres"><!-- 是否同级党委(支部)成员 -->
+                    <span class="info_item_title">是否同级党委(支部)成员</span>
+                    <span class="info_item_con" id="isPartyCommitteeMember"></span>
+                </li>
+                <li class="info_item sub" id="isPartyCommitteeMember_sub"><!-- 是否同级党委(支部)成员(待审核) -->
+                    <span class="info_item_title"></span>
+                    <span class="info_item_con"></span>
+                </li>
+            </ul>
+
+            <ul class="info_list mb_30">
+                <li class="info_item"><!-- 民族 -->
+                    <span class="info_item_title">民族</span>
+                    <span id="nation" class="info_item_con longer"></span>
+                </li>
+                <li class="info_item"><!-- 政治面貌 -->
+                    <span class="info_item_title">政治面貌</span>
+                    <span id="politicalOutlook" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 全日制学历 -->
+                    <span class="info_item_title">全日制学历</span>
+                    <span id="degreeOfEducation" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 最高学历 -->
+                    <span class="info_item_title">最高学历</span>
+                    <span id="highestEducation" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 户籍所在地 -->
+                    <span class="info_item_title">户籍所在地</span>
+                    <span id="residence" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 手机号码 -->
+                    <span class="info_item_title">手机号码</span>
+                    <span id="mobile" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 入团时所在单位 -->
+                    <span class="info_item_title">入团时所在单位</span>
+                    <span id="leagueForUnit" class="info_item_con"></span>
+                </li>
+            </ul>
+        </section>
+        <section class="info_box mb_30">
+            <div class="block_title"><h1 class="block_title_txt">附加信息</h1></div>
+            <ul class="info_list mb_30">
+                <li class="info_item"><!-- 职业 -->
+                    <span class="info_item_title">职业</span>
+                    <span id="occupation" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 学习工作单位 -->
+                    <span class="info_item_title">学习工作单位</span>
+                    <span id="learningUnit" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 电子邮箱 -->
+                    <span class="info_item_title">电子邮箱</span>
+                    <span id="email" class="info_item_con longer"></span>
+                </li>
+                <li class="info_item"><!-- QQ -->
+                    <span class="info_item_title">QQ</span>
+                    <span id="qqNum" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 微信号 -->
+                    <span class="info_item_title">微信号</span>
+                    <span id="wechatId" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 微博账号 -->
+                    <span class="info_item_title">微博账号</span>
+                    <span id="weibo" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 团员编号 -->
+                    <span class="info_item_title">团员编号</span>
+                    <span id="developmentMemberNumber" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 入党年月 -->
+                    <span class="info_item_title">入党年月</span>
+                    <span id="thePartyYears" class="info_item_con"></span>
+                </li>
+                <li class="info_item"><!-- 注册志愿者时间 -->
+                    <span class="info_item_title">注册志愿者时间</span>
+                    <span id="signUpForVolunteerTime" class="info_item_con"></span>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- 底部审核按钮 -->
+    <div class="bottom_btn_fixed" id="confirm">转出该团员</div>
+
+    <!-- 弹窗 -->
+    <section class="popup_box">
+        <div class="popup_center">
+            <p class="title">查看附件<em class="close_btn"></em></p>
+            <div class="pic_list clearfix">
+                <div class="pic_box"><img src="../../public/img/timg.png" /></div>
+                <div class="pic_box"><img src="../../public/img/timg.png" /></div>
+            </div>
+            <p class="ex">点击图片，从新窗口打开</p>
+        </div>
+    </section>
+</body>
+</html>

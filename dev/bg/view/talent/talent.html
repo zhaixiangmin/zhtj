@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>南粤人才数据库</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_custom_control.css"/>
+    <link rel="stylesheet" href="../../public/css/talent/talent.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/TalentApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script src="../../public/vendor/webuploader/uploader_custom_control.js"></script>
+    <script src="../../public/js/talent/talent.js"></script>
+</head>
+<body>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 46px;overflow: hidden;">
+        <!--<div>查询条件</div>-->
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form onsubmit="return false">
+                    <table>
+                        <tr>
+                            <th><label for="name_filter">姓名:</label></th>
+                            <td><input id="name_filter"></td>
+                            <th><label for="mobile_filter">手机号码:</label></th>
+                            <td><input id="mobile_filter"></td>
+                            <th><label for="degreeOfEducation_filter">全日制学历:</label></th>
+                            <td><input id="degreeOfEducation_filter" class="easyui-combobox" editable="false" name="degreeOfEducation"></td>
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--南粤人才库管理-->
+        <table class="easyui-datagrid" id="talent_datagrid" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+
+<!--新增人才数据-->
+<div id="dialog" class="easyui-dialog mywindow" title="新增数据" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm">
+        <table>
+            <tr>
+                <th colspan="2" readonly>基本信息</th>
+            </tr>
+            <tr class="check">
+                <td>姓名：</td>
+                <td><input id="name" class="easyui-textbox" type="text" name="name"></td>
+            </tr>
+            <tr class="check">
+                <td id="sex_anchor">性别：</td>
+                <td><input id="sex" class="easyui-combobox" editable="false" type="text" name="sex"></td>
+            </tr>
+            <tr class="check">
+                <td>身份证号：</td>
+                <td><input id="idCard" class="easyui-textbox" type="text" name="idCard"></td>
+            </tr>
+            <tr>
+                <td id="nation_anchor">民族：</td>
+                <td><input id="nation" class="easyui-combobox" editable="false" type="text" name="nation"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input id="nationInfo" placeholder="请输入民族名称" class="easyui-textbox" type="text" name="nationInfo" maxlength="99"></td>
+            </tr>
+            <tr>
+                <td id="politicalOutlook_anchor">政治面貌：</td>
+                <td><input id="politicalOutlook" class="easyui-combobox" editable="false" type="text" name="politicalOutlook"></td>
+            </tr>
+            <tr>
+                <td id="degreeOfEducation_anchor">全日制学历：</td>
+                <td><input id="degreeOfEducation" class="easyui-combobox" editable="false" type="text" name="degreeOfEducation"></td>
+            </tr>
+            <tr>
+                <td>职业：</td>
+                <td><input id="occupation" class="easyui-combobox" editable="false" type="text" name="occupation"></td>
+            </tr>
+            <tr>
+                <td id="tuanganProperties_anchor">团干部性质：</td>
+                <td><input id="tuanganProperties" class="easyui-combobox" editable="false" type="text" name="tuanganProperties"></td>
+            </tr>
+            <tr>
+                <td>录入组织：</td>
+                <td><input id="oid" class="easyui-textbox" type="text" name="oid" readonly></td>
+                <!--<td><span style="display: inline-block;"><input style="cursor: pointer;" id="oid" class="easyui-textbox" type="text" name="oid" readonly><span><span class="combo-arrow"></span></span></span></td>-->
+            </tr>
+            <tr>
+                <td id="isPartyCommitteeMember_anchor">是否同级党委（支部）成员：</td>
+                <td><input id="isPartyCommitteeMember" class="easyui-combobox" editable="false" type="text" name="isPartyCommitteeMember"></td>
+            </tr>
+            <tr>
+                <td>学习工作单位：</td>
+                <td><input id="learningUnit" class="easyui-textbox" type="text" name="learningUnit" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>专业技术资格：</td>
+                <td><input id="professionalTechnicalQualification" class="easyui-textbox" type="text" name="professionalTechnicalQualification" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>手机号码：</td>
+                <td><input id="mobile" class="easyui-textbox" type="text" name="mobile"></td>
+            </tr>
+            <tr>
+                <td>电子邮箱：</td>
+                <td><input id="email" class="easyui-textbox" type="text" name="email" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>QQ：</td>
+                <td><input id="qqNum" class="easyui-textbox" type="number" name="qqNum" oninput="if(value.length>19)value=value.slice(0,19)"></td>
+            </tr>
+            <tr>
+                <td>微信号：</td>
+                <td><input id="wechatId" class="easyui-textbox" type="text" name="wechatId" maxlength="29"></td>
+            </tr>
+            <tr>
+                <td>微博号：</td>
+                <td><input id="weibo" class="easyui-textbox" type="text" name="weibo" maxlength="29"></td>
+            </tr>
+            <tr>
+                <td>团内现任职务：</td>
+                <td><input id="incumbent" class="easyui-combobox" editable="false" type="text" name="incumbent"></td>
+            </tr>
+            <tr>
+                <td>职务名称：</td>
+                <td><input id="incumbentDesc" class="easyui-textbox" type="text" name="incumbentDesc"></td>
+            </tr>
+            <tr>
+                <td id="xzzny_anchor">任现职年月：</td>
+                <td><input id="xzzny" class="easyui-datebox" type="text" name="xzzny" data-options="editable: false, buttons: buttons"></td>
+            </tr>
+            <tr>
+                <td>任现职方式：</td>
+                <td><input id="dutyStyle" class="easyui-textbox" type="text" name="dutyStyle"></td>
+            </tr>
+            <!--<tr>-->
+                <!--&lt;!&ndash;<th colspan="2" readonly>工作履历 <span class="work_add" style="display: inline-block; width: 20px; text-align: center; background: red; cursor: pointer;">+</span></th>&ndash;&gt;-->
+                <!--<th colspan="2" readonly>-->
+                    <!--工作履历-->
+                    <!--<span class="work_add" style="margin-left: 30px; display: inline-block; width: 30px; height: 30px; vertical-align: middle; border-radius: 2px; background: url(../../public/img/add.png) no-repeat center #db4254; cursor: pointer;"></span>-->
+                    <!--<span class="work_delete" style="margin-left: 20px; display: inline-block; width: 30px; height: 30px; vertical-align: middle; border-radius: 2px; background: url(../../public/img/delete.png) no-repeat center #ccc; cursor: pointer;"></span>-->
+                <!--</th>-->
+            <!--</tr>-->
+        </table>
+        <!--&lt;!&ndash;9&ndash;&gt;-->
+        <!--<table class="work_box">-->
+            <!--<tr>-->
+                <!--<td>工作单位1：</td>-->
+                <!--<td><input class="easyui-textbox workUnit" type="text" name="workUnit"></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>单位职务：</td>-->
+                <!--<td><input class="easyui-textbox unitDuty" type="text" name="unitDuty"></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td id="rzsj_anchor">任职时间：</td>-->
+                <!--<td><input class="easyui-datebox rzsj" type="text" name="rzsj" data-options="editable: false, buttons: buttons"></td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    </form>
+</div>
+
+<!--编辑人才数据-->
+<div id="dialog_edit" class="easyui-dialog mywindow" title="编辑数据" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_edit">
+        <table>
+            <tr>
+                <th colspan="2" readonly>基本信息</th>
+            </tr>
+            <tr class="check">
+                <td>姓名：</td>
+                <td><input id="name_edit" class="easyui-textbox" type="text" name="name" readonly></td>
+            </tr>
+            <tr class="check">
+                <td id="sex_edit_anchor">性别：</td>
+                <td><input id="sex_edit" class="easyui-combobox" editable="false" type="text" name="sex"></td>
+            </tr>
+            <tr class="check">
+                <td>身份证号：</td>
+                <td><input id="idCard_edit" class="easyui-textbox" type="text" name="idCard" readonly></td>
+            </tr>
+            <tr>
+                <td id="nation_edit_anchor">民族：</td>
+                <td><input id="nation_edit" class="easyui-combobox" editable="false" type="text" name="nation"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input id="nationInfo_edit" class="easyui-textbox" placeholder="请输入民族名称" type="text" name="nationInfo" maxlength="99"></td>
+            </tr>
+            <tr>
+                <td id="politicalOutlook_edit_anchor">政治面貌：</td>
+                <td><input id="politicalOutlook_edit" class="easyui-combobox" editable="false" type="text" name="politicalOutlook"></td>
+            </tr>
+            <tr>
+                <td id="degreeOfEducation_edit_anchor">全日制学历：</td>
+                <td><input id="degreeOfEducation_edit" class="easyui-combobox" editable="false" type="text" name="degreeOfEducation"></td>
+            </tr>
+            <tr>
+                <td>职业：</td>
+                <td><input id="occupation_edit" class="easyui-combobox" editable="false" type="text" name="occupation"></td>
+            </tr>
+            <tr>
+                <td id="tuanganProperties_edit_anchor">团干部性质：</td>
+                <td><input id="tuanganProperties_edit" class="easyui-combobox" editable="false" type="text" name="tuanganProperties"></td>
+            </tr>
+            <tr>
+                <td>录入组织：</td>
+                <td><span style="display: inline-block;"><input style="cursor: pointer;" id="oid_edit" class="easyui-textbox" type="text" name="oid" readonly><span><span class="combo-arrow"></span></span></span></td>
+            </tr>
+            <tr>
+                <td id="isPartyCommitteeMember_edit_anchor">是否同级党委（支部）成员：</td>
+                <td><input id="isPartyCommitteeMember_edit" class="easyui-combobox" editable="false" type="text" name="isPartyCommitteeMember"></td>
+            </tr>
+            <tr>
+                <td>学习工作单位：</td>
+                <td><input id="learningUnit_edit" class="easyui-textbox" type="text" name="learningUnit" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>专业技术资格：</td>
+                <td><input id="professionalTechnicalQualification_edit" class="easyui-textbox" type="text" name="professionalTechnicalQualification" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>手机号码：</td>
+                <td><input id="mobile_edit" class="easyui-textbox" type="text" name="mobile"></td>
+            </tr>
+            <tr>
+                <td>电子邮箱：</td>
+                <td><input id="email_edit" class="easyui-textbox" type="text" name="email" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>QQ：</td>
+                <td><input id="qqNum_edit" class="easyui-textbox" type="number" name="qqNum" oninput="if(value.length>19)value=value.slice(0,19)"></td>
+            </tr>
+            <tr>
+                <td>微信号：</td>
+                <td><input id="wechatId_edit" class="easyui-textbox" type="text" name="wechatId" maxlength="29"></td>
+            </tr>
+            <tr>
+                <td>微博号：</td>
+                <td><input id="weibo_edit" class="easyui-textbox" type="text" name="weibo" maxlength="29"></td>
+            </tr>
+            <tr>
+                <td>团内现任职务：</td>
+                <td><input id="incumbent_edit" class="easyui-combobox" editable="false" type="text" name="incumbent"></td>
+            </tr>
+            <tr>
+                <td>职务名称：</td>
+                <td><input id="incumbentDesc_edit" class="easyui-textbox" type="text" name="incumbentDesc"></td>
+            </tr>
+            <tr>
+                <td id="xzzny_edit_anchor">任现职年月：</td>
+                <td><input id="xzzny_edit" class="easyui-datebox" type="text" name="xzzny" data-options="editable: false, buttons: buttons"></td>
+            </tr>
+            <tr>
+                <td>任现职方式：</td>
+                <td><input id="dutyStyle_edit" class="easyui-textbox" type="text" name="dutyStyle"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--查看人才数据 -- 模态窗口-->
+<div id="dialog_view" class="easyui-dialog mywindow" title="查看数据" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box">
+        <div class="list base">
+            <div class="headline">基本信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                    <!--<span class="title">上级组织：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list workResume">
+            <div class="headline">工作履历信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list reward">
+            <div class="headline">奖励信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--新增奖励信息 -- 模态窗口-->
+<div id="dialog_awards" class="easyui-dialog mywindow" title="新增奖励信息" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--<div id="dialog_awards" class="easyui-dialog mywindow" title="批量录入奖励信息" data-options="modal: true" style="width: 720px;height: 500px;padding: 10px;">-->
+    <form id="fm_awards">
+        <table>
+            <tr>
+                <th colspan="2">奖励信息</th>
+            </tr>
+            <tr class="check">
+                <td>奖励名称：</td>
+                <td><input id="contents_awards" class="easyui-textbox" type="text" name="contents_awards" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td>获奖名次：</td>
+                <td id="hasLevels_awards"><label data-name="level" data-haslevel="true" class="checkbox"><i></i><span>奖励有等次</span></label><label data-name="level" data-haslevel="false" class="checkbox"><i></i><span>奖励无等次</span></label></td>
+            </tr>
+            <tr class="check levelName">
+                <td>奖励等次：</td>
+                <td><input id="levelNames_awards" class="easyui-textbox" type="text" name="levelNames_awards" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td id="rewardTimes_awards_anchor">获奖时间：</td>
+                <td><input id="rewardTimes_awards" class="easyui-datebox" type="text" name="rewardTimes_awards" data-options="editable: false, buttons: buttons"></td>
+            </tr>
+            <tr>
+                <th colspan="2">上传附件</th>
+            </tr>
+        </table>
+        <!--上传插件-->
+        <div class="uploader_custom_control talent_rewards_add"></div>
+    </form>
+</div>
+
+<!--奖励编辑 -- 模态窗口-->
+<div id="dialog_awards_edit" class="easyui-dialog mywindow" title="奖励编辑" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--<div id="dialog_awards" class="easyui-dialog mywindow" title="批量录入奖励信息" data-options="modal: true" style="width: 720px;height: 500px;padding: 10px;">-->
+    <form id="fm_awards_edit">
+        <table>
+            <tr>
+                <th colspan="2">奖励信息</th>
+            </tr>
+            <tr class="check">
+                <td>奖励名称：</td>
+                <td><input id="content_awards" class="easyui-textbox" type="text" name="content_awards" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td>获奖名次：</td>
+                <td id="hasLevel_awards"><label data-name="level" data-haslevel="true" class="checkbox"><i></i><span>奖励有等次</span></label><label data-name="level" data-haslevel="false" class="checkbox"><i></i><span>奖励无等次</span></label></td>
+            </tr>
+            <tr class="check">
+                <td>奖励等次：</td>
+                <td><input id="levelName_awards" class="easyui-textbox" type="text" name="levelName_awards" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td id="rewardTime_awards_anchor">获奖时间：</td>
+                <td><input id="rewardTime_awards" class="easyui-datebox" type="text" name="rewardTime_awards" data-options="editable: false, buttons: buttons"></td>
+            </tr>
+        </table>
+        <div class="list attachment awards_edit clearfix">
+            <!--<div class="img_box">-->
+            <!--<img src="http://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20180130/20180130113740_354QQ浏览器截图_20171207104758_7FBF85746F1D4d839ADA43B173111E0F.jpg">-->
+            <!--<span class="warning delete">删除</span>-->
+            <!--</div>-->
+        </div>
+        <!--上传插件-->
+        <div class="uploader_custom_control talent_rewards_edit"></div>
+
+    </form>
+</div>
+
+
+<!--新增工作履历 -- 模态窗口-->
+<div id="dialog_workResume" class="easyui-dialog mywindow" title="新增工作履历" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_workResume">
+        <table>
+            <tr>
+                <td>工作单位：</td>
+                <td><input id="workUnits" class="easyui-textbox" type="text" name="workUnits"></td>
+            </tr>
+            <tr>
+                <td>单位职务：</td>
+                <td><input id="unitDutys" class="easyui-textbox" type="text" name="unitDutys"></td>
+            </tr>
+            <tr>
+                <td id="tenureBeginTimes_anchor">任职开始时间：</td>
+                <td><input id="tenureBeginTimes" class="easyui-datebox" type="text" name="tenureBeginTimes" data-options="editable: false, buttons: buttons"></td>
+            </tr>
+            <tr>
+                <td id="tenureEndTimes_anchor">任职结束时间：</td>
+                <td><input id="tenureEndTimes" class="easyui-datebox" type="text" name="tenureEndTimes" data-options="editable: false, buttons: buttonsCurrent"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--编辑工作履历 -- 模态窗口-->
+<div id="dialog_workResume_edit" class="easyui-dialog mywindow" title="编辑工作履历" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_workResume_edit">
+        <table>
+            <tr>
+                <td>工作单位：</td>
+                <td><input id="workUnit_edit" class="easyui-textbox" type="text" name="workUnit_edit"></td>
+            </tr>
+            <tr>
+                <td>单位职务：</td>
+                <td><input id="unitDuty_edit" class="easyui-textbox" type="text" name="unitDuty_edit"></td>
+            </tr>
+            <tr>
+                <td id="tenureBeginTime_edit_anchor">任职开始时间：</td>
+                <td><input id="tenureBeginTime_edit" class="easyui-datebox" type="text" name="tenureBeginTime_edit" data-options="editable: false, buttons: buttons"></td>
+            </tr>
+            <tr>
+                <td id="tenureEndTime_edit_anchor">任职结束时间：</td>
+                <td><input id="tenureEndTime_edit" class="easyui-datebox" type="text" name="tenureEndTime_edit" data-options="editable: false, buttons: buttonsCurrent"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+<!--查看模板 -- 模态窗口-->
+<div id="dialog_check_module" class="easyui-dialog" title="查看模板" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+<!--<div id="dialog_check_module" class="easyui-dialog" title="查看模板" data-options="modal: true" style="width: 720px;height: 500px;padding: 10px;">-->
+    <div style="font-size: 0; text-align: center;"><img src="../../public/img/identity.png" style="width: 500px;" /></div>
+</div>
+
+<!--查看照片 -- 模态窗口-->
+<div id="dialog_picture" class="easyui-dialog" title="查看图片" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box" style="margin: 0;width: auto;">
+        <div class="list attachment clearfix">
+            <!--<div class="img_box"><img src="http://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/activityImage/20170329/20170329164430_761微信图片_20170329164724.jpg"></div>-->
+        </div>
+    </div>
+</div>
+
+<!--大图-->
+<div class="maskBox">
+    <img src="" title="点击可关闭">
+</div>
+
+</body>
+</html>

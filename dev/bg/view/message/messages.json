@@ -1,0 +1,26 @@
+{
+  "rows": [
+    {
+      "title": "测试标题1",
+      "content": "您提交的关于是否团干部的修改申请已被超级管理员审核通过，您在智慧团建的相关业务将按照您最新的资料实行。<a href='javascript:;' class='jump-to-detail' data-path='view/league_menber/league_menber.html'>点击查看</a>"
+    },
+    {
+      "title": "测试标题2",
+      "content": "您提交的关于是否团干部的修改申请已被超级管理员审核通过，您在智慧团建的相关业务将按照您最新的资料实行。<a href='javascript:;' class='jump-to-detail' data-path='view/league_menber/league_menber.html'>点击查看</a>"
+    },
+    {
+      "title": "测试标题3",
+      "content": "您提交的关于是否团干部的修改申请已被超级管理员审核通过，您在智慧团建的相关业务将按照您最新的资料实行。<a href='javascript:;' class='jump-to-detail' data-path='view/league_menber/league_menber.html'>点击查看</a>"
+    },
+    {
+      "title": "测试标题4",
+      "content": "您提交的关于是否团干部的修改申请已被超级管理员审核通过，您在智慧团建的相关业务将按照您最新的资料实行。<a href='javascript:;' class='jump-to-detail' data-path='view/league_menber/league_menber.html'>点击查看</a>"
+    },
+    {
+      "title": "测试标题5",
+      "content": "您提交的关于是否团干部的修改申请已被超级管理员审核通过，您在智慧团建的相关业务将按照您最新的资料实行。<a href='javascript:;' class='jump-to-detail' data-path='view/league_menber/league_menber.html'>点击查看</a>"
+    }
+  ],
+  "total": "5",
+  "status": "OK"
+}

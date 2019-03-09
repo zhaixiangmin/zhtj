@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>团费交纳</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/fee/fee.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FeeApi.js"></script>
+    <script type="text/javascript" src="../../public/js/fee/fee_overdue.js"></script>
+</head>
+
+<style type="text/css">
+    .remind_info_box:after{display:none;}
+    .link{text-align: center;margin-top:0.6rem;}
+    .link a{font-size:0.56rem;color:#333;}
+</style>
+
+<body>
+<section class="common_section" id="unpaid_list">
+    <div class="center_txt">
+        <p class="t1">应交团费 (元)</p>
+        <p class="t2" id="feePayable"></p>
+        <p style="display: none;" class="t3" id="number">共<span></span>个月团费未交</p>
+    </div>
+</section>
+<div href="javascript:;" class="remind_info_box clearfix">
+    <p class="remind_info_txt">你因超过6个月未交团费，系统已暂停你在线交纳的权限，请线下联系所在的团支部。</p>
+</div>
+<div class="link"><a href="declaration_fee.html" class="link">查看团费标准说明</a></div>
+<!--<div class="link"><a href="javascript:;" class="link" id="declaration">查看团费标准说明</a></div>-->
+</body>
+</html>

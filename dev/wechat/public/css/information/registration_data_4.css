@@ -1,0 +1,12 @@
+/* 弹窗 */
+.popup_box_confirm{position: fixed;z-index:999;background-color:rgba(0,0,0,.6);left:0;top:0;width:100%;height:100%; display:none;}
+/*.popup_box_confirm{position: fixed;z-index:999;background-color:rgba(0,0,0,.6);left:0;top:0;width:100%;height:100%;}*/
+.popup_box_confirm .popup_center{width:13.8rem;background-color: #fff;position: absolute;left:50%;top:50%;transform:translate(-50%, -50%);border-radius:0.2rem;}
+.popup_box_confirm .ph_box{padding: 1.72rem 1rem 1.28rem;}
+.popup_box_confirm .ph_box .ph{line-height:1rem;font-size:0.68rem;text-align: center;}
+.popup_box_confirm .bot{border-top:1px solid #cecece;}
+.popup_box_confirm .bot .btn{width:50%;box-sizing:border-box;text-align: center;float: left;height:2rem;line-height:2rem;font-size:0.56rem;}
+.popup_box_confirm .bot .btn:first-child{color:#999;border-right:1px solid #cecece;}
+.popup_box_confirm .bot .btn:last-child{color:#da4453;}
+.popup_box_confirm .popup_center .link{position: absolute;width:3rem;height:3.6rem;right:-0.4rem;top:-1.7rem;animation: yl_move 1s infinite;background-image:url(../../img/yl-move.png); background-size:6rem;background-repeat:no-repeat;}
+.popup_box_confirm .popup_center .link.move{background-position:-3rem 0;}

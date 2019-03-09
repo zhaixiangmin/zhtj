@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>团员管理-我的团员</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_custom_control.css"/>
+    <link rel="stylesheet" href="../../public/css/league_member/league_member.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/LeagueMemberApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script src="../../public/vendor/webuploader/uploader_custom_control.js"></script>
+    <script src="../../public/js/league_member/league_member.js"></script>
+</head>
+<body>
+<style>
+    .warning div{color: #c10021;}
+    .warning{color: #c10021;}
+
+    #tb {
+        overflow: hidden;
+    }
+    #tb .linkbutton_box {
+        float: left;
+        display: inline-block;
+    }
+    #tb a {
+        padding: 18px 0 0 0;
+        background: #fff;
+    }
+    #tb a:hover {
+        border: none;
+        border-radius: 0;
+    }
+    #tb a span span.l-btn-text{
+        margin: 0 30px 0 30px;
+    }
+    #tb a span span.l-btn-icon{
+        left: 0;
+        margin-top: -10px;
+        width: 22px;
+        height: 22px;
+    }
+</style>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 190px;overflow: hidden;" id="north_region">
+    <!--<div data-options="region:'north', doSize: true" style="border: 0;overflow: hidden;" id="north_region">-->
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion" data-options="fit: true">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form onsubmit="return false">
+                    <table>
+                        <tr>
+                            <th><label for="degreeOfEducation_filter">全日制学历:</label></th>
+                            <td><input id="degreeOfEducation_filter" class="easyui-combobox" editable="false" name="degreeOfEducation"></td>
+                            <th><label for="auditStatus_filter">报到资料状态:</label></th>
+                            <td><input id="auditStatus_filter" class="easyui-combobox" editable="false" name="auditStatus"></td>
+                            <th><label for="rewardStatus_filter">奖励状态:</label></th>
+                            <td><input id="rewardStatus_filter" class="easyui-combobox" editable="false" name="rewardStatus"></td>
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="name_filter">姓名:</label></th>
+                            <td><input id="name_filter" class="easyui-text" editable="false" name="name_filter"></td>
+                            <th><label for="mobile_filter">手机号码:</label></th>
+                            <td><input id="mobile_filter" class="easyui-text" editable="false" name="mobile_filter"></td>
+                            <th><label for="deletedState_filter">删除状态:</label></th>
+                            <td><input id="deletedState_filter" class="easyui-combobox" editable="false" name="deletedState_filter"></td>
+                        </tr>
+                    </table>
+
+                    <div class="filter">
+                        <div class="filter_box">
+                            <label style="color: #333; font-weight: bold;">团籍状态:</label>
+                            <div class="combobox" style="display: inline-block; margin-left: 18px;">
+                                <input id="disabled_filter" class="easyui-combobox" editable="false" name="disabled_filter">
+                            </div>
+                        </div>
+                        <div class="filter_box" id="oid_filter_box">
+                            <!--<label style="color: #333; font-weight: bold;">所在团支部:</label>-->
+                            <label style="color: #333; font-weight: bold;">所属团组织:</label>
+                            <div class="search_box longer" style="margin-left: 21px;">
+                                <input type="text" id="oid_filter" readonly><i id="oid_filter_icon" class="search_clear"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="declaration" style="margin-top: 5px;">
+                        <span class="realName">实名认证状态说明</span>
+                        <span class="memberBusiness">团员业务说明</span>
+                        <i class="download" id="download">导出本页数据</i>
+                    </div>
+
+                    <div id="tb" class="toolbar" style="height: 42px;">
+                        <!--<div class="linkbutton_box"><a id="members_retreatApply" class="easyui-linkbutton" data-options="iconCls:'icon-my-disable',plain:true">离脱退团/开除团籍</a></div>-->
+                        <!--<div class="linkbutton_box"><a id="members_retreatAudit" class="easyui-linkbutton" data-options="iconCls:'icon-my-disable',plain:true">离脱退团/开除团籍审核</a></div>-->
+                        <div class="linkbutton_box"><a id="members_audit" class="easyui-linkbutton" data-options="iconCls:'icon-my-audit',plain:true">资料审核</a></div>
+                        <div class="linkbutton_box"><a id="reward_audit" class="easyui-linkbutton" data-options="iconCls:'icon-my-rewards-audit',plain:true">奖励审核</a></div>
+                        <div class="linkbutton_box"><a id="member_certification" class="easyui-linkbutton" data-options="iconCls:'icon-my-cadre-transfer',plain:true">电子团员证</a></div>
+                        <div class="linkbutton_box"><a id="member_reward" class="easyui-linkbutton" data-options="iconCls:'icon-my-download',plain:true">奖励记录下载</a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;" id="center_region">
+
+        <!--团员管理-->
+        <table class="easyui-datagrid" id="league_menber" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+<!--选择组织 -- 模态窗口-->
+<div id="dialog_organization" class="easyui-dialog" title="选择所在团支部" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+        <div title="数据筛选" data-options="collapsible: false, noheader: true"  style="padding:10px;">
+            <form onsubmit="return false">
+                <table>
+                    <tr>
+                        <th align="right"><label for="fullName_filter">组织名称:</label></th>
+                        <td><input id="fullName_filter" placeholder="输入组织全称（支持关键词）/ 组织ID搜索"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <a id="search_filter" class="button">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <table class="easyui-datagrid" id="datagrid_organization"></table>
+</div>
+
+
+<!--离脱退团/开除团籍-->
+<div id="dialog_retreat_apply" class="easyui-dialog mywindow" title="离脱退团/开除团籍" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_retreat_apply">
+        <table>
+            <tr id="disabled_anchor">
+                <!--<td>团籍状态：</td>-->
+                <td><input id="disabled" class="easyui-combobox" editable="false" type="text" name="disabled"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width: 600px;" class="disabled_describe">
+                    <div class="disabled_item disabled_2" style="display: none;">
+                        <div style="font-weight: bold;">业务说明：</div>
+                        <p style="margin: 10px;">根据团章的规定，团员年满二十八周岁，没有在团内担任职务的，不再保留团籍。</p>
+                        <p style="margin: 10px;">处理程序：</p>
+                        <p style="margin: 10px;">1.团员年龄满28周年，触发离团程序；</p>
+                        <p style="margin: 10px;">2.团员所属支部委员会召集支部大会，举办离团仪式；</p>
+                        <p style="margin: 10px;">3.团员所属支部执行离团操作流程；</p>
+                        <p style="margin: 10px;">4.团员所属支部上级委员会审核确认。</p>
+                        <p style="margin: 10px;" class="my-red">Tips: 系统中年龄按照身份证日期计算。</p>
+                    </div>
+
+                    <div class="disabled_item disabled_4"  style="display: none;">
+                        <div style="font-weight: bold;">业务说明：</div>
+                        <p style="margin: 10px;">根据团章规定，团员没有正当理由，连续六个月不交纳团费、不过团的组织生活，或连续六个月不做团组织分配的工作，均被认为是自行脱团。</p>
+                        <p style="margin: 10px;">处理程序：</p>
+                        <p style="margin: 10px;">1.团员触发自行脱团条件；</p>
+                        <p style="margin: 10px;">2.团员所属支部的支部委员会召集支部大会审议批准；</p>
+                        <p style="margin: 10px;">3.所属支部书面报告上级委员会批准（出具书面批准文件）；</p>
+                        <p style="margin: 10px;">4.团员所属支部执行除名操作流程，上传批准文件。</p>
+                        <p style="margin: 10px;">5.上级委员会审核确认除名操作流程。</p>
+                    </div>
+
+                    <div class="disabled_item disabled_6"  style="display: none;">
+                        <div style="font-weight: bold;">业务说明：</div>
+                        <p style="margin: 10px;">根据团章规定，团员有退团的自由。</p>
+                        <p style="margin: 10px;">处理程序：</p>
+                        <p style="margin: 10px;">1.团员向所属支部委员会递交书面退团申请；</p>
+                        <p style="margin: 10px;">2.团员所属支部委员会召集支部大会审议批准通过；</p>
+                        <p style="margin: 10px;">3.团员所属支部执行除名操作流程，并向上级团委书面报告；</p>
+                        <p style="margin: 10px;">4.团员所属支部的上级团委审核确认除名操作流程。</p>
+                    </div>
+
+                    <div class="disabled_item disabled_8"  style="display: none;">
+                        <div style="font-weight: bold;">业务说明：</div>
+                        <p style="margin: 10px;">团员违反团的纪律，经批评和帮助后，坚持错误不改的，或严重违反党纪国法和团的纪律。</p>
+                        <p style="margin: 10px;">处理程序：</p>
+                        <p style="margin: 10px;">1.团员违反纪律触发开除团籍的条件；</p>
+                        <p style="margin: 10px;">2.团员所属支部委员会召集支部大会审议批准开除团籍；</p>
+                        <p style="margin: 10px;">3.支部将开除团籍决定书面报告上级委员；</p>
+                        <p style="margin: 10px;">4.上级委员会逐级书面上报至团省委。</p>
+                        <p style="margin: 10px;">5.团省委审批同意，出具同意开除团籍的书面文件。</p>
+                        <p style="margin: 10px;">6.团员所属支部执行开除团籍的操作流程，上传团省委文件。</p>
+                        <p style="margin: 10px;">7.支部隶属的上级委员会审核确认开除团籍的操作流程。</p>
+                    </div>
+
+                </td>
+            </tr>
+            <tr class="retreatReasonForApplication" style="display: none;">
+                <td style="font-weight: bold;">申请理由：</td>
+            </tr>
+            <tr id="retreatReasonForApplication_anchor" class="retreatReasonForApplication" style="display: none;">
+                <!--<td>申请理由：</td>-->
+                <td><input id="retreatReasonForApplication" class="easyui-combobox" editable="false" type="text" name="retreatReasonForApplication"></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">申请说明：</td>
+            </tr>
+            <tr>
+                <!--<td>申请说明：</td>-->
+                <td><textarea id="retreatApplicationDescription" class="easyui-textbox" type="text" name="retreatApplicationDescription" style="height: 100px;"></textarea></td>
+            </tr>
+        </table>
+
+        <div id="member_retreat_anchor" style="padding-left: 10px;font-weight: bold;">上传证明材料：</div>
+        <!--上传插件-->
+        <div class="uploader_custom_control member_retreat" style="margin-left: 10px;"></div>
+    </form>
+</div>
+
+
+<style>
+    #auditStatus_retreat_audit label{
+        display: inline-block;
+        padding-right: 20px;
+        cursor: pointer;
+    }
+    #auditStatus_retreat_audit label span{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #auditStatus_retreat_audit label i{
+        background: url(../../public/img/check.png?v=a4a384bbb9) no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+    #auditStatus_retreat_audit label.active i{
+        background-image: url(../../public/img/check-active.png);
+    }
+</style>
+<!--离脱退团/开除团籍审核 -- 模态窗口-->
+<div id="dialog_retreat_audit" class="easyui-dialog mywindow" title="离脱退团/开除团籍审核" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+
+    <div class="list_box">
+        <div class="my-red" style="margin-bottom: 10px;">提示说明：审核通过后，团员的团籍将发生重要性改变，请你谨慎确定是否要通过该申请。</div>
+        <form id="fm_retreat_audit">
+            <div id="auditStatus_retreat_audit"><label data-id="1"><i></i><span>通过</span></label><label data-id="2"><i></i><span>退回</span></label></div>
+            <div style="display: none;margin-top: 10px;"><textarea placeholder="请输入退回的原因" id="retreatReturnReason_retreat_audit" maxlength="249" style="width: 100%; height: 100px;"></textarea></div>
+        </form>
+        <div class="list base">
+            <div class="headline">基本信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">上级组织：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list attachment">
+            <div class="headline">附件</div>
+            <div class="content clearfix">
+                <!--<div class="img_box">-->
+                <!--<img src="../../public/image/1.jpg">-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--编辑团员-->
+<div id="dialog" class="easyui-dialog mywindow" title="编辑团员" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm">
+        <table>
+            <tr>
+                <th colspan="2" readonly>基本信息</th>
+            </tr>
+            <tr class="check">
+                <td>姓名：</td>
+                <td><input id="name" class="easyui-textbox" type="text" name="name" readonly></td>
+            </tr>
+            <tr class="check">
+                <td>身份证号：</td>
+                <td><input id="idCard" class="easyui-textbox" type="text" name="idCard" readonly></td>
+            </tr>
+            <tr class="check">
+                <td>出生日期：</td>
+                <td><input id="birthday" class="easyui-datebox" type="text" name="birthday" data-options="editable: false, buttons: buttons"></td>
+            </tr>
+            <tr class="check">
+                <td>入团年月：</td>
+                <td><input id="leagueForYears" class="easyui-textbox" type="text" name="leagueForYears" readonly></td>
+            </tr>
+            <tr class="check">
+                <td>所在团支部：</td>
+                <td><input id="fullName" class="easyui-textbox" type="text" name="fullName" readonly></td>
+            </tr>
+            <tr class="check">
+                <td>收入：</td>
+                <td><input id="income" class="easyui-combobox" editable="false" type="text" name="income"></td>
+            </tr>
+            <tr class="check">
+                <td>是否团干部：</td>
+                <td><input id="isCadres" class="easyui-combobox" editable="false" type="text" name="isCadres"></td>
+            </tr>
+
+            <tr class="check isCadres">
+                <td>团内现任职务：</td>
+                <td><input id="incumbent" class="easyui-combobox" editable="false" type="text" name="incumbent"></td>
+            </tr>
+            <tr class="check isCadres">
+                <td>职务名称：</td>
+                <td><input id="incumbentDesc" class="easyui-textbox" type="text" name="incumbentDesc"></td>
+            </tr>
+            <tr class="check isCadres">
+                <td id="dateOfDuty_anchor">任现职年月：</td>
+                <td><input id="dateOfDuty" class="easyui-datebox" type="text" name="dateOfDuty" data-options="editable: false"></td>
+            </tr>
+            <tr class="check isCadres">
+                <td id="tuanganProperties_anchor">团干部性质：</td>
+                <td><input id="tuanganProperties" class="easyui-combobox" editable="false" type="text" name="tuanganProperties"></td>
+            </tr>
+            <tr class="check isCadres">
+                <td id="isPartyCommitteeMember_anchor">是否同级党委（支部）成员：</td>
+                <td><input id="isPartyCommitteeMember" class="easyui-combobox" editable="false" type="text" name="isPartyCommitteeMember"></td>
+            </tr>
+
+            <tr class="check">
+                <td id="nation_anchor">民族：</td>
+                <td><input id="nation" class="easyui-combobox" editable="false" type="text" name="nation"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input id="nationInfo" placeholder="请输入民族名称" class="easyui-textbox" type="text" name="nationInfo" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td id="politicalOutlook_anchor">政治面貌：</td>
+                <td><input id="politicalOutlook" class="easyui-combobox" editable="false" type="text" name="politicalOutlook"></td>
+            </tr>
+            <tr class="check">
+                <td id="degreeOfEducation_anchor">全日制学历：</td>
+                <td><input id="degreeOfEducation" class="easyui-combobox" editable="false" type="text" name="degreeOfEducation"></td>
+            </tr>
+            <tr class="check">
+                <td id="highestEducation_anchor">最高学历：</td>
+                <td><input id="highestEducation" class="easyui-combobox" editable="false" type="text" name="highestEducation"></td>
+            </tr>
+            <tr class="check">
+                <td>户籍所在地：</td>
+                <td colspan="2"><input id="provinceDid" class="easyui-combobox" editable="false" type="text" name="provinceDid"><input id="cityDid" class="easyui-combobox" editable="false" name="cityDid"><input id="countyDid" class="easyui-combobox" editable="false" name="countyDid"></td>
+                <!--<td><input id="cityDid" class="easyui-combobox" editable="false" name="cityDid"></td>-->
+            </tr>
+            <tr class="check">
+                <td>手机号码：</td>
+                <td><input id="mobile" class="easyui-textbox" type="text" name="mobile" readonly></td>
+            </tr>
+            <tr class="check">
+                <td>入团时所在单位：</td>
+                <td><input id="leagueForUnit" class="easyui-textbox" type="text" name="leagueForUnit" maxlength="29"></td>
+            </tr>
+            <!--12-->
+            <tr>
+                <th colspan="2" readonly>附加信息</th>
+            </tr>
+            <tr>
+                <td>职业：</td>
+                <td><input id="occupation" class="easyui-combobox" editable="false" type="text" name="occupation"></td>
+            </tr>
+            <tr>
+                <td>学习工作单位：</td>
+                <td><input id="learningUnit" class="easyui-textbox" type="text" name="learningUnit" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>电子邮箱：</td>
+                <td><input id="email" class="easyui-textbox" type="text" name="email" maxlength="49"></td>
+            </tr>
+            <tr>
+                <td>QQ：</td>
+                <td><input id="qqNum" class="easyui-textbox" type="number" name="qqNum" oninput="if(value.length>19)value=value.slice(0,19)"></td>
+            </tr>
+            <tr>
+                <td>微信号：</td>
+                <td><input id="wechatId" class="easyui-textbox" type="text" name="wechatId" maxlength="29"></td>
+            </tr>
+            <tr>
+                <td>微博号：</td>
+                <td><input id="weibo" class="easyui-textbox" type="text" name="weibo" maxlength="29"></td>
+            </tr>
+            <tr>
+                <td>团员编号：</td>
+                <td><input id="developmentMemberNumber" class="easyui-textbox" type="text" name="developmentMemberNumber" maxlength="29"></td>
+            </tr>
+            <tr>
+                <td>入党年月：</td>
+                <td><input id="thePartyYears" class="easyui-datebox" type="text" name="thePartyYears" data-options="editable: false, buttons: buttons"></td>
+            </tr>
+            <tr>
+                <td>注册志愿者时间：</td>
+                <td><input id="signUpForVolunteerTime" class="easyui-datebox" type="text" name="signUpForVolunteerTime" data-options="editable: false, buttons: buttons"></td>
+            </tr>
+        </table>
+        <!--9-->
+    </form>
+</div>
+
+
+<!--查看团员 -- 模态窗口-->
+<div id="dialog_view" class="easyui-dialog mywindow" title="查看团员" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box">
+        <div class="list base">
+            <div class="headline">基本信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                    <!--<span class="title">上级组织：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list addition">
+            <div class="headline">附加信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                    <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list attachment">
+            <div class="headline">附件</div>
+            <div class="content clearfix">
+                <!--<div class="img_box">-->
+                    <!--<img src="../../public/image/1.jpg">-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list rewardIn">
+            <div class="headline">团内奖励信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list rewardOut">
+            <div class="headline">团外奖励信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list punishment">
+            <div class="headline">处罚信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #fm_audiStatus .myTable{
+        margin-top: 20px;
+        border: 1px solid #c4c4c4;
+        border-collapse: collapse;
+    }
+    #fm_audiStatus .myTable td{
+        border: 1px solid #c4c4c4;
+        text-align: center;
+    }
+
+    #audit_auditStatus label{
+        display: inline-block;
+        padding-right: 20px;
+        cursor: pointer;
+    }
+    #audit_auditStatus label span{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #audit_auditStatus label i{
+        background: url(../../public/img/check.png?v=a4a384bbb9) no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+    #audit_auditStatus label.active i{
+        background-image: url(../../public/img/check-active.png);
+    }
+
+    /*图片插件*/
+    #filePicker div:last-child{
+        position: absolute !important;
+        top: 20px !important;
+        left: 210.5px !important;
+        width: 168px !important;
+        height: 44px !important;
+        overflow: hidden !important;
+        bottom: auto !important;
+        right: auto !important;
+    }
+</style>
+
+<!--资料审核-->
+<div id="dialog_audiStatus" class="easyui-dialog mywindow" title="资料审核" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_audiStatus">
+        <div class="tips" id="audit_registration" style="margin: 20px 0;font-size: 14px;color: #333;">请选择是否通过该团员的报到<span style="font-size: 12px;color: #db4254;">（注：如“通过”，该团员将可进入移动端的智慧团建系统；如“退回”，则该团员将不可进入移动端的智慧团建系统。“退回”后，团员可重新提交报到资料。）</span></div>
+        <div class="tips" id="audit_edit" style="margin: 20px 0;font-size: 14px;color: #333;">请选择是否通过该团员以下资料的修改<span style="font-size: 12px;color: #db4254;">（注：如“通过”，该团员在智慧团建的业务规则将依据修改后的资料执行；如“退回”，该团员在智慧团建的业务规则将不变。）</span></div>
+        <!--实名验证-->
+        <div class="tips realNameAudit" style="margin: 20px 0;font-size: 14px;color: #333;">
+            该团员的身份证实名认证暂未通过，原则上不支持审核通过该团员。如确实需要审核通过，请填写通过理由及上传可证明该团员实名的手持身份证正反面照片
+        </div>
+
+        <div style="margin: 20px 0px; font-size: 14px; color: #333; display: block;">谨慎审核，不要审核通过非本支部团员的报到申请。</div>
+
+        <div id="audit_auditStatus"><label data-id="1"><i></i><span>通过</span></label><label data-id="2"><i></i><span>退回</span></label></div>
+        <div style="display: none;margin-top: 10px;"><textarea placeholder="请输入您退回的原因" id="returnReason_auditStatus" maxlength="249" style="width: 630px; height: 100px;"></textarea></div>
+
+        <!--实名验证-->
+        <div class="realNameAudit" style="display: none;">
+            <div id="realNameReason_auditStatus_anchor" style="margin-top: 10px;"><textarea placeholder="请输入身份证实名通过的理由" id="realNameReason_auditStatus" maxlength="249" style="box-sizing: border-box; padding: 10px; width: 466px; height: 100px;"></textarea></div>
+
+            <div id="check_module" style="display: inline-block; color: #00b7ee; text-decoration: underline; cursor: pointer;">查看模板</div>
+
+            <!--上传插件-->
+            <div class="uploader_custom_control member_data_audit" style="width: 466px;"></div>
+
+        </div>
+
+        <table class="myTable">
+            <tr style="background: #e2e2e2;">
+                <td>修改项目</td><td>修改前</td><td style="width: 170px">修改后</td>
+            </tr>
+            <tr>
+                <td>收入</td><td id="income_update"></td><td id="newIncome_update"></td>
+            </tr>
+            <tr>
+                <td>政治面貌</td><td id="politicalOutlook_update"></td><td id="newPoliticalOutlook_update"></td>
+            </tr>
+            <tr>
+                <td>入团年月</td><td id="leagueForYears_update"></td><td id="newLeagueForYears_update"></td>
+            </tr>
+            <tr>
+                <td>是否团干</td><td id="isCadres_update"></td><td id="newIsCadres_update"></td>
+            </tr>
+            <tr class="isCadres">
+                <td>现任职务</td><td id="incumbent_update"></td><td id="newIncumbent_update"></td>
+            </tr>
+            <tr class="isCadres">
+                <td>职务名称</td><td id="incumbentDesc_update"></td><td id="newIncumbentDesc_update"></td>
+            </tr>
+            <tr class="isCadres">
+                <td>现任职年月</td><td id="dateOfDuty_update"></td><td id="newDateOfDuty_update"></td>
+            </tr>
+            <tr class="isCadres">
+                <td>团干部性质</td><td id="tuanganProperties_update"></td><td id="newTuanganProperties_update"></td>
+            </tr>
+            <tr class="isCadres">
+                <td>是否同级党委(支部)成员</td><td id="isPartyCommitteeMember_update"></td><td id="newIsPartyCommitteeMember_update"></td>
+            </tr>
+        </table>
+
+        <div class="list_box">
+            <div class="list base">
+                <div class="headline">基本信息</div>
+                <div class="content">
+                    <!--<div class="item">-->
+                    <!--<span class="title">上级组织：</span><span class="describe"></span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="list addition">
+                <div class="headline">附加信息</div>
+                <div class="content">
+                    <!--<div class="item">-->
+                    <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="list attachment">
+                <div class="headline">附件</div>
+                <div class="content clearfix">
+                    <!--<div class="img_box">-->
+                    <!--<img src="../../public/image/1.jpg">-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--奖励审核-->
+<div id="dialog_awards" class="easyui-dialog mywindow" title="奖励审核" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box">
+        <div class="list">
+            <div><span class="headline">待审核的奖励信息</span><span style="margin-left: 20px;" class="my-red">注：团员自主添加的奖励信息需要组织审核通过后方可生效</span></div>
+            <!--<div class="headline">待审核的奖励信息</div>-->
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">上级组织：</span><span class="describe"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <!--<div class="list addition">-->
+            <!--<div class="headline">附加信息</div>-->
+            <!--<div class="content">-->
+                <!--&lt;!&ndash;<div class="item">&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="title">职业：</span><span class="describe" id="occupation_view"></span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="list attachment">-->
+            <!--<div class="headline">附件</div>-->
+            <!--<div class="content clearfix">-->
+                <!--&lt;!&ndash;<div class="img_box">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img src="../../public/image/1.jpg">&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+
+
+
+<!--奖惩修改/删除 -- 模态窗口-->
+<div id="dialog_awards_operation" class="easyui-dialog mywindow" title="奖惩修改/删除" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box">
+        <div class="list rewardIn operation">
+            <div class="headline">团内奖励信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                <!--</div>-->
+            </div>
+            <!--<div style="text-align: center;">加载更多</div>-->
+        </div>
+        <div class="list rewardOut operation">
+            <div class="headline">团外奖励信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="list punishment operation">
+            <div class="headline">处罚信息</div>
+            <div class="content">
+                <!--<div class="item">-->
+                <!--<span class="title">职业：</span><span class="describe" id="occupation_view"></span>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--奖励修改 -- 模态窗口-->
+<div id="dialog_awards_edit" class="easyui-dialog mywindow" title="奖励修改" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_awards_edit">
+        <table>
+            <tr>
+                <th colspan="2">奖励信息</th>
+            </tr>
+            <tr class="check">
+                <td>获奖类型：</td>
+                <td><input id="type_awards" class="easyui-textbox" type="text" name="type_awards" maxlength="99" readonly></td>
+                <!--<td id="type_awards"><label data-name="type" data-type="1" class="checkbox"><i></i><span>团内</span></label><label data-name="type" data-type="2" class="checkbox"><i></i><span>团外</span></label></td>-->
+            </tr>
+            <tr class="check">
+                <td>奖励名称：</td>
+                <td><input id="content_awards" class="easyui-textbox" type="text" name="content_awards" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td>获奖名次：</td>
+                <td id="hasLevel_awards"><label data-name="level" data-haslevel="true" class="checkbox"><i></i><span>奖励有等次</span></label><label data-name="level" data-haslevel="false" class="checkbox"><i></i><span>奖励无等次</span></label></td>
+            </tr>
+            <tr class="check">
+                <td>奖励等次：</td>
+                <td><input id="levelName_awards" class="easyui-textbox" type="text" name="levelName_awards" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td id="rewardTime_awards_anchor">获奖时间：</td>
+                <td><input id="rewardTime_awards" class="easyui-datebox" type="text" name="rewardTime_awards" data-options="editable: false"></td>
+            </tr>
+            <tr class="check">
+                <td>审核组织：</td>
+                <td id="auditOrgId_awards_td"><span style="display: inline-block;"><input id="auditOrgId_awards" class="easyui-textbox" type="text" name="auditOrgId_awards" readonly><span><span class="combo-arrow"></span></span></span></td>
+            </tr>
+            <tr class="check">
+                <td>审核组织：</td>
+                <td><input id="auditOrgId_other_awards" class="easyui-textbox" type="text" name="auditOrgId_other_awards" maxlength="99" readonly></td>
+            </tr>
+            <tr class="check">
+                <td>授奖组织：</td>
+                <td><input id="awardOrg_awards" class="easyui-textbox" type="text" name="awardOrg_awards" maxlength="99"></td>
+            </tr>
+        </table>
+        <div class="list attachment awards_edit clearfix">
+            <!--<div class="img_box">-->
+                <!--<img src="http://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20180130/20180130113740_354QQ浏览器截图_20171207104758_7FBF85746F1D4d839ADA43B173111E0F.jpg">-->
+                <!--<span class="warning delete">删除</span>-->
+            <!--</div>-->
+        </div>
+        <!--上传插件-->
+        <div class="uploader_custom_control member_rewards"></div>
+    </form>
+</div>
+
+
+<!--选择审核组织 -- 模态窗口-->
+<div id="dialog_auditOrg" class="easyui-dialog" title="选择审核组织" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+        <div title="数据筛选" data-options="collapsible: false, noheader: true"  style="padding:10px;">
+            <form onsubmit="return false">
+                <table>
+                    <tr>
+                        <th align="right"><label for="fullName_filter_auditOrg">审核组织名称:</label></th>
+                        <td><input id="fullName_filter_auditOrg" placeholder="输入组织全称（支持关键词）/ 组织ID搜索"></td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>
+                            <a id="filter_auditOrg" class="button">搜索</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <table class="easyui-datagrid" id="datagrid_auditOrg"></table>
+</div>
+
+
+<!--处罚修改 -- 模态窗口-->
+<div id="dialog_punishment_edit" class="easyui-dialog mywindow" title="处罚修改" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_punishment_edit">
+        <table>
+            <tr>
+                <th colspan="2">奖励信息</th>
+            </tr>
+            <tr class="check">
+                <td>处罚名称：</td>
+                <td><input id="content_punishment" class="easyui-textbox" type="text" name="content_punishment" maxlength="99"></td>
+            </tr>
+            <tr class="check">
+                <td id="punishTime_punishment_anchor">处罚时间：</td>
+                <td><input id="punishTime_punishment" class="easyui-datebox" type="text" name="rewardTime_punishment" data-options="editable: false"></td>
+            </tr>
+            <tr class="check">
+                <td id="relieveTime_punishment_anchor">解除时间：</td>
+                <td><input id="relieveTime_punishment" class="easyui-datebox" type="text" name="rewardTime_punishment" data-options="editable: false"></td>
+            </tr>
+        </table>
+        <div class="list attachment punishment_edit clearfix">
+            <!--<div class="img_box">-->
+            <!--<img src="http://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20180130/20180130113740_354QQ浏览器截图_20171207104758_7FBF85746F1D4d839ADA43B173111E0F.jpg">-->
+            <!--<span class="warning delete">删除</span>-->
+            <!--</div>-->
+        </div>
+        <!--上传插件-->
+        <div class="uploader_custom_control member_punishment"></div>
+
+    </form>
+</div>
+
+
+<!--申请删除团员-->
+<div id="dialog_apply_delete" class="easyui-dialog mywindow" title="申请删除团员" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_apply_delete">
+        <table>
+            <!--<tr>-->
+                <!--<th colspan="2" readonly>基本信息</th>-->
+            <!--</tr>-->
+            <div>
+                <p style="margin: 10px;">你申请删除团员【<span id="name_idCard"></span>】，请注意：</p>
+                <p style="margin: 10px;">①你只能申请删除以下情况的团员（其他情况请作退回处理），请认真核对！</p>
+                <p style="margin: 10px;">②一旦上级团组织审核删除通过，所有与该团员有关的信息将会从系统永久删除。</p>
+                <p style="margin: 10px;" class="my-red">③这是一个不可恢复的操作，请谨慎对待！</p>
+            </div>
+            <tr>
+                <!--<td>删除原因：</td>-->
+                <td><input id="deletedReason" class="easyui-combobox" editable="false" type="text" name="deletedReason"></td>
+            </tr>
+            <tr>
+                <!--<td>删除原因：</td>-->
+                <td><textarea id="deletedRemarks" class="easyui-textbox" type="text" name="deletedRemarks" style="height: 100px;" placeholder="请录入文字说明（不少于10个汉字）"></textarea></td>
+            </tr>
+        </table>
+        <!--9-->
+    </form>
+</div>
+
+<!--批准删除-->
+<div id="dialog_permission_delete" class="easyui-dialog mywindow" title="批准删除团员" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+<!--<div id="dialog_permission_delete" class="easyui-dialog mywindow" title="批准删除团员" data-options="modal: true" style="width: 720px;height: 500px;padding: 10px;">-->
+    <div class="declare_box">
+        <p>下级组织向您申请删除团员【<span class="name_idCard_permission"></span>】，一旦同意删除，所有与团员【<span class="name_idCard_permission"></span>】有关的团务信息将会被永久删除。</p>
+        <p class="my-red">这是一个不可恢复的操作，请谨慎对待！</p>
+        <p><span class="left">待审批删除团员：</span><span class="name_permission"></span></p>
+        <p><span class="left">删除理由：</span><span class="deletedReason"></span></p>
+        <p><span class="left">申请删除文字说明：</span><span class="deletedRemarks"></span></p>
+    </div>
+</div>
+
+
+<!--规则(实名认证状态说明) -- 模态窗口-->
+<div id="dialog_rules_realName" class="easyui-dialog" title="实名认证状态说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="dialog_rules">
+        <p>1.如校验状态为“通过”，组织可直接在【资料审核】-【审核团员】操作上“通过”该团员的报到申请；</p>
+        <p>2.如校验状态为“校验失败”，组织在【资料审核】-【审核团员】操作上“通过”该团员的报到申请时，需填写通过理由及上传团员本人手持身份证正反面的照片。</p>
+        <p>3.如校验状态为“校验中”，不必对其进行操作，系统会于24小时内进行二次校验，请耐心等待。</p>
+    </div>
+</div>
+
+<!--规则(团员业务说明) -- 模态窗口-->
+<div id="dialog_rules_memberBusiness" class="easyui-dialog" title="团员业务说明内容" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="dialog_rules">
+        <p>
+            组织可以在此查看本级及所有下级的团员信息。<br/>
+            团员使用微信，自行扫描团员报到二维码进行报到，由团支部审核团员的报到申请。<br/>
+            报到被审核通过后，除身份信息、所在团支部及入团时间外，团员可以自行在微信服务号修改其本人的信息。
+        </p>
+        <br/>
+        <p><span style="font-weight: bold;">操作说明</span></p>
+        <img src="../../public/img/ss_member.png"/>
+        <p><span style="font-weight: bold;">查看：</span>查看团员资料</p>
+        <p><span style="font-weight: bold;">资料审核：</span>审核团员报到及修改资料的申请。注意，团支部请退回非本支部的团员报到申请。</p>
+        <p><span style="font-weight: bold;">转为团干：</span>将选中的团员转为团干部</p>
+        <p><span style="font-weight: bold;">申请删除：</span>申请删除选中的团员。注意，原则上仅用于处理报到错支部且被误审核通过的团员，其他情况不应删除</p>
+        <p><span style="font-weight: bold;">批准删除：</span>批准删除团员的申请。团支部的直接上级负主体责任</p>
+        <p><span style="font-weight: bold;">奖励审核：</span>审核团员提交的奖励认证申请，注意，除团支部外，其他组织仅审核通过由本组织参与授奖的奖励，其他请做退回处理</p>
+        <p><span style="font-weight: bold;">奖惩修改：</span>修改选中团员的奖励、惩罚信息</p>
+    </div>
+</div>
+
+<!--查看模板 -- 模态窗口-->
+<div id="dialog_check_module" class="easyui-dialog" title="查看模板" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div style="font-size: 0; text-align: center;"><img src="../../public/img/identity.png" style="width: 500px;" /></div>
+</div>
+
+<!--查看照片 -- 模态窗口-->
+<div id="dialog_picture" class="easyui-dialog" title="查看图片" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box" style="margin: 0;width: auto;">
+        <div class="list attachment clearfix">
+            <!--<div class="img_box"><img src="http://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/activityImage/20170329/20170329164430_761微信图片_20170329164724.jpg"></div>-->
+        </div>
+    </div>
+</div>
+
+<!--大图-->
+<div class="maskBox">
+    <img src="" title="点击可关闭">
+</div>
+
+
+</body>
+</html>

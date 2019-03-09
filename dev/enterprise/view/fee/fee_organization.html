@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>组织交费情况</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/fee/fee_organization.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FeeApi.js"></script>
+    <script type="text/javascript" src="../../public/js/fee/fee_organization.js"></script>
+</head>
+<body>
+<!--<div id="header_h" class="bgc1"><a href="javascript:;" class="back_ btn"><em></em></a>组织交费情况<span class="menu_de btn"><em></em></span></div>-->
+<section class="info_box mb_30">
+    <ul class="info_list">
+        <li class="info_item"><!-- 全称 -->
+            <span class="info_item_title">全称</span>
+            <span class="arrow longer1" id="fullName"></span>
+        </li>
+        <li class="info_item"><!-- 简称 -->
+            <span class="info_item_title">简称</span>
+            <span class="arrow longer1" id="name"></span>
+        </li>
+        <li class="info_item"><!-- 组织类型 -->
+            <span class="info_item_title">组织类型</span>
+            <span class="arrow longer1" id="type"></span>
+        </li>
+    </ul>
+</section>
+<section class="info_box mb_30">
+    <div class="block_title"><h1 class="block_title_txt"><span id="months">2017年7月</span>  团费交费情况</h1></div>
+    <ul class="info_list">
+        <li class="info_item"><!-- 团员总数 -->
+            <span class="info_item_title">团员总数</span>
+            <span class="arrow"><span id="total"></span>人</span>
+        </li>
+        <li class="info_item"><!-- 已交团员数 -->
+            <span class="info_item_title">已交团员数</span>
+            <span class="arrow"><span id="paidIn"></span>人</span>
+        </li>
+        <li class="info_item"><!-- 未交团员数 -->
+            <span class="info_item_title">未交团员数</span>
+            <span class="arrow"><span id="unpaid"></span>人</span>
+        </li>
+    </ul>
+</section>
+<section class="info_box mb_30">
+    <ul class="info_list">
+        <li class="info_item"><!-- 已交团费总额 -->
+            <span class="info_item_title">已交团费总额</span>
+            <span class="arrow"><span id="paidInAmount"></span>元</span>
+        </li>
+        <li class="info_item"><!-- 未交团费总额 -->
+            <span class="info_item_title">未交团费总额</span>
+            <span class="arrow"><span id="unpaidAmount"></span>元</span>
+        </li>
+    </ul>
+</section>
+</body>
+</html>

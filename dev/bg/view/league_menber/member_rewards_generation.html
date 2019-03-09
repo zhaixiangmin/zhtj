@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>奖励记录下载</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/css/league_member/member_rewards_generation.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/LeagueMemberApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/league_member/member_rewards_generation.js"></script>
+</head>
+<body>
+<div class="sub_header"></div>
+
+<div class="box">
+
+    <div class="box_header">
+        <div class="txt_ch">广东共青团团员奖励记录</div>
+        <div class="txt_en">The rewards record of guangdong communist youth league members</div>
+        <div class="download"><span id="download_certification">下载PDF</span></div>
+    </div>
+
+    <!--奖励情况-->
+    <!--<div class="box_item_info reward" style="display: none;">-->
+    <div class="box_item_info reward">
+        <div class="title_txt">奖励情况</div>
+        <!--团内奖励-->
+        <div class="box_item_table reward_in">
+        <!--<div class="box_item_table reward_in">-->
+            <div class="sub_title_txt">团内奖励</div>
+            <div class="content_box_list">
+                <!--团内奖励-->
+                <div class="item_title_box">
+                    <span>奖励名称</span><span>获奖名次</span><span>获奖时间</span><span>录入者</span><span>授奖组织</span><span>审核组织</span>
+                </div>
+                <!--团内奖励列表-->
+                <div class="warning_no_content" style="display: none;">暂无记录</div>
+            </div>
+        </div>
+
+        <!--团外奖励-->
+        <div class="box_item_table reward_out">
+            <div class="sub_title_txt">团外奖励</div>
+            <div class="content_box_list">
+                <!--团外奖励-->
+                <div class="item_title_box">
+                    <span>奖励名称</span><span>获奖名次</span><span>获奖时间</span><span>录入者</span><span>授奖组织</span><span>审核组织</span>
+                </div>
+                <!--团外奖励列表-->
+                <div class="warning_no_content" style="display: none;">暂无记录</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<div class="box_footer">-->
+        <!--<div class="code_box">-->
+            <!--<img src="">-->
+            <!--<p>扫码查询团员信息</p>-->
+        <!--</div>-->
+        <!--<div class="right_side">-->
+            <!--<p class="txt">制法机构</p>-->
+            <!--<p class="icon_txt">共青团广东省委员会</p>-->
+            <!--<p class="txt">签证机构</p>-->
+            <!--<p class="icon_txt">共青团广东省委员会</p>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+<div class="footer"></div>
+
+</body>
+</html>

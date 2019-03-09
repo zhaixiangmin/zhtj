@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.title_p{font-size:0.56rem;line-height:0.96rem;padding:0.44rem 0.6rem;color:#999;background-color: #fff;}
+.table_style_box1 .tr{font-size:0;border-bottom:1px solid #f2f2f2;}
+.table_style_box1 .tr.title{line-height:1.8rem;}
+.table_style_box1 .tr.title .td{text-align: center;font-size:0.64rem;color:#999;}
+.table_style_box1 .tr.con{position: relative;display: block;background-color: #fff;}
+.table_style_box1 .tr.con:before{position: absolute;width:0.24rem;height:0.4rem;background:url(../../img/spirit1.png) no-repeat -4.6rem -1.4rem;background-size:6rem;content:'';right:0.6rem;top:50%;transform:translateY(-50%);}
+.table_style_box1 .tr.con .td{padding:0.4rem 0.3rem;text-align: center;font-size: 0.48rem;color:#666;}
+.table_style_box1 .tr.con .td:first-child {font-size:0.56rem;}
+.table_style_box1 .td{display:inline-block;font-size:0.56rem;vertical-align:middle;box-sizing:border-box;}
+.table_style_box1 .td:first-child{width:13.5%;}
+.table_style_box1 .td:nth-child(2){width:20%;}
+.table_style_box1 .td:nth-child(3){width:37.3%;}
+.table_style_box1 .td:last-child{width:29.2%;}

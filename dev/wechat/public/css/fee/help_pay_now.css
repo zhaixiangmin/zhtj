@@ -1,0 +1,28 @@
+/* 团费交纳板块共用  */
+.common_section{height:9.32rem;background:url(../../img/pay-bgi.png) no-repeat center top;background-size:100%;}
+
+.common_section .center_txt{margin-top:1.88rem;text-align: center;color:#fff;}
+.common_section .center_txt .t1{font-size:0.48rem;}
+.common_section .center_txt .t2{font-size:2rem;line-height:2rem;margin:0.2rem 0 0.5rem;}
+.common_section .center_txt .t3{font-size:0.56rem;}
+
+.common_list .list_item{display:block;padding:0 0.6rem;background-color: #fff;border-bottom:1px solid #f2f2f2;height:3.2rem;}
+.common_list .item_inner{position: relative;padding:0.6rem 0;min-height:2rem;}
+.common_list .item_inner:before{position: absolute;content:'';right:0;top:50%;transform:translateY(-50%);width:0.24rem;height:0.4rem;background:url(../../img/spirit1.png) no-repeat -4.6rem -1.4rem;background-size:6rem;}
+.common_list .item_text .text_left{float: left;padding-top: 0.6rem;line-height: 0.8rem; font-size: 0.8rem; color: #333; }
+.common_list .item_text .text_right{float: right;padding-top:0.6rem;line-height:0.8rem;font-size:0.8rem;color:#999;}
+
+
+.common_section .center_txt{margin-top:0;text-align: left;}
+.center_txt{padding-top:2.96rem;color:#fff;margin-left:0.6rem;}
+.center_txt .t2{font-size:2rem;line-height:2rem;margin-bottom:0.8rem;}
+.center_txt .t3{font-size:0.56rem;}
+.common_list .list_item{border-bottom:0 none;}
+
+.common_list .item_inner:before{visibility:hidden;}
+
+
+.btns1{margin:3.4rem 0.3rem 0;}
+.btns1 .btn{float: left;width:6.6rem;height:2rem;line-height:2rem;text-align: center;border-radius:0.2rem;font-size:0.72rem;color:#fff;margin:0 0.3rem;}
+.btns1 .btn.l{background-color: #cecece;}
+.btns1 .btn.r{background-color: #D94453;}

@@ -1,0 +1,14 @@
+body{background-color:#fff;}
+.user_box{width:2.8rem;height:2.8rem;border-radius:0.2rem;margin:1.8rem auto 0.6rem;overflow: hidden;}
+.user_box img{width:100%;height:100%;}
+.user_name{font-size:0.48rem;color:#999;text-align: center;margin-bottom:1.2rem;}
+.money_box{margin: 2.8rem 0.6rem 0.6rem;padding-bottom:0.4rem;border-bottom:1px solid #d9d9d9;}
+.money_box .money_title{line-height:0.48rem;font-size:0.48rem;color:#666;margin-bottom:0.6rem;}
+.money_box .unit{float: left;color:#333;width:0.8rem;font-size:0.8rem;padding-top:0.2rem;}
+.money_box .input_box{padding-left:0.8rem;}
+.money_box .input_box .input{width:100%;height:1.4rem;line-height:1.4rem;font-size:1.2rem;color:#333;}
+.money_box .input_box .input::placeholder{font-size: 0.48rem;}
+.ps_box{margin:0 0.6rem;}
+.ps_box p{line-height:0.76rem;font-size:0.48rem;color:#666;}
+.ps_box .ps_title{color:#333;}
+.ps_box .check{display: inline-block;margin-top: 1rem;font-size: 0.52rem;color: #D94453 ;}

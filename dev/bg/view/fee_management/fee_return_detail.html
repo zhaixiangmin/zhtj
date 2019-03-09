@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返还分配详情</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/css/fee_management/credentials_received.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/FeeManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/fee_management/fee_return_detail.js"></script>
+</head>
+<body>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 150px;overflow: hidden;">
+        <!--<div>查询条件</div>-->
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form method="post">
+                    <table>
+                        <tr>
+                            <th><label for="level_filter">组织树层级:</label></th>
+                            <td><input id="level_filter" class="easyui-combobox" editable="false" name="level_filter"></td>
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div style="margin-top: 20px;margin-left: 10px;font-size: 14px;">
+            <div>团费收交月份：<span id="appropriateTime"></span></div>
+            <div style="margin-top: 10px;">该月团费返还金额：<span id="retentionAmount"></span>元</div>
+        </div>
+        <div class="declaration" style="margin-top: 5px;">
+            <span class="fee_return_business">团费返还业务说明</span>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--团费返还-->
+        <table class="easyui-datagrid" id="fee_return_detail_datagrid" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="public/vendor/jquery/jqueryUI-v1.10.4.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/index/index.css" />
+    <script src="public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="public/vendor/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="https://www.izyz.org.cn/browser/0110/crossdomain.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="public/custom/dialog.js"></script>
+    <script type="text/javascript" src="public/js/module/League.js"></script>
+    <script type="text/javascript" src="public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="public/js/module/InformationApi.js"></script>
+    <script type="text/javascript" src="public/js/index/index.js"></script>
+</head>
+<body>
+    <section class="personal_brief_info">
+        <div class="personal_pic_box"><img src="public/img/league-badge.png" class="personal_pic" alt="picture" id="photoUrl" /></div>
+        <div class="personal_txt">
+            <p class="person_name" id="name"></p>
+            <p class="person_status" id="politicalOutlook"></p>
+        </div>
+    </section>
+    <!--团费拖欠提示语(团费功能打开)-->
+    <a href="javascript:;" class="remind_info_box clearfix" style="display: none;">
+        <p class="remind_info_txt" id="fee_tips"></p>
+    </a>
+    <section class="menu_block clearfix" style="margin-top: 0.6rem;">
+        <a class="menu_items authentication">
+            <div class="menu_items_icon"></div>
+            <p class="menu_items_title">认证资料</p>
+        </a>
+        <a class="menu_items my_org">
+            <div class="menu_items_icon"></div>
+            <p class="menu_items_title">我的组织</p>
+        </a>
+        <a class="menu_items my_msg">
+            <div class="menu_items_icon"></div>
+            <p class="menu_items_title">我的消息</p>
+        </a>
+        <!--href为空，隐藏功能项-->
+        <!--<a class="menu_items cost">-->
+        <a class="menu_items cost">
+            <div class="menu_items_icon"></div>
+            <p class="menu_items_title">团费交纳</p>
+        </a>
+        <a class="menu_items org_relationship">
+            <div class="menu_items_icon"></div>
+            <p class="menu_items_title">组织关系转接</p>
+        </a>
+        <a href="http://www.12355.net/wechat/index.html" class="menu_items my_act">
+            <div class="menu_items_icon"></div>
+            <p class="menu_items_title">我的活动</p>
+        </a>
+        <a href="http://www.izyz.org" class="menu_items my_benefit">
+            <div class="menu_items_icon"></div>
+            <p class="menu_items_title">我的公益</p>
+        </a>
+        <a href="http://zcplan.cn" class="menu_items my_practice">
+            <div class="menu_items_icon"></div>
+            <p class="menu_items_title">我的实习</p>
+        </a>
+        <a href="javascript:;" class="menu_items my_friends">
+            <div class="menu_items_icon"></div>
+            <p class="menu_items_title">我的交友</p>
+        </a>
+        <!--<a class="menu_items ability">-->
+        <!--<div class="menu_items_icon"></div>-->
+        <!--<p class="menu_items_title">人才数据</p>-->
+        <!--</a>-->
+    </section>
+
+
+    <!-- 推文列表 -->
+    <section class="act_list_box" style="display: none;">
+        <div class="list_title clearfix">
+            <div class="title cur">精华</div>
+            <div class="title">本地</div>
+        </div>
+
+        <div class="no_data" style="display: none;">暂无相关的内容</div>
+        <div class="box" style="display: none;">
+            <ul class="act_list">
+                <!--<a class="item" href="javascript:;">-->
+                <!--<div class="pic_box"><img src="public/img/bg-man.png" class="pic" /></div>-->
+                <!--<p class="item_txt">看不见你的笑 我怎么睡得着 你的身影这么近我却抱不到</p>-->
+                <!--</a>-->
+            </ul>
+        </div>
+    </section>
+
+    <!--公告弹出框-->
+    <div class="dialog_widget_notice"
+         style="display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,.3);z-index: 998;">
+        <!--<img style=" z-index: 998;max-width: 100%; max-height: 100%; display: inline-block; vertical-align: middle;"  src="http://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/qnzs/activityImage/20170329/20170329133740_836微信图片_1.jpg" />-->
+        <!--<img style=" z-index: 998;max-width: 100%; max-height: 100%; display: inline-block; vertical-align: middle;"  src="http://wgj-web-admin.oss-cn-shenzhen.aliyuncs.com/temp/image/20171024/20171024100904_173timg.jpg" />-->
+        <div class="dialog_confirm"
+             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 84%; min-height: 4.68rem; z-index: 997; background: #fff; border-radius: 0.2rem;">
+            <div class="content"
+                 style="margin: 0.8rem;max-height: 12rem;line-height: 0.88rem;font-size: 0.56rem;color: #333;overflow: auto;">
+            </div>
+            <div class="button_box"
+                 style="border-top: 1px solid #cecece;">
+                <div class="cancel"
+                     style="width: 50%; box-sizing: border-box; text-align: center; float: left; height: 2rem; line-height: 2rem; font-size: 0.56rem; color: #999; border-right: 1px solid #cecece;">
+                    不再显示
+                </div>
+                <div class="confirm"
+                     style="color: #da4453; width: 50%; box-sizing: border-box; text-align: center; float: left; height: 2rem; line-height: 2rem; font-size: 0.56rem;">
+                    关闭
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

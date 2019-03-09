@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>支付成功</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/fee/fee_pay_success.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FeeApi.js"></script>
+    <script type="text/javascript" src="../../public/js/fee/fee_pay_success.js"></script>
+</head>
+<body>
+<div id="header_h" class="bgc1"><a href="javascript:;" class="back_ btn"><em></em></a><span class="menu_de btn"><em></em></span></div>
+<div class="paid_successfully_box">
+    <div class="success_bg">支付成功</div>
+    <!--<p class="ph1">广东省团委(*云)收款</p>-->
+    <p class="ph2"><span style="font-size:1.2rem;">&yen;</span><span id="amount"></span></p>
+    <ul class="list">
+        <li class="list_item">
+            <span class="left">订单名称</span>
+            <span class="right" id="orderDesc"></span>
+        </li>
+        <!--<li class="list_item">-->
+            <!--<span class="left">付款方式</span>-->
+            <!--<span class="right">微信支付</span>-->
+        <!--</li>-->
+    </ul>
+</div>
+<div class="two_btns_box clearfix">
+    <a href="fee_paid_list.html" class="btn bgc1">查看已交记录</a>
+    <a href="fee.html" class="btn bgc2">返回</a>
+</div>
+</body>
+</html>

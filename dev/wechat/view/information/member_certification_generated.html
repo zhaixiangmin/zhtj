@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>电子团员证</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/information/member_certification_generated.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/InformationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/module/RelationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/information/member_certification_generated.js"></script>
+</head>
+<body>
+<!--<div class="sub_header"></div>-->
+<img style="width: 100%;" src="../../public/img/certification-bg-top.png"/>
+
+<div class="box">
+    <div class="box_header">
+        <div class="img_box">
+            <img src="../../public/img/league-badge.png" id="photoUrl"/>
+        </div>
+        <div class="title">团员证</div>
+        <!--<div class="subtitle">Certificate of guangdong communist youth league members</div>-->
+        <div class="download"><span id="download_certification">下载PDF</span></div>
+
+    </div>
+
+    <div class="box_item_info base">
+        <div class="title_txt">基本信息</div>
+        <ul class="content_box">
+            <li class="content_item">
+                <span class="item_title">姓名</span>
+                <span class="item_txt" id="name"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">团员编号</span>
+                <span class="item_txt" id="developmentMemberNumber"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">性别</span>
+                <span class="item_txt" id="genderStr"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">身份证号</span>
+                <span class="item_txt" id="idCard"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">民族</span>
+                <span class="item_txt" id="nation"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">政治面貌</span>
+                <span class="item_txt" id="politicalOutlook"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">入团年月</span>
+                <span class="item_txt" id="leagueForYears"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">出生日期</span>
+                <span class="item_txt" id="birthdayStr"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">最高学历</span>
+                <span class="item_txt" id="highestEducation"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">户籍所在地</span>
+                <span class="item_txt" id="domicilePlace"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">目前所在团支部</span>
+                <span class="item_txt" id="fullName"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">入团时所在团单位</span>
+                <span class="item_txt" id="leagueForUnit"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">是否注册志愿者</span>
+                <span class="item_txt" id="isRegisterVolunteer"></span>
+            </li>
+            <li class="content_item">
+                <span class="item_title">志愿服务时长</span>
+                <span class="item_txt" id="volunteerServiceHours"></span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="box_footer">
+        <div class="img_box">
+            <img id="qrCodeImg" src="">
+        </div>
+        <div class="right_side">
+            <p>制发机构</p>
+            <p>共青团广东省委员会</p>
+            <p>签发日期</p>
+            <p id="time_now"></p>
+        </div>
+        <div class="bottom">扫码查询团员信息<br>基本信息及所获奖励</div>
+    </div>
+
+    <div class="box_item_table transfer">
+        <div class="title_txt">组织关系转接记录</div>
+        <div class="content_box_list">
+            <!--组织关系转接记录列表-->
+            <div class="warning_no_content" style="display: none;">暂无记录</div>
+        </div>
+    </div>
+
+    <div class="box_item_table fee">
+        <div class="title_txt">团费交纳记录</div>
+        <div class="content_box_list">
+            <!--团费交纳记录-->
+            <div class="warning_no_content" style="display: none;">暂无记录</div>
+        </div>
+    </div>
+
+    <div class="box_item_table reward_in">
+        <div class="title_txt">团内奖励</div>
+        <div class="content_box_list">
+            <!--团内奖励列表-->
+            <div class="warning_no_content" style="display: none;">暂无记录</div>
+        </div>
+    </div>
+    <div class="box_item_table reward_out">
+        <div class="title_txt">团外奖励</div>
+        <div class="content_box_list">
+            <!--团外奖励列表-->
+            <div class="warning_no_content" style="display: none;">暂无记录</div>
+        </div>
+    </div>
+
+</div>
+
+<img style="width: 100%;" src="../../public/img/certification-bg-bottom.png"/>
+
+</body>
+</html>

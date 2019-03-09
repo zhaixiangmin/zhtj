@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>组织查询</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/organization/organization.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/OrganizationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/organization/organization.js"></script>
+</head>
+
+<body>
+<div class="title_box">
+    <p>您可在这里查询归属在当前组织的所有下级组织</p>
+</div>
+
+<div class="no_data first" style="display: none;">没有相关的内容</div>
+<div class="box first" style="display: none;">
+    <!-- 输入搜索框 -->
+    <section class="search_sec mb_30">
+        <div class="search_box">
+            <input id="keyword" type="text" class="search_input" placeholder="请输入组织全称/组织ID搜索" />
+            <a id="confirm" class="sea_btn"></a>
+        </div>
+    </section>
+
+    <div class="no_data second" style="display: none;">没有找到相应的内容，换个关键词再试试吧！</div>
+    <div class="box second" style="display: none;">
+        <!-- 列表 -->
+        <ul class="result_list">
+            <!--<a class="result_item" href="javascript:;">-->
+            <!--<div class="item_sec clearfix">-->
+            <!--<p class="item_sec_title">团组织简称：</p>-->
+            <!--<p class="item_sec_con">广州科技职业技术学院管理学院2017工管1班团支部</p>-->
+            <!--</div>-->
+            <!--<div class="item_sec clearfix">-->
+            <!--<p class="item_sec_title">组织类型：</p>-->
+            <!--<p class="item_sec_con">团支部</p>-->
+            <!--</div>-->
+            <!--</a>-->
+        </ul></div>
+</div>
+
+<!--<div class="loading_global" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.3);">-->
+    <!--<div class="txt" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1rem; height: 1rem; font-size: 0.48rem;background: url('../../public/img/loading.gif') no-repeat top center;background-size: contain;"></div>-->
+<!--</div>-->
+
+</body>
+</html>

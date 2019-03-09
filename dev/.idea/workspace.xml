@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d2031cc5-4168-4530-a2d6-934a967fe8f1" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bg/index_main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wechat/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wechat/public/js/index/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="164" column="34" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="34" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#p#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bg/public/js/index/index_main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+              <folding>
+                <element signature="e#62#79#0" />
+                <element signature="e#2319#2325#0" />
+                <element signature="e#3053#3138#0" />
+                <element signature="e#3418#3436#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bg/public/js/module/Utils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9571">
+              <caret line="563" selection-start-line="563" selection-end-line="563" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bg/view/organization_management/edit_mobile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bg/public/js/organization_management/edit_mobile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1105">
+              <caret line="65" column="37" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bg/view/organization_management/person_infomation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bg/public/js/organization_management/person_information.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="49" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="49" />
+              <folding>
+                <element signature="e#229#816#0" />
+                <element signature="e#836#923#0" />
+                <element signature="e#955#1247#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>edit</find>
+      <find>checkMobile</find>
+      <find>isClick</find>
+      <find>Password</find>
+      <find>dialog_retreat_audit .dialog-button .l-btn:last-child .l-btn-left .l-btn-text</find>
+      <find>em</find>
+      <find>&lt;em&gt;【'</find>
+      <find>&lt;em class=&quot;org&quot; data-oid=&quot;&quot;&gt;【'</find>
+      <find>var options = {</find>
+      <find>mobile</find>
+      <find>'oid', 'type', 'fullName', 'name', 'mobile', 'email', 'administrativeOmpilation', 'administrativeNumber', 'careerFormation', 'serviceNumber', 'industryCategory', 'username', 'password', 'secretaryName', 'groupOrganizationCode', 'groupOrganizationWechatid', 'groupOrganizationWeibo'</find>
+      <find>, 'enterpriseName'</find>
+      <find>'oid', 'type', 'fullName', 'name', 'enterpriseName', 'mobile', 'email', 'administrativeOmpilation', 'administrativeNumber', 'careerFormation', 'serviceNumber'</find>
+      <find>username</find>
+      <find>industryCategory</find>
+      <find>options</find>
+      <find>optionList_global</find>
+      <find>organizationStatistic</find>
+      <find>oid_global</find>
+      <find>172.16.120.145</find>
+      <find>host.split('.')[0] == '172'</find>
+      <find>makedDate</find>
+      <find>statisticMonth_filter</find>
+      <find>startTime_filter</find>
+      <find>combo</find>
+      <find>name_role</find>
+      <find>access_organization</find>
+      <find>Utils</find>
+      <find>iconCls</find>
+      <find>api</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>params</replace>
+      <replace>.box .list</replace>
+      <replace>info_list</replace>
+      <replace>info_item</replace>
+      <replace>info_item_title</replace>
+      <replace>&lt;/span&gt;&lt;span</replace>
+      <replace>0.8</replace>
+      <replace>info_item&quot;</replace>
+      <replace>info_item_compact&quot;</replace>
+      <replace>right_txt</replace>
+      <replace>right_txt&quot;</replace>
+      <replace>info_item_title longer</replace>
+      <replace>info_item_compact</replace>
+      <replace>appeal</replace>
+      <replace>appealed</replace>
+      <replace>heavy_project/wapUserInfo.html</replace>
+      <replace>person_center/edit_phone.html</replace>
+      <replace>../../public</replace>
+      <replace>notice_box</replace>
+      <replace>notice_list</replace>
+      <replace>access</replace>
+      <replace>notice_item</replace>
+      <replace>本级累计需响应申请数</replace>
+      <replace>月度业务响应统计</replace>
+      <replace>团组织联系电话</replace>
+      <replace>checkMobileOrTel</replace>
+      <replace>Mobile</replace>
+      <replace>submit</replace>
+      <replace>192.168.20.44</replace>
+      <replace>host.split('.')[0] == '192'</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>F:\zhtj\dev\wechat\public</dir>
+      <dir>F:\zhtj\dev\bg\view</dir>
+      <dir>F:\zhtj\dev\wechat\public\js\relation</dir>
+      <dir>F:\zhtj\dev\enterprise</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/bg/public/css/index/index.css" />
+        <option value="$PROJECT_DIR$/wechat/view/information/registration_data_1.html" />
+        <option value="$PROJECT_DIR$/wechat/view/relation/transfer_record.html" />
+        <option value="$PROJECT_DIR$/bg/public/js/fee_management/fee_query.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/module/LeagueMemberApi.js" />
+        <option value="$PROJECT_DIR$/wechat/public/js/relation/transfer.js" />
+        <option value="$PROJECT_DIR$/bg/view/relation/draftsmanship.html" />
+        <option value="$PROJECT_DIR$/bg/public/custom/easyui_secondary.js" />
+        <option value="$PROJECT_DIR$/wechat/view/information/registration_data.html" />
+        <option value="$PROJECT_DIR$/wechat/view/information/registration_data_4.html" />
+        <option value="$PROJECT_DIR$/wechat/public/css/awards/add_awards.css" />
+        <option value="$PROJECT_DIR$/wechat/public/js/information/authentication_data_editing2.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/fee_management/fee_return_rate_setting.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/relation/draftsmanship.js" />
+        <option value="$PROJECT_DIR$/wechat/public/js/relation/transfer_record.js" />
+        <option value="$PROJECT_DIR$/bg/view/notice_management/notice_list.html" />
+        <option value="$PROJECT_DIR$/bg/public/css/notice_management/notice_list.css" />
+        <option value="$PROJECT_DIR$/bg/public/js/notice_management/notice_list.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/league_member/league_member.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/message/message.js" />
+        <option value="$PROJECT_DIR$/wechat/view/fee/voluntary.html" />
+        <option value="$PROJECT_DIR$/wechat/public/js/index/index.js" />
+        <option value="$PROJECT_DIR$/wechat/public/css/fee/voluntary.css" />
+        <option value="$PROJECT_DIR$/bg/public/css/index/index_main.css" />
+        <option value="$PROJECT_DIR$/bg/view/test/test1.html" />
+        <option value="$PROJECT_DIR$/bg/public/js/fee_management/fee_query_detail.js" />
+        <option value="$PROJECT_DIR$/bg/view/fee_management/fee_query_detail.html" />
+        <option value="$PROJECT_DIR$/bg/view/cadre_management/cadre_management.html" />
+        <option value="$PROJECT_DIR$/bg/view/test/video.html" />
+        <option value="$PROJECT_DIR$/bg/public/js/cadre_management/cadre_management.js" />
+        <option value="$PROJECT_DIR$/enterprise/view/organization/organization_detail.html" />
+        <option value="$PROJECT_DIR$/enterprise/public/js/organization/organization_detail.js" />
+        <option value="$PROJECT_DIR$/bg/view/organization_management/person_infomation.html" />
+        <option value="$PROJECT_DIR$/bg/view/organization_management/edit_mobile.html" />
+        <option value="$PROJECT_DIR$/bg/public/js/module/OrganizationManagementApi.js" />
+        <option value="$PROJECT_DIR$/wechat/view/relation/transfer_record_detail.html" />
+        <option value="$PROJECT_DIR$/wechat/public/js/module/RelationApi.js" />
+        <option value="$PROJECT_DIR$/wechat/public/js/relation/transfer_record_detail.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/organization_management/organization_management.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/organization_management/tree.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/organization_management/person_information.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/organization_management/transfer.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/module/League.js" />
+        <option value="$PROJECT_DIR$/wechat/public/js/module/League.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/module/Utils.js" />
+        <option value="$PROJECT_DIR$/bg/view/organization_management/statistics.html" />
+        <option value="$PROJECT_DIR$/bg/public/js/organization_management/statistics.js" />
+        <option value="$PROJECT_DIR$/bg/view/league_menber/league_menber.html" />
+        <option value="$PROJECT_DIR$/bg/public/js/index/index_main.js" />
+        <option value="$PROJECT_DIR$/bg/public/js/organization_management/edit_mobile.js" />
+        <option value="$PROJECT_DIR$/bg/index_main.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="80" />
+    <option name="width" value="1461" />
+    <option name="height" value="860" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="智慧团建" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="智慧团建" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="智慧团建" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+              <item name="bg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="智慧团建" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+              <item name="wechat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="智慧团建" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+              <item name="wechat" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="" />
+    <property name="node.js.selected.package.jscs" value="" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\WebStorm-2018.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\zhtj\dev\i志愿" />
+      <recent name="F:\zhtj\dev\wechat\view\relation" />
+      <recent name="F:\zhtj\dev\bg\public\js\relation" />
+      <recent name="F:\zhtj\dev\bg\view\relation" />
+      <recent name="F:\zhtj\dev\bg\public\vendor\webuploader" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\zhtj\dev\bg\public\js\organization_management" />
+      <recent name="F:\zhtj\dev\bg\view\organization_management" />
+      <recent name="F:\zhtj\dev\bg\view\test" />
+      <recent name="F:\zhtj\dev\bg\public\img" />
+      <recent name="F:\zhtj\dev\wechat\public\img" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2031cc5-4168-4530-a2d6-934a967fe8f1" name="Default Changelist" comment="" />
+      <created>1543197503522</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1543197503522</updated>
+      <workItem from="1543197509594" duration="24358000" />
+      <workItem from="1543281236661" duration="20658000" />
+      <workItem from="1543367914657" duration="15588000" />
+      <workItem from="1543455140082" duration="597000" />
+      <workItem from="1543455939237" duration="4401000" />
+      <workItem from="1543545687413" duration="342000" />
+      <workItem from="1543886898363" duration="15057000" />
+      <workItem from="1543974960054" duration="16132000" />
+      <workItem from="1544058566968" duration="11862000" />
+      <workItem from="1544144843319" duration="21935000" />
+      <workItem from="1544404786390" duration="20231000" />
+      <workItem from="1544491075451" duration="12468000" />
+      <workItem from="1544578061825" duration="14017000" />
+      <workItem from="1544664026223" duration="9912000" />
+      <workItem from="1544751513759" duration="13486000" />
+      <workItem from="1545011731676" duration="3485000" />
+      <workItem from="1545184665929" duration="3575000" />
+      <workItem from="1545283843576" duration="1307000" />
+      <workItem from="1545355193711" duration="7029000" />
+      <workItem from="1545616510721" duration="26500000" />
+      <workItem from="1545701327094" duration="7064000" />
+      <workItem from="1545980143509" duration="1488000" />
+      <workItem from="1546046488998" duration="3066000" />
+      <workItem from="1546392465744" duration="1804000" />
+      <workItem from="1546397081259" duration="3882000" />
+      <workItem from="1546477425752" duration="2074000" />
+      <workItem from="1546498975271" duration="626000" />
+      <workItem from="1546505430339" duration="1393000" />
+      <workItem from="1546568413578" duration="17595000" />
+      <workItem from="1546824737615" duration="5515000" />
+      <workItem from="1546833109780" duration="2422000" />
+      <workItem from="1546916349060" duration="666000" />
+      <workItem from="1546937944640" duration="6327000" />
+      <workItem from="1546995813345" duration="19738000" />
+      <workItem from="1547084368986" duration="3435000" />
+      <workItem from="1547169198117" duration="612000" />
+      <workItem from="1547189478408" duration="14675000" />
+      <workItem from="1547431491717" duration="13513000" />
+      <workItem from="1547517310591" duration="17195000" />
+      <workItem from="1547546434841" duration="787000" />
+      <workItem from="1547617594669" duration="3906000" />
+      <workItem from="1547627283978" duration="7462000" />
+      <workItem from="1547687141428" duration="3193000" />
+      <workItem from="1548136040088" duration="4767000" />
+      <workItem from="1548208334402" duration="2980000" />
+      <workItem from="1548639432525" duration="3383000" />
+      <workItem from="1548724540661" duration="5042000" />
+      <workItem from="1548812132363" duration="8381000" />
+      <workItem from="1548897309949" duration="3115000" />
+      <workItem from="1548999043697" duration="838000" />
+      <workItem from="1549071376177" duration="3177000" />
+      <workItem from="1549088457415" duration="995000" />
+      <workItem from="1549870930034" duration="2698000" />
+      <workItem from="1549952486084" duration="612000" />
+      <workItem from="1549964299505" duration="1914000" />
+      <workItem from="1550021589580" duration="2835000" />
+      <workItem from="1550192897795" duration="22807000" />
+      <workItem from="1550383384946" duration="458000" />
+      <workItem from="1550384744142" duration="267000" />
+      <workItem from="1550452250472" duration="734000" />
+      <workItem from="1550454437508" duration="156000" />
+      <workItem from="1550454615266" duration="18000" />
+      <workItem from="1550455847272" duration="167000" />
+      <workItem from="1550476879996" duration="189000" />
+      <workItem from="1550543647705" duration="23000" />
+      <workItem from="1550545714801" duration="474000" />
+      <workItem from="1550741257194" duration="1250000" />
+      <workItem from="1551060024916" duration="13514000" />
+      <workItem from="1551143533914" duration="4202000" />
+      <workItem from="1551230089414" duration="173000" />
+      <workItem from="1551230280921" duration="14863000" />
+      <workItem from="1551316323278" duration="3575000" />
+      <workItem from="1551345252117" duration="1151000" />
+      <workItem from="1551406500853" duration="803000" />
+      <workItem from="1551922948188" duration="117000" />
+      <workItem from="1551926094508" duration="5486000" />
+      <workItem from="1552017911514" duration="4345000" />
+      <workItem from="1552041800699" duration="567000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="497454000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18441065" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49809885" weight="0.15591398" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293011" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3293011" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50190115" side_tool="true" weight="0.19758065" />
+      <window_info anchor="bottom" id="TypeScript" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/bg/view/organization_management/transfer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/public/css/fee/voluntary.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/css/index/index_main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="367" column="71" selection-start-line="367" selection-start-column="71" selection-end-line="367" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/view/fee/voluntary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="8" column="78" lean-forward="true" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/test/test1.html" />
+    <entry file="file://$PROJECT_DIR$/bg/view/fee_management/fee_query_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#5;n#ul#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/fee_management/fee_query_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="145" column="43" selection-start-line="145" selection-start-column="25" selection-end-line="145" selection-end-column="43" />
+          <folding>
+            <element signature="e#329#7095#0" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#7152#9050#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/tweet_management/tweet_publish.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/tweet_management/tweet_publish.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/vendor/webuploader/uploader_custom_control.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3094">
+          <caret line="182" column="26" selection-start-line="182" selection-start-column="20" selection-end-line="182" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/test/video.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/organization_management/organization_management.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="41" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enterprise/view/organization/organization_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="131" column="7" selection-start-line="131" selection-start-column="7" selection-end-line="131" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enterprise/public/js/organization/organization_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="91" column="3" selection-start-line="91" selection-start-column="3" selection-end-line="91" selection-end-column="3" />
+          <folding>
+            <element signature="e#701#809#0" />
+            <element signature="e#862#1220#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/view/organization/organization.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="82" lean-forward="true" selection-start-line="17" selection-start-column="83" selection-end-line="18" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/vendor/jquery-validate/additional-methods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="44" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/public/js/organization/organization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="36" column="11" lean-forward="true" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+          <folding>
+            <element signature="e#295#406#0" />
+            <element signature="e#458#816#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/system_management/edit_password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/system_management/edit_password.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="53" column="76" lean-forward="true" selection-start-line="52" selection-start-column="48" selection-end-line="53" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/view/relation/transfer_record_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="63" lean-forward="true" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/public/js/module/RelationApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2584">
+          <caret line="152" column="8" selection-start-line="152" selection-start-column="3" selection-end-line="152" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/public/js/module/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7735">
+          <caret line="455" selection-start-line="455" selection-end-line="455" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/public/js/relation/transfer_record_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="155" column="197" selection-start-line="155" selection-start-column="183" selection-end-line="155" selection-end-column="197" />
+          <folding>
+            <element signature="e#285#344#0" />
+            <element signature="e#381#683#0" />
+            <element signature="e#725#1118#0" />
+            <element signature="e#1153#1220#0" />
+            <element signature="e#1711#2437#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/organization_management/organization_management.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="83" selection-start-line="49" selection-start-column="67" selection-end-line="49" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/organization_management/transfer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="184" column="29" lean-forward="true" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/organization_management/tree.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1904">
+          <caret line="112" column="77" selection-start-line="112" selection-start-column="56" selection-end-line="112" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/organization_management/tree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6851">
+          <caret line="403" column="49" selection-start-line="403" selection-start-column="49" selection-end-line="403" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/cadre_management/cadre_management.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/cadre_management/cadre_management.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8211">
+          <caret line="676" column="35" selection-start-line="676" selection-start-column="35" selection-end-line="676" selection-end-column="35" />
+          <folding>
+            <element signature="e#1354#2026#0" />
+            <element signature="e#2293#2365#0" />
+            <element signature="e#2410#2679#0" />
+            <element signature="e#2711#3667#0" />
+            <element signature="e#3779#3828#0" />
+            <element signature="e#3862#3996#0" />
+            <element signature="e#4041#4089#0" />
+            <element signature="e#4304#6183#0" />
+            <element signature="e#6233#7306#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/module/CadreManagementApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4369">
+          <caret line="257" column="24" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/module/League.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/view/information/registration_data_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/public/js/information/registration_data_1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/public/js/module/InformationApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/public/js/module/League.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="36" column="69" lean-forward="true" selection-start-line="36" selection-start-column="69" selection-end-line="36" selection-end-column="69" />
+          <folding>
+            <element signature="e#2462#2941#0" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/fee_management/fee_return.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="35" column="178" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="35" selection-end-column="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/fee_management/fee_return.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="106" column="40" lean-forward="true" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/organization_management/statistics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="50" column="55" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/organization_management/statistics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="76" column="45" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+          <folding>
+            <element signature="e#486#2809#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/module/OrganizationManagementApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="159" column="31" selection-start-line="159" selection-start-column="27" selection-end-line="159" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/league_member/league_member.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="590" column="30" selection-start-line="590" selection-start-column="30" selection-end-line="590" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#15324#19076#0" />
+            <element signature="e#19132#23671#0" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/league_menber/league_menber.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="117" column="14" lean-forward="true" selection-start-line="117" selection-start-column="14" selection-end-line="117" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#table#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#table#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#form#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#5;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#6;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#6;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#6;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#6;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#table#0;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#form#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#7;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#8;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#table#0;n#form#0;n#div#9;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#0;n#td#1;n#tr#6;n#table#0;n#form#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#10;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#14;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#15;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#17;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/index_main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/index/index_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+          <folding>
+            <element signature="e#62#79#0" />
+            <element signature="e#2319#2325#0" />
+            <element signature="e#3053#3138#0" />
+            <element signature="e#3418#3436#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/module/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9571">
+          <caret line="563" selection-start-line="563" selection-end-line="563" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/organization_management/edit_mobile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/organization_management/edit_mobile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="37" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/view/organization_management/person_infomation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bg/public/js/organization_management/person_information.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="49" />
+          <folding>
+            <element signature="e#229#816#0" />
+            <element signature="e#836#923#0" />
+            <element signature="e#955#1247#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechat/public/js/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="164" column="34" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

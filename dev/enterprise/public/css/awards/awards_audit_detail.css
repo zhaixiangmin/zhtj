@@ -1,0 +1,113 @@
+@charset "UTF-8";
+.fl{float: left;}
+.fr{float: right;}
+.mb_30{margin-bottom:0.6rem;}
+.mt_30{margin-top:0.6rem;}
+.c_blue {
+    color: #40c2fb !important;
+}
+.c_red {
+     color: #e46b78 !important;
+ }
+
+/*body{background-color: #fff;}*/
+
+.details_item .item_title{padding:0.4rem 0.6rem;border-bottom:1px solid #f2f2f2;background: #fff;}
+.details_item .item_title .p1{color:#333;font-size:0.68rem;}
+.details_item .item_title1 .p2{color:#d94453;font-size:0.56rem;}
+
+
+.info_box .table_list_block{padding: 0.6rem 0;background: #fff;}
+.info_box .table_list{ position: relative;margin: 0.6rem auto;margin-left: 5%; width: 80%; border: 1px solid #d3d3d3; border-radius: 0.1rem; }
+.info_box .table_list .table_box{ border-bottom: 1px solid #d3d3d3;background: #ebebeb;overflow: hidden; }
+.info_box .table_list .table_box:last-child{ border-bottom: none; }
+.info_box .table_list .table_box .left{ box-sizing: border-box; display: inline-block; vertical-align: middle; padding: 0.4rem 0.2rem; width: 40%;min-height: 1.64rem; font-size: 0.6rem;text-align: center; color: #333; }
+.info_box .table_list .table_box .right{ box-sizing: border-box; display: inline-block; vertical-align: middle; padding: 0.4rem 0.2rem; width: 60%;min-height: 1.64rem; font-size: 0.6rem;text-align: center; color: #999; border-left: 1px solid #d3d3d3; background: #fff; }
+
+.info_box .table_list .checkbox {
+    position: absolute;
+    top: 0;
+    right: -1.08rem;
+    display: inline-block;
+    /*margin-right: 0.6rem;*/
+    width: 0.68rem;
+    height: 0.68rem;
+    vertical-align: middle;
+    background: url(../../img/square.png) no-repeat center;
+    background-size: contain;
+}
+.info_box .table_list .checkbox.active{
+    background-image: url(../../img/square-active.png);
+}
+
+
+/* 双按钮 */
+.two_btns_box{text-align: center;margin:1rem 0.3rem;font-size:0;}
+.two_btns_box .btn{display:inline-block;width:6.5rem;height:2rem;line-height:2rem;font-size:0.72rem;border-radius:0.2rem;margin:0 0.3rem;color:#fff;}
+.two_btns_box .btn.bgc1{background-color:#D94453;}
+.two_btns_box .btn.bgc2{background-color:#cecece;}
+
+
+
+
+/*banner样式*/
+.curtain{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    top: 0;
+    left: 0;
+    background: #000;
+}
+#bannerBox{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    /*background: #fff;*/
+}
+#bannerBox .hd{
+    position: absolute;
+    bottom: 1.9rem;
+    width: 100%;
+    z-index: 1;
+}
+#bannerBox .hd ul {
+    width: 100%;
+    text-align: center;
+}
+#bannerBox .hd ul li{
+    display: inline-block;
+    width: 0.5625rem;
+    height: 0.5625rem;
+    line-height: 0.5625rem;
+    background: #fff;
+    text-align: center;
+    margin: 0 0.075rem;
+    font-size: 0.45rem;
+}
+#bannerBox .hd ul li.on{
+    background: #f00;
+    color: #fff;
+}
+#bannerBox .bd ul li {
+    width: 100%;
+    height: 5.625rem;
+    line-height: 5.625rem;
+    text-align: center;
+    font-size: 0;
+}
+#bannerBox .bd ul li img {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+#bannerBox .prev, #bannerBox .next{
+    position:absolute; left:3%; top:50%; margin-top:-0.9375rem; display:block; width:1.2rem; height:1.5rem; background:url(../../img/slider-arrow.png) -110px 5px no-repeat; filter:alpha(opacity=50);opacity:0.5;
+}
+#bannerBox .next{
+    left:auto; right:3%; background-position:8px 5px;
+}

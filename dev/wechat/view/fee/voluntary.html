@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>自愿多交</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/fee/voluntary.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FeeApi.js"></script>
+    <script type="text/javascript" src="../../public/js/fee/voluntary.js"></script>
+</head>
+
+<body>
+<div class="money_box">
+    <p class="money_title">请输入你要多交的金额</p>
+    <div class="money_input clearfix">
+        <span class="unit">&yen;</span>
+        <div class="input_box"><input type="number" class="input" id="donation" placeholder="金额不会抵扣每月应交团费"/></div>
+    </div>
+</div>
+<div class="ps_box">
+    <p class="ps_title">说明：</p>
+    <p class="ps_p">•&nbsp;&nbsp;自愿多交和团员每月应交团费<span style="font-weight: bold;color: #0d87ef;">不存在联系，不能抵扣团员每月应交团费</span>；</p>
+    <p class="ps_p">•&nbsp;&nbsp;本系统中自愿多交并不是每月应交团费的预交；</p>
+    <p class="ps_p">•&nbsp;&nbsp;团员自愿多交团费额度不限；</p>
+    <p class="ps_p">•&nbsp;&nbsp;自愿一次多交纳1000元以上的团费，全部上交团中央。具体方法是：由所在基层团委代收，并提供该团员的简要情况，通过各省、自治区、直辖市团委组织部，解放军总政治部组织部青年局，全国铁道团委组织部，全国民航团委组织部，中直机关团工委组织部，中央国家机关团工委组织部，中央金融团工委组织部，中央企业团工委组织部转交团中央组织部。团中央组织部给本人出具收据。</p>
+    <a href="voluntary_paid_list.html" class="check">查看已交记录</a>
+</div>
+<a href="javascript:;" class="bot_big_btn" id="confirm">确认</a>
+</body>
+</html>

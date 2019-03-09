@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.fl{float: left;}
+.fr{float: right;}
+.my_msg_list{background-color: #fff;margin-top:0.6rem;}
+.my_msg_list .my_msg_item{padding:0.6rem;border-bottom:1px solid #f2f2f2;display:block;}
+.my_msg_list .my_msg_item .msg_item_txt{padding-left:2rem;position: relative;}
+.my_msg_list .msg_item_txt:before{position: absolute;content:'';width:1.24rem;height:1.24rem;background:url(../../img/spirit1.png) no-repeat -1.24rem -2.4rem;background-size:6rem;left:0;top:0.5rem;}
+.my_msg_list .my_msg_item.cur .msg_item_txt:before{background-position:0 -2.4rem;}
+.my_msg_list .msg_item_txt .txt_up{margin-bottom:0.2rem;}
+.my_msg_list .msg_item_txt .txt_up_l{font-size:0.68rem;color:#333;line-height:0.68rem;padding-left:0.6rem;position: relative;}
+.my_msg_list .msg_item_txt .txt_up_l:before{position: absolute;content:'';width:0.2rem;height:0.2rem;left:0;top:50%;margin-top:-0.1rem;background:url(../../img/spirit1.png) no-repeat -3.6rem -1.2rem;background-size:6rem;}
+.my_msg_list .my_msg_item.cur .txt_up_l:before{background-position:-3.6rem -1.6rem;}
+.my_msg_list .msg_item_txt .txt_up_r{font-size:0.48rem;color:#999;line-height:0.48rem;}
+.my_msg_list .msg_item_txt .txt_down{color:#999;font-size:0.56rem;line-height:0.76rem;}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息管理-我的消息</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/MessageApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/message/message.js"></script>
+</head>
+<body>
+
+<style>
+    /*datagrid 显示全选按钮*/
+    .datagrid .panel-body .datagrid-view .datagrid-view1 .datagrid-header .datagrid-header-inner table tr td div.datagrid-header-check input{
+        display: inline-block;
+    }
+</style>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 50px;overflow: hidden;">
+        <!--<div>查询条件</div>-->
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                <a id="read_flag" class="button" style="margin-left: 0;">标识为已读</a>
+                            </td>
+                            <th><label for="status_filter">状态:</label></th>
+                            <td><input id="status_filter" class="easyui-combobox" editable="false" name="type"></td>
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--消息数据网格-->
+        <table class="easyui-datagrid" id="message" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+</body>
+</html>

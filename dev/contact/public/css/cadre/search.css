@@ -1,0 +1,172 @@
+body {
+    background: #fff;
+}
+
+.box .search_box {
+    position: relative;
+    padding: 0.4rem 2.6rem 0.4rem 0.5rem;
+    color: #949494;
+    background: #EFEFF4;
+}
+.box .search_box .input_box {
+    position: relative;
+    padding-left: 1.8rem;
+    padding-right: 1.2rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    text-align: center;
+    border-radius: 0.2rem;
+    background: #fff;
+    overflow: hidden;
+}
+.box .search_box .input_box .search_icon {
+    position: absolute;
+    left: 0;
+    width: 1.8rem;
+    height: 1.4rem;
+    background: url(../../img/search-gray.png) no-repeat center;
+    background-size: 0.6rem;
+}
+.box .search_box .input_box input {
+    width: 100%;
+    height: 100%;
+    font-size: 0.6rem;
+    vertical-align: text-bottom;
+}
+.box .search_box .input_box .cancel_icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.2rem;
+    height: 1.4rem;
+    background: url("../../img/cancel.png") no-repeat center;
+    background-size: 0.6rem;
+}
+
+.box .search_box .cancel {
+    position: absolute;
+    right: 0.4rem;
+    top: 0;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    font-size: 0.72rem;
+    color: #4F77AA;
+}
+
+.box .tab_box {
+    height: 1.8rem;
+    padding: 0 0.4rem;
+    background: #EFEFF4;
+}
+.box .tab_box .tab {
+    height: 1.2rem;
+    font-size: 0.56rem;
+    color: #265A99;
+    border: 1px solid #265A99;
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+.box .tab_box .tab span{
+    display: inline-block;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    width: 50%;
+    text-align: center;
+}
+.box .tab_box .tab span.active {
+    color: #fff;
+    background: #265A99;
+}
+
+.box .list_box .list {
+    padding-left: 0.6rem;
+}
+.box .list_box .list .item {
+    position: relative;
+    /*height: 2rem;*/
+    /*line-height: 2rem;*/
+}
+.box .list_box .list .item .icon {
+    position: absolute;
+    left: 0;
+    width: 1.6rem;
+    height: 2.5rem;
+    background: url(../../img/folder.png) no-repeat center;
+    background-size: contain;
+}
+.box .list_box .list .item .img_box {
+    position: absolute;
+    left: 0;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 0;
+}
+.box .list_box .list .item .img_box img {
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 0.2rem;
+}
+.box .list_box .list .item .txt{
+    margin-left: 2.2rem;
+    padding-right: 0.6rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.6rem;
+    color: #000;
+    border-bottom: 1px solid #D8D8D8;
+    background: url(../../img/more.png) no-repeat right 0.36rem center;
+    background-size: auto 0.46rem;
+}
+.box .list_box .list .item .info_box{
+    margin-left: 2.2rem;
+    padding-right: 0.6rem;
+    height: 2.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.6rem;
+    color: #000;
+    border-bottom: 1px solid #D8D8D8;
+    background: url(../../img/more.png) no-repeat right 0.36rem center;
+    background-size: auto 0.46rem;
+}
+.box .list_box .list .item .info_box .name {
+    padding-top: 0.6rem;
+    padding-bottom: 0.2rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: 0.6rem;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.box .list_box .list .item .info_box .department {
+    height: 0.52rem;
+    line-height: 0.52rem;
+    font-size: 0.52rem;
+    color: #9BA2A8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.box .list_box.organization .list .item:last-child {
+    /*border-bottom: none;*/
+}
+
+.box .tips {
+    margin-top: 6rem;
+    color: #9BA2A8;
+    text-align: center;
+}
+.box .tips.loading {
+    font-size: 0.48rem;
+}
+.box .tips.not_found {
+    font-size: 0.6rem;
+}

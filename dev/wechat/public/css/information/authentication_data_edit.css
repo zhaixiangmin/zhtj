@@ -1,0 +1,126 @@
+.fl{float: left;}
+.fr{float: right;}
+.mb_30{margin-bottom:0.6rem;}
+.mt_30{margin-top:0.6rem;}
+.pd_t30{padding-top: 0.6rem;}
+.pd_b30{padding-bottom: 0.6rem;}
+.bg_fff{background: #fff;}
+.c_blue{color: #40c2fb !important;}
+.c_red{color: #e46b78 !important;;}
+
+
+.tab_box{border-bottom:1px solid #dbdbdb;background-color:#fff;}
+.tab_box .tab_item{float: left;width:50%;height:1.72rem;line-height:1.72rem;color:#999;font-size:0.64rem;text-align: center;}
+.tab_box .tab_item.cur{color:#d94453;border-bottom:0.06rem solid #d94453;}
+
+/* 团员个人资料头像处 */
+.member_personal_info{background-color: #fff;padding:0.4rem 0.6rem;margin-bottom:0.6rem;}
+.member_personal_info .member_header{width:2rem;height:2rem;border-radius:50%;overflow: hidden;float: left;}
+.member_personal_info .member_header img{width:100%;height:100%;}
+.member_personal_info .right_txt{position: relative;padding-left:2.6rem;}
+.member_personal_info .right_txt .member_name{font-size:0.68rem;color:#333;line-height:1.08rem;margin-bottom: 0.16rem;}
+.member_personal_info .right_txt .membership{font-size:0.56rem;color:#999;}
+.member_personal_info .right_txt .status{position: absolute;right:0;top:0;font-size:0.56rem;color:#c10021;}
+
+/* 警告、提醒文字信息 */
+.remind_info_box{background-color: #fff;padding:0.4rem 0.5rem;display:block;color:#333;position: relative;margin-bottom:0.6rem;}
+.remind_info_box .remind_info_txt{padding-left:2rem;padding-right:0.3rem;line-height:0.8rem;font-size:0.48rem;color:#999;}
+.remind_info_box:before{content:'';position: absolute;width:1rem;height:1rem;background:url(../../img/spirit1.png) no-repeat -2.52rem -1.32rem;background-size:6rem;left:0.5rem;top:50%;transform:translateY(-50%);}
+
+/* 信息列表 */
+.info_box .block_title{padding:0 0.6rem;margin-bottom:0.6rem;position: relative;}
+.info_box .block_title .block_title_txt { color: #333; font-size: 0.72rem; font-weight: bold; line-height: 0.72rem; }
+.info_box .block_title .block_title_icon { position: absolute; top: 50%; right: 0.6rem; transform: translateY(-50%); width: 0.6rem; height: 0.6rem; background: url("../../img/add.png") no-repeat center; background-size: contain; }
+.info_box .block_title .download_reward { position: absolute; right: 2rem; top: -0.14rem; padding: 0 0.7rem 0 1.6rem; height: 1rem; line-height: 1rem; font-size: 0.52rem; color: #fff; background: url(../../img/download-white.png) no-repeat left 0.68rem center #6cb2ff; background-size: 0.52rem; border-radius: 0.2rem; }
+.info_box .info_list .info_item{position: relative;padding:0.5rem 0.6rem;line-height:0.8rem;background-color: #fff;border-bottom:1px solid #f2f2f2;overflow: hidden;}
+.info_box .info_list .info_item.required:before{ content: '*'; position: absolute; top: 0.64rem; left: 0.16rem; font-size: 0.68rem; color: red; }
+.info_box .info_list .info_item.sub{ display: none; margin-top: -1px; padding-top: 0; line-height: normal; }
+.info_box .info_list .info_item .info_item_title{font-size:0.68rem;color:#333;float: left;max-width: 40%;}
+.info_box .info_list .info_item .info_item_title.longer{max-width: 80%;}
+.info_box .info_list .info_item .icon{float: left; margin-right: 0.4rem;display: inline-block;width: 0.952rem;height: 0.952rem;background: url('../../img/audit.png') no-repeat center;background-size: contain}
+.info_box .info_list .info_item.sub .info_item_title{max-width: 80%;font-size: .56rem; color: #999;}
+.info_box .info_list .info_item.on_info .info_item_title{color: #999;}
+.info_box .info_list .info_item .arrow { position: relative;float: right; max-width: 50%;font-size: 0.56rem;color: #999;}
+.info_box .info_list .info_item.sub .arrow{ color: #D94453; }
+
+.info_box .table_list_block{padding: 0.6rem 0;background: #fff;}
+.info_box .table_list{ margin: 0.6rem auto; width: 80%; border: 1px solid #d3d3d3; border-radius: 0.1rem; }
+.info_box .table_list .table_box{ border-bottom: 1px solid #d3d3d3; background: #ebebeb; }
+.info_box .table_list .table_box:last-child{ border-bottom: none; }
+.info_box .table_list .table_box .left{ box-sizing: border-box; display: inline-block; vertical-align: middle; padding: 0.4rem 0.2rem; width: 40%;min-height: 1.64rem; font-size: 0.6rem;text-align: center; color: #333; }
+.info_box .table_list .table_box .right{ box-sizing: border-box; display: inline-block; vertical-align: middle; padding: 0.4rem 0.2rem; width: 60%;min-height: 1.64rem; font-size: 0.6rem;text-align: center; color: #999; border-left: 1px solid #d3d3d3; background: #fff; }
+.info_box .table_list .button_box{padding: 0.4rem 0;height: 1.4rem;}
+.info_box .table_list .button_box .button_block{margin: 0 auto;width: 10.8rem;}
+.info_box .table_list .button_box .button_block .button{display: inline-block;width: 4.8rem;height: 1.4rem;line-height: 1.4rem;font-size: 0.6rem;text-align: center;color: #fff;background: #d94453;border-radius: 0.1rem;}
+.info_box .table_list .button_box .button_block .button.left{float: left}
+.info_box .table_list .button_box .button_block .button.right{float: right}
+
+/* 带有图标的标题 -- 资料编辑 */
+.block_title2{padding:0 0.6rem;margin-bottom:0.6rem;}
+.block_title2 .block_title_txt2{float: left;font-size:0.64rem;color:#999;padding-left:1rem;line-height:0.64rem;position: relative;}
+.block_title2 .block_title_txt2:before{content:'';width:0.6rem;height:0.6rem;background:url(../../img/spirit1.png) no-repeat -2.78rem -2.68rem;background-size:6rem;position: absolute;left:0;top:50%;margin-top:-0.3rem;}
+
+
+
+
+/*banner样式*/
+.curtain{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    top: 0;
+    left: 0;
+    background: #000;
+}
+#bannerBox{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    /*background: #fff;*/
+}
+#bannerBox .hd{
+    position: absolute;
+    bottom: 1.9rem;
+    width: 100%;
+    z-index: 1;
+}
+#bannerBox .hd ul {
+    width: 100%;
+    text-align: center;
+}
+#bannerBox .hd ul li{
+    display: inline-block;
+    width: 0.5625rem;
+    height: 0.5625rem;
+    line-height: 0.5625rem;
+    background: #fff;
+    text-align: center;
+    margin: 0 0.075rem;
+    font-size: 0.45rem;
+}
+#bannerBox .hd ul li.on{
+    background: #f00;
+    color: #fff;
+}
+#bannerBox .bd ul li {
+    width: 100%;
+    height: 5.625rem;
+    line-height: 5.625rem;
+    text-align: center;
+    font-size: 0;
+}
+#bannerBox .bd ul li img {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+#bannerBox .prev, #bannerBox .next{
+    position:absolute; left:3%; top:50%; margin-top:-0.9375rem; display:block; width:1.2rem; height:1.5rem; background:url(../../img/slider-arrow.png) -110px 5px no-repeat; filter:alpha(opacity=50);opacity:0.5;
+}
+#bannerBox .next{
+    left:auto; right:3%; background-position:8px 5px;
+}

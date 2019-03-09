@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>等待认证通过</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/information/league-membership-common.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/InformationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/information/registration_data.js"></script>
+</head>
+<style>
+</style>
+<body id="authDataEdit" style="padding-bottom: 4rem;">
+    <section class="member_personal_info clearfix">
+        <div class="member_header">
+            <img src="../../public/img/league-badge.png"  id="photoUrl"/>
+        </div>
+        <div class="right_txt">
+            <p class="member_name name"></p>
+            <p class="membership">团员</p>
+            <p class="status">状态：<span id="auditStatus"></span></p>
+            <p style="display: none;position: absolute; right: 0; top: 1.24rem; font-size: 0.56rem; color: #c10021; max-width: 60%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">退回原因：<span  id="returnReason"></span></p>
+            <p id="withdraw" style="display: none;position: absolute; right: 0; top: 1rem; padding: 0.2rem 0.3rem 0.2rem 1rem;line-height: 1;font-size: 0.4rem; color: #999; border: 1px solid #999;border-radius: 0.2rem;background: url(../../public/img/withdraw.png) no-repeat 0.26rem center;background-size: 0.48rem;"><span>撤回报到</span></p>
+
+        </div>
+    </section>
+    <section class="info_box mb_30">
+        <div class="block_title"><h1 class="block_title_txt">基本信息</h1></div>
+        <ul class="info_list">
+            <li class="info_item"><!-- 姓名 -->
+                <span class="info_item_title">姓名</span>
+                <span class="arrow name"></span>
+            </li>
+            <li class="info_item"><!-- 证件类型 -->
+                <span class="info_item_title">证件类型</span>
+                <span class="arrow" id="idCardType"></span>
+            </li>
+            <li class="info_item"><!-- 身份证号 -->
+                <span class="info_item_title">身份证号</span>
+                <span class="arrow" id="idCard"></span>
+            </li>
+            <li class="info_item required clearfix"><!-- 实名认证状态 -->
+                <span class="info_item_title">实名认证状态</span>
+                <span class="arrow" id="isRealName"></span>
+            </li>
+            <li class="info_item"><!-- 出生日期 -->
+                <span class="info_item_title">出生日期</span>
+                <span class="arrow" id="csnyr"></span>
+            </li>
+            <li class="info_item"><!-- 入团年月 -->
+                <span class="info_item_title">入团年月</span>
+                <span class="arrow" id="rtny"></span>
+            </li>
+            <li class="info_item"><!-- 所在团支部 -->
+                <span class="info_item_title">所在团支部</span>
+                <span class="arrow" id="fullName"></span>
+            </li>
+        </ul>
+    </section>
+    <section class="info_box mb_30">
+        <!--<div class="block_title2 clearfix"><a id="edit" class="block_title_txt2">编辑</a></div>-->
+        <ul class="info_list">
+            <li class="info_item"><!-- 收入 -->
+                <span class="info_item_title">收入</span>
+                <span class="arrow" id="income"></span>
+            </li>
+            <li class="info_item"><!-- 是否在本支部担任团干职务 -->
+                <span class="info_item_title longer">是否在本支部担任团干职务</span>
+                <span class="arrow" id="isCadres"></span>
+            </li>
+            <li class="info_item isCadres"><!-- 本支部团干职务 -->
+                <span class="info_item_title">本支部团干职务</span>
+                <span class="arrow" id="incumbent"></span>
+            </li>
+            <li class="info_item isCadres"><!-- 任现职年月 -->
+                <span class="info_item_title">任现职年月</span>
+                <span class="arrow" id="dateOfDuty"></span>
+            </li>
+            <li class="info_item isCadres"><!-- 团干部性质 -->
+                <span class="info_item_title">团干部性质</span>
+                <span class="arrow" id="tuanganProperties"></span>
+            </li>
+            <li class="info_item isCadres"><!-- 是否同级党支部（党组织）成员 -->
+                <span class="info_item_title longer">是否同级党支部（党组织）成员</span>
+                <span class="arrow" id="isPartyCommitteeMember"></span>
+            </li>
+        </ul>
+    </section>
+    <section class="info_box mb_30">
+        <!--<div class="block_title2 clearfix"><a href="authentication_data_editing2.html" class="block_title_txt2">编辑</a></div>-->
+        <ul class="info_list">
+            <li class="info_item"><!-- 民族 -->
+                <span class="info_item_title">民族</span>
+                <span class="arrow" id="nation"></span>
+            </li>
+            <li class="info_item"><!-- 政治面貌 -->
+                <span class="info_item_title">政治面貌</span>
+                <span class="arrow" id="politicalOutlook"></span>
+            </li>
+            <li class="info_item"><!-- 全日制学历 -->
+                <span class="info_item_title">全日制学历</span>
+                <span class="arrow" id="degreeOfEducation"></span>
+            </li>
+            <li class="info_item"><!-- 最高学历 -->
+                <span class="info_item_title">最高学历</span>
+                <span class="arrow" id="highestEducation"></span>
+            </li>
+            <li class="info_item"><!-- 户籍所在地 -->
+                <span class="info_item_title">户籍所在地</span>
+                <span class="arrow" id="residence"></span>
+            </li>
+            <li class="info_item"><!-- 手机号码 -->
+                <span class="info_item_title">手机号码</span>
+                <span class="arrow" id="mobile"></span>
+            </li>
+            <li class="info_item"><!-- 入团时所在单位 -->
+                <span class="info_item_title">入团时所在单位</span>
+                <span class="arrow" id="leagueForUnit"></span>
+            </li>
+        </ul>
+    </section>
+    <section class="info_box mb_30">
+        <!--<div class="block_title2 clearfix"><a href="authentication_data_editing3.html" class="block_title_txt2">编辑</a></div>-->
+        <div class="block_title"><h1 class="block_title_txt">附加信息</h1></div>
+        <ul class="info_list">
+            <li class="info_item"><!-- 职业 -->
+                <span class="info_item_title">职业</span>
+                <span class="arrow" id="occupation"></span>
+            </li>
+            <li class="info_item"><!-- 工作单位 -->
+                <span class="info_item_title">工作单位</span>
+                <span class="arrow" id="learningUnit"></span>
+            </li>
+            <li class="info_item"><!-- 电子邮箱 -->
+                <span class="info_item_title">电子邮箱</span>
+                <span class="arrow" id="email"></span>
+            </li>
+            <li class="info_item"><!-- QQ -->
+                <span class="info_item_title">QQ</span>
+                <span class="arrow" id="qqNum"></span>
+            </li>
+            <li class="info_item"><!-- 微信号 -->
+                <span class="info_item_title">微信号</span>
+                <span class="arrow" id="wechatId"></span>
+            </li>
+            <li class="info_item"><!-- 微博号 -->
+                <span class="info_item_title">微博号</span>
+                <span class="arrow" id="weibo"></span>
+            </li>
+            <li class="info_item"><!-- 团员编号 -->
+                <span class="info_item_title">团员编号</span>
+                <span class="arrow" id="developmentMemberNumber"></span>
+            </li>
+            <li class="info_item"><!-- 入党年月 -->
+                <span class="info_item_title">入党年月</span>
+                <span class="arrow" id="rdny"></span>
+            </li>
+            <li class="info_item"><!-- 注册志愿者时间 -->
+                <span class="info_item_title">注册志愿者时间</span>
+                <span class="arrow" id="zczyzsj"></span>
+            </li>
+        </ul>
+    </section>
+    <!-- 修改资料、提交按钮 -->
+    <a class="bot_big_btn" style="display: none; position: fixed; bottom: 0; margin: 0; width: 100%;">修改资料重新报到</a>
+
+
+    <!--撤回弹出框-->
+    <div class="dialog_widget_input" style="display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,.3);z-index: 9999;">
+        <div class="dialog_confirm" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 84%; min-height: 4.68rem; z-index: 9999; padding: 1.8rem 0.6rem; background: #fff; border-radius: 0.2rem;">
+            <div class="content" style="margin: 0 1.4rem 1rem 1.4rem;max-height: 4rem;line-height: 0.88rem;font-size: 0.68rem;color: #333;overflow: auto;">如身份信息、所在团支部及入团时间填写错误，您可撤回本次团员报到申请，确定撤回么？</div>
+            <div class="input_box" style="margin: 0 0.9rem; height: 1.6rem; border: 1px solid #666;"><input placeholder="请输入“撤回报到”" style="width: 100%; padding: 0.36rem 0.6rem; font-size: 0.68rem; line-height: 0.88rem; box-sizing: border-box;"/></div>
+            <div class="warning_box" style="display: none;margin: 0.4rem 1.5rem 0 1.5rem; line-height: 1.4; font-size: 0.48rem; color: #D94453;">请在对话框内输入“撤回报到”</div>
+            <div class="button_box" style="position: relative;margin-top: 1.6rem;width: 100%;height: 2rem;line-height: 2rem;font-size: 0.72rem;text-align: center;color: #fff;">
+                <div class="confirm" style="cursor: pointer;position: absolute;left: 0;width: 48%;background: #D94453;border-radius: 0.2rem;">确定</div>
+                <div class="cancel" style="cursor: pointer;position: absolute;right: 0;width: 48%;background: #CECECE;border-radius: 0.2rem;">取消</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

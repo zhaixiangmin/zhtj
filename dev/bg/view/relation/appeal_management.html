@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待审核</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/RelationApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/relation/appeal_management.js"></script>
+</head>
+
+<body>
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north'" style="border: 0;height: 90px;overflow: hidden;">
+        <!--数据筛选 -- 手风琴-->
+        <div class="easyui-accordion">
+            <div title="数据筛选" data-options="collapsible: false, noheader: true">
+                <form>
+                    <table>
+                        <tr>
+                            <th><label for="name_filter">姓名:</label></th>
+                            <td><input id="name_filter" class="easyui-text" editable="false" name="name_filter"></td>
+                            <th><label for="mobile_filter">手机号码:</label></th>
+                            <td><input id="mobile_filter" class="easyui-text" editable="false" name="mobile_filter"></td>
+                            <th><label for="appeal_filter">申诉状态:</label></th>
+                            <td><input id="appeal_filter" class="easyui-combobox" editable="false" name="appeal_filter"></td>
+                            <td>
+                                <a id="filter" class="button">搜索</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="month_filter">日期:</label></th>
+                            <td><input id="month_filter" class="easyui-datebox" name="month_filter" data-options="panelWidth: 173,editable: false, buttons: buttons"></td>
+                        </tr>
+                    </table>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--申诉处理-->
+        <table class="easyui-datagrid" id="dg_appeal" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+<style>
+    #dialog_audit label{
+        display: inline-block;
+        padding-right: 20px;
+        cursor: pointer;
+    }
+    #dialog_audit label span{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #dialog_audit label i{
+        background: url(../../public/img/check.png) no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+    #dialog_audit label.active i{
+        background-image: url(../../public/img/check-active.png);
+    }
+</style>
+
+<!--审核 -- 模态窗口-->
+<div id="dialog_audit" class="easyui-dialog mywindow" title="审核" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box">
+        <div class="list detail">
+            <div class="headline">转接详情</div>
+            <div class="content"></div>
+        </div>
+        <div class="list reason">
+            <div class="headline">申诉理由</div>
+            <div class="content"></div>
+        </div>
+        <div class="list attachment">
+            <div class="headline">证明文件</div>
+            <div class="content clearfix"></div>
+        </div>
+        <div class="list result">
+            <div class="headline">申诉结果</div>
+            <div class="content">
+                <div class="my-red" style="font-size: 14px; margin-bottom: 10px;">（备注：如选择“通过”，该团员的组织关系接转将顺利流转到下一流程；如选择“拒绝”该团员的组织关系接转将再次被退回至团员）</div>
+                <div id="appealResult_box">
+                    <label data-name="reason"  data-id="1" class="checkbox"><i></i><span>通过</span></label>
+                    <label data-name="reason"  data-id="2" class="checkbox"><i></i><span>拒绝</span></label>
+                </div>
+                <div style="margin-top: 10px;">
+                    <textarea placeholder="请填写原因" id="returnReason" cols="33" rows="6" class="reason"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--查看 -- 模态窗口-->
+<div id="dialog_view" class="easyui-dialog mywindow" title="查看" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <div class="list_box">
+        <div class="list detail">
+            <div class="headline">转接详情</div>
+            <div class="content"></div>
+        </div>
+        <div class="list reason">
+            <div class="headline">申诉理由</div>
+            <div class="content"></div>
+        </div>
+        <div class="list attachment">
+            <div class="headline">证明文件</div>
+            <div class="content clearfix"></div>
+        </div>
+        <div class="list result">
+            <div class="headline">申诉结果</div>
+            <div class="content">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--大图-->
+<div class="maskBox">
+    <img src="" title="点击可关闭">
+</div>
+
+</body>
+</html>

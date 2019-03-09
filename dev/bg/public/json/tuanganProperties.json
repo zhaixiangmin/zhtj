@@ -1,0 +1,18 @@
+{
+  "rows": [
+    {
+      "value": "1",
+      "name": "专职"
+    },
+    {
+      "value": "2",
+      "name": "兼职"
+    },
+    {
+      "value": "3",
+      "name": "挂职"
+    }
+  ],
+  "total": "3",
+  "status": "OK"
+}

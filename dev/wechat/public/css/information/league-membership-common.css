@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* ````````团员身份认证公共样式```````` */
+
+/* 团员个人资料头像处 */
+.member_personal_info{background-color: #fff;padding:0.4rem 0.6rem;margin-bottom:0.6rem;}
+.member_personal_info .member_header{width:2rem;height:2rem;border-radius:50%;overflow: hidden;float: left;}
+.member_personal_info .member_header img{width:100%;height:100%;}
+.member_personal_info .right_txt{padding-left:2.6rem;}
+.member_personal_info .member_name{font-size:0.68rem;color:#333;line-height:1.08rem;margin-bottom: 0.16rem;}
+.member_personal_info .membership{font-size:0.56rem;color:#999;}
+
+/* 资料编辑 */
+#authDataEdit .member_personal_info .right_txt{position: relative;}
+#authDataEdit .member_personal_info .right_txt .status{position: absolute;right:0;top:0;font-size:0.56rem;color:#c10021;}
+#authDataEdit .remind_info_box .remind_info_txt{color:#999;padding-right:0.3rem;}
+#authDataEdit .remind_info_box:after{display:none;}
+#authDataEdit .info_list .info_item{margin-bottom:0;border-bottom:1px solid #f2f2f2;}
+#authDataEdit .info_list .info_item .arrow{padding-right:0;color:#666;}
+#authDataEdit .info_list .info_item .arrow:before{display:none;}
+#authDataEdit .block_title2{padding:0 0.6rem;margin-bottom:0.6rem;}
+#authDataEdit .block_title2 .block_title_txt2{float: left;font-size:0.64rem;color:#999;padding-left:1rem;line-height:0.64rem;position: relative;}
+#authDataEdit .block_title2 .block_title_txt2:before{content:'';width:0.6rem;height:0.6rem;background:url(../../img/spirit1.png) no-repeat -2.78rem -2.68rem;background-size:6rem;position: absolute;left:0;top:50%;margin-top:-0.3rem;}
+
+.rebind {
+    color: #40c2fb;
+    cursor: pointer;
+}

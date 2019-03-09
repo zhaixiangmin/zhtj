@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>交纳确认</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/fee/fee_confirm.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FeeApi.js"></script>
+    <script type="text/javascript" src="../../public/js/fee/fee_confirm.js"></script>
+</head>
+<body>
+<section class="common_section">
+    <!--<div id="header_h" class="bgc1"><a href="javascript:;" class="back_ btn"><em></em></a>团费确认<span class="menu_de btn"><em></em></span></div>-->
+    <div class="center_txt">
+        <p class="t1">应交团费 (元)</p>
+        <p class="t2" id="feePayable"></p>
+        <p class="t3" id="number">共<span></span>个月团费未交</p>
+    </div>
+</section>
+<section class="sec1">
+    <div>
+        <p class="title">订单编号</p>
+        <div class="clearfix con">
+            <p class="left p" id="orderNo"></p>
+        </div>
+    </div>
+    <div>
+        <p class="title">订单金额</p>
+        <div class="clearfix con">
+            <p class="left p" id="fee_detail"></p>
+            <p class="right p"><span id="fee_month"></span>元</p>
+        </div>
+    </div>
+    <div class="pay_way">
+        <p class="title">付款方式</p>
+        <div class="clearfix con">
+            <p class="left p">微信支付</p>
+            <!--<p class="right p"></p>-->
+        </div>
+    </div>
+</section>
+
+<a class="bot_big_btn" id="pay">立即支付</a>
+
+<!--<div class="two_btns_box clearfix">-->
+    <!--<a href="javascript:;" class="btn bgc1">立即支付</a>-->
+    <!--<a href="javascript:;" class="btn bgc1">设置自动交费</a>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; 弹窗  取消自动交费 &ndash;&gt;-->
+<!--<section class="popup_box">-->
+    <!--<div class="popup_center">-->
+        <!--<p class="">您已取消每月自动交费</p>-->
+        <!--<div class="bot_big_btn">返回</div>-->
+    <!--</div>-->
+<!--</section>-->
+</body>
+</html>

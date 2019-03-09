@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>编辑</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/information/league-membership-common.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/InformationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/information/authentication_data_editing1.js"></script>
+</head>
+<body>
+<!-- /* 警告、提醒文字信息 */ -->
+<a href="javascript:;" class="remind_info_box clearfix">
+    <p class="remind_info_txt">以下资料修改后需重新提交至所在团支部审核，请谨慎操作</p>
+</a>
+    <section class="info_box mt_30">
+        <ul class="info_list">
+            <li class="info_item" id="income"><!-- 收入 -->
+                <span class="info_item_title">收入</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="politicalOutlook"><!-- 政治面貌 -->
+                <span class="info_item_title">政治面貌</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="leagueForYears"><!-- 入团年月 -->
+                <span class="info_item_title">入团年月</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="isCadres"><!-- 是否在本支部担任团干职务 -->
+                <span class="info_item_title longer">是否在本支部担任团干职务</span>
+                <span class="arrow">请选择</span>
+            </li>
+
+            <li class="info_item isCadres" style="display: none;" id="incumbent"><!-- 本支部团干职务 -->
+                <span class="info_item_title">本支部团干职务</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item_input isCadres" style="display: none;"  id="incumbentDesc"><!-- 职务名称 -->
+                <span class="info_item_title">职务名称</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入职务名称" /></div>
+            </li>
+            <li class="info_item isCadres" style="display: none;" id="xzzny"><!-- 任现职年月 -->
+                <span class="info_item_title">任现职年月</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item isCadres" style="display: none;" id="tuanganProperties"><!-- 团干部性质 -->
+                <span class="info_item_title">团干部性质</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item isCadres" style="display: none;" id="isPartyCommitteeMember"><!-- 是否同级党支部（党组织）成员 -->
+                <span class="info_item_title longer">是否同级党支部（党组织）成员</span>
+                <span class="arrow">请选择</span>
+            </li>
+        </ul>
+    </section>
+    <!-- 下一步、提交按钮 -->
+    <a href="javascript:;" class="bot_big_btn">提交</a>
+
+    <!-- 选择 - 弹窗 -->
+    <section class="select_popup">
+        <ul class="select_list"></ul>
+    </section>
+    <!-- 选择 - 弹窗 -->
+
+
+    <!-- 选择 - 弹窗 - 两边 -->
+    <section class="select_popup_pair">
+        <ul class="select_list_pair select_list_pair_left"></ul>
+        <ul class="select_list_pair select_list_pair_right"></ul>
+    </section>
+    <!-- 选择 - 弹窗 - 两边  -->
+
+    <!--&lt;!&ndash;日期选择器插件&ndash;&gt;-->
+    <!--<div id="datepicker"></div>-->
+</body>
+</html>

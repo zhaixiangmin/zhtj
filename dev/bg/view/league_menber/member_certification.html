@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电子团员证预览</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/css/league_member/member_certification.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/LeagueMemberApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/league_member/member_certification.js"></script>
+</head>
+<body>
+<div class="box">
+    <!--基本信息-->
+    <div class="box_item_info base">
+        <div class="title_txt">基本信息</div>
+        <div class="content_box_parent">
+            <div class="img_box">
+                <img src="../../public/img/league-badge.png" id="photoUrl"/>
+            </div>
+            <ul class="content_box">
+                <li class="content_item">
+                    <span class="item_title">姓名：</span>
+                    <span class="item_txt" id="name"></span>
+                </li>
+                <li class="content_item">
+                    <span class="item_title">团员编号：</span>
+                    <span class="item_txt" id="developmentMemberNumber"></span>
+                </li>
+
+                <li class="content_item">
+                    <span class="item_title">性别：</span>
+                    <span class="item_txt" id="genderStr"></span>
+                </li>
+                <li class="content_item">
+                    <span class="item_title">身份证号：</span>
+                    <span class="item_txt" id="idCard"></span>
+                </li>
+
+                <li class="content_item">
+                    <span class="item_title">民族：</span>
+                    <span class="item_txt" id="nation"></span>
+                </li>
+                <li class="content_item">
+                    <span class="item_title">政治面貌：</span>
+                    <span class="item_txt" id="politicalOutlook"></span>
+                </li>
+
+                <li class="content_item">
+                    <span class="item_title">入团年月：</span>
+                    <span class="item_txt" id="leagueForYears"></span>
+                </li>
+                <li class="content_item">
+                    <span class="item_title">出生年月：</span>
+                    <span class="item_txt" id="birthdayStr"></span>
+                </li>
+
+                <li class="content_item">
+                    <span class="item_title">最高学历：</span>
+                    <span class="item_txt" id="highestEducation"></span>
+                </li>
+                <li class="content_item">
+                    <span class="item_title">户籍所在地：</span>
+                    <span class="item_txt" id="residence"></span>
+                </li>
+
+                <li class="content_item">
+                    <span class="item_title">目前所在团组织：</span>
+                    <span class="item_txt" id="fullName"></span>
+                </li>
+                <li class="content_item">
+                    <span class="item_title">入团时所在团单位：</span>
+                    <span class="item_txt" id="leagueForUnit"></span>
+                </li>
+
+                <li class="content_item">
+                    <span class="item_title">是否注册志愿者：</span>
+                    <span class="item_txt" id="isRegisterVolunteer"></span>
+                </li>
+                <li class="content_item">
+                    <span class="item_title">志愿服务时长：</span>
+                    <span class="item_txt" id="volunteerServiceHours"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--团费交纳记录-->
+    <div class="box_item_info fee">
+        <div class="title_txt">团费交纳记录<i class="icon active" style="display: none;"></i></div>
+        <div id="fee_check"><label data-id="1" class="active"><i></i><span>打印全部记录</span></label><label data-id="2"><i></i><span>打印近6个月的记录</span></label></div>
+
+    </div>
+
+    <!--奖励情况-->
+    <div class="box_item_info reward">
+        <div class="title_txt">奖励情况<i class="icon active" style="display: none;"></i></div>
+        <!--团内奖励-->
+        <div class="box_item_table reward_in">
+            <div class="title_txt">团内奖励</div>
+            <div class="content_box_list">
+                <div class="no_content" style="display: none;">您暂时没有获奖信息</div>
+                <!--团内奖励-->
+            </div>
+        </div>
+
+        <!--团外奖励-->
+        <div class="box_item_table reward_out">
+            <div class="title_txt">团外奖励</div>
+            <div class="content_box_list">
+                <div class="no_content" style="display: none;">您暂时没有获奖信息</div>
+                <!--团外奖励-->
+            </div>
+        </div>
+    </div>
+
+    <div class="box_item_info transfer" style="display: none;">
+        <!--组织关系转接记录-->
+        <div class="box_item_table">
+            <div class="title_txt">组织关系转接记录</div>
+            <div class="content_box_list">
+                <!--组织关系转接记录-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="button_box">
+    <div class="button" id="make_certification">生成电子团员证</div>
+</div>
+</body>
+</html>

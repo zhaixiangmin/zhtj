@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>待办业务详情</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/relation/todo_application_detail.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/RelationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/relation/todo_application_detail.js"></script>
+</head>
+<body>
+<div class="details_box">
+    <div class="item name">
+        <p class="p1" id="mName"></p>
+        <p class="p2" id="auditStatus"></p>
+    </div>
+    <div class="item link" id="mid">
+        <p class="p1">查看团员资料</p>
+    </div>
+    <div class="item">
+        <p class="p1 fl">申请时间：</p>
+        <div class="p_box">
+            <p class="p2" id="createTime"></p>
+        </div>
+    </div>
+    <div class="item">
+        <p class="p1 fl">转接类型：</p>
+        <div class="p_box">
+            <p class="p2" id="headfor"></p>
+        </div>
+    </div>
+    <div class="item" style="display: none;">
+        <p class="p1 fl">学习工作单位：</p>
+        <div class="p_box">
+            <p class="p2" id="studyWorkUnit"></p>
+        </div>
+    </div>
+    <div class="item" style="display: none;">
+        <p class="p1 fl">学习工作单位地点：</p>
+        <div class="p_box">
+            <p class="p2" id="residence"></p>
+        </div>
+    </div>
+
+    <div class="item">
+        <p class="p1 fl">转出团支部：</p>
+        <div class="p_box">
+            <p class="p2" id="primalName"></p>
+        </div>
+    </div>
+    <div class="item">
+        <p class="p1 fl">转入团支部：</p>
+        <div class="p_box">
+            <p class="p2" id="newName"></p>
+        </div>
+    </div>
+    <div class="item">
+        <p class="p1 fl">转接原因：</p>
+        <div class="p_box">
+            <p class="p2" id="cause">其他</p>
+            <p class="p3" id="causeOthers" style="display: none;"></p>
+        </div>
+    </div>
+</div>
+<!-- 流程 -->
+<div class="steps_box">
+    <p class="step_title">转接进度</p>
+    <div class="step_list_box">
+        <ul class="step_list">
+            <!--<li class="list_item cur">-->
+                <!--<i class="dot"></i>-->
+                <!--<h1 class="h_title">待确认</h1>-->
+                <!--<p class="date">2017-08-09</p>-->
+                <!--<p class="phare">越秀区返还<em>1000 元</em>到金花街道团委 </p>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</div>
+
+<!-- 按钮 -->
+<div class="two_btns_box clearfix">
+    <a href="javascript:;" class="btn bgc1" id="confirm">同意</a>
+    <a href="javascript:;" class="btn bgc1" id="refuse">拒绝</a>
+</div>
+</body>
+</html>

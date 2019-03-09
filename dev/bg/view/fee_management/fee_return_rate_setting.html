@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>团费返还比例设置</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_file_custom_control.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/FeeManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script src="../../public/vendor/webuploader/uploader_file_custom_control.js"></script>
+    <script src="../../public/js/fee_management/fee_return_rate_setting.js"></script>
+</head>
+<body>
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center'" style="border: 0;">
+        <!--团费返还比例-->
+        <table class="easyui-datagrid" id="dg_fee_return_rate" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+
+<!--新增-->
+<div id="dialog_add" class="easyui-dialog" title="新增" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_add">
+        <table>
+            <tr class="check">
+                <td>组织oid：</td>
+                <td><input id="oid_add" class="easyui-textbox" type="text" name="oid_add"></td>
+            </tr>
+            <tr class="check">
+                <td>银行账号：</td>
+                <td><input id="account_add" class="easyui-textbox" type="text" name="account_add"></td>
+            </tr>
+            <tr class="check">
+                <td>留存比例：</td>
+                <td><input id="retention_add" class="easyui-textbox" type="number" name="retention_add" placeholder="请输入0-100的整数" min="0" max="100"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--编辑-->
+<div id="dialog_edit" class="easyui-dialog" title="编辑" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+    <form id="fm_edit">
+        <table>
+            <tr class="check">
+                <td>组织oid：</td>
+                <td><input id="oid_edit" class="easyui-textbox" type="text" name="oid_edit" readonly></td>
+            </tr>
+            <tr class="check">
+                <td>银行账号：</td>
+                <td><input id="account_edit" class="easyui-textbox" type="text" name="account_edit" readonly></td>
+            </tr>
+            <tr class="check">
+                <td>留存比例：</td>
+                <td><input id="retention_edit" class="easyui-textbox" type="number" name="retention_edit" placeholder="请输入0-100的整数" min="0" max="100"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+
+<!--批量导入 -- 模态窗口-->
+<div id="dialog_multiple_import" class="easyui-dialog mywindow" title="批量导入" data-options="modal: true" style="width: 720px;height: 500px;padding: 10px;">
+
+    <div class="uploader_file_custom_control uploader_multiple_import" style="margin: 20px 0;">
+        <div class="fileUrlList" style="display: none;"></div>
+        <div class="btns">
+            <div class="filePicker">选择文件</div>
+        </div>
+        <!--用来存放文件信息-->
+        <div class="fileList"></div>
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>

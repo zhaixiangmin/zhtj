@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>组织关系转接</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/relation/transfer.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/RelationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/relation/transfer.js"></script>
+</head>
+<body>
+<section id="orgRelaTransfer" class="info_box">
+    <ul class="info_list">
+        <li class="info_item" id="headfor">
+            <label data-name="headfor" data-id="1" class="checkbox_label"><i class="checkbox"></i>转至广东省内的团支部</label>
+            <label data-name="headfor" data-id="2" class="checkbox_label"><i class="checkbox"></i>转至非共青团广东省委所辖的团组织</label>
+            <!--<label data-name="headfor" data-id="3" class="checkbox_label"><i class="checkbox"></i>退回原籍</label>-->
+        </li>
+
+        <li class="info_item" style="display: none;" id="newOid">
+            <span class="info_item_title">转入组织</span>
+            <span class="arrow">请选择</span>
+        </li>
+
+
+        <li class="info_item_input longer" id="studyWorkUnit"><!-- 学习/工作单位 -->
+            <span class="info_item_title">学习/工作单位</span>
+            <div class="right_input_box"><input type="text" class="right_input" placeholder="请填写将去往的学习/工作单位"></div>
+            <!--<p style="font-size: 0.4rem;color: #c10021;" class="my-red">注：请同时注明团员户籍所在地详细地址，具体到村/社区，否则将被退回</p>-->
+        </li>
+
+        <li class="info_item province_out" style="display: none;" id="residence">
+            <span class="info_item_title" style="max-width: 45%;">学习/工作单位地点</span>
+            <span class="arrow">请选择</span>
+        </li>
+
+        <li class="info_item" id="cause">
+            <span class="info_item_title">转出原因</span>
+            <span class="arrow">请选择</span>
+        </li>
+    </ul>
+    <div class="other_reason_box"><textarea class="other_reason" placeholder="请输入其他原因" id="causeOthers"></textarea></div>
+    <a href="javascript:;" class="bot_big_btn" id="next">下一步</a>
+    <div class="bot_links mt_30">
+        <!--<a href="javascript:;" class="link borderR" id="declaration">查看关系转接说明</a>-->
+        <a href="declaration_transfer.html" class="link borderR">查看关系转接说明</a>
+        <a href="transfer_record.html" class="link">组织关系转接记录</a>
+    </div>
+</section>
+
+<!--验证码弹出框-->
+<div class="code_popup_box" style="display: none;">
+    <div class="code_popup">
+        <div class="close_icon_box">
+            <i class="close_icon"></i>
+        </div>
+        <p class="tips_top">以下手机号您是否仍在使用？为便于转接联系，须验证您的手机号码</p>
+        <div class="input_box">
+            <div class="phone_box">
+                <span class="phone" id="phone"></span>
+            </div>
+            <div class="code_box">
+                <input class="code" id="phoneCode" type="text" placeholder="请输入验证码">
+                <div class="code_count" style="display: none;"><span></span>秒后重发</div>
+                <span class="code_txt">发送验证码</span>
+            </div>
+        </div>
+        <a class="tips_bottom">不再使用，需要更换号码</a>
+        <div class="button_bottom" id="confirm">提交</div>
+    </div>
+</div>
+
+<!-- 选择 - 弹窗 -->
+<section class="select_popup">
+    <ul class="select_list"></ul>
+</section>
+<!-- 选择 - 弹窗 -->
+
+<!-- 选择 - 弹窗 - 两边 -->
+<section class="select_popup_pair">
+    <ul class="select_list_pair select_list_pair_left"></ul>
+    <ul class="select_list_pair select_list_pair_right"></ul>
+</section>
+<!-- 选择 - 弹窗 - 两边  -->
+
+</body>
+</html>

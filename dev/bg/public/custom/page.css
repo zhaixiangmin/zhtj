@@ -1,0 +1,25 @@
+ul,li{margin: 0;padding: 0;list-style: none;}
+.pageMenu li::selection{background:transparent;}
+.clearfix{zoom:1;}
+.clearfix:after{content:"";display: block;clear: both;}
+.pageBox{width:800px;background: #eee;border:1px solid #ebebeb;padding: 10px;margin: 0 auto;}
+.pageDiv{width: 98.75%;background: #fff;padding-left: 1.25%;margin-bottom: 10px;}
+.pageDiv li{margin-bottom: 10px;border:1px solid #dbdbdb;margin-right: 1.25%;float:left;margin-top: 10px;padding: 1%;text-align: center;}
+.hide{display: none;}
+.notContent{padding: 15px 0;text-align: center;}
+
+.page{text-align: center;width: 100%;margin: 0 auto;}
+.pageMenu{display: inline-block;width: 90%;}
+
+.pageMenu li{border: solid thin #ddd;margin: 3px;float: left;padding: 5px 10px;font-size: 14px;cursor: pointer;background: #fff;}
+.pageMenu li.firstPage{}
+.pageMenu li.prevPage{}
+.pageMenu li.pageNum{}
+.pageMenu li.nextPage{}
+.pageMenu li.lastPage{}
+.pageMenu li.disabled{ background-color: #DDDDDD;   cursor: not-allowed;}
+.pageMenu li.active{ border: solid thin #0099FF;background-color: #0099FF;color: white;cursor: default;}
+.pageMenu li.last{background: transparent;border:0;position: relative;top: -4px;}
+.page .keuInput{padding: 0 5px;width: 50px;border: solid thin #ddd;height: 29px;outline: none;text-align: center;font-size: 16px;}
+.page .btnSure{padding: 4px 8px;border: solid thin #ddd;outline: none;text-align: center;font-size: 16px;background: #fff;position: relative;}
+.page .btnSure:hover{cursor: pointer;}

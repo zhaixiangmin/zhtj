@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/* ---------------头部--------------- */
+.top_header .top_header_content{height:90px;}
+.top_header .header_logo{padding-left:62px;background:url(../../img/league-badge.png) no-repeat left center;background-size: 48px;color:#000;font-size:30px;height:100%;line-height:90px;}
+/* ---------------底部--------------- */
+.bottom_footer{margin-top:50px;}
+.bottom_footer .p{line-height:24px;color:#999;text-align: center;}
+.bottom_footer .p a{color:#999;}
+
+/* 密码登录 */
+.login_box{height:600px;background:url(../../img/banner1.png) no-repeat top center;}
+.login_box .login_center{position: relative;height:100%;}
+.login_box .link_btns{position: absolute;left:532px;top:392px;}
+.login_box .link_btns .btn{width:100px;height:36px;line-height:36px;background-color:#f08619;border-radius:4px;text-align: center;color:#fff;font-size:16px;box-shadow:0 3px 12px rgba(0,0,0,.3);margin-right:10px;}
+/*.login_box .login_input_box{position: absolute;right:0;background-color: #fff;top:133px;width:350px;height:380px;}*/
+.login_box .login_input_box{position: absolute;right:0;background-color: #fff;top:90px;width:350px;height:420px;}
+.login_box .login_input_inner{padding:0 20px;}
+.login_box .login_input_title{padding-top:40px;line-height:16px;font-size:16px;font-weight: bold;margin-bottom:26px;}
+.login_box .input_item{height:46px;line-height:46px;position: relative;padding-left:46px;}
+.login_box .input_item:before{position: absolute;content:'';background-color:#ddd;width:46px;height:46px;background-image: url(../../img/sprite.png);background-repeat:no-repeat;left:0;top:0;}
+.login_box .input_item.password:before{background-position:-46px 1px;}
+.login_box .input_item .input{height:44px;line-height:44px;border:1px solid #ddd;border-left:0 none;width:223px;padding:0 20px;font-size:14px;color:#000;}
+.login_box .input_item_code{height: 46px; line-height: 46px; position: relative;}
+.login_box .input_item_code input{height: 44px; line-height: 44px; border: 1px solid #ddd; width: 140px; padding: 0 20px; font-size: 14px; vertical-align: top;}
+.login_box .input_item_code img{display: inline-block; float: right;width: 120px; height: 46px; cursor: pointer;}
+.login_box .login_btn{display:block;height:46px;line-height:46px;font-size:16px;color:#fff;text-align: center;background-color: #c10021;border-radius:2px;}
+.login_box .auto_label{display:block;padding-left:24px;font-size:14px;position: relative;line-height:14px;overflow: hidden;}
+.login_box .auto_label:before{content:'';position: absolute;left:0;top:0;width:12px;height:12px;border:1px solid #9b999e;}
+.login_box .auto_label.ck:before{background:url(../../img/sprite.png) no-repeat 0 -46px;}
+.login_box .auto_label #auto_login{position: absolute;left:-20px;}
+.login_box .login_input_bottom .links .link{color:#c10021;font-size:14px;line-height:14px;}
+
+/* 找回密码 */
+.top_header .header_links{padding-top:38px;line-height:14px;}
+.top_header .header_links .link{font-size:14px;color:#333;}
+.top_header .header_links .back_to_index{color:#c10021;}
+.retrieve_box{background-color: #fff;}
+.retrieve_box .re_title{line-height:60px;text-align: center;color:#fff;font-size:18px;background-color: #c10021;}
+.retrieve_box .re_body{height:328px;text-align: center;padding-top:40px;}
+.retrieve_box .re_body .re_input_box{display:inline-block;}
+.retrieve_box .re_body .re_input_box .title{line-height:16px;font-size:16px;margin-bottom:30px;}
+.retrieve_box .re_body .re_input_box .item{margin-bottom:20px;}
+.retrieve_box .re_body .re_input_box .input{border:1px solid #dedede;height:44px;line-height:44px;background-color: #f4f4f4;font-size:14px;padding:0 20px;}
+.retrieve_box .re_body .phoneNumber .input{width:358px;}
+.retrieve_box .re_body .yz_item .input{width:223px;margin-right:10px;}
+.retrieve_box .re_body .yzm_btn{width:123px;border:1px solid #dedede;height:44px;}
+.retrieve_box .re_body .get_short_msg{line-height:44px;font-size:14px;text-align: center;cursor:pointer;}
+.retrieve_box .btns_box .btn{line-height:46px;height:46px;display:block;font-size:16px;color:#fff;background-color: #c10021;}
+.reset_btns_box .btn{width:195px;border-radius:2px;}
+
+/* 设置新密码 */
+.reset_pwd .re_body{height:auto;padding-bottom:40px;}
+.reset_pwd .re_body .re_input_box .input{width:358px;}

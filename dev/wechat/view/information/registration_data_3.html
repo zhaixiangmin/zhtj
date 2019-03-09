@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>团员身份认证（3/4）</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/information/league-membership-common.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/InformationApi.js"></script>
+    <script type="text/javascript" src="../../public/js/information/registration_data_3.js"></script>
+</head>
+<body>
+    <!-- /* 警告、提醒文字信息 */ -->
+    <a href="javascript:;" class="remind_info_box clearfix">
+        <p class="remind_info_txt">以下资料提交审核通过后可修改，修改不需重新审核</p>
+    </a>
+    <section class="info_box">
+        <div class="block_title required"><h1 class="block_title_txt">基本信息</h1></div>
+        <div class="waring" style="color: #D94453; font-size: 0.48rem; text-align: center; margin-bottom: 0.2rem;">注：手机号与青年之声账户一致，如需修改请移步青年之声个人中心</div>
+        <ul class="info_list">
+            <li class="info_item_input" id="mobile"><!-- 手机号码 -->
+                <span class="info_item_title">手机号码</span>
+                <div class="right_txt" style="font-size: 0.56rem;color: #999;"></div>
+            </li>
+            <li class="info_item" id="nation"><!-- 民族 -->
+                <span class="info_item_title">民族</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item_input" id="nationInfo" style="display: none;"><!-- 民族名称 -->
+                <span class="info_item_title">民族名称</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入民族名称" /></div>
+            </li>
+            <li class="info_item" id="politicalOutlook"><!-- 政治面貌 -->
+                <span class="info_item_title">政治面貌</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="degreeOfEducation"><!-- 全日制学历 -->
+                <span class="info_item_title">全日制学历</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="highestEducation"><!-- 最高学历 -->
+                <span class="info_item_title">最高学历</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item" id="residence"><!-- 户籍所在地 -->
+                <span class="info_item_title">户籍所在地</span>
+                <span class="arrow">请选择</span>
+            </li>
+            <li class="info_item_input longer" id="leagueForUnit"><!-- 入团时所在单位 -->
+                <span class="info_item_title">入团时所在单位</span>
+                <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入入团时所在单位" /></div>
+            </li>
+        </ul>
+    </section>
+    <!-- 下一步、提交按钮 -->
+    <a href="javascript:;" class="bot_big_btn">下一步</a>
+
+    <!-- 选择 - 弹窗 -->
+    <section class="select_popup">
+        <ul class="select_list"></ul>
+    </section>
+    <!-- 选择 - 弹窗 -->
+
+    <!-- 选择 - 弹窗 - 两边 -->
+    <section class="select_popup_pair">
+        <ul class="select_list_pair select_list_pair_left"></ul>
+        <ul class="select_list_pair select_list_pair_right"></ul>
+    </section>
+    <!-- 选择 - 弹窗 - 两边  -->
+
+</body>
+</html>

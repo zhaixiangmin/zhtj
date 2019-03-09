@@ -1,0 +1,81 @@
+@charset "UTF-8";
+.fl{float: left;}
+.fr{float: right;}
+.mb_30{margin-bottom:0.6rem;}
+.mt_30{margin-top:0.6rem;}
+
+#header_h{height:1.76rem;line-height:1.76rem;text-align: center;color:#fff;font-size:0.72rem;position: relative;}
+#header_h.bgc1{background-color: #D94453;}
+#header_h .btn{position: absolute;width:1.68rem;height:100%;}
+#header_h .back_{left:0;}
+#header_h .btn em{position: absolute;background-image: url(../../img/spirit1.png);background-repeat:no-repeat;background-size:6rem;left:50%;top:50%;transform:translate(-50%, -50%);}
+#header_h .back_ em{width:0.4rem;height:0.62rem;background-position:-4rem -1.5rem;}
+#header_h .menu_de{right:0;}
+#header_h .menu_de em{width:0.72rem;height:0.16rem;background-position:-4rem -5.84rem;}
+
+/* 个人资料简要说明 */
+.personal_brief_info{min-height:6.12rem;background:url(../../img/timg.png) no-repeat center bottom;background-size:100%;padding-top:1.16rem;box-sizing:border-box;}
+.personal_brief_info .personal_pic_box{width:2rem;height:2rem;overflow: hidden;border-radius:50%;margin:0 auto;margin-bottom:0.4rem;}
+.personal_brief_info .personal_pic_box .personal_pic{width:100%;height:100%;}
+.personal_brief_info .personal_txt{text-align: center;color:#fff;}
+.personal_brief_info .personal_txt .person_name{font-size:0.56rem;line-height:0.56rem;margin-bottom:0.4rem;}
+.personal_brief_info .personal_txt .person_status{font-size:0.48rem;}
+
+/* 警告、提醒文字信息 */
+.remind_info_box{background-color: #fff;padding:0.4rem 0.5rem;display:block;color:#333;position: relative;margin-bottom:0.6rem;}
+.remind_info_box .remind_info_txt{line-height:0.8rem;padding-left:2rem;padding-right:1.2rem;font-size:0.48rem;}
+.remind_info_box:before{content:'';position: absolute;width:1rem;height:1rem;background:url(../../img/spirit1.png) no-repeat -2.52rem -1.32rem;background-size:6rem;left:0.5rem;top:50%;transform:translateY(-50%);}
+.remind_info_box:after{content:'';position: absolute;right:0.5rem;top:50%;transform:translateY(-50%);background:url(../../img/spirit1.png) no-repeat -4.6rem -1.4rem;background-size:6rem;width:0.24rem;height:0.4rem;visibility:visible;}
+
+.title_box{padding:0.6rem;border-bottom:1px solid #d9d9d9;}
+.title_box p{position: relative;color:#333;font-size:0.72rem;padding-left:1.6rem;}
+.title_box p:before{content:'';position: absolute;left:0;width:1rem;height:0.92rem;background:url(../../img/spirit1.png) no-repeat -2.92rem -5.66rem;background-size:6rem;}
+
+/* 输入搜索框 */
+.search_box{position: relative;margin:0 0.6rem;border-radius:0.2rem;height:1.76rem;padding-left:0.4rem;padding-right:1.6rem;background-color: #f2f2f2;}
+.search_box .search_input{display:block;width:100%;height:100%;line-height:1.76rem;font-size:0.72rem;background-color:transparent;}
+.search_box .sea_btn{position: absolute;right:0;width:1.6rem;height:1.76rem;top:0;}
+.search_box .sea_btn:before{width:0.8rem;height:0.8rem;position: absolute;content:"";background:url(../../img/spirit1.png) no-repeat -3.84rem -2.56rem;background-size:6rem;transform:translate(-50%,-50%);left:50%;top:50%;}
+
+
+/* 信息列表 比如填写资料什么的 */
+.info_box .block_title{padding:0 0.6rem;margin-bottom:0.6rem;position: relative;}
+.info_box .block_title_txt{color:#333;font-size:0.72rem;font-weight: bold;line-height:0.72rem;}
+.info_box .block_title.required .block_title_txt{padding-left:0.96rem;}
+.info_box .block_title.required:before{position: absolute;left:0.6rem;top:50%;transform:translateY(-50%);color:#c10021;content:'';width:0.48rem;height:0.48rem;background:url(../../img/spirit1.png) no-repeat -5.08rem -1.36rem;background-size:6rem;}
+.info_box .info_list .info_item_title{font-size:0.68rem;color:#333;float: left;max-width: 40%;}
+.info_box .info_list .info_item_title.longer{max-width: 60%;}
+/*垂直宽松型*/
+.info_box .info_list .info_item{margin-bottom:0.6rem;padding:0.5rem 0.6rem;line-height:0.8rem;background-color: #fff;overflow: hidden;}
+.info_box .info_list .info_item .right_txt{float: right;position: relative;padding-right:0.84rem;max-width: 50%;font-size:0.56rem;color:#999;}
+.info_box .info_list .info_item .right_txt.longer{max-width: 60%;}
+.info_box .info_list .info_item .arrow{float: right;color:#999;font-size:0.56rem;padding-right:0.84rem;position: relative;max-width: 50%;}
+.info_box .info_list .info_item .arrow:before{content:'';position: absolute;right:0;top:50%;transform:translateY(-50%);background:url(../../img/spirit1.png) no-repeat -4.6rem -1.4rem;background-size:6rem;width:0.24rem;height:0.4rem;}
+
+/*垂直紧凑型*/
+.info_box .info_list .info_item_compact{margin-bottom:1px;padding:0.5rem 0.6rem;line-height:0.8rem;background-color: #fff;overflow: hidden;}
+.info_box .info_list .info_item_compact .right_txt{float: right;position: relative;max-width: 50%;font-size:0.56rem;color:#999;}
+.info_box .info_list .info_item_compact .right_txt.longer{max-width: 60%;}
+.info_box .info_list .info_item_compact .right_txt.shorter{max-width: 30%;}
+
+/*带输入框型*/
+.info_box .info_list .info_item_input{margin-bottom:0.6rem;padding:0.5rem 0.6rem;line-height:0.8rem;background-color: #fff;overflow: hidden;}
+.info_box .info_list .info_item_input .info_item_title{width:4rem;}
+.info_box .info_list .info_item_input .right_input_box{padding-left: 4rem;height: 0.8rem;line-height: 0.8rem;}
+.info_box .info_list .info_item_input .right_input_box .right_input{width:100%;height:100%;line-height:100%;color:#333;font-size:0.56rem;}
+.info_box .info_list .info_item_input.longer .info_item_title{width: 6rem;}
+.info_box .info_list .info_item_input.longer .right_input_box{padding-left: 6rem;}
+.info_box .info_list .info_item_input.longer .right_txt{padding-left: 6rem;}
+
+/* 双按钮 */
+.two_btns_box{text-align: center;margin:0 0.3rem;font-size:0;margin-top:1rem;}
+.two_btns_box .btn{display:inline-block;width:6.5rem;height:2rem;line-height:2rem;font-size:0.72rem;border-radius:0.2rem;margin:0 0.3rem;color:#fff;}
+.two_btns_box .btn.bgc1{background-color:#D94453;}
+.two_btns_box .btn.bgc2{background-color:#cecece;}
+
+/* 弹窗 */
+.popup_box{position: fixed;z-index:999;background-color:rgba(0,0,0,.6);left:0;top:0;width:100%;height:100%;display:none;}
+.popup_box .popup_center{width:13.8rem;height:12rem;background-color: #fff;position: absolute;left:50%;top:50%;transform:translate(-50%, -50%);border-radius:0.2rem;}
+.popup_box .popup_center .p1{padding-top:1.8rem;line-height:0.72rem;font-weight: bold;color:#000;text-align: center;margin-bottom:1rem;font-size:0.72rem;}
+.popup_box .popup_center .p2{line-height:0.9rem;font-size:0.68rem;color:#333;padding:0 1.4rem;}
+.popup_box .popup_center .bot_big_btn{position: absolute;bottom:1.8rem;width:12.6rem;}

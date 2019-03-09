@@ -1,0 +1,22 @@
+/* 信息列表 比如填写资料什么的 */
+.info_box .block_title{padding:0 0.6rem;margin-bottom:0.6rem;position: relative;}
+.info_box .block_title_txt{color:#333;font-size:0.72rem;font-weight: bold;line-height:0.72rem;}
+.info_box .block_title.required .block_title_txt{padding-left:0.96rem;}
+.info_box .block_title.required:before{position: absolute;left:0.6rem;top:50%;transform:translateY(-50%);color:#c10021;content:'';width:0.48rem;height:0.48rem;background:url(../../img/spirit1.png) no-repeat -5.08rem -1.36rem;background-size:6rem;}
+.info_box .info_list .info_item{margin-bottom:0.6rem;background-color: #fff;padding:0.5rem 0.6rem;line-height:1.4;}
+.info_box .info_list .info_item_title{font-size:0.68rem;color:#333;float: left;max-width: 40%;}
+.info_box .info_list .info_item_title.longer{max-width: 80%;}
+.info_box .info_list .info_item_input .info_item_title{width:4rem;}
+.info_box .info_list .info_item_input.longer .info_item_title{width:6rem;}
+.info_box .info_list .info_item_input .right_input_box{padding-left:4rem;line-height: 0.952rem; height: 0.952rem;}
+.info_box .info_list .info_item_input.longer .right_txt{padding-left:6rem;}
+.info_box .info_list .info_item .right_input{width:100%;height:100%;line-height:100%;color:#333;font-size:0.56rem;}
+.info_box .info_list .info_item .arrow{float: right;color:#999;font-size:0.56rem;padding-right:0.84rem;position: relative;max-width: 50%;}
+.info_box .info_list .info_item .arrow:before{content:'';position: absolute;right:0;top:50%;transform:translateY(-50%);background:url(../../img/spirit1.png) no-repeat -4.6rem -1.4rem;background-size:6rem;width:0.24rem;height:0.4rem;}
+
+/* 选择 - 弹窗 */
+.select_popup{position: fixed;background-color:rgba(0,0,0,.3);left:0;top:0;width:100%;height:100%;z-index:9999;display:none;}
+.select_popup .select_list{position: absolute;bottom:0;left:0;background-color: #fff;width:100%;max-height:7rem;overflow-y:auto;}
+.select_popup .select_list .select_item{height:1.6rem;line-height:1.6rem;text-align: center;color:#333;font-size:0.56rem;border-bottom:1px solid #f2f2f2;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.select_popup .select_list .select_item:active{background-color: #33cc33;color:#fff;}
+.select_popup .select_list .select_item:last-child{border-bottom:0 none;}

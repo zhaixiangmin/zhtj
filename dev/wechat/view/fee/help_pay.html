@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>帮TA交费</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <!--<link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />-->
+    <link rel="stylesheet" type="text/css" href="../../public/css/fee/help_pay.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FeeApi.js"></script>
+    <script type="text/javascript" src="../../public/js/fee/help_pay.js"></script>
+</head>
+
+<body>
+<!-- 没交清 -->
+<section class="main_container" style="display: none;">
+    <div class="title"><p id="orgName"></p></div>
+    <div class="title2">
+        <p class="p1">你要帮谁交团费？可多选</p>
+        <p class="p2">目前有以下团员未交清团费</p>
+    </div>
+    <ul class="list_box">
+        <!--<li class="list_item">-->
+            <!--<div class="item_inner clearfix">-->
+                <!--<div class="item_text">-->
+                    <!--<p class="p1">杨晓芸</p>-->
+                    <!--<p class="p2">2元</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+    </ul>
+    <div class="bot_fixed">
+        <div class="all">全选</div>
+        <div class="r">
+            <a href="help_pay_paid_list.html" class="r_link">查看帮TA交费记录</a>
+            <a href="javascript:;" class="ok" id="confirm">选好了</a>
+        </div>
+    </div>
+</section>
+
+<!-- 已交清 -->
+<section class="noneToPay" style="display:none;">
+    <div class="text_box">
+        <p class="te1"></p>
+        <p class="te2">你所在团支部的小伙伴都已经交清团费啦！不用帮TA交啦！</p>
+        <a href="help_pay_paid_list.html" class="te3">查看帮TA交费记录</a>
+    </div>
+</section>
+
+
+<!-- 弹窗 -->
+<section class="popup_box">
+    <div class="popup_center">
+        <div class="text_box">
+            <p class="text">你可以帮所在团支部的小伙伴们交纳团费啦！</p>
+            <p class="text">只要TA和你在同一个支部，</p>
+            <p class="text">只要TA还有团费尚未交清</p>
+            <p class="text">你都可以帮TA交纳团费</p>
+        </div>
+        <a style="margin: 0 0.6rem;" class="bot_big_btn">确定</a>
+    </div>
+</section>
+</body>
+</html>

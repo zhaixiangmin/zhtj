@@ -1,0 +1,101 @@
+/* 初始化CSS  重置浏览器样式*/
+@charset "UTF-8";
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img, input,header, nav, article, section,footer,span{ margin:0; padding:0; }
+a,input,button,textarea{text-decoration: none;outline:none;border:0 none;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+fieldset, img { border:0 none; }
+img{display: block;-ms-interpolation-mode:bicubic;vertical-align: middle;/*为了照顾ie图片缩放失真*/}
+em,i{font-style: normal;}
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0;}
+select, input, textarea { font-size:12px; margin:0; }
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+select{
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari 和 Chrome */
+    border:0 none;
+}
+textarea { resize:none; }/*让文本域 盒子  不可调节大小**/
+body{ min-width:318px;font-family: 微软雅黑;
+    color: rgb(60, 60, 60);
+    font-size: 12px;
+    line-height: 1.4;
+    background-color: #f2f2f2;
+    word-wrap: break-word;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;}
+.clearfix:after{ content:""; height:0; line-height:0; display:block; visibility:hidden; clear:both; }
+.clearfix{zoom:1;} /*为了兼容低版本IE浏览器*/
+a{ color:#000; text-decoration:none; }
+/*a:active{background-color: #999;}*/
+ol, ul {
+    list-style: none;
+}
+
+:focus {
+    outline: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #555;
+}
+
+a img {
+    border: 0;
+}
+
+table {
+    empty-cells: show;
+}
+
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+em {
+    font-style: normal;
+}
+
+i{
+    font-style: normal;
+}
+
+button::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner,
+input[type=file] > input[type=button]::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.clearfix{
+    zoom: 1;
+}
+
+li {
+    list-style: none;
+}
+/*a:hover { color:#666; text-decoration:none; }*/
+/* 初始化CSS  重置浏览器样式*/
+table{width:100%;border-collapse:collapse;}
+
+.clicked{opacity: 0.5}
+
+/* 底部大按钮 */
+.bot_big_btn{display:block;margin:1.6rem 0.6rem;background-color:#D94453;height:2rem;line-height:2rem;color:#fff;border-radius:0.2rem;font-size:0.72rem;text-align: center;}
+
+.no_data{text-align: center;font-size:0.6rem;color:#999;padding-top:7.1rem;background:url(../../img/blank.png) no-repeat center 4rem;background-size:2.14rem;}

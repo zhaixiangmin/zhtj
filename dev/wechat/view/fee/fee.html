@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>团费交纳</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/common_all.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/fee/fee.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/FeeApi.js"></script>
+    <script type="text/javascript" src="../../public/js/fee/fee.js"></script>
+</head>
+
+<style type="text/css">
+    .bot_big_btn{margin-top:0.6rem;margin-bottom:0.6rem;}
+    .links{text-align: center;font-size:0;}
+    .links .link{display:inline-block;color:#666;font-size:0.52rem;padding:0 0.54rem;line-height:0.52rem;}
+    .links .link:first-child{border-right:1px solid #999;}
+    .common_list .list_item{height:2rem;line-height:2rem;margin-bottom:0.6rem;}
+    .common_list .item_inner{padding:0;font-size:0.68rem;color:#333;}
+</style>
+
+<body>
+<section class="common_section" id="unpaid_list">
+    <div class="center_txt">
+        <a class="ask_icon" href="declaration_fee.html"></a>
+        <em class="arrow"></em>
+        <p class="t1">应交团费 (元)</p>
+        <p class="t2" id="feePayable"></p>
+        <p class="t3" id="number" style="display: none;">共<span></span>个月团费未交清</p>
+    </div>
+</section>
+<a href="javascript:;" class="bot_big_btn pay" id="confirm">立即交费</a>
+<div class="links">
+    <!--<a class="link" id="declaration">查看团费标准说明</a>-->
+    <a href="declaration_fee.html" class="link">查看团费标准说明</a>
+    <a href="fee_paid_list.html" class="link">查看已交记录</a>
+</div>
+<section class="common_list" style="margin-top:0.6rem;">
+    <ul class="">
+        <a class="list_item" href="voluntary.html">
+            <div class="item_inner clearfix">自愿多交</div>
+        </a>
+        <a id="help_pay" class="list_item" href="help_pay.html" style="display: none">
+            <div class="item_inner clearfix">帮TA交费</div>
+        </a>
+    </ul>
+</section>
+</body>
+</html>

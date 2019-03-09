@@ -1,0 +1,51 @@
+@charset "UTF-8";
+.fl{float: left;}
+.fr{float: right;}
+.mb_30{margin-bottom:0.6rem;}
+.mt_30{margin-top:0.6rem;}
+
+/* 个人资料简要说明 */
+.personal_brief_info{min-height:6.12rem;background:url(../../img/timg.png) no-repeat center bottom;background-size:100%;padding-top:1.16rem;box-sizing:border-box;}
+.personal_brief_info .personal_pic_box{width:2rem;height:2rem;overflow: hidden;border-radius:50%;margin:0 auto;margin-bottom:0.4rem;}
+.personal_brief_info .personal_pic_box .personal_pic{width:100%;height:100%;}
+.personal_brief_info .personal_txt{text-align: center;color:#fff;}
+.personal_brief_info .personal_txt .person_name{font-size:0.56rem;line-height:0.56rem;margin-bottom:0.4rem;}
+.personal_brief_info .personal_txt .person_status{font-size:0.48rem;}
+
+/* 警告、提醒文字信息 */
+.remind_info_box{position: relative;margin-bottom:0.6rem;padding:0.4rem 0.5rem;display:block;min-height: 0.8rem;color:#333;background-color: #fff;}
+.remind_info_box .remind_info_txt{line-height:0.8rem;padding-left:2rem;font-size:0.48rem;}
+.remind_info_box:before{content:'';position: absolute;width:1rem;height:1rem;background:url(../../img/spirit1.png) no-repeat -2.52rem -1.32rem;background-size:6rem;left:0.5rem;top:50%;transform:translateY(-50%);}
+
+/* 信息列表 比如填写资料什么的 */
+.info_box .block_title{padding:0 0.6rem;margin-bottom:0.6rem;position: relative;}
+.info_box .block_title_txt{color:#333;font-size:0.72rem;font-weight: bold;line-height:0.72rem;}
+.info_box .block_title.required .block_title_txt{padding-left:0.96rem;}
+.info_box .block_title.required:before{position: absolute;left:0.6rem;top:50%;transform:translateY(-50%);color:#c10021;content:'';width:0.48rem;height:0.48rem;background:url(../../img/spirit1.png) no-repeat -5.08rem -1.36rem;background-size:6rem;}
+.info_box .info_list .info_item_title{font-size:0.68rem;color:#333;float: left;max-width: 40%;}
+.info_box .info_list .info_item_title.question:after{display: inline-block; margin-left: 0.32rem; content: ''; background: url(../../img/question.png) no-repeat center; width: 0.6rem; height: 0.6rem; background-size: contain; vertical-align: middle;}
+.info_box .info_list .info_item_title.longer{max-width: 80%;}
+/*垂直宽松型*/
+.info_box .info_list .info_item{margin-bottom:0.6rem;padding:0.5rem 0.6rem;line-height:0.8rem;background-color: #fff;overflow: hidden;}
+.info_box .info_list .info_item .right_txt{float: right;position: relative;padding-right:0.84rem;max-width: 50%;font-size:0.56rem;color:#999;}
+.info_box .info_list .info_item .arrow{float: right;color:#999;font-size:0.56rem;padding-right:0.84rem;position: relative;max-width: 50%;}
+.info_box .info_list .info_item .arrow:before{content:'';position: absolute;right:0;top:50%;transform:translateY(-50%);background:url(../../img/spirit1.png) no-repeat -4.6rem -1.4rem;background-size:6rem;width:0.24rem;height:0.4rem;}
+
+/*垂直紧凑型*/
+.info_box .info_list .info_item_compact{margin-bottom:1px;padding:0.5rem 0.6rem;line-height:0.8rem;background-color: #fff;overflow: hidden;}
+.info_box .info_list .info_item_compact .right_txt{float: right;position: relative;max-width: 50%;font-size:0.56rem;color:#999;}
+
+/*带输入框型*/
+.info_box .info_list .info_item_input{margin-bottom:0.6rem;padding:0.5rem 0.6rem;line-height:0.8rem;background-color: #fff;overflow: hidden;}
+.info_box .info_list .info_item_input .info_item_title{width:4rem;}
+.info_box .info_list .info_item_input .right_input_box{padding-left: 4rem;height: 0.8rem;}
+.info_box .info_list .info_item_input .right_input_box .right_input{width:100%;height:100%;color:#333;font-size:0.56rem;}
+.info_box .info_list .info_item_input.longer .info_item_title{width: 6rem;}
+.info_box .info_list .info_item_input.longer .right_input_box{padding-left: 6rem;}
+.info_box .info_list .info_item_input.longer .right_txt{padding-left: 6rem;}
+
+/*信息列表 第二行 待审核*/
+.info_box .info_list .info_item.sub .info_item_title{max-width: 80%;}
+
+/* 底部大按钮 */
+.bot_big_btn{display:block;margin:1.6rem 0.6rem;background-color:#c10021;height:2rem;line-height:2rem;color:#fff;border-radius:0.2rem;font-size:0.72rem;text-align: center;}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>添加获奖信息</title>
+
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" href="../../public/vendor/webuploader/uploader_custom_control.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/css/awards/add_awards.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../../public/vendor/jquery/jquery.cookie.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/League.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/AwardsApi.js"></script>
+    <script src="../../public/vendor/webuploader/webuploader.js"></script>
+    <script src="../../public/vendor/webuploader/uploader_custom_control.js"></script>
+    <script type="text/javascript" src="../../public/js/awards/add_awards.js"></script>
+</head>
+<body>
+<!-- /* 警告、提醒文字信息 */ -->
+<a href="declaration_awards.html" class="remind_info_box clearfix">
+    <p class="remind_info_txt">什么是团外奖励？什么是团内奖励？</p>
+</a>
+<section class="info_box">
+    <div class="block_title"><h1 class="block_title_txt">奖励信息</h1></div>
+    <ul class="info_list">
+        <li class="info_item" id="type"><!-- 奖励类型 -->
+            <span class="info_item_title">奖励类型</span>
+            <div class="right_txt"><label data-name="type" data-id="1" class="checkbox_label"><i class="checkbox"></i>团内</label><label data-name="type" data-id="2" class="checkbox_label"><i class="checkbox"></i>团外</label></div>
+        </li>
+        <li class="info_item" id="contents"><!-- 奖励名称 -->
+            <span class="info_item_title">奖励名称</span>
+            <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入奖励名称" /></div>
+        </li>
+        <li class="info_item" id="hasLevels"><!-- 获奖名次 -->
+            <span class="info_item_title">获奖名次</span>
+            <div class="right_txt"><label data-name="hasLevels" data-haslevel="true" class="checkbox_label"><i class="checkbox"></i>奖励有等次</label><label data-name="hasLevels" data-haslevel="false" class="checkbox_label"><i class="checkbox"></i>奖励无等次</label></div>
+        </li>
+        <li class="info_item" id="levelNames" style="display: none;"><!-- 奖励等次 -->
+            <span class="info_item_title">奖励等次</span>
+            <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入奖励等次" /></div>
+        </li>
+        <li class="info_item" id="rewardTimes"><!-- 获奖时间 -->
+            <span class="info_item_title">获奖时间</span>
+            <span class="arrow">请选择</span>
+        </li>
+        <li class="info_item" id="auditOrgIds" style="display: none;"><!-- 审核组织 -->
+            <span class="info_item_title">审核组织</span>
+            <span class="arrow">请选择授奖组织中的团内组织为您审核</span>
+        </li>
+        <li class="info_item" id="auditOrgIds_other" style="display: none;"><!-- 审核组织(团外) -->
+            <span class="info_item_title">审核组织</span>
+            <div class="right_txt">本组织</div>
+        </li>
+        <li class="info_item" id="awardOrgs"><!-- 授奖组织 -->
+            <span class="info_item_title">授奖组织</span>
+            <div class="right_input_box"><input type="text" class="right_input" placeholder="请输入授奖组织" /></div>
+        </li>
+
+        <!--新添加图片 存储-->
+        <div class="block_title"><h1 class="block_title_txt">附件上传</h1></div>
+        <!--上传插件-->
+        <div class="uploader_custom_control add_awards"></div>
+
+    </ul>
+</section>
+<!-- 下一步、提交按钮 -->
+<a href="javascript:;" class="bot_big_btn">确定</a>
+
+<!-- 选择 - 弹窗 -->
+<section class="select_popup">
+    <ul class="select_list"></ul>
+</section>
+<!-- 选择 - 弹窗 -->
+
+<!-- 选择 - 弹窗 - 两边 -->
+<section class="select_popup_pair">
+    <ul class="select_list_pair select_list_pair_left"></ul>
+    <ul class="select_list_pair select_list_pair_right"></ul>
+</section>
+<!-- 选择 - 弹窗 - 两边  -->
+
+</body>
+</html>

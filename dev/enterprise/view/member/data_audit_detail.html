@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>资料审核详情页</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/member/data_audit_detail.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../public/js/common/common.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Enterprise.js"></script>
+    <script type="text/javascript" src="../../public/js/module/MemberApi.js"></script>
+    <script type="text/javascript" src="../../public/js/member/data_audit_detail.js"></script>
+</head>
+<body class="prize_details">
+    <!-- 申请 项 -->
+    <div class="details_item">
+        <!-- 申请人 -->
+        <div class="item_title1 item_title">
+            <p class="p1" id="name"></p>
+            <p class="p2" id="auditStatus"></p>
+        </div>
+        <!-- 申请类型 -->
+        <div class="item_title2 item_title">
+            <p class="p1">申请类型：<em class="p_in" id="applyType"></em></p>
+        </div>
+        <div class="item_title2 item_title">
+            <p class="p1">实名认证状态：<em class="p_in" id="isRealName"></em></p>
+        </div>
+        <!--&lt;!&ndash; 提交申请时间 &ndash;&gt;-->
+        <!--<div class="item_title2 item_title">-->
+            <!--<p class="p1">提交申请时间：<em class="p_in">2017-10-08 08:00</em></p>-->
+        <!--</div>-->
+    </div>
+    <!-- 表格 -- 修改资料 -->
+    <div class="table_out2" id="data_edit" style="display: none;">
+        <div class="table_box">
+            <table>
+                <tr>
+                    <th>申请项目</th>
+                    <th>申请前</th>
+                    <th>申请内容</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- 表格 -- 团员报到 -->
+    <div class="table_out2" id="member_registration" style="display: none;">
+        <div class="table_box">
+            <table>
+                <tr>
+                    <th>申请项目</th>
+                    <th>申请前</th>
+                    <th>申请内容</th>
+                </tr>
+                <tr>
+                    <td>团员报到</td>
+                    <td>无</td>
+                    <td>报到认证资料</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a href="javascript:;" id="view_data" class="link_to">查看TA的资料</a>
+    <div class="two_btns_box clearfix">
+        <a class="btn bgc1 submit" id="confirm">同意</a>
+        <a class="btn bgc1 cancel" id="cancel">拒绝</a>
+    </div>
+</body>
+</html>

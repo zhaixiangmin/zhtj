@@ -1,0 +1,308 @@
+body {
+    margin: 0;
+    margin-right: 23px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+p {
+    margin: 0;
+}
+
+.warning_no_content {
+    /*padding: 20px 0;*/
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+/*.sub_header {*/
+    /*!*padding: 80px;*!*/
+    /*height: 93px;*/
+    /*background: url("../../img/certification-bg-top.png") no-repeat;*/
+    /*background-size: 100%;*/
+/*}*/
+
+
+.box{
+    padding: 0 90px;
+    background: url("../../img/certification-bg-middle.png") repeat-y;
+    background-size: 100%;
+}
+
+.box .box_header {
+    /*padding: 80px;*/
+    /*padding-top: 80px;*/
+    /*background: url("../../img/certification-bg-top.png") no-repeat;*/
+    /*background-size: 100%;*/
+}
+.box .box_header .txt_ch {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 40px;
+    color: #ce4251;
+}
+/*.box .box_header .txt_en {*/
+    /*height: 72px;*/
+    /*line-height: 72px;*/
+    /*text-align: center;*/
+    /*font-size: 24px;*/
+    /*color: #666;*/
+/*}*/
+.box .box_header .download {
+    /*padding-bottom: 80px;*/
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #3c81ae;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.box .box_header .img_box {
+    padding: 50px 0 35px 0;
+    text-align: center;
+    font-size: 0;
+}
+.box .box_header .img_box img {
+    height: 180px;
+}
+
+.box .box_item_info{
+    padding-left: 55px;
+    /*border-top: 1px solid #C4C4C4;*/
+}
+.box .box_item_info .title_txt {
+    margin: 20px 0;
+    padding-left: 35px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 16px;
+    color: #db4254;
+    background: url(../../img/file.png) no-repeat;
+}
+
+/*基本信息*/
+/*.box .box_item_info.base .title_txt {*/
+    /*margin-left: 315px;*/
+/*}*/
+.box .box_item_info .content_box_parent .img_box {
+    float: left;
+    width: 160px;
+    text-align: right;
+}
+.box .box_item_info .content_box_parent .img_box img {
+    width: 160px;
+}
+.box .box_item_info .content_box_parent .content_box {
+    /*margin-left: 315px;*/
+    overflow: hidden;
+}
+.box .box_item_info .content_box_parent .content_box .content_item {
+    float: left;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    /*padding: 0 20px;*/
+    min-width: 286px;
+    font-size: 14px;
+    color: #333;
+}
+.box .box_item_info .content_box_parent .content_box .content_item span {
+    display: inline-block;
+    vertical-align: top;
+    color: #666;
+}
+.box .box_item_info .content_box_parent .content_box .content_item span.item_txt {
+    color: #333;
+}
+.box .box_item_info .content_box_parent .content_box .content_item span.item_title {
+    min-width: 97px;
+}
+.box .box_item_info .content_box_parent .content_box .content_item span.item_txt {
+    /*max-width: 186px;*/
+    max-width: 170px;
+}
+
+/*附加信息*/
+.box  .box_item_info.addition .title_txt {
+    position: relative;
+    background-image: url("../../img/clip-red.png");
+}
+
+.box  .box_item_info.addition .content_box {
+    /*margin-left: 60px;*/
+    overflow: hidden;
+}
+.box  .box_item_info.addition .content_box .content_item {
+    float: left;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+}
+.box  .box_item_info.addition .content_box .content_item:nth-child(odd) {
+    /*min-width: 440px;*/
+    min-width: 300px;
+}
+.box  .box_item_info.addition .content_box .content_item:nth-child(even) {
+    min-width: 350px;
+}
+.box  .box_item_info.addition .content_box .content_item span {
+    display: inline-block;
+    vertical-align: top;
+}
+.box  .box_item_info.addition .content_box .content_item span.item_title {
+    min-width: 97px;
+    color: #666;
+}
+.box  .box_item_info.addition .content_box .content_item span.item_txt {
+    width: 200px;
+    color: #333;
+}
+
+/*奖励情况、组织关系转接记录*/
+.box .box_item_info .title_txt {
+    position: relative;
+}
+
+.box .box_item_info .box_item_table .content_box_list {
+
+}
+.box .box_item_info .box_item_table .content_box_list .item_title_box {
+    padding: 0 90px 0 39px;
+    height: 14px;
+}
+.box .box_item_info .box_item_table .content_box_list .item_title_box span {
+    display: inline-block;
+    vertical-align: top;
+    width: 90px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+.box .box_item_info .box_item_table .content_box_list .item_txt_box {
+    padding: 7px 90px 7px 39px;
+    border-bottom: 1px solid #f9f5ee;
+}
+.box .box_item_info .box_item_table .content_box_list .item_txt_box span {
+    box-sizing: border-box;
+    padding: 0 5px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 90px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+/*奖励情况*/
+.box .box_item_info.reward {
+    padding-left: 0;
+}
+.box .box_item_info.reward .title_txt {
+    margin-left: 20px;
+    background-image: url("../../img/reward.png");
+}
+.box .box_item_info.reward .box_item_table .sub_title_txt {
+    margin-bottom: 20px;
+    padding-left: 55px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    color: #666;
+    background-color: rgba(246, 241, 231, 0.5);
+}
+
+
+
+/*组织关系转接记录*/
+.box .box_item_info.transfer {
+    padding-left: 0;
+}
+.box .box_item_info.transfer .title_txt {
+    margin-left: 20px;
+    background-image: url("../../img/transfer.png");
+}
+
+/*团费交纳记录*/
+.box .box_item_info.fee {
+    padding-left: 0;
+}
+.box .box_item_info.fee .title_txt {
+    margin-left: 20px;
+    background-image: url("../../img/transfer.png");
+}
+
+/*按钮*/
+.button_box {
+    padding: 30px 40px;
+    background: #f4f4f4;
+}
+.button_box .button {
+    display: inline-block;
+    padding: 10px 30px;
+    height: 12px;
+    line-height: 12px;
+    font-size: 14px;
+    color: #fff;
+    background: #db4254;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.box .box_footer {
+    padding: 40px 0 70px 45px;
+}
+.box .box_footer .code_box {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 130px;
+}
+.box .box_footer .code_box img {
+    display: block;
+    width: 130px;
+}
+/*.box .box_footer .code_box p {*/
+    /*margin: 0;*/
+    /*text-align: center;*/
+    /*height: 12px;*/
+    /*line-height: 12px;*/
+    /*font-size: 12px;*/
+    /*color: #666;*/
+/*}*/
+.box .box_footer .right_side {
+    margin-left: 370px;
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 12px;
+
+}
+.box .box_footer .right_side .txt {
+    /*margin-bottom: 14px;*/
+    /*margin-top: 30px;*/
+    line-height: 26px;
+    color: #666;
+    text-align: right;
+}
+.box .box_footer .right_side .icon_txt {
+    padding-left: 25px;
+    height: 21px;
+    line-height: 21px;
+    color: #999;
+    background: url("../../img/league-badge.png") no-repeat left center;
+    background-size: contain;
+}
+.box .box_footer .bottom p {
+    width: 130px;
+    font-size: 12px;
+    text-align: center;
+}
+
+/*.footer {*/
+    /*height: 97px;*/
+    /*background: url("../../img/certification-bg-bottom.png") no-repeat bottom;*/
+    /*background-size: 100%;*/
+/*}*/

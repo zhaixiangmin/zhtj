@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>查看成员</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/common/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/cadre/search.css" />
+    <script src="../../public/js/common/flexible.js"></script>
+    <script src="../../public/vendor/jquery/jquery-1.11.1.min.js"></script>
+    <!--对话框-->
+    <script type="text/javascript" src="../../public/custom/dialog.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Utils.js"></script>
+    <script type="text/javascript" src="../../public/js/module/Contact.js"></script>
+    <script type="text/javascript" src="../../public/js/module/CadreApi.js"></script>
+    <script type="text/javascript" src="../../public/js/cadre/search.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="search_box">
+        <div class="input_box">
+            <i class="search_icon"></i>
+            <input placeholder="搜索" />
+            <i class="cancel_icon"></i>
+        </div>
+        <a href="../../index.html" class="cancel">取消</a>
+    </div>
+    <div class="tab_box">
+        <div class="tab"><span class="active" data-type="1">成员</span><span data-type="0">部门</span></div>
+    </div>
+    <div class="list_box organization">
+        <ul class="list">
+            <!--<li class="item">-->
+            <!--<i class="icon"></i><div class="txt">中国共产主义青年团广东省团委</div>-->
+            <!--</li>-->
+            <!--<li class="item">-->
+            <!--<i class="icon"></i>-->
+            <!--<div class="txt">中山大学新传院团委</div>-->
+            <!--</li>-->
+            <!--<li class="item">-->
+            <!--<i class="icon"></i>-->
+            <!--<div class="txt">中山大学工学院团委</div>-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <div class="list_box cadre">
+        <ul class="list">
+            <!--<li class="item">-->
+                <!--<div class="img_box">-->
+                    <!--<img src="../../public/img/pic1.png" class="avatar"/>-->
+                <!--</div>-->
+                <!--<div class="info_box">-->
+                    <!--<div class="name">邹明雨</div>-->
+                    <!--<div class="department">第一个测试部门-团支部书记</div>-->
+                <!--</div>-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <div class="tips loading" style="display: none;">加载中...</div>
+    <div class="tips not_found" style="display: none;">找不到搜索结果</div>
+</div>
+</body>
+</html>

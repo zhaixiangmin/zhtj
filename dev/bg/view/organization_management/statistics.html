@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数据统计</title>
+  <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+  <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+  <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+  <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+  <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+  <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+  <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+  <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+  <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+  <script src="../../public/custom/easyui_secondary.js"></script>
+  <script src="../../public/custom/dialog.js"></script>
+  <script src="../../public/js/module/League.js"></script>
+  <script src="../../public/js/module/OrganizationManagementApi.js"></script>
+  <script src="../../public/js/module/Utils.js"></script>
+  <script src="../../public/js/organization_management/statistics.js"></script>
+</head>
+<body>
+
+<style>
+  .clickable div {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .rules.month_business_rules {
+    display: inline-block;
+    padding: 0 5px;
+    width: 20px;
+    height: 100%;
+    background: url(../../public/img/nav-ask-999.png) no-repeat center;
+    cursor: pointer;
+    vertical-align: top;
+  }
+</style>
+
+<div class="easyui-layout" data-options="fit:true">
+
+  <div data-options="region:'north'" style="height: 72px;border: 0;overflow: hidden;">
+    <!--<div>查询条件</div>-->
+    <!--数据筛选 -- 手风琴-->
+    <div class="easyui-accordion">
+      <div title="数据筛选" data-options="collapsible: false, noheader: true">
+        <form method="post">
+          <table>
+            <tr>
+              <th><label for="statisticMonth_filter">日期:</label></th>
+              <td><input id="statisticMonth_filter" class="easyui-datebox" name="statisticMonth_filter" data-options="panelWidth: 173,editable: false, buttons: buttons"></td>
+              <!--<th><label for="statisticMonth_filter">日期:</label></th>-->
+              <!--<td><input id="statisticMonth_filter" class="easyui-combobox" name="statisticMonth_filter" data-options="panelWidth: 173,editable: false, buttons: buttons"></td>-->
+              <td>
+                <a id="filter" class="button">搜索</a>
+              </td>
+            </tr>
+          </table>
+
+          <div class="declaration" style="margin-top: 5px;">
+            <span class="business">数据统计业务说明</span>
+            <i class="download" id="download">导出本页数据</i>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <div data-options="region:'center'" style="border: 0;">
+    <!--组织管理-->
+    <table class="easyui-datagrid" id="statistics_dg" data-options="noheader: true, border: false"></table>
+  </div>
+</div>
+
+
+<!--规则(数据统计业务说明) -- 模态窗口-->
+<div id="dialog_rules_business" class="easyui-dialog" title="数据统计业务说明" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="dialog_rules">
+    <p>团务数据统计每天凌晨更新一次，其中：</p>
+    <p>1. 除部分业务响应（本级须响应申请数/本级及时响应率/本级响应及时率）为单个组织数据外，列表中所有的统计数据均为“本级及所有下级组织”的统计数据总和。</p>
+    <p>2. 列表第一行为本组织统计数据，其余（如有下级组织）为直属下级统计数据。</p>
+    <p>3. 表格下载内容为当前页面显示的列表，每页可选择显示最多500行。如直属下级组织超过500个，可以选择翻页，再继续下载。可以查询并下载近6个月的统计数据。</p>
+
+    <p><span style="font-weight: bold;">统计项说明：</span></p>
+    <p><span style="font-weight: bold;">团务数据统计</span></p>
+    <ul>
+      <li><span style="font-weight: bold;">已报到团员数：</span>已提交报到申请的团员数（含报到待审核团员，不含报到退回、撤回团员）</li>
+      <li><span style="font-weight: bold;">空心团委：</span>处于组织树末端，且组织类型为非团支部的组织，含团委、团总支、团工委等。</li>
+      <li><span style="font-weight: bold;">空心团支部：</span>组织类型为团支部，且人数为少于3人（0/1/2人）的组织。团章规定有团员三人以上的，应当建立团的基层组织。</li>
+      <li><span style="font-weight: bold;">无团干团支部：</span>组织类型为团支部，且团干人数为0的组织</li>
+    </ul>
+
+    <p><span style="font-weight: bold;">转接数据统计</span></p>
+    <ul>
+      <li>
+        <span style="font-weight: bold;">转出中团员：</span>原支部为本组织下辖，已发起转接但还未被接收，处于待审核状态的团员
+        <div>含：转出团支部/转出团支部的上级/转入团支部/转入团支部的上级待审核</div>
+      </li>
+      <li><span style="font-weight: bold;">已转出团员：</span>原支部在本组织所辖范围，且已成功转出的团员</li>
+      <li><span style="font-weight: bold;">
+                待确认接收团员：</span>接收支部为本组织下辖，已发起转接，等待接收方（支部/上级）审核的团员
+        <div>含 ：转入团支部/转入团支部的上级待审核</div>
+      </li>
+      <li><span style="font-weight: bold;">已接收团员：</span>接收支部为本组织下辖，且已成功转入的团员</li>
+    </ul>
+
+    <p><span style="font-weight: bold;">业务响应统计</span></p>
+    <ul>
+      <li>
+        <span style="font-weight: bold;">需响应申请总数：</span>自系统上线后的所有审核，本月前已审核的不计其中。需响应的申请
+        <div>含：团员报到/资料修改、组织关系转接、团员奖励3项审核</div>
+      </li>
+      <li><span style="font-weight: bold;">及时响应数：</span>收到申请后48小时内完成审核的申请数，只统计本月审核的操作。</li>
+      <li><span style="font-weight: bold;">业务及时响应率 = 及时响应数/ 需响应申请总数：</span>业务响应数据每月初重新统计，需响应的审核尽量当月完成。如上月所有审核业务已处理完毕，则本月初重新统计后，需响应申请总数为0</li>
+    </ul>
+  </div>
+</div>
+
+<!--规则(月度业务响应统计) -- 模态窗口-->
+<div id="dialog_month_business_rules" class="easyui-dialog" title="月度业务响应统计" data-options="modal: true, closed: true" style="width: 720px;height: 500px;padding: 10px;">
+  <div class="dialog_rules">
+    <p><span style="font-weight: bold;">业务响应统计</span></p>
+    <ul>
+      <li>
+        <span style="font-weight: bold;">累计需响应申请总数：</span>自系统上线后的所有审核，本月前已审核的不计其中。
+        <div>需响应的申请含：团员报到/资料修改、组织关系转接、团员奖励3项审核</div>
+      </li>
+      <li><span style="font-weight: bold;">及时响应数：</span>收到申请后48小时内完成审核的申请数，只统计本月审核的操作。</li>
+      <li><span style="font-weight: bold;">业务及时响应率 = 及时响应数/ 需响应申请总数</span></li>
+    </ul>
+    <p>业务响应数据每月初重新统计，需响应的审核尽量当月完成。如上月所有审核业务已处理完毕，则本月初重新统计后，需响应申请总数初始值为0，否则初始值为之前未处理的待审核数。</p>
+  </div>
+</div>
+
+</body>
+</html>

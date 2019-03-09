@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看团组织明细</title>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" href="../../public/vendor/easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="../../public/custom/easyui_secondary.css"/>
+    <script src="../../public/vendor/jquery/jquery-1.8.3.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../public/vendor/jquery-validate/messages_zh.js"></script>
+    <script src="../../public/vendor/jquery-validate/additional-methods.js"></script>
+    <script src="../../public/vendor/easyui/jquery.easyui.min.js"></script>
+    <script src="../../public/vendor/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../../public/custom/easyui_secondary.js"></script>
+    <script src="../../public/custom/dialog.js"></script>
+    <script src="../../public/js/module/League.js"></script>
+    <script src="../../public/js/module/OrganizationManagementApi.js"></script>
+    <script src="../../public/js/module/Utils.js"></script>
+    <script src="../../public/js/organization_management/organization_statistics_detail.js"></script>
+</head>
+<body>
+
+
+<div class="easyui-layout" data-options="fit:true">
+
+    <div data-options="region:'north'" style="height: 50px;border: 0;overflow: hidden;">
+        <div class="declaration" style="margin-top: 5px;">
+            <i class="download" id="download">导出所有明细数据</i>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="border: 0;">
+        <!--空心组织管理-->
+        <table class="easyui-datagrid" id="datagrid_empty" data-options="noheader: true, border: false"></table>
+    </div>
+</div>
+
+
+</body>
+</html>
